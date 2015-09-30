@@ -23,9 +23,9 @@ public class PersonaDaoImpl extends DAOHibernateImpl<Persona, Long> implements P
 			criteria.setFirstResult(busquedaPersonaDto.getPreferencia().getNumeroDePagina());
 			criteria.setMaxResults(busquedaPersonaDto.getPreferencia().getResultadoMaximo());
 		}
-		criteria.add(Restrictions.or(Restrictions.ilike("nombres", busquedaPersonaDto.getNombres(), MatchMode.ANYWHERE),
+		/*criteria.add(Restrictions.or(Restrictions.ilike("nombres", busquedaPersonaDto.getNombres(), MatchMode.ANYWHERE),
 				Restrictions.ilike("apellidos", busquedaPersonaDto.getNombres(), MatchMode.ANYWHERE), Restrictions.ilike("contacto", busquedaPersonaDto.getNombres(), MatchMode.ANYWHERE),
-				Restrictions.ilike("documento", busquedaPersonaDto.getNombres(), MatchMode.ANYWHERE)));
+				Restrictions.ilike("documento", busquedaPersonaDto.getNombres(), MatchMode.ANYWHERE)));*/
 		return ejecutarCriteria(criteria);
 	}
 

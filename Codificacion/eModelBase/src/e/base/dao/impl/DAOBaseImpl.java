@@ -31,43 +31,48 @@ public class DAOBaseImpl<T extends DominioBase, ID extends Serializable> impleme
 		}
 	}
 
-	@Override
 	public T obtener(ID id) throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	@Override
-	public Object guardar(T objeto) throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
-	}
-
-	@Override
-	public void editar(T objeto) throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
-	}
-
-	@Override
-	public void eliminar(T objeto) throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
-	}
-
-	@Override
-	public List<T> listar() throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
-	}
-
-	@Override
 	public Long getNextVal() throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	@Override
-	public Blob getBlob(InputStream contenidoBinario) throws ExcepcionBaseDeDato {
-		throw new ExcepcionBaseDeDato("Falta sobre-escribir");
+	public Object guardar(T objeto) throws ExcepcionBaseDeDato {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	protected Class<T> getClasePersistente() {
+	public void editar(T objeto) throws ExcepcionBaseDeDato {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void eliminar(T objeto) throws ExcepcionBaseDeDato {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public List<T> listar() throws ExcepcionBaseDeDato {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Blob getBlob(InputStream contenidoBinario)
+			throws ExcepcionBaseDeDato {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Class<T> getClasePersistente() {
 		return clasePersistente;
+	}
+
+	public void setClasePersistente(Class<T> clasePersistente) {
+		this.clasePersistente = clasePersistente;
 	}
 
 }

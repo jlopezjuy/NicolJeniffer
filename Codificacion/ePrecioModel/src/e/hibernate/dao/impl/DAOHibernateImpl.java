@@ -179,7 +179,7 @@ public class DAOHibernateImpl<T extends DominioBase, ID extends Serializable> ex
 		try {
 			if (contenidoBinario != null) {
 				long tempval = 50;
-				blob = Hibernate.getLobCreator(this.getSession()).createBlob(contenidoBinario, tempval);
+				//blob = Hibernate.getLobCreator(this.getSession()).createBlob(contenidoBinario, tempval);
 			}
 		} catch (Exception e) {
 			LOG.error(e);
