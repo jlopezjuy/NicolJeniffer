@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="e.dominio.Precio" table="PRECIOS">
+		<id name="id" access="field" type="java.lang.Long">
+			<column name="ID_PRECIO" />
+			<generator class="native" />
+		</id>
+		<property name="idProducto" access="field" type="java.lang.Long">
+			<column name="ID_PRODUCTO" />
+		</property>
+		<property name="idMarca" access="field" type="java.lang.Long">
+			<column name="ID_MARCA" />
+		</property>
+		<property name="idUnidad" access="field" type="java.lang.Long">
+			<column name="ID_UNIDAD" />
+		</property>
+		<property name="precio" access="field" type="java.math.BigDecimal">
+			<column name="PRECIO" />
+		</property>
+		<property name="fechaInicio" access="field" type="java.util.Date">
+			<column name="FECHA_INICIO" />
+		</property>
+	</class>
+</hibernate-mapping>

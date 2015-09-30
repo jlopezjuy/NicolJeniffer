@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="e.dominio.TransaccionItem" table="TRANSACCIONES_ITEMS">
+		<id name="id" access="field" type="java.lang.Long">
+			<column name="ID_TRANSACCION_ITEM" />
+			<generator class="native" />
+		</id>
+		<property name="idTransaccion" access="field" type="java.lang.Long">
+			<column name="ID_TRANSACCION" />
+		</property>
+		<property name="cantidad" access="field" type="java.math.BigDecimal">
+			<column name="CANTIDAD" />
+		</property>
+		<property name="idUnidad" access="field" type="java.lang.Long">
+			<column name="ID_UNIDAD" />
+		</property>
+		<property name="idProducto" access="field" type="java.lang.Long">
+			<column name="ID_PRODUCTO" />
+		</property>
+		<property name="idMarca" access="field" type="java.lang.Long">
+			<column name="ID_MARCA" />
+		</property>
+		<property name="precioUnitario" access="field" type="java.math.BigDecimal">
+			<column name="PRECIO_UNITARIO" />
+		</property>
+	</class>
+</hibernate-mapping>

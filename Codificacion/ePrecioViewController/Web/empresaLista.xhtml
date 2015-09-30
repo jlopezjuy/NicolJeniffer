@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="50">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="50">
+			<h:outputText value="Bottom content." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="200" header="Menu">
+			<h:form>
+				<p:menu style="width:160px;" toggleable="true">
+					<p:submenu label="Productos">
+						<p:menuitem value="Busqueda" action="productoLista" />
+						<p:menuitem value="Nuevo" action="productoForm" actionListener="#{productoFormBean.agregarProducto}" />
+					</p:submenu>
+					<p:submenu label="Ventas">
+						<p:menuitem value="Busqueda" action="ventaLista" />
+						<p:menuitem value="Nuevo" actionListener="#{ventaDiariaBean.agregarVenta}" action="ventaForm" />
+					</p:submenu>
+					<p:submenu label="Entidades">
+						<p:menuitem value="Empresa" action="empresaLista" />
+						<p:menuitem value="Persona" action="personaLista" />
+					</p:submenu>
+					<p:submenu label="Resumenes">
+						<p:menuitem value="Diario" action="resumenDiario" />
+						<p:menuitem value="Lo mas Vendido" action="rankingVentas" />
+						<p:menuitem value="Graficos" action="graficos" />
+					</p:submenu>
+					<p:submenu label="Copia de Seguridad">
+						<p:menuitem value="Realizar Copia" action="copiaSeguridad" />
+						<p:menuitem value="Recuperar de .." action="recuperar" />
+					</p:submenu>
+				</p:menu>
+			</h:form>
+		</p:layoutUnit>
+		<p:layoutUnit position="east" size="1">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" header="Empresas: Busqueda, Creacion y Edicion">
+			<h:form id="formEmpresa">
+				<p:panelGrid columns="3">
+					<p:outputLabel value="Texto a Buscar:" for="textoId"></p:outputLabel>
+					<p:inputText id="textoId" value="#{empresaBean.busquedaEmpresa.texto}"></p:inputText>
+					<p:commandButton value="Buscar" actionListener="#{empresaBean.buscarEmpresa}" update="empresaDataTable" />
+				</p:panelGrid>
+				<p:panelGrid columns="2">
+					<p:dataTable id="empresaDataTable" value="#{empresaBean.empresas}" var="empresa" rows="5" paginator="true">
+						<f:facet name="header">
+					Empresas
+					</f:facet>
+						<p:column sortBy="#{empresa.nombre}">
+							<f:facet name="header">
+					Nombre
+					</f:facet>
+							<h:outputText value="#{empresa.nombre}" style="font-weight: bold" />
+						</p:column>
+
+						<p:column width="50">
+							<p:commandButton value="E" actionListener="#{empresaBean.editarEmpresa}">
+								<f:setPropertyActionListener value="#{empresa}" target="#{empresaBean.empresa}" />
+								
+							</p:commandButton>
+						</p:column>
+
+					</p:dataTable>
+					<p:panelGrid id="idEmpresaForm" columns="2">
+						<p:outputLabel value="Nombre: " for="idNombreEmpresa" rendered="#{empresaBean.empresa!=null and (empresaBean.modoEdicion or empresaBean.modoNuevo)}"></p:outputLabel>
+						<p:inputText id="idNombreEmpresa" value="#{empresaBean.empresa.nombre}" rendered="#{empresaBean.empresa!=null and (empresaBean.modoEdicion or empresaBean.modoNuevo)}"></p:inputText>
+						<p:commandButton value="Nueva" actionListener="#{empresaBean.nuevaEmpresa}" update="idEmpresaForm" rendered="#{not (empresaBean.modoNuevo or empresaBean.modoEdicion)}"/>
+						<p:commandButton value="Guardar Edicion" actionListener="#{empresaBean.guardarEdicionEmpresa}" rendered="#{empresaBean.modoEdicion}" update="idEmpresaForm"/>
+						<p:commandButton value="Guardar" actionListener="#{empresaBean.guardarNuevaEmpresa}" rendered="#{empresaBean.modoNuevo}" update="idEmpresaForm"/>
+						<p:commandButton value="Cancelar" actionListener="#{empresaBean.cancelar}" rendered="#{empresaBean.modoNuevo or empresaBean.modoEdicion}" update="idEmpresaForm"/>
+					</p:panelGrid>
+				</p:panelGrid>
+			</h:form>
+
+		</p:layoutUnit>
+	</p:layout>
+
+</h:body>
+</html>

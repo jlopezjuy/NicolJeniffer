@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                        http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- importaciones -->
+	<import resource="builders.xml" />
+	<import resource="daos.xml" />
+
+	<!-- <bean id="administradorTransaccion" class="org.springframework.orm.hibernate4.HibernateTransactionManager"> <property name="dataSource" ref="origenDatosPrecio" /> <property name="sessionFactory" 
+		ref="fabricaHibernatePrecio" /> </bean> <tx:advice id="txAdvice" transaction-manager="administradorTransaccion"> <tx:attributes> <tx:method name="get*" read-only="true" /> <tx:method name="guardar*" propagation="REQUIRED" 
+		rollback-for="e.excepcion.ExcepcionServicio" /> <tx:method name="editar*" propagation="REQUIRED" rollback-for="e.excepcion.ExcepcionServicio" /> <tx:method name="eliminar*" propagation="REQUIRED" rollback-for="e.excepcion.ExcepcionServicio" 
+		/> </tx:attributes> </tx:advice> <aop:config> <aop:pointcut id="servicioDePersistencia" expression="execution(* e.servicio.impl.*.*(..))" /> <aop:advisor advice-ref="txAdvice" pointcut-ref="servicioDePersistencia" 
+		/> </aop:config> -->
+
+
+
+	<!-- servicios -->
+	<bean id="servicioDto" class="e.servicio.impl.ServicioDtoImpl">
+		<property name="baseNombreBuilder" ref="baseNombreBuilder" />
+		<property name="personaBuilder" ref="personaBuilder" />
+		<property name="precioBuilder" ref="precioBuilder" />
+		<property name="transaccionBuilder" ref="transaccionBuilder" />
+		<property name="transaccionItemBuilder" ref="transaccionItemBuilder" />
+		<property name="unidadBuilder" ref="unidadBuilder" />
+		<property name="usuarioBuilder" ref="usuarioBuilder" />
+	</bean>
+	<bean id="servicioPrecio" class="e.servicio.impl.ServicioPrecioImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+
+		<property name="servicioDto" ref="servicioDto" />
+		<property name="dimensionDao" ref="dimensionDao" />
+		<property name="estadoTransaccionDao" ref="estadoTransaccionDao" />
+		<property name="marcaDao" ref="marcaDao" />
+		<property name="personaDao" ref="personaDao" />
+		<property name="precioDao" ref="precioDao" />
+		<property name="productoDao" ref="productoDao" />
+		<property name="tipoPersonaDao" ref="tipoPersonaDao" />
+		<property name="tipoProductoDao" ref="tipoProductoDao" />
+		<property name="tipoTransaccionDao" ref="tipoTransaccionDao" />
+		<property name="transaccionDao" ref="transaccionDao" />
+		<property name="unidadDao" ref="unidadDao" />
+		<property name="usuarioDao" ref="usuarioDao" />
+
+	</bean>
+
+	<bean id="servicioItem" class="e.servicio.impl.ServicioItemImpl">
+		<property name="servicioDto" ref="servicioDto" />
+		<property name="dimensionDao" ref="dimensionDao" />
+		<property name="personaDao" ref="personaDao" />
+	</bean>
+</beans>

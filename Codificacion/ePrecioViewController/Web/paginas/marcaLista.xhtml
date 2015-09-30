@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+</h:head>
+<h:body>
+	<pm:page id="marcaListaPageId">
+		<pm:header title="Marcas"></pm:header>
+		<pm:content>
+			<h:form>
+				<pm:field>
+					<p:inputText id="inTxtMarca" placeholder="Buscar en Marcas" value="#{marcaListaBean.busquedaMarca.nombre}" />
+					<p:commandButton value="Buscar" actionListener="#{marcaListaBean.buscar}" update="marcaTableId" />
+					<p:commandButton value="Nueva" action="#{marcaFormBean.agregarMarca}" />
+				</pm:field>
+				<pm:field id="marcaTableId">
+					<c:forEach items="#{marcaListaBean.marcas}" var="item">
+						<p:commandButton value="#{item.nombre}" action="#{marcaListaBean.verMarca}">
+							<f:setPropertyActionListener value="#{item}" target="#{marcaFormBean.marca}" />
+						</p:commandButton>
+					</c:forEach>
+				</pm:field>
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>

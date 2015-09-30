@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="50">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="south" size="50">
+			<h:outputText value="Bottom content." />
+		</p:layoutUnit>
+		<p:layoutUnit position="west" size="50">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="east" size="50">
+
+		</p:layoutUnit>
+		<p:layoutUnit position="center" header="Producto">
+			<h:form>
+				<p:messages id="mensajes" showDetail="true" autoUpdate="true" closable="true" />
+				<p:panelGrid id="panelProducto" columns="2">
+					<p:panelGrid id="pnl" columns="2">
+						<p:outputLabel value="Codigo:" for="codigo"></p:outputLabel>
+						<p:inputText id="codigo" value="#{productoFormBean.producto.codigo}" maxlength="50" size="50" style="text-align:right;" rendered="#{productoFormBean.modoNuevo}"></p:inputText>
+						<p:outputPanel style="text-align:right;" rendered="#{productoFormBean.modoEdicion}">
+							<p:outputLabel id="codigoEdicion" value="#{productoFormBean.producto.codigo}">								
+							</p:outputLabel>
+						</p:outputPanel>
+
+						<p:outputLabel value="Nombre:" for="nombre"></p:outputLabel>
+						<p:inputText id="nombre" value="#{productoFormBean.producto.nombre}" maxlength="50" size="50"></p:inputText>
+
+						<p:outputLabel value="Descripcion:" for="descripcion"></p:outputLabel>
+						<p:inputTextarea id="descripcion" value="#{productoFormBean.producto.descripcion}" maxlength="500" rows="5" cols="50"></p:inputTextarea>
+
+						<p:outputLabel value="Costo:" for="costo"></p:outputLabel>
+						<p:inputText id="costo" value="#{productoFormBean.producto.precioCosto}" rendered="#{productoFormBean.modoNuevo}" style="text-align:right;">
+							<f:convertNumber type="number" locale="es" minFractionDigits="3" maxIntegerDigits="7" minIntegerDigits="1" />
+						</p:inputText>
+						<p:outputPanel style="text-align:right;" rendered="#{productoFormBean.modoEdicion}">
+							<p:outputLabel id="costoEdicion" value="#{productoFormBean.producto.precioCosto}" >
+								<f:convertNumber currencySymbol="$" type="currency" locale="es" minFractionDigits="3" maxIntegerDigits="7" minIntegerDigits="1" />
+							</p:outputLabel>
+						</p:outputPanel>
+
+						<p:outputLabel value="Precio:" for="precio"></p:outputLabel>
+						<p:inputText id="precio" value="#{productoFormBean.producto.precioVenta}" rendered="#{productoFormBean.modoNuevo}" style="text-align:right;">
+							<f:convertNumber type="number" locale="es" minFractionDigits="3" maxIntegerDigits="7" minIntegerDigits="1" />
+						</p:inputText>
+						<p:outputPanel style="text-align:right;" rendered="#{productoFormBean.modoEdicion}">
+							<p:outputLabel id="precioEdicion" value="#{productoFormBean.producto.precioVenta}" >
+								<f:convertNumber currencySymbol="$" type="currency" locale="es" minFractionDigits="3" maxIntegerDigits="7" minIntegerDigits="1" />
+							</p:outputLabel>
+						</p:outputPanel>
+
+
+
+						<p:outputLabel value=""></p:outputLabel>
+
+						<p:outputPanel>
+							<p:commandButton id="btnEditar" value="Guardar Edicion" actionListener="#{productoFormBean.guardarEdicionProducto}" action="productoLista" rendered="#{productoFormBean.modoEdicion}" />
+							<p:commandButton id="btnGuardar" value="Guardar Nuevo" actionListener="#{productoFormBean.guardarProducto}" action="productoLista" rendered="#{productoFormBean.modoNuevo}" />
+							<p:commandButton id="btnCancelar" value="Cancelar" action="productoLista" immediate="true" />
+						</p:outputPanel>
+					</p:panelGrid>
+					<p:outputPanel id="imagenId">
+						<p:outputLabel value="Imagen:"></p:outputLabel>
+						<p:fileUpload fileUploadListener="#{productoFormBean.subirArchivoUtil.subirArchivo}" mode="advanced" auto="true" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" update="imagenId" />
+						<p:graphicImage value="#{productoFormBean.subirArchivoUtil.contenidoBinario}" styleClass="content" height="300px" width="300px" rendered="#{productoFormBean.subirArchivoUtil.archivoCargado}" />
+					</p:outputPanel>
+				</p:panelGrid>
+				<!-- 
+				<p:panelGrid columns="2">
+					<h:outputText value="Interleaved 2 of 5" />
+					<p:barcode value="0123456789" type="int2of5" />
+
+					<h:outputText value="Codabar" />
+					<p:barcode value="0123456789" type="codabar" />
+
+					<h:outputText value="Code39" />
+					<p:barcode value="0123456789" type="code39" />
+
+					<h:outputText value="Code128" />
+					<p:barcode value="0123456789" type="code128" />
+
+					<h:outputText value="EAN-8" />
+					<p:barcode value="20123451" type="ean8" />
+
+					<h:outputText value="EAN-13" />
+					<p:barcode value="0123456789012" type="ean13" />
+
+					<h:outputText value="UPC-A (PNG)" />
+					<p:barcode value="01234567895" type="upca" format="png" />
+
+					<h:outputText value="UPC-E (Vertical)" />
+					<p:barcode value="01234133" type="upce" orientation="90" />
+
+					<h:outputText value="PDF417" />
+					<p:barcode value="0123456789" type="pdf417" />
+
+					<h:outputText value="DataMatrix" />
+					<p:barcode value="0123456789" type="datamatrix" />
+
+					<h:outputText value="Postnet" />
+					<p:barcode value="0123456789" type="postnet" />
+
+					<h:outputText value="QR" />
+					<p:barcode value="0123456789" type="qr" />
+				</p:panelGrid>
+				 -->
+			</h:form>
+
+		</p:layoutUnit>
+	</p:layout>
+
+</h:body>
+</html>
+
+

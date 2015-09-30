@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- importaciones -->
+	<import resource="conexion-bd.xml" />
+	<!-- daos -->
+	<bean id="dimensionDao" class="e.dao.impl.DimensionDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="estadoTransaccionDao" class="e.dao.impl.EstadoTransaccionDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="marcaDao" class="e.dao.impl.MarcaDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="personaDao" class="e.dao.impl.PersonaDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="precioDao" class="e.dao.impl.PrecioDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="productoDao" class="e.dao.impl.ProductoDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="tipoPersonaDao" class="e.dao.impl.TipoPersonaDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="tipoProductoDao" class="e.dao.impl.TipoProductoDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="tipoTransaccionDao" class="e.dao.impl.TipoTransaccionDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="transaccionDao" class="e.dao.impl.TransaccionDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="transaccionItemDao" class="e.dao.impl.TransaccionItemDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+	<bean id="usuarioDao" class="e.dao.impl.UsuarioDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>	
+	<bean id="unidadDao" class="e.dao.impl.UnidadDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
+</beans>

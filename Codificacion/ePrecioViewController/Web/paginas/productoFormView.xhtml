@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+</h:head>
+<h:body>
+	<pm:page id="productoFormViewPageId">
+		<pm:header title="Producto"></pm:header>
+		<pm:content>
+			<h:form id="productoFormView">
+				<pm:field>
+					<p:outputLabel for="outTxtProductoNombre" value="Nombre de Producto:" />
+					<p:outputLabel id="outTxtProductoNombre" value="#{productoFormBean.producto.nombre}" />
+				</pm:field>
+				<pm:field>
+					<p:commandButton id="btnVolver" value="Volver" action="#{productoFormBean.listaProducto}" />
+					<p:commandButton id="btnEditar" value="Editar" action="#{productoFormBean.editarProducto}" />
+				</pm:field>
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>

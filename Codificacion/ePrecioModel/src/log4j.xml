@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+<!--     <appender name="archivoBio" class="org.apache.log4j.DailyRollingFileAppender"> -->
+<!--         <param name="File" value="/sistemaBiometrico/logs/archivoBio.log" /> -->
+<!--         <param name="DatePattern" value="'.'yyyy-MM-dd'.log'" /> -->
+<!--         <layout class="org.apache.log4j.PatternLayout"> -->
+<!--             <param name="ConversionPattern" value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" /> -->
+<!--         </layout> -->
+<!--     </appender> -->
+    <appender name="consolaBio" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %m%n" />
+        </layout>
+    </appender>
+
+<!--     <appender name="archivoBase" class="org.apache.log4j.RollingFileAppender"> -->
+<!--         <param name="File" value="/sistemaBiometrico/logs/archivoBase.log" /> -->
+<!--         <layout class="org.apache.log4j.PatternLayout"> -->
+<!--             <param name="ConversionPattern" value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" /> -->
+<!--         </layout> -->
+<!--     </appender> -->
+
+<!--     <appender name="archivoEscritorio"  class="org.apache.log4j.RollingFileAppender"> -->
+<!--         <param name="File" value="/sistemaBiometrico/logs/archivoEscritorio.log" /> -->
+<!--         <layout class="org.apache.log4j.PatternLayout"> -->
+<!--             <param name="ConversionPattern" value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" /> -->
+<!--         </layout> -->
+<!--     </appender> -->
+
+<!--     <appender name="archivoModelo" class="org.apache.log4j.RollingFileAppender"> -->
+<!--         <param name="File" value="/sistemaBiometrico/logs/archivoModelo.log" /> -->
+<!--         <layout class="org.apache.log4j.PatternLayout"> -->
+<!--             <param name="ConversionPattern" value="%n%d{yyyy-MM-dd HH:mm:ss} [%-5p] [%l] %n%m%n" /> -->
+<!--         </layout> -->
+<!--     </appender> -->
+<!--     <category name="ar.bio.base"> -->
+<!--         <priority value="debug" /> -->
+<!--         <appender-ref ref="archivoBase" /> -->
+<!--     </category> -->
+<!--     <category name="ar.bio.escritorio"> -->
+<!--         <priority value="debug" /> -->
+<!--         <appender-ref ref="archivoEscritorio" /> -->
+<!--     </category> -->
+<!--     <category name="ar.bio.modelo"> -->
+<!--         <priority value="debug" /> -->
+<!--         <appender-ref ref="archivoModelo" /> -->
+<!--     </category> -->
+    <root>
+        <level value="debug" />
+        <appender-ref ref="consolaBio" />
+    </root>
+    
+</log4j:configuration>
+
+

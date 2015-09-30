@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="e.dominio.Persona" table="PERSONAS">
+		<id name="id" access="field" type="java.lang.Long">
+			<column name="ID_PERSONA" />
+			<generator class="native"/>
+		</id>
+		<property name="idTipoPersona" access="field" type="java.lang.String">
+			<column name="ID_TIPO_PERSONA" />
+		</property>		
+		<property name="apellido" access="field" type="java.lang.String">
+			<column name="APELLIDO" />
+		</property>
+		<property name="apellido2" access="field" type="java.lang.String">
+			<column name="APELLIDO2" />
+		</property>
+		<property name="nombres" access="field" type="java.lang.String">
+			<column name="NOMBRES" />
+		</property>
+		<property name="documento" access="field" type="java.lang.String">
+			<column name="DOCUMENTO" />
+		</property>
+		<property name="correoElectronico" access="field" type="java.lang.String">
+			<column name="CORREO_ELECTRONICO" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

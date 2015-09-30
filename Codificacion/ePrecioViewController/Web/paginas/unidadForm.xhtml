@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+</h:head>
+<h:body>
+	<pm:page id="unidadFormPageId">
+		<pm:header title="Unidad"></pm:header>
+		<pm:content>
+			<h:form>
+				<pm:field>
+					<p:outputLabel for="inTxtUnidadNombre" value="Nombre:" />
+					<p:inputText id="inTxtUnidadNombre" placeholder="Nombre del Unidad" value="#{unidadFormBean.unidad.nombre}" />
+				</pm:field>
+				<pm:field>
+					<p:outputLabel for="inTxtUnidadSimbolo" value="Simbolo:" />
+					<p:inputText id="inTxtUnidadSimbolo" placeholder="Simbolo" value="#{unidadFormBean.unidad.simbolo}" />
+				</pm:field>
+				<pm:field>
+					<p:outputLabel value="Dimension:" for="inSomUnidadDimension"></p:outputLabel>
+					<p:selectOneMenu id="inSomUnidadDimension" value="#{unidadFormBean.unidad.idDimension}">
+						<f:selectItem itemLabel="Seleccionar..." itemValue="0" />
+						<f:selectItems value="#{itemBean.dimensionesItems}" var="dimensionItem" itemLabel="#{dimensionItem.nombre}" itemValue="#{dimensionItem.id}" />
+					</p:selectOneMenu>
+				</pm:field>
+				<pm:field>
+					<p:panelGrid columns="4">
+						<p:outputLabel for="inTxtUnidadNumerador" value="Numerador:" />
+						<p:inputText id="inTxtUnidadNumerador" placeholder="Numerador" value="#{unidadFormBean.unidad.factorNumerador}" />
+						<p:outputLabel for="inTxtUnidadDenominador" value="Denominador:" />
+						<p:inputText id="inTxtUnidadDenominador" placeholder="Denominador" value="#{unidadFormBean.unidad.factorDenominador}" />
+					</p:panelGrid>
+				</pm:field>
+				<pm:field>
+					<p:commandButton id="btnVolver" value="Volver" action="#{dimensionFormBean.listaDimension}" />
+					<p:commandButton id="btnGuardar" value="Guardar Nuevo" action="#{unidadFormBean.guardarNuevoUnidad}" rendered="#{!unidadFormBean.editando}" />
+					<p:commandButton id="btnGuardarCambio" value="Guardar Cambios" action="#{unidadFormBean.guardarEdicionUnidad}" rendered="#{unidadFormBean.editando}" />
+				</pm:field>
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>

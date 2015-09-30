@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile"
+	xmlns:c="http://java.sun.com/jstl/core">
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+</h:head>
+<h:body>
+	<pm:page id="precioListaPageId">
+		<pm:header title="Precios"></pm:header>
+		<pm:content>
+			<h:form>
+				<pm:field>
+
+					<p:commandButton value="Buscar" actionListener="#{precioListaBean.buscar}" update="precioTableId" />
+					<p:commandButton value="Nuevo" action="#{precioFormBean.agregarPrecio}" />
+				</pm:field>
+				<pm:field id="precioTableId">
+				
+					<c:forEach items="#{precioListaBean.precios}" var="item">				
+						<p:commandButton value="#{item.id}" action="#{precioListaBean.verPrecio}">
+							<f:setPropertyActionListener value="#{item}" target="#{precioFormBean.precio}" />
+						</p:commandButton>
+					</c:forEach>
+				</pm:field>
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>
