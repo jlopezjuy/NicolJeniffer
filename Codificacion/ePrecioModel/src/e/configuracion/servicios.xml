@@ -36,7 +36,8 @@
 	</bean>
 	<bean id="servicioPrecio" class="e.servicio.impl.ServicioPrecioImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
-
+		
+		<property name="clienteDao" ref="clienteDao"/>
 		<property name="servicioDto" ref="servicioDto" />
 		<property name="dimensionDao" ref="dimensionDao" />
 		<property name="estadoTransaccionDao" ref="estadoTransaccionDao" />

@@ -47,4 +47,10 @@
 	<bean id="unidadDao" class="e.dao.impl.UnidadDaoImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
 	</bean>
+	
+	<!-- NUEVOS DAOS -->
+	
+	<bean id="clienteDao" class="e.dao.impl.UnidadDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
 </beans>
