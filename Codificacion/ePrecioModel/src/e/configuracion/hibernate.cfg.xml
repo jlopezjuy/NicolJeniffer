@@ -3,12 +3,12 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="SessionFactory">
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">precio</property>
-        <property name="hibernate.connection.url">jdbc:mysql//localhost:3306/precio</property>
-        <property name="hibernate.connection.username">precio2</property>
-        <property name="hibernate.default_schema">precio2</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="hibernate.connection.password">154122954</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/NicoleJeniffer</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.default_schema">NicoleJeniffer</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     </session-factory>
 </hibernate-configuration>
