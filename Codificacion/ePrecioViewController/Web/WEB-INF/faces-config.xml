@@ -76,6 +76,16 @@
 		<managed-bean-class>e.beans.PrecioFormBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	
+	<!-- Nuevos Beans -->
+	
+	<managed-bean>
+		<managed-bean-name>clienteBean</managed-bean-name>
+		<managed-bean-class>e.beans.ClienteBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<!-- FIn nuevos beans -->
 
 	<navigation-rule>
 		<display-name>*</display-name>
