@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-oct-2015 15:21:07 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="e.dominio.Clientes" table="Clientes" catalog="NicoleJeniffer">
+        <id name="idClientes" type="int">
+            <column name="idClientes" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="45" />
+        </property>
+        <property name="celular" type="string">
+            <column name="Celular" length="45" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="Email" length="45" />
+        </property>
+        <property name="domicilio" type="string">
+            <column name="Domicilio" length="45" />
+        </property>
+        <set name="medidases" table="Medidas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Clientes_idClientes" not-null="true" />
+            </key>
+            <one-to-many class="e.dominio.Medidas" />
+        </set>
+        <set name="modeloses" table="Modelos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Clientes_idClientes" not-null="true" />
+            </key>
+            <one-to-many class="e.dominio.Modelos" />
+        </set>
+    </class>
+</hibernate-mapping>
