@@ -12,6 +12,7 @@ import e.base.dto.contexto.UsuarioWebDto;
 import e.base.dto.validacion.MensajeDto;
 import e.base.excepcion.ExcepcionBaseDeDato;
 import e.base.excepcion.ExcepcionServicio;
+import e.dao.ClienteDao;
 import e.dao.DimensionDao;
 import e.dao.EstadoTransaccionDao;
 import e.dao.MarcaDao;
@@ -31,12 +32,14 @@ import e.dominio.Precio;
 import e.dominio.Producto;
 import e.dominio.Unidad;
 import e.dominio.Usuario;
+import e.dominio.entity.Clientes;
 import e.dto.busqueda.BusquedaDimensionDto;
 import e.dto.busqueda.BusquedaMarcaDto;
 import e.dto.busqueda.BusquedaPersonaDto;
 import e.dto.busqueda.BusquedaPrecioDto;
 import e.dto.busqueda.BusquedaProductoDto;
 import e.dto.busqueda.BusquedaUnidadDto;
+import e.dto.dominio.ClienteDto;
 import e.dto.dominio.DimensionDto;
 import e.dto.dominio.MarcaDto;
 import e.dto.dominio.PersonaDto;
@@ -66,6 +69,7 @@ public class ServicioPrecioImpl implements ServicioPrecio {
 	private TransaccionItemDao transaccionItemDao;
 	private UnidadDao unidadDao;
 	private UsuarioDao usuarioDao;
+	private ClienteDao clienteDao;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
@@ -126,8 +130,18 @@ public class ServicioPrecioImpl implements ServicioPrecio {
 	public void setUsuarioDao(UsuarioDao usuarioDao) {
 		this.usuarioDao = usuarioDao;
 	}
+	
+	
 
 	// Usuarios
+
+	public ClienteDao getClienteDao() {
+		return clienteDao;
+	}
+
+	public void setClienteDao(ClienteDao clienteDao) {
+		this.clienteDao = clienteDao;
+	}
 
 	@Override
 	public UsuarioWebDto iniciarSesion(String usuario, String clave) throws ExcepcionServicio {
@@ -464,6 +478,20 @@ public class ServicioPrecioImpl implements ServicioPrecio {
 			mensajeDto.getMensajes().add("Error General" + e.getMessage());
 		}
 		return mensajeDto;
+	}
+
+	@Override
+	public List<ClienteDto> listAll() {
+		List<Clientes> list;
+		try {
+			list = clienteDao.listar();
+			return servicioDto.getClienteDTO(list);
+		} catch (ExcepcionBaseDeDato e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		
 	}
 
 }

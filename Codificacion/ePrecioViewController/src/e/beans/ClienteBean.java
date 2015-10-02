@@ -5,38 +5,35 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import e.base.excepcion.ExcepcionBaseDeDato;
-import e.dao.ClienteDao;
-import e.dao.impl.ClienteDaoImpl;
-import e.dominio.entity.Clientes;
+import e.dto.dominio.ClienteDto;
 
 public class ClienteBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ClienteBean.class);
-	private static final ClienteDao clienteDao = new ClienteDaoImpl();
-	private Clientes cliente;
-	private List<Clientes> listaClientes = new ArrayList<Clientes>();
+
+	private ClienteDto cliente;
+	private List<ClienteDto> listaClientes = new ArrayList<ClienteDto>();
 	
 	public ClienteBean(){
-		
+		super();
 	}
 	
-	public Clientes getCliente() {
+	public ClienteDto getCliente() {
 		return cliente;
 	}
-	public void setCliente(Clientes cliente) {
+	public void setCliente(ClienteDto cliente) {
 		this.cliente = cliente;
 	}
-	public List<Clientes> getListaClientes() {
+	public List<ClienteDto> getListaClientes() {
 		try {
-			listaClientes = clienteDao.listar();
-		} catch (ExcepcionBaseDeDato e) {
+			listaClientes = getServicioPrecio().listAll();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 		return listaClientes;
 	}
-	public void setListaClientes(List<Clientes> listaClientes) {
+	public void setListaClientes(List<ClienteDto> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
 	

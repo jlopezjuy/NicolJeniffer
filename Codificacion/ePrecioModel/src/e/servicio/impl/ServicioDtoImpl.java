@@ -17,12 +17,15 @@ import e.dominio.Precio;
 import e.dominio.Producto;
 import e.dominio.Unidad;
 import e.dominio.Usuario;
+import e.dominio.entity.Clientes;
+import e.dto.builder.ClienteBuilder;
 import e.dto.builder.PersonaBuilder;
 import e.dto.builder.PrecioBuilder;
 import e.dto.builder.TransaccionBuilder;
 import e.dto.builder.TransaccionItemBuilder;
 import e.dto.builder.UnidadBuilder;
 import e.dto.builder.UsuarioBuilder;
+import e.dto.dominio.ClienteDto;
 import e.dto.dominio.DimensionDto;
 import e.dto.dominio.MarcaDto;
 import e.dto.dominio.PrecioDto;
@@ -39,6 +42,7 @@ public class ServicioDtoImpl {
 	private TransaccionItemBuilder transaccionItemBuilder;
 	private UnidadBuilder unidadBuilder;
 	private UsuarioBuilder usuarioBuilder;
+	private ClienteBuilder clienteBuilder;
 
 	public void setBaseNombreBuilder(BaseNombreBuilder baseNombreBuilder) {
 		this.baseNombreBuilder = baseNombreBuilder;
@@ -66,6 +70,16 @@ public class ServicioDtoImpl {
 
 	public void setUsuarioBuilder(UsuarioBuilder usuarioBuilder) {
 		this.usuarioBuilder = usuarioBuilder;
+	}
+	
+	
+
+	public ClienteBuilder getClienteBuilder() {
+		return clienteBuilder;
+	}
+
+	public void setClienteBuilder(ClienteBuilder clienteBuilder) {
+		this.clienteBuilder = clienteBuilder;
 	}
 
 	private InputStream getInputStream(Blob blob) {
@@ -220,6 +234,19 @@ public class ServicioDtoImpl {
 		if (listaDominio != null) {
 			for (Precio precio : listaDominio) {
 				listaDto.add(precioBuilder.buildDTO(precio, new PrecioDto()));
+			}
+		}
+		return listaDto;
+	}
+	
+	//Unidades
+	
+	public List<ClienteDto> getClienteDTO(List<Clientes> listaDominio) {
+		LOG.debug("");
+		List<ClienteDto> listaDto = new ArrayList<ClienteDto>();
+		if (listaDominio != null) {
+			for (Clientes precio : listaDominio) {
+				listaDto.add(clienteBuilder.buildDTO(precio, new ClienteDto()));
 			}
 		}
 		return listaDto;

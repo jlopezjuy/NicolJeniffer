@@ -13,7 +13,7 @@ import e.base.dominio.DominioBaseNombre;
  */
 public class Clientes extends DominioBaseNombre {
 
-	private int idClientes;
+	private Long idClientes;
 	private String nombre;
 	private String apellido;
 	private String celular;
@@ -26,11 +26,11 @@ public class Clientes extends DominioBaseNombre {
 	public Clientes() {
 	}
 
-	public Clientes(int idClientes) {
+	public Clientes(Long idClientes) {
 		this.idClientes = idClientes;
 	}
 
-	public Clientes(int idClientes, String nombre, String apellido,
+	public Clientes(Long idClientes, String nombre, String apellido,
 			String celular, String telefono, String email, String domicilio,
 			Set medidases, Set modeloses) {
 		this.idClientes = idClientes;
@@ -44,11 +44,11 @@ public class Clientes extends DominioBaseNombre {
 		this.modeloses = modeloses;
 	}
 
-	public int getIdClientes() {
+	public Long getIdClientes() {
 		return this.idClientes;
 	}
 
-	public void setIdClientes(int idClientes) {
+	public void setIdClientes(Long idClientes) {
 		this.idClientes = idClientes;
 	}
 

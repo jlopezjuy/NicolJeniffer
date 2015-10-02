@@ -11,6 +11,7 @@ import e.dto.busqueda.BusquedaPersonaDto;
 import e.dto.busqueda.BusquedaPrecioDto;
 import e.dto.busqueda.BusquedaProductoDto;
 import e.dto.busqueda.BusquedaUnidadDto;
+import e.dto.dominio.ClienteDto;
 import e.dto.dominio.DimensionDto;
 import e.dto.dominio.MarcaDto;
 import e.dto.dominio.PersonaDto;
@@ -75,5 +76,8 @@ public interface ServicioPrecio {
 	MensajeDto guardarPrecio(PrecioDto precioDto);
 
 	MensajeDto editarPrecio(PrecioDto precioDto);
-
+	
+	// Clientes
+	
+	List<ClienteDto> listAll();
 }
