@@ -5,9 +5,6 @@
         <dependent-module archiveName="ePrecioModel.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ePrecioModel/ePrecioModel">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="eModelBase.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/eModelBase/eModelBase">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/ePrecioViewController/build/classes"/>
         <property name="context-root" value="Precio"/>
     </wb-module>

@@ -3,7 +3,6 @@
 	<name>ePrecioModel</name>
 	<comment></comment>
 	<projects>
-		<project>eModelBase</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

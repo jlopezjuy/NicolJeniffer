@@ -4,7 +4,6 @@
 	<comment></comment>
 	<projects>
 		<project>ePrecioModel</project>
-		<project>eModelBase</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
