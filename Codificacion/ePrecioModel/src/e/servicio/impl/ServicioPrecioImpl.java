@@ -485,6 +485,7 @@ public class ServicioPrecioImpl implements ServicioPrecio {
 		List<Clientes> list;
 		try {
 			list = clienteDao.listar();
+			LOG.debug("ENCONTRO DATOS....: "+ list.size());
 			return servicioDto.getClienteDTO(list);
 		} catch (ExcepcionBaseDeDato e) {
 			// TODO Auto-generated catch block
