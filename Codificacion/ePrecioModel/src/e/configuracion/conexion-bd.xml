@@ -12,7 +12,7 @@
 	<!-- Configure JDBC Connection -->
 	<bean id="origenDatosPrecio" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://192.168.56.101:3306/precio" />
+		<property name="url" value="jdbc:mysql://localhost:3306/NicoleJeniffer" />
 		<property name="username" value="root" />
 		<property name="password" value="154122954" />
 	</bean>
