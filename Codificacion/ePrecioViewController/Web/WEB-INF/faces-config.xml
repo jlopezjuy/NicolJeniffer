@@ -170,6 +170,15 @@
 			<to-view-id>/paginas/precioFormView.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
+		
+		<!-- Nicole -->
+		
+		<navigation-case>
+			<from-outcome>listaClientesView</from-outcome>
+			<to-view-id>/paginas/clientes/listaClientes.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		<!-- Fin Nicoles -->
 	</navigation-rule>
 
 

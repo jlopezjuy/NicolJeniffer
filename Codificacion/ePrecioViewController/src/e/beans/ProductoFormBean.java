@@ -58,5 +58,9 @@ public class ProductoFormBean extends BaseBean {
 	public boolean isEditando() {
 		return !NumberUtil.esNuloOMenorQueUno(this.getProducto().getId());
 	}
+	public String listaClientes() {
+		LOG.info("entro a mostrar datos");
+		return ConstantesAction.LISTA_CLIENTES;
+	}
 
 }

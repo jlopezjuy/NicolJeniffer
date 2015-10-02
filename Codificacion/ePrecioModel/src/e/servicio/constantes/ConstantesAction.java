@@ -21,4 +21,9 @@ public interface ConstantesAction {
 	String EDITAR_PRECIO = "precioForm";
 	String LISTA_PRECIO = "precioLista";
 	//
+	
+	//Nicole Sistema
+	String LISTA_CLIENTES = "listaClientesView";
+	
+	//Fin Nicole Sistema
 }
