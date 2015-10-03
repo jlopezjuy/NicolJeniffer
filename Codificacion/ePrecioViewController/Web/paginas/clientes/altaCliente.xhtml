@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+</h:head>
+<h:body>
+	<pm:page id="altaClienteForm">
+		<pm:header title="Alta de Clientes"></pm:header>
+		<pm:content>
+			<h:form>
+				<p:inputText id="nombre" label="Nombre"
+					value="#{clienteBean.cliente.nombre}" />
+				<p:inputText id="apellido" label="Apellido"
+					value="#{clienteBean.cliente.apellido}" />
+				<p:inputText id="cliente" label="Celular"
+					value="#{clienteBean.cliente.celular}" />
+				<p:inputText id="mail" label="E-Mail"
+					value="#{clienteBean.cliente.email}" />
+				<p:inputText id="telefono" label="Teléfono"
+					value="#{clienteBean.cliente.telefono}" />
+				<p:inputText id="celular" label="Celular"
+					value="#{clienteBean.cliente.celular}" />
+				<p:inputText id="domicilio" label="Domicilio"
+					value="#{clienteBean.cliente.domicilio}" />
+				<p:commandButton value="Guardar" id="nonAjax" actionListener="#{clienteBean.guardarNuevoCliente}" ajax="false" />
+ 
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>
+>
