@@ -135,10 +135,6 @@ public class ServicioPrecioImpl implements ServicioPrecio {
 
 	// Usuarios
 
-	public ClienteDao getClienteDao() {
-		return clienteDao;
-	}
-
 	public void setClienteDao(ClienteDao clienteDao) {
 		this.clienteDao = clienteDao;
 	}

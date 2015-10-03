@@ -7,4 +7,6 @@ import e.dominio.entity.Clientes;
 
 public interface ClienteDao extends DAOBase<Clientes, Long>{
 	List<Clientes> buscarNombreCliente(String nombreCliente);
+	List<Clientes> listarClientes();
+	void guardarCliente(Clientes cliente);
 }

@@ -6,8 +6,10 @@ import org.apache.log4j.Logger;
 
 import e.base.dto.contexto.UsuarioWebDto;
 import e.base.dto.validacion.MensajeDto;
+import e.servicio.ServicioCliente;
 import e.servicio.ServicioItem;
 import e.servicio.ServicioPrecio;
+import e.servicio.impl.ServicioClienteImpl;
 import e.util.SpringUtil;
 
 public class BaseBean {
@@ -18,6 +20,7 @@ public class BaseBean {
 
 	private ServicioPrecio servicioGeneral;
 	private ServicioItem servicioItem;
+	private ServicioCliente servicioCliente;
 
 	public BaseBean() {
 		LOG.debug("");
@@ -75,6 +78,17 @@ public class BaseBean {
 
 	public MensajeDto getMensajeDto() {
 		return (MensajeDto) obtenerAtributoSesion(MENSAJE);
+	}
+
+	public ServicioCliente getServicioCliente() {
+		if (servicioCliente == null) {
+			servicioCliente = (ServicioCliente) SpringUtil.obtenerBeanSpring("servicioCliente");
+		}
+		return servicioCliente;
+	}
+
+	public void setServicioCliente(ServicioCliente servicioCliente) {
+		this.servicioCliente = servicioCliente;
 	}
 
 }

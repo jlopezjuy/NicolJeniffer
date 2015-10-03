@@ -3,8 +3,11 @@ package e.beans;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.event.ActionEvent;
+
 import org.apache.log4j.Logger;
 
+import e.base.excepcion.ExcepcionServicio;
 import e.dto.dominio.ClienteDto;
 
 public class ClienteBean extends BaseBean {
@@ -17,6 +20,17 @@ public class ClienteBean extends BaseBean {
 		super();
 	}
 	
+	public void guardarNuevoCliente(ActionEvent ev) {
+		LOG.info("");
+		try {
+			getServicioCliente().guardarCliente(cliente);
+
+		} catch (ExcepcionServicio e) {
+			LOG.error(e);
+
+		}
+	}
+	
 	public ClienteDto getCliente() {
 		return cliente;
 	}
@@ -25,7 +39,7 @@ public class ClienteBean extends BaseBean {
 	}
 	public List<ClienteDto> getListaClientes() {
 		try {
-			listaClientes = getServicioPrecio().listAll();
+			listaClientes = getServicioCliente().listAll();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

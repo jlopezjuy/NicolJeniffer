@@ -178,6 +178,12 @@
 			<to-view-id>/paginas/clientes/listaClientes.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaClienteView</from-outcome>
+			<to-view-id>/paginas/clientes/altaCliente.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
 		<!-- Fin Nicoles -->
 	</navigation-rule>
 

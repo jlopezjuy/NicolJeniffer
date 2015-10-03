@@ -31,5 +31,9 @@
 	<bean id="usuarioBuilder" class="e.dto.builder.UsuarioBuilder">
 
 	</bean>
+	
+	<bean id="clienteBuilder" class="e.dto.builder.ClienteBuilder">
+
+	</bean>
 
 </beans>

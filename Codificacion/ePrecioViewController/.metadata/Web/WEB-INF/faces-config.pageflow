@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14202597601050" configfile="/ePrecioViewController/Web/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="3058" id="pf14211148800870" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14342540587911 pf14398337915402 pf14399496084100 pf14399496084101 pf14402070794860 pf14402070794861 pf14410685206540 pf14410685206541 pf14410685206542 pf14411478910120 pf14411478910121 pf14411478910122 pf14412476824620 pf14412477214662 pf14412477214663 pf14413321035220" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="3250" id="pf14211148800870" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14342540587911 pf14398337915402 pf14399496084100 pf14399496084101 pf14402070794860 pf14402070794861 pf14410685206540 pf14410685206541 pf14410685206542 pf14411478910120 pf14411478910121 pf14411478910122 pf14412476824620 pf14412477214662 pf14412477214663 pf14413321035220 pf14438909400130 pf14438909400131" path="*"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/inicio.xhtml" x="338" y="178" id="pf14342540587922" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14402070794860" path="/paginas/inicio.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/home.xhtml" x="338" y="562" id="pf14342540587923" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14342540587911" path="/paginas/home.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/productoForm.xhtml" x="338" y="946" id="pf14398337915403" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14398337915402" path="/paginas/productoForm.xhtml"/>
@@ -17,6 +17,8 @@
   <nodes xsi:type="pageflow:PFPage" name="paginas/precioFormView.xhtml" x="338" y="5170" id="pf14412477214674" referenceLink="//@navigationRule.0/@navigationCase.15/@toViewId|" inlinks="pf14412477214662" path="/paginas/precioFormView.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/precioLista.xhtml" x="338" y="5554" id="pf14412477214675" referenceLink="//@navigationRule.0/@navigationCase.13/@toViewId|" inlinks="pf14412477214663" path="/paginas/precioLista.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/precioForm.xhtml" x="338" y="5938" id="pf14413321035231" referenceLink="//@navigationRule.0/@navigationCase.14/@toViewId|" inlinks="pf14413321035220" path="/paginas/precioForm.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/listaClientes.xhtml" x="338" y="6322" id="pf14438909400132" referenceLink="//@navigationRule.0/@navigationCase.17/@toViewId|" inlinks="pf14438909400130" path="/paginas/clientes/listaClientes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/altaCliente.xhtml" id="pf14438909400133" referenceLink="//@navigationRule.0/@navigationCase.17/@toViewId|" inlinks="pf14438909400131" path="/paginas/clientes/altaCliente.xhtml"/>
   <links id="pf14342540587911" target="pf14342540587923" source="pf14211148800870" outcome="bienvenida" redirect="true"/>
   <links id="pf14398337915402" target="pf14398337915403" source="pf14211148800870" outcome="productoForm" redirect="true"/>
   <links id="pf14399496084100" target="pf14399496084102" source="pf14211148800870" outcome="productoLista" redirect="true"/>
@@ -33,4 +35,6 @@
   <links id="pf14412477214662" target="pf14412477214674" source="pf14211148800870" outcome="precioFormView" redirect="true"/>
   <links id="pf14412477214663" target="pf14412477214675" source="pf14211148800870" outcome="precioLista" redirect="true"/>
   <links id="pf14413321035220" target="pf14413321035231" source="pf14211148800870" outcome="precioForm" redirect="true"/>
+  <links id="pf14438909400130" target="pf14438909400132" source="pf14211148800870" outcome="listaClientesView" redirect="true"/>
+  <links id="pf14438909400131" target="pf14438909400133" source="pf14211148800870" outcome="altaClienteView" redirect="true"/>
 </pageflow:Pageflow>

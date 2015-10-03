@@ -5,6 +5,8 @@ import java.sql.Blob;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 import e.base.excepcion.ExcepcionBaseDeDato;
 import e.dao.ClienteDao;
@@ -17,8 +19,20 @@ public class ClienteDaoImpl extends DAOHibernateImpl<Clientes, Long> implements 
 
 	@Override
 	public List<Clientes> buscarNombreCliente(String nombreCliente) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = super.obtenerCriteria();
+		criteria.add(Restrictions.eq("nombre", nombreCliente));
+		return super.ejecutarCriteria(criteria);
+	}
+
+	@Override
+	public List<Clientes> listarClientes() {
+		Criteria criteria = super.obtenerCriteria();
+		return super.ejecutarCriteria(criteria);
+	}
+
+	@Override
+	public void guardarCliente(Clientes cliente) {
+		super.guardar(cliente);
 	}
 
 }

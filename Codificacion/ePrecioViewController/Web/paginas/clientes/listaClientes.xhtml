@@ -11,6 +11,8 @@
 	<pm:page id="listaClienteForm">
 		<pm:header title="Lista de Clientes"></pm:header>
 		<pm:content>
+		
+		<p:button outcome="altaClienteView" value="Nuevo" />
 			<h:form>
 				<p:dataTable var="cli" value="#{clienteBean.listaClientes}">
 					<p:column headerText="Id">
