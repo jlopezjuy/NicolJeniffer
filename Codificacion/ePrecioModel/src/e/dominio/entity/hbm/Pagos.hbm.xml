@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 01-oct-2015 15:21:07 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="e.dominio.Pagos" table="Pagos" catalog="NicoleJeniffer">
+    <class name="Pagos" table="Pagos" catalog="NicoleJeniffer">
         <id name="idPagos" type="int">
             <column name="idPagos" />
             <generator class="assigned" />

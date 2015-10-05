@@ -1,11 +1,9 @@
 package e.dominio.entity;
-
-// Generated 01-oct-2015 15:21:07 by Hibernate Tools 3.4.0.CR1
+// Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
 
-import e.base.dominio.DominioBase;
 import e.base.dominio.DominioBaseNombre;
 
 /**
@@ -13,7 +11,7 @@ import e.base.dominio.DominioBaseNombre;
  */
 public class Clientes extends DominioBaseNombre {
 
-	private Long idClientes;
+	private int idClientes;
 	private String nombre;
 	private String apellido;
 	private String celular;
@@ -26,11 +24,11 @@ public class Clientes extends DominioBaseNombre {
 	public Clientes() {
 	}
 
-	public Clientes(Long idClientes) {
+	public Clientes(int idClientes) {
 		this.idClientes = idClientes;
 	}
 
-	public Clientes(Long idClientes, String nombre, String apellido,
+	public Clientes(int idClientes, String nombre, String apellido,
 			String celular, String telefono, String email, String domicilio,
 			Set medidases, Set modeloses) {
 		this.idClientes = idClientes;
@@ -44,11 +42,11 @@ public class Clientes extends DominioBaseNombre {
 		this.modeloses = modeloses;
 	}
 
-	public Long getIdClientes() {
+	public int getIdClientes() {
 		return this.idClientes;
 	}
 
-	public void setIdClientes(Long idClientes) {
+	public void setIdClientes(int idClientes) {
 		this.idClientes = idClientes;
 	}
 

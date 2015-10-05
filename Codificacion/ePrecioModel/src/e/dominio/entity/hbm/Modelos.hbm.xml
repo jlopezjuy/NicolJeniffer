@@ -1,19 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 01-oct-2015 15:21:07 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="e.dominio.Modelos" table="Modelos" catalog="NicoleJeniffer">
-        <composite-id name="id" class="e.dominio.ModelosId">
-            <key-property name="idModelos" type="int">
-                <column name="idModelos" />
-            </key-property>
-            <key-property name="clientesIdClientes" type="int">
-                <column name="Clientes_idClientes" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="clientes" class="e.dominio.Clientes" update="false" insert="false" fetch="select">
-            <column name="Clientes_idClientes" not-null="true" />
+    <class name="Modelos" table="Modelos" catalog="NicoleJeniffer">
+        <id name="idModelos" type="int">
+            <column name="idModelos" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="clientes" class="Clientes" fetch="select">
+            <column name="Clientes_idClientes" />
         </many-to-one>
         <property name="imagen" type="binary">
             <column name="Imagen" />
