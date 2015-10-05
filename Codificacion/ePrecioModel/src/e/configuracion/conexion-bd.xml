@@ -37,6 +37,7 @@
 				<value>e/dominio/hbm/TransaccionItem.hbm.xml</value>
 				<value>e/dominio/hbm/Unidad.hbm.xml</value>
 				<value>e/dominio/hbm/Usuario.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Clientes.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
