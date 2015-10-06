@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="../../template/template.xhtml">
 	<ui:define name="title">
@@ -11,26 +7,31 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-		<p:inputText id="nombre" label="Nombre"
-					value="#{clienteBean.cliente.nombre}" />
-				<p:inputText id="apellido" label="Apellido"
-					value="#{clienteBean.cliente.apellido}" />
-				<p:inputText id="cliente" label="Celular"
-					value="#{clienteBean.cliente.celular}" />
-				<p:inputText id="mail" label="E-Mail"
-					value="#{clienteBean.cliente.email}" />
-				<p:inputText id="telefono" label="Teléfono"
-					value="#{clienteBean.cliente.telefono}" />
-				<p:inputText id="celular" label="Celular"
-					value="#{clienteBean.cliente.celular}" />
-				<p:inputText id="domicilio" label="Domicilio"
-					value="#{clienteBean.cliente.domicilio}" />
-				<p:commandButton value="Guardar" id="nonAjax" actionListener="#{clienteBean.guardarNuevoCliente}" ajax="false" />
-		
 
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="nombre" value="Nombre" />
+				<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombre}" />
+				<h:outputLabel for="apellido" value="Apellido" />
+				<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" />
+				<h:outputLabel for="cliente" value="Celular" />
+				<p:inputText id="cliente" label="Celular" value="#{clienteBean.celular}" />
+				<h:outputLabel for="mail" value="E-Mail" />
+				<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}" />
+				<h:outputLabel for="telefono" value="Teléfono" />
+				<p:inputText id="telefono" label="Teléfono" value="#{clienteBean.telefono}" />
+				<h:outputLabel for="celular" value="Celular" />
+				<p:inputText id="celular" label="Celular" value="#{clienteBean.celular}" />
+				<h:outputLabel for="domicilio" value="Domicilio" />
+				<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}" />
+
+
+				<f:facet name="footer">
+					<p:commandButton value="Guardar" id="nonAjax" actionListener="#{clienteBean.guardarNuevoCliente}" ajax="false" />
+				</f:facet>
+			</h:panelGrid>
 		</h:form>
 	</ui:define>
- 
+
 </ui:composition>
 </html>
 
