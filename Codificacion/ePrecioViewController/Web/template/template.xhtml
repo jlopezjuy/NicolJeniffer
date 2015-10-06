@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
+<h:head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport"
@@ -22,8 +22,8 @@
     <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
     <script src="#{request.contextPath}/resources/js/scripts.js"></script>
     <script src="#{request.contextPath}/resources/js/unslider.min.js"></script>
-</head>
-<body>
+</h:head>
+<h:body>
 	<header class="clearfix">
 		<div class="logo col-md-3">
 			<h2 class="logo-text">INFUSION</h2>
@@ -71,7 +71,10 @@
 		</ul>
 	</div>
 	<div class="container">
-		<div class="arrow">
+		<div class="row">
+			<ui:insert name="content">
+				<span>Página en construcción</span>
+			</ui:insert>
 		</div>
 	</div>
 	<div class="container carousel">
@@ -250,12 +253,6 @@
 	</div>
 	<div class="laptop-slider">
 		<div class="container">
-			<ui:insert name="content">
-				<span>Página en construcción</span>
-			</ui:insert>
-		</div>
-		
-		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 laptop-placeholder">
 					<div class="slideshow">
@@ -340,5 +337,5 @@
 			</div>
 		</div>
 	</footer>
-</body>
-</html>
+</h:body>
+</html>	

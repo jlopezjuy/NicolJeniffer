@@ -3,16 +3,15 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:pm="http://primefaces.org/mobile">
-<f:view contentType="text/html" />
-<h:head>
-</h:head>
-<h:body>
-	<pm:page id="altaClienteForm">
-		<pm:header title="Alta de Clientes"></pm:header>
-		<pm:content>
-			<h:form>
-				<p:inputText id="nombre" label="Nombre"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="HOla como estas?" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+		<p:inputText id="nombre" label="Nombre"
 					value="#{clienteBean.cliente.nombre}" />
 				<p:inputText id="apellido" label="Apellido"
 					value="#{clienteBean.cliente.apellido}" />
@@ -27,9 +26,11 @@
 				<p:inputText id="domicilio" label="Domicilio"
 					value="#{clienteBean.cliente.domicilio}" />
 				<p:commandButton value="Guardar" id="nonAjax" actionListener="#{clienteBean.guardarNuevoCliente}" ajax="false" />
+		
+
+		</h:form>
+	</ui:define>
  
-			</h:form>
-		</pm:content>
-	</pm:page>
-</h:body>
+</ui:composition>
 </html>
+
