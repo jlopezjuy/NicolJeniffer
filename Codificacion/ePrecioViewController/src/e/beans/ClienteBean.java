@@ -8,13 +8,14 @@ import javax.faces.event.ActionEvent;
 import org.apache.log4j.Logger;
 
 import e.base.excepcion.ExcepcionServicio;
+import e.dominio.entity.Clientes;
 import e.dto.dominio.ClienteDto;
 
 public class ClienteBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ClienteBean.class);
 
-	private ClienteDto cliente;
-	private List<ClienteDto> listaClientes = new ArrayList<ClienteDto>();
+	private Clientes cliente;
+	private List<Clientes> listaClientes = new ArrayList<Clientes>();
 	
 	public ClienteBean(){
 		super();
@@ -31,15 +32,16 @@ public class ClienteBean extends BaseBean {
 		}
 	}
 	
-	public ClienteDto getCliente() {
+	public Clientes getCliente() {
 		return cliente;
 	}
-	public void setCliente(ClienteDto cliente) {
+	public void setCliente(Clientes cliente) {
 		this.cliente = cliente;
 	}
-	public List<ClienteDto> getListaClientes() {
+	public List<Clientes> getListaClientes() {
 		try {
 			listaClientes = getServicioCliente().listAll();
+			LOG.debug("cantidad de datos: "+listaClientes.size());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -47,7 +49,7 @@ public class ClienteBean extends BaseBean {
 		
 		return listaClientes;
 	}
-	public void setListaClientes(List<ClienteDto> listaClientes) {
+	public void setListaClientes(List<Clientes> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
 	

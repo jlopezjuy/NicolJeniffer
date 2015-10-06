@@ -14,7 +14,7 @@
 		
 		<p:button outcome="altaClienteView" value="Nuevo" />
 			<h:form>
-				<p:dataTable var="cli" value="#{clienteBean.listaClientes}">
+				<p:dataTable var="cli" value="#{clienteBean.listaClientes}" >
 					<p:column headerText="Id">
 						<h:outputText value="#{cli.nombre}" />
 					</p:column>
