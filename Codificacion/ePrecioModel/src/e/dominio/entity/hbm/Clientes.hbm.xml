@@ -1,42 +1,44 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="Clientes" table="Clientes" catalog="NicoleJeniffer">
-        <id name="idClientes" type="int">
-            <column name="idClientes" />
-            <generator class="assigned" />
-        </id>
-        <property name="nombre" type="string">
-            <column name="Nombre" length="45" />
-        </property>
-        <property name="apellido" type="string">
-            <column name="Apellido" length="45" />
-        </property>
-        <property name="celular" type="string">
-            <column name="Celular" length="45" />
-        </property>
-        <property name="telefono" type="string">
-            <column name="Telefono" length="45" />
-        </property>
-        <property name="email" type="string">
-            <column name="Email" length="45" />
-        </property>
-        <property name="domicilio" type="string">
-            <column name="Domicilio" length="45" />
-        </property>
-        <set name="medidases" table="Medidas" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="Clientes_idClientes" />
-            </key>
-            <one-to-many class="Medidas" />
-        </set>
-        <set name="modeloses" table="Modelos" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="Clientes_idClientes" />
-            </key>
-            <one-to-many class="Modelos" />
-        </set>
-    </class>
+ <class catalog="NicoleJeniffer" name="e.dominio.entity.Clientes" table="Clientes">
+  <id name="idClientes" type="int">
+   <column name="idClientes"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="nombre" type="string">
+   <column length="45" name="Nombre"/>
+  </property>
+  <property generated="never" lazy="false" name="apellido" type="string">
+   <column length="45" name="Apellido"/>
+  </property>
+  <property generated="never" lazy="false" name="celular" type="string">
+   <column length="45" name="Celular"/>
+  </property>
+  <property generated="never" lazy="false" name="telefono" type="string">
+   <column length="45" name="Telefono"/>
+  </property>
+  <property generated="never" lazy="false" name="email" type="string">
+   <column length="45" name="Email"/>
+  </property>
+  <property generated="never" lazy="false" name="domicilio" type="string">
+   <column length="45" name="Domicilio"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="medidases"
+   sort="unsorted" table="Medidas">
+   <key>
+    <column name="Clientes_idClientes"/>
+   </key>
+   <one-to-many class="e.dominio.entity.Medidas"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="modeloses"
+   sort="unsorted" table="Modelos">
+   <key>
+    <column name="Clientes_idClientes"/>
+   </key>
+   <one-to-many class="e.dominio.entity.Modelos"/>
+  </set>
+ </class>
 </hibernate-mapping>

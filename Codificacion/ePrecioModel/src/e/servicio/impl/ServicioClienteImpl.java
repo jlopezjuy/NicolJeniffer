@@ -25,12 +25,13 @@ public class ServicioClienteImpl implements ServicioCliente {
 	
 	
 	@Override
-	public List<ClienteDto> listAll() {
+	public List<Clientes> listAll() {
 		List<Clientes> list;
 		try {
 			list = clienteDao.listarClientes();
-			LOG.debug("ENCONTRO DATOS....: "+ list.size());
-			return servicioDto.getClienteDTO(list);
+			LOG.debug("//////ENCONTRO DATOS....: "+ list.size());
+			//return servicioDto.getClienteDTO(list);
+			return list;
 		} catch (Exception e) {
 			LOG.warn(e.getMessage());
 			return null;
@@ -54,13 +55,13 @@ public class ServicioClienteImpl implements ServicioCliente {
 	}
 
 	@Override
-	public void editarCliente(ClienteDto cliente) throws ExcepcionServicio {
+	public void editarCliente(Clientes cliente) throws ExcepcionServicio {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void guardarCliente(ClienteDto cliente) throws ExcepcionServicio {
+	public void guardarCliente(Clientes cliente) throws ExcepcionServicio {
 		// TODO Auto-generated method stub
 		
 	}

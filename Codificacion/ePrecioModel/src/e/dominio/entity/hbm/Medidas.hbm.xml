@@ -1,57 +1,57 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="Medidas" table="Medidas" catalog="NicoleJeniffer">
-        <id name="idMedidas" type="int">
-            <column name="idMedidas" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="clientes" class="Clientes" fetch="select">
-            <column name="Clientes_idClientes" />
-        </many-to-one>
-        <property name="largoPolera" type="big_decimal">
-            <column name="LargoPolera" precision="10" scale="4" />
-        </property>
-        <property name="largoCorset" type="big_decimal">
-            <column name="LargoCorset" precision="10" scale="4" />
-        </property>
-        <property name="espalda" type="big_decimal">
-            <column name="Espalda" precision="10" scale="4" />
-        </property>
-        <property name="contornoBusto" type="big_decimal">
-            <column name="ContornoBusto" precision="10" scale="4" />
-        </property>
-        <property name="contornoCadera" type="big_decimal">
-            <column name="ContornoCadera" precision="10" scale="4" />
-        </property>
-        <property name="costado" type="big_decimal">
-            <column name="Costado" precision="10" scale="4" />
-        </property>
-        <property name="cintura" type="big_decimal">
-            <column name="Cintura" precision="10" scale="4" />
-        </property>
-        <property name="cadera" type="big_decimal">
-            <column name="Cadera" precision="10" scale="4" />
-        </property>
-        <property name="talleEspalda" type="big_decimal">
-            <column name="TalleEspalda" precision="10" scale="4" />
-        </property>
-        <property name="talleDelantero" type="big_decimal">
-            <column name="TalleDelantero" precision="10" scale="4" />
-        </property>
-        <property name="sisa" type="big_decimal">
-            <column name="Sisa" precision="10" scale="4" />
-        </property>
-        <property name="largoManga" type="big_decimal">
-            <column name="LargoManga" precision="10" scale="4" />
-        </property>
-        <property name="largoPollera" type="big_decimal">
-            <column name="LargoPollera" precision="10" scale="4" />
-        </property>
-        <property name="observaciones" type="string">
-            <column name="Observaciones" />
-        </property>
-    </class>
+ <class catalog="NicoleJeniffer" name="e.dominio.entity.Medidas" table="Medidas">
+  <id name="idMedidas" type="int">
+   <column name="idMedidas"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="e.dominio.entity.Clientes" fetch="select" name="clientes">
+   <column name="Clientes_idClientes"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="largoPolera" type="big_decimal">
+   <column name="LargoPolera" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="largoCorset" type="big_decimal">
+   <column name="LargoCorset" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="espalda" type="big_decimal">
+   <column name="Espalda" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="contornoBusto" type="big_decimal">
+   <column name="ContornoBusto" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="contornoCadera" type="big_decimal">
+   <column name="ContornoCadera" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="costado" type="big_decimal">
+   <column name="Costado" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="cintura" type="big_decimal">
+   <column name="Cintura" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="cadera" type="big_decimal">
+   <column name="Cadera" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="talleEspalda" type="big_decimal">
+   <column name="TalleEspalda" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="talleDelantero" type="big_decimal">
+   <column name="TalleDelantero" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="sisa" type="big_decimal">
+   <column name="Sisa" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="largoManga" type="big_decimal">
+   <column name="LargoManga" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="largoPollera" type="big_decimal">
+   <column name="LargoPollera" precision="10" scale="4"/>
+  </property>
+  <property generated="never" lazy="false" name="observaciones" type="string">
+   <column name="Observaciones"/>
+  </property>
+ </class>
 </hibernate-mapping>

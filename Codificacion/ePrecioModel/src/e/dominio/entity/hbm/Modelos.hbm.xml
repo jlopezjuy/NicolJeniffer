@@ -1,27 +1,27 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="Modelos" table="Modelos" catalog="NicoleJeniffer">
-        <id name="idModelos" type="int">
-            <column name="idModelos" />
-            <generator class="assigned" />
-        </id>
-        <many-to-one name="clientes" class="Clientes" fetch="select">
-            <column name="Clientes_idClientes" />
-        </many-to-one>
-        <property name="imagen" type="binary">
-            <column name="Imagen" />
-        </property>
-        <property name="nombreModelo" type="string">
-            <column name="NombreModelo" />
-        </property>
-        <property name="observacion" type="string">
-            <column name="Observacion" />
-        </property>
-        <property name="colorVestido" type="string">
-            <column name="ColorVestido" />
-        </property>
-    </class>
+ <class catalog="NicoleJeniffer" name="e.dominio.entity.Modelos" table="Modelos">
+  <id name="idModelos" type="int">
+   <column name="idModelos"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="e.dominio.entity.Clientes" fetch="select" name="clientes">
+   <column name="Clientes_idClientes"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="imagen" type="binary">
+   <column name="Imagen"/>
+  </property>
+  <property generated="never" lazy="false" name="nombreModelo" type="string">
+   <column name="NombreModelo"/>
+  </property>
+  <property generated="never" lazy="false" name="observacion" type="string">
+   <column name="Observacion"/>
+  </property>
+  <property generated="never" lazy="false" name="colorVestido" type="string">
+   <column name="ColorVestido"/>
+  </property>
+ </class>
 </hibernate-mapping>

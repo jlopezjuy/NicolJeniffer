@@ -242,11 +242,11 @@ public class ServicioDtoImpl {
 	//Unidades
 	
 	public List<ClienteDto> getClienteDTO(List<Clientes> listaDominio) {
-		LOG.debug("");
+		LOG.debug("Entro al metodo: getClienteDTO");
 		List<ClienteDto> listaDto = new ArrayList<ClienteDto>();
-		if (listaDominio != null) {
-			for (Clientes precio : listaDominio) {
-				listaDto.add(clienteBuilder.buildDTO(precio, new ClienteDto()));
+		if (!listaDominio.isEmpty()) {
+			for (Clientes cliente : listaDominio) {
+				listaDto.add(clienteBuilder.buildDTO(cliente, new ClienteDto()));
 			}
 		}
 		return listaDto;
