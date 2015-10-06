@@ -63,7 +63,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 	@Override
 	public void guardarCliente(Clientes cliente) throws ExcepcionServicio {
 		// TODO Auto-generated method stub
-		
+		LOG.debug("Entro a guardarCliente: "+cliente.toString());
 	}
 
 }
