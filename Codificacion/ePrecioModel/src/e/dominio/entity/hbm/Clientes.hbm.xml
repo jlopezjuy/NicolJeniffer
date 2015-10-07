@@ -6,7 +6,7 @@
  <class catalog="NicoleJeniffer" name="e.dominio.entity.Clientes" table="Clientes">
   <id name="idClientes" type="int">
    <column name="idClientes"/>
-   <generator class="assigned"/>
+   <generator class="identity"/>
   </id>
   <property generated="never" lazy="false" name="nombre" type="string">
    <column length="45" name="Nombre"/>
