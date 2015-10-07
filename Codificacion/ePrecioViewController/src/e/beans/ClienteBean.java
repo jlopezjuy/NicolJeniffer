@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 
 import e.base.excepcion.ExcepcionServicio;
 import e.dominio.entity.Clientes;
-import e.dto.dominio.ClienteDto;
 
 public class ClienteBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ClienteBean.class);
@@ -23,13 +22,24 @@ public class ClienteBean extends BaseBean {
 	private String email;
 	private String domicilio;
 	private List<Clientes> listaClientes = new ArrayList<Clientes>();
-	
-	public ClienteBean(){
+
+	public ClienteBean() {
 		super();
 	}
-	
+
 	public void guardarNuevoCliente(ActionEvent ev) {
 		LOG.debug("Entro en guardarNuevoCliente");
+
+	}
+	
+	/**
+	 * Metodo para guardar un cliente nuevo
+	 * @return 
+	 * @author jlopez
+	 * @since 07/10/2015
+	 * @version 1.0
+	 */
+	public String gurdarCliente() {
 		try {
 			cliente = new Clientes();
 			cliente.setNombre(nombre);
@@ -38,32 +48,52 @@ public class ClienteBean extends BaseBean {
 			cliente.setTelefono(telefono);
 			cliente.setEmail(email);
 			cliente.setDomicilio(domicilio);
-			
-			getServicioCliente().guardarCliente(cliente);
 
+			getServicioCliente().guardarCliente(cliente);
+			limpiarFormulario();
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);
+			return null;
 
 		}
+		return "listaClientesView";
+	}
+	
+	/**
+	 * Metodo para limpiar el formulario 
+	 * luego de un alta exitosa
+	 * @author jlopez
+	 * @since 07/10/2015
+	 * @version 1.0
+	 */
+	private void limpiarFormulario(){
+		nombre = "";
+		apellido = "";
+		celular = "";
+		telefono = "";
+		email = "";
+		domicilio = "";
 	}
 	
 	public Clientes getCliente() {
 		return cliente;
 	}
+
 	public void setCliente(Clientes cliente) {
 		this.cliente = cliente;
 	}
+
 	public List<Clientes> getListaClientes() {
 		try {
 			listaClientes = getServicioCliente().listAll();
-			LOG.debug("cantidad de datos: "+listaClientes.size());
+			LOG.debug("cantidad de datos: " + listaClientes.size());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return listaClientes;
 	}
+
 	public void setListaClientes(List<Clientes> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
@@ -123,6 +153,5 @@ public class ClienteBean extends BaseBean {
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
 	}
-	
-	
+
 }

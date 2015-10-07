@@ -14,7 +14,12 @@
 				<h:outputLabel for="apellido" value="Apellido" />
 				<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" />
 				<h:outputLabel for="mail" value="E-Mail" />
-				<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}" />
+				<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}">
+					<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+				</p:inputText>
+				
+				<p:watermark for="mail" value="E-Mail *" />
+				<p:message for="mail" />
 				<h:outputLabel for="telefono" value="Teléfono" />
 				<p:inputText id="telefono" label="Teléfono" value="#{clienteBean.telefono}" />
 				<h:outputLabel for="celular" value="Celular" />
@@ -24,7 +29,7 @@
 
 
 				<f:facet name="footer">
-					<p:commandButton value="Guardar" id="nonAjax" actionListener="#{clienteBean.guardarNuevoCliente}" ajax="false" />
+					<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{clienteBean.gurdarCliente}" />
 				</f:facet>
 			</h:panelGrid>
 		</h:form>
