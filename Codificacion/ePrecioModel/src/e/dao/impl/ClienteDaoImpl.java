@@ -1,16 +1,12 @@
 package e.dao.impl;
 
-import java.io.InputStream;
-import java.sql.Blob;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import e.base.excepcion.ExcepcionBaseDeDato;
 import e.dao.ClienteDao;
-import e.dominio.Persona;
 import e.dominio.entity.Clientes;
 import e.hibernate.dao.impl.DAOHibernateImpl;
 

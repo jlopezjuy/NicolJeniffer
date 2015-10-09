@@ -1,11 +1,18 @@
 package e.beans;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
 import javax.faces.event.ActionEvent;
 
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 import e.base.excepcion.ExcepcionServicio;
 import e.dominio.entity.Clientes;
@@ -14,6 +21,7 @@ public class ClienteBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ClienteBean.class);
 
 	private Clientes cliente;
+	private Clientes clienteSeleccionado;
 	private int idClientes;
 	private String nombre;
 	private String apellido;
@@ -74,6 +82,45 @@ public class ClienteBean extends BaseBean {
 		email = "";
 		domicilio = "";
 	}
+	
+	/**
+	 * Metodo que se ejecuta cuando seleccionamos una fila
+	 * @param event
+	 * @author jlopez
+	 * @since 08/10/2015
+	 * @version 1.0
+	 */
+	public void onRowSelect(SelectEvent event) {
+        FacesMessage msg = new FacesMessage("Car Selected", ((Clientes) event.getObject()).getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+	
+	/**
+	 * Metodo que se ejecuta cuando des seleccionamos una fila
+	 * @param event
+	 * @author jlopez
+	 * @since 08/10/2015
+	 * @version 1.0
+	 */
+    public void onRowUnselect(UnselectEvent event) {
+        FacesMessage msg = new FacesMessage("Car Unselected", ((Clientes) event.getObject()).getNombre());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+    
+    public void showPopUp(){
+    	LOG.debug("*****************entro a intentar mostrar el PopUp");
+    	Map<String,Object> options = new HashMap<String, Object>();
+        options.put("modal", true);
+        options.put("draggable", false);
+        options.put("resizable", false);
+        options.put("contentHeight", 320);
+         
+        RequestContext.getCurrentInstance().openDialog("altaClienteView", options, null);
+    }
+    
+    public void destroyWorld() {
+        addMessage("System Error", "Please try again later.");
+    }
 	
 	public Clientes getCliente() {
 		return cliente;
@@ -152,6 +199,16 @@ public class ClienteBean extends BaseBean {
 
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
+	}
+
+	public Clientes getClienteSeleccionado() {
+		LOG.debug("entro a obtener cliente seleccionado");
+		return clienteSeleccionado;
+	}
+
+	public void setClienteSeleccionado(Clientes clienteSeleccionado) {
+		LOG.debug("entro a guardar cliente seleccionado");
+		this.clienteSeleccionado = clienteSeleccionado;
 	}
 
 }

@@ -1,44 +1,75 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="../../template/template.xhtml">
 	<ui:define name="title">
-		
+
 	</ui:define>
 	<ui:define name="content">
-		<h:form>
-			
-		
-		<p:button outcome="altaClienteView" value="Nuevo" />
-			
-				<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="10"
-                         paginator="true"
-                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15">
-					<p:column headerText="Nombre">
-						<h:outputText value="#{cli.nombre}" />
-					</p:column>
+		<h:form id="form">
 
-					<p:column headerText="Apellido">
-						<h:outputText value="#{cli.apellido}" />
-					</p:column>
 
-					<p:column headerText="Celular">
-						<h:outputText value="#{cli.celular}" />
-					</p:column>
+			<p:button outcome="altaClienteView" value="Nuevo" />
 
-					<p:column headerText="Domicilio">
-						<h:outputText value="#{cli.domicilio}" />
-					</p:column>
-				</p:dataTable>
-		
+			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="10" paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
+
+				<p:column style="width:62px;text-align: center">
+					<p:commandButton update=":form:clienteDetalle" icon="ui-icon-search" oncomplete="PF('clienteDialog').show()">
+						<f:setPropertyActionListener value="#{cli}" target="#{clienteBean.clienteSeleccionado}" />
+					</p:commandButton>
+				</p:column>
+
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{cli.nombre}" />
+				</p:column>
+
+				<p:column headerText="Apellido">
+					<h:outputText value="#{cli.apellido}" />
+				</p:column>
+
+				<p:column headerText="Celular">
+					<h:outputText value="#{cli.celular}" />
+				</p:column>
+
+				<p:column headerText="Domicilio">
+					<h:outputText value="#{cli.domicilio}" />
+				</p:column>
+			</p:dataTable>
+
+			<p:dialog header="Información de Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="clienteDetalle" style="text-align:center;">
+					<p:panelGrid columns="2" columnClasses="label,value">
+
+
+						<h:outputText value="Id:" />
+						<h:outputText value="#{clienteBean.clienteSeleccionado.idClientes}" />
+
+						<h:outputText value="Year" />
+						<h:outputText value="#{clienteBean.clienteSeleccionado.nombre}" />
+
+						<h:outputText value="Color:" />
+						<h:outputText value="#{clienteBean.clienteSeleccionado.apellido}" />
+
+						<h:outputText value="Price" />
+						<h:outputText value="$#{clienteBean.clienteSeleccionado.celular}" />
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+			<p:growl id="message" showDetail="true" />
+			<p:commandButton value="Destroy the World" actionListener="#{clienteBean.destroyWorld}" update="message">
+				<p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
+			</p:commandButton>
+
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+				<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+				<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+			</p:confirmDialog>
+
 
 		</h:form>
 	</ui:define>
- 
+
 </ui:composition>
 </html>
