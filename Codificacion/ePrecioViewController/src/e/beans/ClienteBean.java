@@ -29,7 +29,9 @@ public class ClienteBean extends BaseBean {
 	private String telefono;
 	private String email;
 	private String domicilio;
+	private String colegio;
 	private List<Clientes> listaClientes = new ArrayList<Clientes>();
+	
 
 	public ClienteBean() {
 		super();
@@ -199,6 +201,14 @@ public class ClienteBean extends BaseBean {
 
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
+	}
+
+	public String getColegio() {
+		return colegio;
+	}
+
+	public void setColegio(String colegio) {
+		this.colegio = colegio;
 	}
 
 	public Clientes getClienteSeleccionado() {

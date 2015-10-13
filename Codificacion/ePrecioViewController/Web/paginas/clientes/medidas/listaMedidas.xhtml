@@ -9,9 +9,9 @@
 		<h:form id="form">
 
 
-			<p:button outcome="altaClienteView" value="Nuevo" />
+			<p:button outcome="" value="Nuevo" />
 
-			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="10" paginator="true"
+			<p:dataTable var="med" value="#{medidasBean.listaMedidas}" rows="10" paginator="true"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 
 				<p:column style="width:62px;text-align: center">
@@ -22,19 +22,19 @@
 
 
 				<p:column headerText="Nombre">
-					<h:outputText value="#{cli.nombre}" />
+					<h:outputText value="#{med.nombre}" />
 				</p:column>
 
 				<p:column headerText="Apellido">
-					<h:outputText value="#{cli.apellido}" />
+					<h:outputText value="#{med.apellido}" />
 				</p:column>
 
 				<p:column headerText="Celular">
-					<h:outputText value="#{cli.celular}" />
+					<h:outputText value="#{med.celular}" />
 				</p:column>
 
 				<p:column headerText="Domicilio">
-					<h:outputText value="#{cli.domicilio}" />
+					<h:outputText value="#{med.domicilio}" />
 				</p:column>
 			</p:dataTable>
 

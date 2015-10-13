@@ -6,7 +6,7 @@
  <class catalog="NicoleJeniffer" name="e.dominio.entity.Medidas" table="Medidas">
   <id name="idMedidas" type="int">
    <column name="idMedidas"/>
-   <generator class="assigned"/>
+   <generator class="identity"/>
   </id>
   <many-to-one class="e.dominio.entity.Clientes" fetch="select" name="clientes">
    <column name="Clientes_idClientes"/>

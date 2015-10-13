@@ -84,6 +84,11 @@
 		<managed-bean-class>e.beans.ClienteBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>medidasBean</managed-bean-name>
+		<managed-bean-class>e.beans.MedidasBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	
 	<!-- FIn nuevos beans -->
 
@@ -182,6 +187,12 @@
 		<navigation-case>
 			<from-outcome>altaClienteView</from-outcome>
 			<to-view-id>/paginas/clientes/altaCliente.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaMedidas</from-outcome>
+			<to-view-id>/paginas/clientes/medidas/listaMedidas.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		<!-- Fin Nicoles -->

@@ -18,6 +18,7 @@ public class Clientes extends DominioBaseNombre {
 	private String telefono;
 	private String email;
 	private String domicilio;
+	private String colegio;
 	private Set medidases = new HashSet(0);
 	private Set modeloses = new HashSet(0);
 
@@ -112,6 +113,14 @@ public class Clientes extends DominioBaseNombre {
 
 	public void setModeloses(Set modeloses) {
 		this.modeloses = modeloses;
+	}
+
+	public String getColegio() {
+		return colegio;
+	}
+
+	public void setColegio(String colegio) {
+		this.colegio = colegio;
 	}
 
 }

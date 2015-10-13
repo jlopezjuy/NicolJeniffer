@@ -26,6 +26,9 @@
   <property generated="never" lazy="false" name="domicilio" type="string">
    <column length="45" name="Domicilio"/>
   </property>
+  <property generated="never" lazy="false" name="colegio" type="string">
+   <column length="45" name="Colegio"/>
+  </property>
   <set fetch="select" inverse="true" lazy="true" name="medidases"
    sort="unsorted" table="Medidas">
    <key>
