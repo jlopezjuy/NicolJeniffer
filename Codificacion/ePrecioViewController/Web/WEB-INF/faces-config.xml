@@ -11,71 +11,7 @@
 		<converter-id>dtoBaseNombreConverter</converter-id>
 		<converter-class>e.converters.DTOBaseNombreConverter</converter-class>
 	</converter>
-	<managed-bean>
-		<managed-bean-name>itemBean</managed-bean-name>
-		<managed-bean-class>e.beans.ItemBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>productoListaBean</managed-bean-name>
-		<managed-bean-class>e.beans.ProductoListaBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>productoFormBean</managed-bean-name>
-		<managed-bean-class>e.beans.ProductoFormBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>inicioBean</managed-bean-name>
-		<managed-bean-class>e.beans.InicioBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>personaBean</managed-bean-name>
-		<managed-bean-class>e.beans.PersonaBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>mensajeBean</managed-bean-name>
-		<managed-bean-class>e.beans.MensajeBean</managed-bean-class>
-		<managed-bean-scope>view</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>marcaListaBean</managed-bean-name>
-		<managed-bean-class>e.beans.MarcaListaBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>marcaFormBean</managed-bean-name>
-		<managed-bean-class>e.beans.MarcaFormBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>dimensionListaBean</managed-bean-name>
-		<managed-bean-class>e.beans.DimensionListaBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>dimensionFormBean</managed-bean-name>
-		<managed-bean-class>e.beans.DimensionFormBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>unidadFormBean</managed-bean-name>
-		<managed-bean-class>e.beans.UnidadFormBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>precioListaBean</managed-bean-name>
-		<managed-bean-class>e.beans.PrecioListaBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
-	<managed-bean>
-		<managed-bean-name>precioFormBean</managed-bean-name>
-		<managed-bean-class>e.beans.PrecioFormBean</managed-bean-class>
-		<managed-bean-scope>session</managed-bean-scope>
-	</managed-bean>
+
 	
 	<!-- Nuevos Beans -->
 	
@@ -191,7 +127,7 @@
 		</navigation-case>
 		
 		<navigation-case>
-			<from-outcome>listaMedidas</from-outcome>
+			<from-outcome>listaMedidasView</from-outcome>
 			<to-view-id>/paginas/clientes/medidas/listaMedidas.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>

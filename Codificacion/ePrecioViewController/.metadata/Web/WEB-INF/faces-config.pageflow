@@ -18,7 +18,7 @@
   <nodes xsi:type="pageflow:PFPage" name="paginas/precioLista.xhtml" x="338" y="5554" id="pf14412477214675" referenceLink="//@navigationRule.0/@navigationCase.13/@toViewId|" inlinks="pf14412477214663" path="/paginas/precioLista.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/precioForm.xhtml" x="338" y="5938" id="pf14413321035231" referenceLink="//@navigationRule.0/@navigationCase.14/@toViewId|" inlinks="pf14413321035220" path="/paginas/precioForm.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/listaClientes.xhtml" x="338" y="6322" id="pf14438909400132" referenceLink="//@navigationRule.0/@navigationCase.16/@toViewId|" inlinks="pf14438909400130" path="/paginas/clientes/listaClientes.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/altaCliente.xhtml" id="pf14438909400133" referenceLink="//@navigationRule.0/@navigationCase.18/@toViewId|" inlinks="pf14438909400131" path="/paginas/clientes/altaCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/altaCliente.xhtml" id="pf14438909400133" referenceLink="//@navigationRule.0/@navigationCase.17/@toViewId|" inlinks="pf14438909400131" path="/paginas/clientes/altaCliente.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/medidas/listaMedidas.xhtml" id="pf14446880579741" referenceLink="//@navigationRule.0/@navigationCase.18/@toViewId|" inlinks="pf14446880579710" path="/paginas/clientes/medidas/listaMedidas.xhtml"/>
   <links id="pf14342540587911" target="pf14342540587923" source="pf14211148800870" outcome="bienvenida" redirect="true"/>
   <links id="pf14398337915402" target="pf14398337915403" source="pf14211148800870" outcome="productoForm" redirect="true"/>
@@ -38,5 +38,5 @@
   <links id="pf14413321035220" target="pf14413321035231" source="pf14211148800870" outcome="precioForm" redirect="true"/>
   <links id="pf14438909400130" target="pf14438909400132" source="pf14211148800870" outcome="listaClientesView" redirect="true"/>
   <links id="pf14438909400131" target="pf14438909400133" source="pf14211148800870" outcome="altaClienteView" redirect="true"/>
-  <links id="pf14446880579710" target="pf14446880579741" source="pf14211148800870" outcome="listaMedidas" redirect="true"/>
+  <links id="pf14446880579710" target="pf14446880579741" source="pf14211148800870" outcome="listaMedidasView" redirect="true"/>
 </pageflow:Pageflow>
