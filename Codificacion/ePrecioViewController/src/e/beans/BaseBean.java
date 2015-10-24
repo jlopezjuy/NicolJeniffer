@@ -9,6 +9,7 @@ import e.base.dto.contexto.UsuarioWebDto;
 import e.base.dto.validacion.MensajeDto;
 import e.servicio.ServicioCliente;
 import e.servicio.ServicioItem;
+import e.servicio.ServicioMedida;
 import e.servicio.ServicioPrecio;
 import e.servicio.impl.ServicioClienteImpl;
 import e.util.SpringUtil;
@@ -22,6 +23,7 @@ public class BaseBean {
 	private ServicioPrecio servicioGeneral;
 	private ServicioItem servicioItem;
 	private ServicioCliente servicioCliente;
+	private ServicioMedida servicioMedida;
 
 	public BaseBean() {
 		LOG.debug("");
@@ -96,5 +98,18 @@ public class BaseBean {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+
+	public ServicioMedida getServicioMedida() {
+		if (servicioMedida == null) {
+			servicioMedida = (ServicioMedida) SpringUtil.obtenerBeanSpring("servicioMedida");
+		}
+		return servicioMedida;
+	}
+
+	public void setServicioMedida(ServicioMedida servicioMedida) {
+		this.servicioMedida = servicioMedida;
+	}
+	
+	
 
 }

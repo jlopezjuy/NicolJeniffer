@@ -1,42 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14202597601050" configfile="/ePrecioViewController/Web/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="3250" id="pf14211148800870" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14342540587911 pf14398337915402 pf14399496084100 pf14399496084101 pf14402070794860 pf14402070794861 pf14410685206540 pf14410685206541 pf14410685206542 pf14411478910120 pf14411478910121 pf14411478910122 pf14412476824620 pf14412477214662 pf14412477214663 pf14413321035220 pf14438909400130 pf14438909400131 pf14446880579710" path="*"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/inicio.xhtml" x="338" y="178" id="pf14342540587922" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14402070794860" path="/paginas/inicio.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/home.xhtml" x="338" y="562" id="pf14342540587923" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14342540587911" path="/paginas/home.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/productoForm.xhtml" x="338" y="946" id="pf14398337915403" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14398337915402" path="/paginas/productoForm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/productoLista.xhtml" x="338" y="1330" id="pf14399496084102" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14399496084100" path="/paginas/productoLista.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/productoFormView.xhtml" x="338" y="1714" id="pf14399496084113" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14399496084101" path="/paginas/productoFormView.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/mensaje.xhtml" x="338" y="2098" id="pf14402070794872" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14402070794861" path="/paginas/mensaje.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/marcaForm.xhtml" x="338" y="2482" id="pf14410685206543" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf14410685206540" path="/paginas/marcaForm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/marcaLista.xhtml" x="338" y="2866" id="pf14410685206554" referenceLink="//@navigationRule.0/@navigationCase.7/@toViewId|" inlinks="pf14410685206541" path="/paginas/marcaLista.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/marcaFormView.xhtml" x="338" y="3250" id="pf14410685206555" referenceLink="//@navigationRule.0/@navigationCase.8/@toViewId|" inlinks="pf14410685206542" path="/paginas/marcaFormView.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/dimensionForm.xhtml" x="338" y="3634" id="pf14411478910133" referenceLink="//@navigationRule.0/@navigationCase.9/@toViewId|" inlinks="pf14411478910120" path="/paginas/dimensionForm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/dimensionLista.xhtml" x="338" y="4018" id="pf14411478910134" referenceLink="//@navigationRule.0/@navigationCase.10/@toViewId|" inlinks="pf14411478910121" path="/paginas/dimensionLista.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/dimensionFormView.xhtml" x="338" y="4402" id="pf14411478910135" referenceLink="//@navigationRule.0/@navigationCase.11/@toViewId|" inlinks="pf14411478910122" path="/paginas/dimensionFormView.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/unidadForm.xhtml" x="338" y="4786" id="pf14412476824621" referenceLink="//@navigationRule.0/@navigationCase.12/@toViewId|" inlinks="pf14412476824620" path="/paginas/unidadForm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/precioFormView.xhtml" x="338" y="5170" id="pf14412477214674" referenceLink="//@navigationRule.0/@navigationCase.15/@toViewId|" inlinks="pf14412477214662" path="/paginas/precioFormView.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/precioLista.xhtml" x="338" y="5554" id="pf14412477214675" referenceLink="//@navigationRule.0/@navigationCase.13/@toViewId|" inlinks="pf14412477214663" path="/paginas/precioLista.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/precioForm.xhtml" x="338" y="5938" id="pf14413321035231" referenceLink="//@navigationRule.0/@navigationCase.14/@toViewId|" inlinks="pf14413321035220" path="/paginas/precioForm.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/listaClientes.xhtml" x="338" y="6322" id="pf14438909400132" referenceLink="//@navigationRule.0/@navigationCase.16/@toViewId|" inlinks="pf14438909400130" path="/paginas/clientes/listaClientes.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/altaCliente.xhtml" id="pf14438909400133" referenceLink="//@navigationRule.0/@navigationCase.17/@toViewId|" inlinks="pf14438909400131" path="/paginas/clientes/altaCliente.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/medidas/listaMedidas.xhtml" id="pf14446880579741" referenceLink="//@navigationRule.0/@navigationCase.18/@toViewId|" inlinks="pf14446880579710" path="/paginas/clientes/medidas/listaMedidas.xhtml"/>
-  <links id="pf14342540587911" target="pf14342540587923" source="pf14211148800870" outcome="bienvenida" redirect="true"/>
-  <links id="pf14398337915402" target="pf14398337915403" source="pf14211148800870" outcome="productoForm" redirect="true"/>
-  <links id="pf14399496084100" target="pf14399496084102" source="pf14211148800870" outcome="productoLista" redirect="true"/>
-  <links id="pf14399496084101" target="pf14399496084113" source="pf14211148800870" outcome="productoFormView" redirect="true"/>
-  <links id="pf14402070794860" target="pf14342540587922" source="pf14211148800870" outcome="ingresar" redirect="true"/>
-  <links id="pf14402070794861" target="pf14402070794872" source="pf14211148800870" outcome="mensaje" redirect="true"/>
-  <links id="pf14410685206540" target="pf14410685206543" source="pf14211148800870" outcome="marcaForm" redirect="true"/>
-  <links id="pf14410685206541" target="pf14410685206554" source="pf14211148800870" outcome="marcaLista" redirect="true"/>
-  <links id="pf14410685206542" target="pf14410685206555" source="pf14211148800870" outcome="marcaFormView" redirect="true"/>
-  <links id="pf14411478910120" target="pf14411478910133" source="pf14211148800870" outcome="dimensionForm" redirect="true"/>
-  <links id="pf14411478910121" target="pf14411478910134" source="pf14211148800870" outcome="dimensionLista" redirect="true"/>
-  <links id="pf14411478910122" target="pf14411478910135" source="pf14211148800870" outcome="dimensionFormView" redirect="true"/>
-  <links id="pf14412476824620" target="pf14412476824621" source="pf14211148800870" outcome="unidadForm" redirect="true"/>
-  <links id="pf14412477214662" target="pf14412477214674" source="pf14211148800870" outcome="precioFormView" redirect="true"/>
-  <links id="pf14412477214663" target="pf14412477214675" source="pf14211148800870" outcome="precioLista" redirect="true"/>
-  <links id="pf14413321035220" target="pf14413321035231" source="pf14211148800870" outcome="precioForm" redirect="true"/>
-  <links id="pf14438909400130" target="pf14438909400132" source="pf14211148800870" outcome="listaClientesView" redirect="true"/>
-  <links id="pf14438909400131" target="pf14438909400133" source="pf14211148800870" outcome="altaClienteView" redirect="true"/>
-  <links id="pf14446880579710" target="pf14446880579741" source="pf14211148800870" outcome="listaMedidasView" redirect="true"/>
+  <nodes xsi:type="pageflow:PFPage" name="*" id="pf14456996568274" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14456996568275 pf14456996568276 pf14456996568277 pf14456996568278" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/listaClientes.xhtml" id="pf14456996568279" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14456996568275" path="/paginas/clientes/listaClientes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/clientes/altaCliente.xhtml" id="pf144569965682710" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14456996568276" path="/paginas/clientes/altaCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/medidas/listaMedidas.xhtml" id="pf144569965682711" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14456996568277" path="/paginas/medidas/listaMedidas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/medidas/altaMedida.xhtml" id="pf144569965682712" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14456996568278" path="/paginas/medidas/altaMedida.xhtml"/>
+  <links id="pf14456996568275" target="pf14456996568279" source="pf14456996568274" outcome="listaClientesView" redirect="true"/>
+  <links id="pf14456996568276" target="pf144569965682710" source="pf14456996568274" outcome="altaClienteView" redirect="true"/>
+  <links id="pf14456996568277" target="pf144569965682711" source="pf14456996568274" outcome="listaMedidasView" redirect="true"/>
+  <links id="pf14456996568278" target="pf144569965682712" source="pf14456996568274" outcome="altaMedidaView" redirect="true"/>
 </pageflow:Pageflow>

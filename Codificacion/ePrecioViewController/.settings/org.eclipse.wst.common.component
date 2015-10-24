@@ -6,6 +6,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="java-output-path" value="/ePrecioViewController/build/classes"/>
-        <property name="context-root" value="Precio"/>
+        <property name="context-root" value="Clothes"/>
     </wb-module>
 </project-modules>

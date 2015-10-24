@@ -3,11 +3,15 @@ package e.beans;
 import java.math.BigDecimal;
 import java.util.*;
 
-import e.base.dominio.DominioBaseNombre;
+import org.apache.log4j.Logger;
+
+import e.base.excepcion.ExcepcionServicio;
 import e.dominio.entity.Clientes;
 import e.dominio.entity.Medidas;
 
-public class MedidasBean extends DominioBaseNombre{
+public class MedidasBean extends BaseBean{
+	private static final Logger LOG = Logger.getLogger(MedidasBean.class);
+	
 	private int idMedidas;
 	private Clientes clientes;
 	private BigDecimal largoPolera;
@@ -25,6 +29,80 @@ public class MedidasBean extends DominioBaseNombre{
 	private BigDecimal largoPollera;
 	private String observaciones;
 	private List<Medidas> listaMedidas = new ArrayList<Medidas>();
+	
+	public MedidasBean() {
+		super();
+	}
+	
+	/**
+	 * Metodo para guardar una medida
+	 * @return
+	 * @author JLopez
+	 * @since 24/10/2015
+	 * @version 1.0
+	 */
+	public String gurdarMedida() {
+		try {
+			getServicioMedida().guardarMedida(getMedida());
+			limpiarFormulario();
+		} catch (ExcepcionServicio e) {
+			LOG.error(e);
+			return null;
+		}
+		return "listaMedidasView";
+	}
+	
+	/**
+	 * Metodo apra limpiar el formulario
+	 * @author JLopez
+	 * @since 24/10/2015
+	 * @version 1.0
+	 */
+	private void limpiarFormulario() {
+		this.largoPolera = null;
+		this.largoCorset = null;
+		this.espalda = null;
+		this.contornoBusto = null;
+		this.contornoCadera = null;
+		this.costado = null;
+		this.cintura = null;
+		this.cadera = null;
+		this.talleEspalda = null;
+		this.talleDelantero = null;
+		this.sisa = null;
+		this.largoManga = null;
+		this.largoPollera = null;
+		this.observaciones = null;		
+	}
+
+	/**
+	 * Metodo par obtenr una media para su proceso
+	 * @return medida
+	 * @author JLopez
+	 * @since 24/10/2015
+	 * @version 1.0
+	 */
+	public Medidas getMedida(){
+		Medidas medida = new Medidas();
+
+		medida.setClientes(clientes);
+		medida.setLargoPolera(largoPolera);
+		medida.setLargoCorset(largoCorset);
+		medida.setEspalda(espalda);
+		medida.setContornoBusto(contornoBusto);
+		medida.setContornoCadera(contornoCadera);
+		medida.setCostado(costado);
+		medida.setCintura(cintura);
+		medida.setCadera(cadera);
+		medida.setTalleEspalda(talleEspalda);
+		medida.setTalleDelantero(talleDelantero);
+		medida.setSisa(sisa);
+		medida.setLargoManga(largoManga);
+		medida.setLargoPollera(largoPollera);
+		medida.setObservaciones(observaciones);
+		
+		return medida;
+	}
 	
 	public int getIdMedidas() {
 		return idMedidas;
@@ -123,6 +201,12 @@ public class MedidasBean extends DominioBaseNombre{
 		this.observaciones = observaciones;
 	}
 	public List<Medidas> getListaMedidas() {
+		try {
+			listaMedidas = getServicioMedida().listAll(clientes);
+			LOG.debug("cantidad de datos: " + listaMedidas.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return listaMedidas;
 	}
 	public void setListaMedidas(List<Medidas> listaMedidas) {

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
 	version="2.2">
 	<application>
 		<locale-config>
@@ -21,7 +23,7 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	<managed-bean>
-		<managed-bean-name>medidasBean</managed-bean-name>
+		<managed-bean-name>medidaBean</managed-bean-name>
 		<managed-bean-class>e.beans.MedidasBean</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
@@ -31,87 +33,6 @@
 	<navigation-rule>
 		<display-name>*</display-name>
 		<from-view-id>*</from-view-id>
-		<navigation-case>
-			<from-outcome>ingresar</from-outcome>
-			<to-view-id>/paginas/inicio.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>mensaje</from-outcome>
-			<to-view-id>/paginas/mensaje.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>bienvenida</from-outcome>
-			<to-view-id>/paginas/home.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>productoForm</from-outcome>
-			<to-view-id>/paginas/productoForm.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>productoLista</from-outcome>
-			<to-view-id>/paginas/productoLista.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>productoFormView</from-outcome>
-			<to-view-id>/paginas/productoFormView.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>marcaForm</from-outcome>
-			<to-view-id>/paginas/marcaForm.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>marcaLista</from-outcome>
-			<to-view-id>/paginas/marcaLista.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>marcaFormView</from-outcome>
-			<to-view-id>/paginas/marcaFormView.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>dimensionForm</from-outcome>
-			<to-view-id>/paginas/dimensionForm.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>dimensionLista</from-outcome>
-			<to-view-id>/paginas/dimensionLista.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>dimensionFormView</from-outcome>
-			<to-view-id>/paginas/dimensionFormView.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>unidadForm</from-outcome>
-			<to-view-id>/paginas/unidadForm.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>precioLista</from-outcome>
-			<to-view-id>/paginas/precioLista.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>precioForm</from-outcome>
-			<to-view-id>/paginas/precioForm.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>precioFormView</from-outcome>
-			<to-view-id>/paginas/precioFormView.xhtml</to-view-id>
-			<redirect></redirect>
-		</navigation-case>
-		
 		<!-- Nicole -->
 		
 		<navigation-case>
@@ -128,12 +49,16 @@
 		
 		<navigation-case>
 			<from-outcome>listaMedidasView</from-outcome>
-			<to-view-id>/paginas/clientes/medidas/listaMedidas.xhtml</to-view-id>
+			<to-view-id>/paginas/medidas/listaMedidas.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaMedidaView</from-outcome>
+			<to-view-id>/paginas/medidas/altaMedida.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		<!-- Fin Nicoles -->
 	</navigation-rule>
-
-
 
 </faces-config>

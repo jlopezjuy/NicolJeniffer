@@ -53,4 +53,8 @@
 	<bean id="clienteDao" class="e.dao.impl.ClienteDaoImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
 	</bean>
+	
+	<bean id="medidaDao" class="e.dao.impl.MedidaDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
 </beans>
