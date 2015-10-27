@@ -13,7 +13,7 @@
 		<h:form>
 			<p:growl id="message" showDetail="true" />
 			
-			<h:panelGrid columns="4" cellpadding="5">
+			<h:panelGrid columns="4" cellpadding="5" layout="grid">
 				<h:outputLabel for="contornoBusto" value="Contorno de Busto" />
 				<p:inputText id="contornoBusto" label="Nombre" value="#{medidaBean.contornoBusto}"  />
 				
@@ -56,7 +56,7 @@
 				<p:spacer></p:spacer>
 				<f:facet name="footer">
 					<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{medidaBean.gurdarMedida}" />
-					<p:commandButton value="Cancelar" id="nonAjax" ajax="false" action="#{medidaBean.cancelarMedida}" />
+					<p:commandButton value="Cancelar" id="cancelar" ajax="false" action="#{medidaBean.cancelarMedida}" />
 				</f:facet>
 			</h:panelGrid>
 		</h:form>
