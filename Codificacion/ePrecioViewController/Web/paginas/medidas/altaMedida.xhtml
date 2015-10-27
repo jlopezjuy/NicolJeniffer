@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:h="http://java.sun.com/jsf/html" 
+	  xmlns:f="http://java.sun.com/jsf/core" 
+	  xmlns:p="http://primefaces.org/ui" 
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="../../template/template.xhtml">
 	<ui:define name="title">
@@ -8,6 +12,7 @@
 	<ui:define name="content">
 		<h:form>
 			<p:growl id="message" showDetail="true" />
+			
 			<h:panelGrid columns="4" cellpadding="5">
 				<h:outputLabel for="contornoBusto" value="Contorno de Busto" />
 				<p:inputText id="contornoBusto" label="Nombre" value="#{medidaBean.contornoBusto}"  />
@@ -50,8 +55,8 @@
 				
 				<p:spacer></p:spacer>
 				<f:facet name="footer">
-
 					<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{medidaBean.gurdarMedida}" />
+					<p:commandButton value="Cancelar" id="nonAjax" ajax="false" action="#{medidaBean.cancelarMedida}" />
 				</f:facet>
 			</h:panelGrid>
 		</h:form>

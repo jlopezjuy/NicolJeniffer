@@ -83,6 +83,7 @@ public class ClienteBean extends BaseBean {
 		telefono = "";
 		email = "";
 		domicilio = "";
+		colegio = "";
 	}
 	
 	/**

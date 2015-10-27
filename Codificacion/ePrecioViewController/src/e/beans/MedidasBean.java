@@ -53,6 +53,18 @@ public class MedidasBean extends BaseBean{
 	}
 	
 	/**
+	 * Metodo que cancela el alta de medida
+	 * @return
+	 * @author JLopez
+	 * @since 27/10/2015
+	 * @version 1.0
+	 */
+	public String cancelarMedida(){
+		limpiarFormulario();
+		return "listaMedidasView";
+	}
+	
+	/**
 	 * Metodo apra limpiar el formulario
 	 * @author JLopez
 	 * @since 24/10/2015
