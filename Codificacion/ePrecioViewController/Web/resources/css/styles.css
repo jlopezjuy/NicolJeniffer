@@ -985,3 +985,9 @@ footer h2 {
     background: #fff;
     opacity: 1;
 }
+
+.center {
+  margin: 0 auto;
+  width: 200px;
+  padding: 20px;
+}
