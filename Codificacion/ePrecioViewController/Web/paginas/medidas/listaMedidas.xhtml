@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" 
-	  xmlns:h="http://java.sun.com/jsf/html" 
-	  xmlns:f="http://java.sun.com/jsf/core" 
-	  xmlns:p="http://primefaces.org/ui" 
-	  xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="../../template/template.xhtml">
 	<ui:define name="title">
@@ -22,34 +18,78 @@
 
 			</h:panelGrid>
 
+			<p:commandButton action="altaMedidaView" value="Nuevo" icon="ui-icon-plus" />
+			<p:commandButton action="listaClientesView" value="Volver" icon="ui-icon-plus" />
 
-			<p:ribbon>
-				<p:tab title="Acciones">
-					<p:ribbonGroup label="Options">
-						<p:button outcome="altaMedidaView" value="Nuevo" icon="ui-ribbonicon-new" styleClass="ui-ribbon-bigbutton" />
-					</p:ribbonGroup>
-					<p:ribbonGroup label="Clientes">
-						<p:button outcome="listaClientesView" value="Volver" icon="ui-ribbonicon-new" styleClass="ui-ribbon-bigbutton" />
-					</p:ribbonGroup>
-				</p:tab>
-			</p:ribbon>
 
 			<p:dataTable var="med" value="#{medidaBean.listaMedidas}" rows="10" paginator="true"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 
 				<p:column headerText="Largo Pollera">
-					<h:outputText value="#{med.largoPolera}" >
-						<f:convertNumber pattern="##0.##"/>
+					<h:outputText value="#{med.largoPolera}">
+						<f:convertNumber pattern="##0.##" />
 					</h:outputText>
 				</p:column>
 
 				<p:column headerText="Largo Corset">
-					<h:outputText value="#{med.largoCorset}" >
-						<f:convertNumber pattern="##0.##"/>
+					<h:outputText value="#{med.largoCorset}">
+						<f:convertNumber pattern="##0.##" />
 					</h:outputText>
 				</p:column>
-
+				
+				<p:column style="width:80px;text-align: center" headerText="Detalle">
+					<p:commandButton icon="ui-icon-search" oncomplete="PF('MedidaDialog').show();" update=":form">
+						<f:setPropertyActionListener value="#{med}" target="#{medidaBean.medidaCliente}" />
+					</p:commandButton>
+				</p:column>
 			</p:dataTable>
+			
+			
+			<p:dialog header="Detalle de Medida" widgetVar="MedidaDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="clienteDetalle" style="text-align:left;">
+					<p:panelGrid columns="2" >
+
+						<h:outputText value="Busto: #{medidaBean.medidaCliente.busto}" />
+
+						<h:outputText value="Bajo Busto: #{medidaBean.medidaCliente.bajoBusto}" />
+
+						<h:outputText value="Ante Cadera: #{medidaBean.medidaCliente.anteCadera}" />
+						
+						<h:outputText value="Cadera: #{medidaBean.medidaCliente.cadera}" />
+						
+						<h:outputText value="Cintura: #{medidaBean.medidaCliente.cintura}" />
+						
+						<h:outputText value="Contorno Busto: #{medidaBean.medidaCliente.contornoBusto}" />
+						
+						<h:outputText value="Contorno de Cadera: #{medidaBean.medidaCliente.contornoCadera}" /> 
+						
+						<h:outputText value="Costado: #{medidaBean.medidaCliente.costado}" />
+						
+						<h:outputText value="Espalda: #{medidaBean.medidaCliente.espalda}" />
+						
+						<h:outputText value="Largo Corset: #{medidaBean.medidaCliente.largoCorset}" />
+						
+						<h:outputText value="Largo Manga: #{medidaBean.medidaCliente.largoManga}" />
+						
+						<h:outputText value="Largo Pollera: #{medidaBean.medidaCliente.largoPolera}" />
+						
+						<h:outputText value="Pico Busto1: #{medidaBean.medidaCliente.picoBusto1}" />
+						
+						<h:outputText value="Pico Busto2: #{medidaBean.medidaCliente.picoBusto2}" />
+						
+						<h:outputText value="Observaciones: #{medidaBean.medidaCliente.observaciones}" />
+						
+						<h:outputText value="Siza: #{medidaBean.medidaCliente.sisa}" />
+						
+						<h:outputText value="Talle Delantero: #{medidaBean.medidaCliente.talleDelantero}" />
+						
+						<h:outputText value="Talle Espalda: #{medidaBean.medidaCliente.talleEspalda}" />
+			
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+			
+			
 		</h:form>
 	</ui:define>
 

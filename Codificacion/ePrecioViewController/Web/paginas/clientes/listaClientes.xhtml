@@ -48,7 +48,7 @@
 
 
 			<p:dialog header="Información de Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-				<p:outputPanel id="clienteDetalle" style="text-align:center;">
+				<p:outputPanel id="clienteDetalle" style="text-align:left;">
 					<p:panelGrid columns="2" >
 
 						<h:outputText value="Id Cliente: #{clienteBean.clienteSeleccionado.idClientes}" />
@@ -60,10 +60,12 @@
 						<h:outputText value="Celular: #{clienteBean.clienteSeleccionado.celular}" />
 						
 						<h:outputText value="Fijo: #{clienteBean.clienteSeleccionado.telefono}" />
+						
+						<h:outputText value="Domicilio: #{clienteBean.clienteSeleccionado.domicilio}" />
+						
+						<h:outputText value="Colegio: #{clienteBean.clienteSeleccionado.colegio}" />
 			
 					</p:panelGrid>
-					<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" oncomplete="PF('this').hide();" update=":form" />
-					<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 				</p:outputPanel>
 			</p:dialog>
 			<p:growl id="message" showDetail="true" />

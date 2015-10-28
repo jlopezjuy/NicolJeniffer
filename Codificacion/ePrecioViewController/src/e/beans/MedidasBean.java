@@ -34,6 +34,7 @@ public class MedidasBean extends BaseBean{
 	private BigDecimal picoBusto1;
 	private BigDecimal picoBusto2;
 	private List<Medidas> listaMedidas = new ArrayList<Medidas>();
+	private Medidas medidaCliente;
 	
 	public MedidasBean() {
 		super();
@@ -276,6 +277,14 @@ public class MedidasBean extends BaseBean{
 
 	public void setPicoBusto2(BigDecimal picoBusto2) {
 		this.picoBusto2 = picoBusto2;
+	}
+
+	public Medidas getMedidaCliente() {
+		return medidaCliente;
+	}
+
+	public void setMedidaCliente(Medidas medidaCliente) {
+		this.medidaCliente = medidaCliente;
 	}
 	
 	
