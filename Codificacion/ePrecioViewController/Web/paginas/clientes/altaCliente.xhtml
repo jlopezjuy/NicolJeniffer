@@ -16,7 +16,7 @@
 				<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" required="true"/>
 				
 				<h:outputLabel for="mail" value="E-Mail" />
-				<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}" required="true">
+				<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}" >
 					<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 				</p:inputText>
 				<p:watermark for="mail" value="E-Mail *" />
@@ -29,14 +29,14 @@
 				<p:inputMask id="celular" label="Celular" value="#{clienteBean.celular}" placeHolder=" " mask="(999)999-9999" required="true"/>
 
 				<h:outputLabel for="domicilio" value="Domicilio" />
-				<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}" required="true"/>
+				<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}"/>
 
 				<h:outputLabel for="colegio" value="Colegio" />
-				<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}" required="true"/>
+				<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}" />
 				
 				<p:spacer></p:spacer>
 				<f:facet name="footer">
-
+					<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{clienteBean.cancelarCliente}" />
 					<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{clienteBean.gurdarCliente}" />
 				</f:facet>
 			</h:panelGrid>

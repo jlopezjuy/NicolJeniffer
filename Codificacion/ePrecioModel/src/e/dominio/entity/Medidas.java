@@ -26,12 +26,49 @@ public class Medidas extends DominioBaseNombre {
 	private BigDecimal largoManga;
 	private BigDecimal largoPollera;
 	private String observaciones;
+	private BigDecimal busto;
+	private BigDecimal bajoBusto;
+	private BigDecimal anteCadera;
+	private BigDecimal picoBusto1;
+	private BigDecimal picoBusto2;
 
 	public Medidas() {
 	}
 
 	public Medidas(int idMedidas) {
 		this.idMedidas = idMedidas;
+	}
+
+	public Medidas(int idMedidas, Clientes clientes, BigDecimal largoPolera,
+			BigDecimal largoCorset, BigDecimal espalda,
+			BigDecimal contornoBusto, BigDecimal contornoCadera,
+			BigDecimal costado, BigDecimal cintura, BigDecimal cadera,
+			BigDecimal talleEspalda, BigDecimal talleDelantero,
+			BigDecimal sisa, BigDecimal largoManga, BigDecimal largoPollera,
+			String observaciones, BigDecimal busto, BigDecimal bajoBusto,
+			BigDecimal anteCadera, BigDecimal picoBusto1, BigDecimal picoBusto2) {
+		super();
+		this.idMedidas = idMedidas;
+		this.clientes = clientes;
+		this.largoPolera = largoPolera;
+		this.largoCorset = largoCorset;
+		this.espalda = espalda;
+		this.contornoBusto = contornoBusto;
+		this.contornoCadera = contornoCadera;
+		this.costado = costado;
+		this.cintura = cintura;
+		this.cadera = cadera;
+		this.talleEspalda = talleEspalda;
+		this.talleDelantero = talleDelantero;
+		this.sisa = sisa;
+		this.largoManga = largoManga;
+		this.largoPollera = largoPollera;
+		this.observaciones = observaciones;
+		this.busto = busto;
+		this.bajoBusto = bajoBusto;
+		this.anteCadera = anteCadera;
+		this.picoBusto1 = picoBusto1;
+		this.picoBusto2 = picoBusto2;
 	}
 
 	public Medidas(int idMedidas, Clientes clientes, BigDecimal largoPolera,
@@ -185,6 +222,46 @@ public class Medidas extends DominioBaseNombre {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
+	}
+
+	public BigDecimal getBusto() {
+		return busto;
+	}
+
+	public void setBusto(BigDecimal busto) {
+		this.busto = busto;
+	}
+
+	public BigDecimal getBajoBusto() {
+		return bajoBusto;
+	}
+
+	public void setBajoBusto(BigDecimal bajoBusto) {
+		this.bajoBusto = bajoBusto;
+	}
+
+	public BigDecimal getAnteCadera() {
+		return anteCadera;
+	}
+
+	public void setAnteCadera(BigDecimal anteCadera) {
+		this.anteCadera = anteCadera;
+	}
+
+	public BigDecimal getPicoBusto1() {
+		return picoBusto1;
+	}
+
+	public void setPicoBusto1(BigDecimal picoBusto1) {
+		this.picoBusto1 = picoBusto1;
+	}
+
+	public BigDecimal getPicoBusto2() {
+		return picoBusto2;
+	}
+
+	public void setPicoBusto2(BigDecimal picoBusto2) {
+		this.picoBusto2 = picoBusto2;
 	}
 
 }

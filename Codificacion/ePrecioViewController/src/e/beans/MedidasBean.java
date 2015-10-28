@@ -28,6 +28,11 @@ public class MedidasBean extends BaseBean{
 	private BigDecimal largoManga;
 	private BigDecimal largoPollera;
 	private String observaciones;
+	private BigDecimal busto;
+	private BigDecimal bajoBusto;
+	private BigDecimal anteCadera;
+	private BigDecimal picoBusto1;
+	private BigDecimal picoBusto2;
 	private List<Medidas> listaMedidas = new ArrayList<Medidas>();
 	
 	public MedidasBean() {
@@ -84,7 +89,12 @@ public class MedidasBean extends BaseBean{
 		this.sisa = null;
 		this.largoManga = null;
 		this.largoPollera = null;
-		this.observaciones = null;		
+		this.observaciones = null;	
+		this.busto = null;
+		this.bajoBusto = null;
+		this.anteCadera = null;
+		this.picoBusto1 = null;
+		this.picoBusto2 = null;
 	}
 
 	/**
@@ -96,7 +106,6 @@ public class MedidasBean extends BaseBean{
 	 */
 	public Medidas getMedida(){
 		Medidas medida = new Medidas();
-
 		medida.setClientes(clientes);
 		medida.setLargoPolera(largoPolera);
 		medida.setLargoCorset(largoCorset);
@@ -112,7 +121,11 @@ public class MedidasBean extends BaseBean{
 		medida.setLargoManga(largoManga);
 		medida.setLargoPollera(largoPollera);
 		medida.setObservaciones(observaciones);
-		
+		medida.setBusto(busto);
+		medida.setBajoBusto(bajoBusto);
+		medida.setAnteCadera(anteCadera);
+		medida.setPicoBusto1(picoBusto1);
+		medida.setPicoBusto2(picoBusto2);
 		return medida;
 	}
 	
@@ -223,6 +236,46 @@ public class MedidasBean extends BaseBean{
 	}
 	public void setListaMedidas(List<Medidas> listaMedidas) {
 		this.listaMedidas = listaMedidas;
+	}
+
+	public BigDecimal getBusto() {
+		return busto;
+	}
+
+	public void setBusto(BigDecimal busto) {
+		this.busto = busto;
+	}
+
+	public BigDecimal getBajoBusto() {
+		return bajoBusto;
+	}
+
+	public void setBajoBusto(BigDecimal bajoBusto) {
+		this.bajoBusto = bajoBusto;
+	}
+
+	public BigDecimal getAnteCadera() {
+		return anteCadera;
+	}
+
+	public void setAnteCadera(BigDecimal anteCadera) {
+		this.anteCadera = anteCadera;
+	}
+
+	public BigDecimal getPicoBusto1() {
+		return picoBusto1;
+	}
+
+	public void setPicoBusto1(BigDecimal picoBusto1) {
+		this.picoBusto1 = picoBusto1;
+	}
+
+	public BigDecimal getPicoBusto2() {
+		return picoBusto2;
+	}
+
+	public void setPicoBusto2(BigDecimal picoBusto2) {
+		this.picoBusto2 = picoBusto2;
 	}
 	
 	

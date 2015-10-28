@@ -13,45 +13,64 @@
 		<h:form>
 			<p:growl id="message" showDetail="true" />
 			
-			<h:panelGrid columns="4" cellpadding="5" layout="grid" >
+			<h:panelGrid columns="5" cellspacing="15" cellpadding="5" layout="grid" >
+				
+				<h:outputLabel for="busto" value="Busto" />
+				<p:inputText id="busto" label="Busto" value="#{medidaBean.busto}"  />
+				<p:spacer width="20"/>
+				<h:outputLabel for="bajoBusto" value="Bajo Busto" />
+				<p:inputText id="bajoBusto" label="Bajo Busto" value="#{medidaBean.bajoBusto}"  />
+				
+				<h:outputLabel for="picoBusto1" value="Pico Busto 1" />
+				<p:inputText id="picoBusto1" label="Pico Busto 1" value="#{medidaBean.picoBusto1}"  />
+				<p:spacer/>
+				<h:outputLabel for="picoBusto2" value="Pico Busto 2" />
+				<p:inputText id="picoBusto2" label="Pico Busto 2" value="#{medidaBean.picoBusto2}"  />
+				
+				
 				<h:outputLabel for="contornoBusto" value="Contorno de Busto" />
 				<p:inputText id="contornoBusto" label="Nombre" value="#{medidaBean.contornoBusto}"  />
-				
+				<p:spacer/>
 				<h:outputLabel for="cintura" value="Cintura" />
 				<p:inputText id="cintura" label="Apellido" value="#{medidaBean.cintura}"  />
 				
+				<h:outputLabel for="anteCadera" value="Ante Cadera" />
+				<p:inputText id="anteCadera" label="Ante Cadera" value="#{medidaBean.anteCadera}"  />
+				<p:spacer/>
 				<h:outputLabel for="cadera" value="Cadera" />
 				<p:inputText id="cadera" label="Domicilio" value="#{medidaBean.cadera}"  />
 
 				<h:outputLabel for="contornoCadera" value="Contorno de Cadera" />
 				<p:inputText id="contornoCadera" label="Colegio" value="#{medidaBean.contornoCadera}"  />
-				
+				<p:spacer/>
 				<h:outputLabel for="largoCorset" value="Largo de Corset" />
 				<p:inputText id="largoCorset" label="Colegio" value="#{medidaBean.largoCorset}"  />
 				
 				<h:outputLabel for="largoPolera" value="Largo Pollera" />
 				<p:inputText id="largoPolera" label="Colegio" value="#{medidaBean.largoPolera}"  />
-				
+				<p:spacer/>
 				<h:outputLabel for="costado" value="Costado" />
 				<p:inputText id="costado" label="Colegio" value="#{medidaBean.costado}"  />
 				
 				<h:outputLabel for="talleEspalda" value="Talle de Espalda" />
 				<p:inputText id="talleEspalda" label="Colegio" value="#{medidaBean.talleEspalda}"  />
-				
+				<p:spacer/>
 				<h:outputLabel for="talleDelantero" value="Talle Delantero" />
 				<p:inputText id="talleDelantero" label="Colegio" value="#{medidaBean.talleDelantero}"  />
 				
 				<h:outputLabel for="sisa" value="Sisa" />
 				<p:inputText id="sisa" label="Colegio" value="#{medidaBean.sisa}"  />
-				
+				<p:spacer/>
 				<h:outputLabel for="largoManga" value="Largo de  Manga" />
 				<p:inputText id="largoManga" label="Colegio" value="#{medidaBean.largoManga}"  />
 				
 				<h:outputLabel for="largoPollera" value="Largo de Pollera" />
 				<p:inputText id="largoPollera" label="Colegio" value="#{medidaBean.largoPollera}"  />
-				
+				<p:spacer/>
+				<p:spacer/>
+				<p:spacer/>
 				<h:outputLabel for="observaciones" value="Observaciones" />
-				<p:inputText id="observaciones" label="Colegio" value="#{medidaBean.observaciones}"  />
+				<p:inputTextarea id="observaciones" label="Colegio" value="#{medidaBean.observaciones}"/>
 				
 				<p:spacer></p:spacer>
 				<f:facet name="footer">

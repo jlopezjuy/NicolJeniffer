@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="../../template/template.xhtml">
 	<ui:define name="title">
@@ -14,13 +18,11 @@
 			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="10" paginator="true"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 
-				<p:column style="width:62px;text-align: center">
+				<p:column style="width:80px;text-align: center" headerText="Medidas">
 					<p:commandButton icon="ui-icon-search" action="listaMedidasView">
 						<f:setPropertyActionListener value="#{cli}" target="#{medidaBean.clientes}" />
 					</p:commandButton>
 				</p:column>
-
-
 				<p:column headerText="Nombre">
 					<h:outputText value="#{cli.nombre}" />
 				</p:column>
@@ -36,36 +38,35 @@
 				<p:column headerText="Domicilio">
 					<h:outputText value="#{cli.domicilio}" />
 				</p:column>
+
+				<p:column style="width:80px;text-align: center" headerText="Detalle">
+					<p:commandButton icon="ui-icon-search" oncomplete="PF('clienteDialog').show();" update=":form">
+						<f:setPropertyActionListener value="#{cli}" target="#{clienteBean.clienteSeleccionado}" />
+					</p:commandButton>
+				</p:column>
 			</p:dataTable>
+
 
 			<p:dialog header="Información de Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:outputPanel id="clienteDetalle" style="text-align:center;">
-					<p:panelGrid columns="2" columnClasses="label,value">
+					<p:panelGrid columns="2" >
 
+						<h:outputText value="Id Cliente: #{clienteBean.clienteSeleccionado.idClientes}" />
 
-						<h:outputText value="Id:" />
-						<h:outputText value="#{clienteBean.clienteSeleccionado.idClientes}" />
+						<h:outputText value="Nombre: #{clienteBean.clienteSeleccionado.nombre}" />
 
-						<h:outputText value="Year" />
-						<h:outputText value="#{clienteBean.clienteSeleccionado.nombre}" />
+						<h:outputText value="Apellido: #{clienteBean.clienteSeleccionado.apellido}" />
 
-						<h:outputText value="Color:" />
-						<h:outputText value="#{clienteBean.clienteSeleccionado.apellido}" />
-
-						<h:outputText value="Price" />
-						<h:outputText value="$#{clienteBean.clienteSeleccionado.celular}" />
+						<h:outputText value="Celular: #{clienteBean.clienteSeleccionado.celular}" />
+						
+						<h:outputText value="Fijo: #{clienteBean.clienteSeleccionado.telefono}" />
+			
 					</p:panelGrid>
+					<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" oncomplete="PF('this').hide();" update=":form" />
+					<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 				</p:outputPanel>
 			</p:dialog>
 			<p:growl id="message" showDetail="true" />
-			<p:commandButton value="Destroy the World" actionListener="#{clienteBean.destroyWorld}" update="message">
-				<p:confirm header="Confirmation" message="Are you sure?" icon="ui-icon-alert" />
-			</p:commandButton>
-
-			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
-				<p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-				<p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-			</p:confirmDialog>
 
 
 		</h:form>

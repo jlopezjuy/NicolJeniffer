@@ -70,6 +70,20 @@ public class ClienteBean extends BaseBean {
 	}
 	
 	/**
+	 * Metodo para guardar un cliente nuevo
+	 * @return 
+	 * @author jlopez
+	 * @since 07/10/2015
+	 * @version 1.0
+	 */
+	public String cancelarCliente() {
+
+			limpiarFormulario();
+
+		return "listaClientesView";
+	}
+	
+	/**
 	 * Metodo para limpiar el formulario 
 	 * luego de un alta exitosa
 	 * @author jlopez

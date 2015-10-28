@@ -53,5 +53,28 @@
   <property generated="never" lazy="false" name="observaciones" type="string">
    <column name="Observaciones"/>
   </property>
+  
+  <property generated="never" lazy="false" name="busto" type="big_decimal">
+   <column name="Busto" precision="10" scale="4"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="bajoBusto" type="big_decimal">
+   <column name="BajoBusto" precision="10" scale="4"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="anteCadera" type="big_decimal">
+   <column name="AnteCadera" precision="10" scale="4"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="picoBusto1" type="big_decimal">
+   <column name="PicoBusto1" precision="10" scale="4"/>
+  </property>
+  
+  <property generated="never" lazy="false" name="picoBusto2" type="big_decimal">
+   <column name="PicoBusto2" precision="10" scale="4"/>
+  </property>
+  
+
+  
  </class>
 </hibernate-mapping>
