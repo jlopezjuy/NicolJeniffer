@@ -72,4 +72,9 @@
 		<property name="medidaDao" ref="medidaDao"/>
 	</bean>
 	
+	<bean id="servicioModelo" class="e.servicio.impl.ServicioModeloImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+		<property name="modeloDao" ref="modeloDao"/>
+	</bean>
+	
 </beans>

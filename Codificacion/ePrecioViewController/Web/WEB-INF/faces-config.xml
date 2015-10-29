@@ -28,6 +28,19 @@
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
 	
+	<managed-bean>
+		<managed-bean-name>modeloBean</managed-bean-name>
+		<managed-bean-class>e.beans.ModeloBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-name>uploadImage</managed-bean-name>
+		<managed-bean-class>e.util.UploadImage</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	
 	<!-- FIn nuevos beans -->
 
 	<navigation-rule>
@@ -58,6 +71,8 @@
 			<to-view-id>/paginas/medidas/altaMedida.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
+		
+		
 		<!-- Fin Nicoles -->
 	</navigation-rule>
 

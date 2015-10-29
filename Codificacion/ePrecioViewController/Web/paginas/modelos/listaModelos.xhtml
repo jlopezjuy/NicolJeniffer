@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+
+
+			<h:panelGrid columns="4" cellpadding="5">
+				<h:outputLabel for="nombre" value="Nombre" />
+				<p:inputText id="nombre" label="Nombre" value="#{modeloBean.clientes.nombre}" disabled="true" />
+
+				<h:outputLabel for="apellido" value="Apellido" />
+				<p:inputText id="apellido" label="Apellido" value="#{modeloBean.clientes.apellido}" disabled="true" />
+
+			</h:panelGrid>
+
+			<p:commandButton action="altaMedidaView" value="Nuevo" icon="ui-icon-plus" />
+			<p:commandButton action="listaClientesView" value="Volver" icon="ui-icon-plus" />
+
+
+			<p:dataTable var="med" value="#{modeloBean.listaMedidas}" rows="10" paginator="true"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
+
+				<p:column headerText="Largo Pollera">
+					<h:outputText value="#{med.largoPolera}">
+						<f:convertNumber pattern="##0.##" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Largo Corset">
+					<h:outputText value="#{med.largoCorset}">
+						<f:convertNumber pattern="##0.##" />
+					</h:outputText>
+				</p:column>
+				
+
+			</p:dataTable>
+			
+			
+			
+			
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

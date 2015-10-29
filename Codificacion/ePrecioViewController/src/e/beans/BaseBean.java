@@ -10,8 +10,8 @@ import e.base.dto.validacion.MensajeDto;
 import e.servicio.ServicioCliente;
 import e.servicio.ServicioItem;
 import e.servicio.ServicioMedida;
+import e.servicio.ServicioModelo;
 import e.servicio.ServicioPrecio;
-import e.servicio.impl.ServicioClienteImpl;
 import e.util.SpringUtil;
 
 public class BaseBean {
@@ -24,6 +24,7 @@ public class BaseBean {
 	private ServicioItem servicioItem;
 	private ServicioCliente servicioCliente;
 	private ServicioMedida servicioMedida;
+	private ServicioModelo servicioModelo;
 
 	public BaseBean() {
 		LOG.debug("");
@@ -108,6 +109,17 @@ public class BaseBean {
 
 	public void setServicioMedida(ServicioMedida servicioMedida) {
 		this.servicioMedida = servicioMedida;
+	}
+
+	public ServicioModelo getServicioModelo() {
+		if (servicioModelo == null) {
+			servicioModelo = (ServicioModelo) SpringUtil.obtenerBeanSpring("servicioModelo");
+		}
+		return servicioModelo;
+	}
+
+	public void setServicioModelo(ServicioModelo servicioModelo) {
+		this.servicioModelo = servicioModelo;
 	}
 	
 	
