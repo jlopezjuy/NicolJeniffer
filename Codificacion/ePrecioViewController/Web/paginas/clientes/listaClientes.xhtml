@@ -23,6 +23,12 @@
 						<f:setPropertyActionListener value="#{cli}" target="#{medidaBean.clientes}" />
 					</p:commandButton>
 				</p:column>
+				
+				<p:column style="width:80px;text-align: center" headerText="Modelos">
+					<p:commandButton icon="ui-icon-search" action="listaModeloView">
+						<f:setPropertyActionListener value="#{cli}" target="#{modeloBean.clientes}" />
+					</p:commandButton>
+				</p:column>
 				<p:column headerText="Nombre">
 					<h:outputText value="#{cli.nombre}" />
 				</p:column>

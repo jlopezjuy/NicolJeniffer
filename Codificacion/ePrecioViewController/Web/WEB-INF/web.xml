@@ -27,23 +27,4 @@
 		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
 	</listener>
 	
-	<filter>
-       <filter-name>PrimeFaces FileUpload Filter</filter-name>
-       <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-   </filter>
-   <filter-mapping>
-       <filter-name>PrimeFaces FileUpload Filter</filter-name>
-       <servlet-name>Faces Servlet</servlet-name>
-   </filter-mapping>
-   
-   <servlet>
-        <description></description>
-        <display-name>DisplayImage</display-name>
-        <servlet-name>DisplayImage</servlet-name>
-        <servlet-class>e.servlet.DisplayImage</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DisplayImage</servlet-name>
-        <url-pattern>/DisplayImage</url-pattern>
-    </servlet-mapping>
 </web-app>

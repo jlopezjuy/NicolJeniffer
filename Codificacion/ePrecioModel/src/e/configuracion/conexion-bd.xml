@@ -12,9 +12,9 @@
 	<!-- Configure JDBC Connection -->
 	<bean id="origenDatosPrecio" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://127.7.68.2:3306/clothes" />
-		<property name="username" value="adminefqzMNS" />
-		<property name="password" value="YBqg6ZBZWpHm" />
+		<property name="url" value="jdbc:mysql://localhost:3306/NicoleJeniffer" />
+		<property name="username" value="root" />
+		<property name="password" value="154122954" />
 	</bean>
 
 
@@ -24,19 +24,6 @@
 		<property name="dataSource" ref="origenDatosPrecio" />
 		<property name="mappingResources">
 			<list>
-				<value>e/dominio/hbm/Dimension.hbm.xml</value>
-				<value>e/dominio/hbm/EstadoTransaccion.hbm.xml</value>
-				<value>e/dominio/hbm/Marca.hbm.xml</value>
-				<value>e/dominio/hbm/Persona.hbm.xml</value>
-				<value>e/dominio/hbm/Precio.hbm.xml</value>
-				<value>e/dominio/hbm/Producto.hbm.xml</value>
-				<value>e/dominio/hbm/TipoPersona.hbm.xml</value>
-				<value>e/dominio/hbm/TipoProducto.hbm.xml</value>
-				<value>e/dominio/hbm/TipoTransaccion.hbm.xml</value>
-				<value>e/dominio/hbm/Transaccion.hbm.xml</value>
-				<value>e/dominio/hbm/TransaccionItem.hbm.xml</value>
-				<value>e/dominio/hbm/Unidad.hbm.xml</value>
-				<value>e/dominio/hbm/Usuario.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Clientes.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Medidas.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Modelos.hbm.xml</value>

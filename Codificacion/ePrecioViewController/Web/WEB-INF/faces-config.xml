@@ -72,6 +72,18 @@
 			<redirect></redirect>
 		</navigation-case>
 		
+		<navigation-case>
+			<from-outcome>listaModeloView</from-outcome>
+			<to-view-id>/paginas/modelos/listaModelos.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaModeloView</from-outcome>
+			<to-view-id>/paginas/modelos/altaModelo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
 		
 		<!-- Fin Nicoles -->
 	</navigation-rule>

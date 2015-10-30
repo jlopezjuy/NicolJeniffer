@@ -39,27 +39,12 @@
 	<bean id="servicioPrecio" class="e.servicio.impl.ServicioPrecioImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
 		
-		<property name="clienteDao" ref="clienteDao"/>
-		<property name="servicioDto" ref="servicioDto" />
-		<property name="dimensionDao" ref="dimensionDao" />
-		<property name="estadoTransaccionDao" ref="estadoTransaccionDao" />
-		<property name="marcaDao" ref="marcaDao" />
-		<property name="personaDao" ref="personaDao" />
-		<property name="precioDao" ref="precioDao" />
-		<property name="productoDao" ref="productoDao" />
-		<property name="tipoPersonaDao" ref="tipoPersonaDao" />
-		<property name="tipoProductoDao" ref="tipoProductoDao" />
-		<property name="tipoTransaccionDao" ref="tipoTransaccionDao" />
-		<property name="transaccionDao" ref="transaccionDao" />
-		<property name="unidadDao" ref="unidadDao" />
-		<property name="usuarioDao" ref="usuarioDao" />
+
 
 	</bean>
 
 	<bean id="servicioItem" class="e.servicio.impl.ServicioItemImpl">
-		<property name="servicioDto" ref="servicioDto" />
-		<property name="dimensionDao" ref="dimensionDao" />
-		<property name="personaDao" ref="personaDao" />
+
 	</bean>
 	
 	<bean id="servicioCliente" class="e.servicio.impl.ServicioClienteImpl">
