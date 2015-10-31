@@ -13,7 +13,6 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
-import org.primefaces.util.Base64;
 
 import e.dominio.entity.Clientes;
 import e.dominio.entity.Modelos;
@@ -30,6 +29,7 @@ public class ModeloBean extends BaseBean {
 	private String colorVestido;
 	private Modelos modeloSelect;
 	private List<Modelos> listaModelos;
+	private String imagenTemp;
 
 	public ModeloBean() {
 		super();
@@ -53,8 +53,8 @@ public class ModeloBean extends BaseBean {
 		        output.write(buffer, 0, bytesRead);
 		    }
 		    
-		    String s = new sun.misc.BASE64Encoder().encode(output.toByteArray());
-		    LOG.debug("CONVERTIDO EN BASE 64: "+ s);
+		    imagenTemp = new sun.misc.BASE64Encoder().encode(output.toByteArray());
+		    LOG.debug("CONVERTIDO EN BASE 64: "+ imagenTemp);
 		    LOG.debug("Cadena de la imagen: "+output.toByteArray());
 			
 		} catch (IOException e) {
@@ -127,4 +127,13 @@ public class ModeloBean extends BaseBean {
 		this.listaModelos = listaModelos;
 	}
 
+	public String getImagenTemp() {
+		return imagenTemp;
+	}
+
+	public void setImagenTemp(String imagenTemp) {
+		this.imagenTemp = imagenTemp;
+	}
+	
+	
 }

@@ -22,7 +22,8 @@
 			<p:commandButton action="altaModeloView" value="Nuevo" icon="ui-icon-plus" /> 
 			<p:commandButton action="listaClientesView" value="Volver" icon="ui-icon-plus" />
 
-
+			<img style='display:block; width:100px;height:100px;' id='base64image'                 
+       src="data:image/jpeg;base64,#{modeloBean.imagenTemp}" />
 			<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="10" paginator="true"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 
