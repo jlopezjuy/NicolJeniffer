@@ -1,9 +1,9 @@
 package e.beans;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 import java.util.List;
@@ -13,9 +13,12 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
+import org.primefaces.util.Base64;
 
 import e.dominio.entity.Clientes;
 import e.dominio.entity.Modelos;
+
+
 
 public class ModeloBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ModeloBean.class);
@@ -42,9 +45,17 @@ public class ModeloBean extends BaseBean {
         	
 			InputStream input = event.getFile().getInputstream();
 			LOG.debug("VALOR DE LA IMAGEN EN uploadedFile: "+upFile.getFileName() + " valor: "+ upFile.getContentType());
-			
-			byte[] cadena = IOUtils.toByteArray( input );
-			LOG.info("Valor de cadena de la foto: "+cadena);
+			byte[] buffer = new byte[8192];
+		    int bytesRead;
+		    ByteArrayOutputStream output = new ByteArrayOutputStream();
+		    while ((bytesRead = input.read(buffer)) != -1)
+		    {
+		        output.write(buffer, 0, bytesRead);
+		    }
+		    
+		    String s = new sun.misc.BASE64Encoder().encode(output.toByteArray());
+		    LOG.debug("CONVERTIDO EN BASE 64: "+ s);
+		    LOG.debug("Cadena de la imagen: "+output.toByteArray());
 			
 		} catch (IOException e) {
 			e.printStackTrace();
