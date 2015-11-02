@@ -1,5 +1,6 @@
 package e.beans;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,14 +11,17 @@ import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseId;
 
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
 
+import e.base.excepcion.ExcepcionServicio;
 import e.dominio.entity.Clientes;
 import e.dominio.entity.Modelos;
-
-
 
 public class ModeloBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ModeloBean.class);
@@ -34,6 +38,72 @@ public class ModeloBean extends BaseBean {
 	public ModeloBean() {
 		super();
 	}
+	
+	/**
+	 * Metodo para guardar un nuevo Modelo
+	 * @return
+	 * @author JLopez
+	 * @since 31/10/2015
+	 * @version 1.0
+	 */
+	public String gurdarModelo() {
+		try {
+			
+			getServicioModelo().guardarModelo(getModeloNuevo());
+			limpiarFormulario();
+		} catch (ExcepcionServicio e) {
+			LOG.error(e);
+			return null;
+
+		}
+		return "listaModeloView";
+	}
+	
+	/**
+	 * Metodo para obtenr un nuevo modelo
+	 * 
+	 * @return Modelos
+	 * @author JLopez
+	 * @since 31/10/2015
+	 * @version 1.0
+	 */
+	private Modelos getModeloNuevo(){
+		Modelos modelo = new Modelos();
+		modelo.setClientes(clientes);
+		modelo.setNombreModelo(nombreModelo);
+		modelo.setObservacion(observacion);
+		modelo.setImagen(imagen);
+		modelo.setColorVestido(colorVestido);
+		return modelo;
+	}
+	
+	/**
+	 * Metodo par cancelar el alta de un modelo
+	 * 
+	 * @return
+	 * @author JLopez
+	 * @since 31/10/2015
+	 * @version 1.0
+	 */
+	public String cancelarModelo(){
+		limpiarFormulario();
+		return "listaModeloView";
+	}
+	
+	/**
+	 * Metodo para limpiar el formulario
+	 * @author JLopez
+	 * @since 31/10/2015
+	 * @version 1.0
+	 */
+	private void limpiarFormulario(){
+		imagen = null;
+		nombreModelo = null;
+		observacion = null;
+		colorVestido = null;
+		imagenTemp = null;
+	}
+	
 
 	public void handleFileUpload(FileUploadEvent event) {
         FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
@@ -52,16 +122,33 @@ public class ModeloBean extends BaseBean {
 		    {
 		        output.write(buffer, 0, bytesRead);
 		    }
-		    
+		    imagen = output.toByteArray();
 		    imagenTemp = new sun.misc.BASE64Encoder().encode(output.toByteArray());
 		    LOG.debug("CONVERTIDO EN BASE 64: "+ imagenTemp);
 		    LOG.debug("Cadena de la imagen: "+output.toByteArray());
-			
+		    RequestContext.getCurrentInstance().update("form");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
     }
+	
+	
+
+    public StreamedContent getImage() throws IOException {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
+            // So, we're rendering the HTML. Return a stub StreamedContent so that it will generate right URL.
+            return new DefaultStreamedContent();
+        }
+        else {
+            // So, browser is requesting the image. Return a real StreamedContent with the image bytes.
+            String studentId = context.getExternalContext().getRequestParameterMap().get("idModelos");
+            Modelos student = getServicioModelo().findById(Integer.valueOf(studentId).intValue());
+            return new DefaultStreamedContent(new ByteArrayInputStream(student.getImagen()));
+        }
+    }
+
 
 	public int getIdModelos() {
 		return this.idModelos;
@@ -120,6 +207,13 @@ public class ModeloBean extends BaseBean {
 	}
 
 	public List<Modelos> getListaModelos() {
+		try {
+			listaModelos = getServicioModelo().listAll(clientes);
+			LOG.debug("cantidad de datos: " + listaModelos.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return listaModelos;
 	}
 
@@ -134,6 +228,4 @@ public class ModeloBean extends BaseBean {
 	public void setImagenTemp(String imagenTemp) {
 		this.imagenTemp = imagenTemp;
 	}
-	
-	
 }

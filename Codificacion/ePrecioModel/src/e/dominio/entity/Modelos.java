@@ -31,6 +31,8 @@ public class Modelos extends DominioBaseNombre {
 		this.observacion = observacion;
 		this.colorVestido = colorVestido;
 	}
+	
+	
 
 	public int getIdModelos() {
 		return this.idModelos;

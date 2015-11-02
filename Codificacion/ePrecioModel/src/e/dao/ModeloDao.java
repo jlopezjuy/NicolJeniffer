@@ -15,4 +15,5 @@ public interface ModeloDao extends DAOBase<Modelos, Long>{
 	List<Modelos> buscarNombreImagen(String nombreImagen);
 	List<Modelos> listarModelos(Clientes cliente);
 	void guardarModelo(Modelos modelo);
+	Modelos findById(int idModelos);
 }

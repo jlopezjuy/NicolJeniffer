@@ -19,11 +19,10 @@
 			</h:panelGrid>
 
 
-			<p:commandButton action="altaModeloView" value="Nuevo" icon="ui-icon-plus" /> 
+			<p:commandButton action="altaModeloView" value="Nuevo" icon="ui-icon-plus" />
 			<p:commandButton action="listaClientesView" value="Volver" icon="ui-icon-plus" />
 
-			<img style='display:block; width:100px;height:100px;' id='base64image'                 
-       src="data:image/jpeg;base64,#{modeloBean.imagenTemp}" />
+
 			<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="10" paginator="true"
 				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
 
@@ -33,15 +32,16 @@
 				</p:column>
 
 				<p:column headerText="Largo Corset">
-					<h:outputText value="#{med.largoCorset}">
+					<h:outputText value="#{med.colorVestido}">
 					</h:outputText>
 				</p:column>
-
-
 			</p:dataTable>
 
-
-
+			<p:galleria value="#{modeloBean.listaModelos}" var="image" panelWidth="600" panelHeight="313" showCaption="true">
+				<p:graphicImage alt="#{image.nombreModelo}" title="#{image.nombreModelo}" value="#{modeloBean.image}">
+					<f:param name="idModelos" value="#{image.idModelos}" />
+				</p:graphicImage>
+			</p:galleria>
 
 		</h:form>
 	</ui:define>

@@ -6,28 +6,30 @@
 		<h:outputText value="" />
 	</ui:define>
 	<ui:define name="content">
-		<h:form>
+		<h:form id="form">
 			<p:growl id="message" showDetail="true" />
 
-			<h:panelGrid columns="5" cellspacing="15" cellpadding="5" layout="grid">
+			<h:panelGrid columns="2" cellspacing="15" cellpadding="5" layout="grid">
 
 				<h:outputLabel for="nombreModelo" value="Nombre Modelo" />
 				<p:inputText id="nombreModelo" label="Nombre Modelo" value="#{modeloBean.nombreModelo}" />
-				<p:spacer width="20" />
+			
 				<h:outputLabel for="observacion" value="Observacion" />
 				<p:inputText id="observacion" label="Observacion" value="#{modeloBean.observacion}" />
 
 				<h:outputLabel for="colorVestido" value="Color de Vestido" />
 				<p:inputText id="colorVestido" label="Pico Busto 1" value="#{modeloBean.colorVestido}" />
-				<p:spacer />
-
-
-
-				<p:fileUpload fileUploadListener="#{modeloBean.handleFileUpload}" mode="advanced" dragDropSupport="false" update="messages" sizeLimit="200000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+				
+			</h:panelGrid>
+			
+			<h:panelGrid columns="2" cellspacing="15" cellpadding="5" layout="grid">
+			   <p:fileUpload fileUploadListener="#{modeloBean.handleFileUpload}" mode="advanced" dragDropSupport="false" update="messages, :form:image" sizeLimit="200000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
 
 				<p:growl id="messages" showDetail="true" />
-
-				<img style='display: block; width: 100px; height: 100px;' id='base64image' src="data:image/jpeg;base64,#{modeloBean.imagenTemp}" />
+				<p:panelGrid id="image">
+					<img style='display: block; width: 50%;' id='base64image' src="data:image/jpeg;base64,#{modeloBean.imagenTemp}" />
+				</p:panelGrid>
+				
 
 				<p:spacer></p:spacer>
 				<f:facet name="footer">
@@ -35,6 +37,7 @@
 					<p:commandButton value="Cancelar" id="cancelar" ajax="false" action="#{modeloBean.cancelarModelo}" />
 				</f:facet>
 			</h:panelGrid>
+			
 		</h:form>
 	</ui:define>
 

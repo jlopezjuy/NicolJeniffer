@@ -59,6 +59,11 @@ public class ServicioModeloImpl implements ServicioModelo {
 	public void setModeloDao(ModeloDaoImpl modeloDao) {
 		this.modeloDao = modeloDao;
 	}
+
+	@Override
+	public Modelos findById(int idModelos) {
+		return modeloDao.findById(idModelos);
+	}
 	
 	
 

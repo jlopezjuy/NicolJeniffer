@@ -11,4 +11,6 @@ public interface ServicioModelo {
 
 	void guardarModelo(Modelos modelo) throws ExcepcionServicio;
 	List<Modelos> listAll(Clientes cliente);
+	
+	Modelos findById(int idModelos);
 }
