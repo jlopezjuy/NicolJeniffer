@@ -8,7 +8,7 @@
 	<ui:define name="content">
 		<h:form>
 			<p:growl id="message" showDetail="true" />
-			<div class="center">
+
 				<h:panelGrid columns="2">
 					<h:outputLabel for="nombre" value="Nombre" />
 					<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombre}" required="true" />
@@ -41,8 +41,6 @@
 						<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{clienteBean.gurdarCliente}" />
 					</f:facet>
 				</h:panelGrid>
-			</div>
-
 		</h:form>
 	</ui:define>
 

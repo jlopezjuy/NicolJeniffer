@@ -23,7 +23,7 @@
 			</h:panelGrid>
 			
 			<h:panelGrid columns="2" cellspacing="15" cellpadding="5" layout="grid">
-			   <p:fileUpload fileUploadListener="#{modeloBean.handleFileUpload}" mode="advanced" dragDropSupport="false" update="messages, :form:image" sizeLimit="200000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+			   <p:fileUpload fileUploadListener="#{modeloBean.handleFileUpload}" auto="true" mode="advanced" dragDropSupport="false" update="messages, :form:image"  fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
 
 				<p:growl id="messages" showDetail="true" />
 				<p:panelGrid id="image">
