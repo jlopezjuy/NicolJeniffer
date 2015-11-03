@@ -35,12 +35,14 @@
 					</h:outputText>
 				</p:column>
 			</p:dataTable>
+			<div class="ui-fluid">
+				<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true" frameWidth="80" showCaption="true" autoPlay="true">
+					<p:graphicImage alt="#{image.nombreModelo}" title="#{image.nombreModelo}" value="#{modeloBean.image}" width="100%">
+						<f:param name="idModelos" value="#{image.idModelos}" />
+					</p:graphicImage>
+				</p:galleria>
+			</div>
 
-			<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true"  frameWidth="80" showCaption="true" autoPlay="true">
-				<p:graphicImage alt="#{image.nombreModelo}" title="#{image.nombreModelo}" value="#{modeloBean.image}" width="100%">
-					<f:param name="idModelos" value="#{image.idModelos}" />
-				</p:graphicImage>
-			</p:galleria>
 
 		</h:form>
 	</ui:define>

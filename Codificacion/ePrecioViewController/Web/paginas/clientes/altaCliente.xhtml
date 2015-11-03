@@ -33,13 +33,9 @@
 					<p:outputLabel for="colegio" value="Colegio" />
 					<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}" />
 
-
-						
-
 				</h:panelGrid>
-				
 			</div>
-			<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{clienteBean.cancelarCliente}" />
+			<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{clienteBean.cancelarCliente}" immediate="true"/>
 						<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{clienteBean.gurdarCliente}" />
 
 		</h:form>
