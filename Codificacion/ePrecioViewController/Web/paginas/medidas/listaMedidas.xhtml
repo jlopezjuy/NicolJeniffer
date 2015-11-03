@@ -9,7 +9,7 @@
 		<h:form id="form">
 
 
-			<h:panelGrid columns="4" cellpadding="5">
+			<h:panelGrid columns="2" cellpadding="5">
 				<h:outputLabel for="nombre" value="Nombre" />
 				<p:inputText id="nombre" label="Nombre" value="#{medidaBean.clientes.nombre}" disabled="true" />
 
@@ -22,8 +22,7 @@
 			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
 
 
-			<p:dataTable var="med" value="#{medidaBean.listaMedidas}" rows="10" paginator="true"
-				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
+			<p:dataTable var="med" value="#{medidaBean.listaMedidas}" rows="5" paginator="true" reflow="true" >
 
 				<p:column headerText="Largo Pollera">
 					<h:outputText value="#{med.largoPolera}">
@@ -49,41 +48,77 @@
 				<p:outputPanel id="clienteDetalle" style="text-align:left;">
 					<p:panelGrid columns="2" >
 
-						<h:outputText value="Busto: #{medidaBean.medidaCliente.busto}" />
+						<h:outputText value="Busto: #{medidaBean.medidaCliente.busto}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 
-						<h:outputText value="Bajo Busto: #{medidaBean.medidaCliente.bajoBusto}" />
+						<h:outputText value="Bajo Busto: #{medidaBean.medidaCliente.bajoBusto}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 
-						<h:outputText value="Ante Cadera: #{medidaBean.medidaCliente.anteCadera}" />
+						<h:outputText value="Ante Cadera: #{medidaBean.medidaCliente.anteCadera}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Cadera: #{medidaBean.medidaCliente.cadera}" />
+						<h:outputText value="Cadera: #{medidaBean.medidaCliente.cadera}">
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Cintura: #{medidaBean.medidaCliente.cintura}" />
+						<h:outputText value="Cintura: #{medidaBean.medidaCliente.cintura}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Contorno Busto: #{medidaBean.medidaCliente.contornoBusto}" />
+						<h:outputText value="Contorno Busto: #{medidaBean.medidaCliente.contornoBusto}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Contorno de Cadera: #{medidaBean.medidaCliente.contornoCadera}" /> 
+						<h:outputText value="Contorno de Cadera: #{medidaBean.medidaCliente.contornoCadera}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Costado: #{medidaBean.medidaCliente.costado}" />
+						<h:outputText value="Costado: #{medidaBean.medidaCliente.costado}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Espalda: #{medidaBean.medidaCliente.espalda}" />
+						<h:outputText value="Espalda: #{medidaBean.medidaCliente.espalda}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Largo Corset: #{medidaBean.medidaCliente.largoCorset}" />
+						<h:outputText value="Largo Corset: #{medidaBean.medidaCliente.largoCorset}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Largo Manga: #{medidaBean.medidaCliente.largoManga}" />
+						<h:outputText value="Largo Manga: #{medidaBean.medidaCliente.largoManga}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Largo Pollera: #{medidaBean.medidaCliente.largoPolera}" />
+						<h:outputText value="Largo Pollera: #{medidaBean.medidaCliente.largoPolera}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Pico Busto1: #{medidaBean.medidaCliente.picoBusto1}" />
+						<h:outputText value="Pico Busto1: #{medidaBean.medidaCliente.picoBusto1}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Pico Busto2: #{medidaBean.medidaCliente.picoBusto2}" />
+						<h:outputText value="Pico Busto2: #{medidaBean.medidaCliente.picoBusto2}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Observaciones: #{medidaBean.medidaCliente.observaciones}" />
+						<h:outputText value="Observaciones: #{medidaBean.medidaCliente.observaciones}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Siza: #{medidaBean.medidaCliente.sisa}" />
+						<h:outputText value="Siza: #{medidaBean.medidaCliente.sisa}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Talle Delantero: #{medidaBean.medidaCliente.talleDelantero}" />
+						<h:outputText value="Talle Delantero: #{medidaBean.medidaCliente.talleDelantero}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 						
-						<h:outputText value="Talle Espalda: #{medidaBean.medidaCliente.talleEspalda}" />
+						<h:outputText value="Talle Espalda: #{medidaBean.medidaCliente.talleEspalda}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
 			
 					</p:panelGrid>
 				</p:outputPanel>

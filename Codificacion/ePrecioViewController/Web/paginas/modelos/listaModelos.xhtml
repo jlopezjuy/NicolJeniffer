@@ -9,7 +9,7 @@
 		<h:form id="form">
 
 
-			<h:panelGrid columns="4" cellpadding="5">
+			<h:panelGrid columns="2" cellpadding="5">
 				<h:outputLabel for="nombre" value="Nombre" />
 				<p:inputText id="nombre" label="Nombre" value="#{modeloBean.clientes.nombre}" disabled="true" />
 
@@ -23,15 +23,14 @@
 			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
 
 
-			<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="10" paginator="true"
-				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
+			<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="5" paginator="true" reflow="true">
 
-				<p:column headerText="Largo Pollera">
+				<p:column headerText="Nombre Modelo">
 					<h:outputText value="#{med.nombreModelo}">
 					</h:outputText>
 				</p:column>
 
-				<p:column headerText="Largo Corset">
+				<p:column headerText="Color de vestido">
 					<h:outputText value="#{med.colorVestido}">
 					</h:outputText>
 				</p:column>

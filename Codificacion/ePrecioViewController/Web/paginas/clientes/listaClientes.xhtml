@@ -15,8 +15,7 @@
 
 			<p:commandButton action="altaClienteView" value="Nuevo" icon="fa fa-user-plus"/>
 
-			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="10" paginator="true"
-				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15">
+			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="5" paginator="true" reflow="true" >
 
 				<p:column style="width:80px;text-align: center" headerText="Medidas">
 					<p:commandButton icon="fa fa-cut" action="listaMedidasView">
@@ -37,12 +36,8 @@
 					<h:outputText value="#{cli.apellido}" />
 				</p:column>
 
-				<p:column headerText="Celular">
-					<h:outputText value="#{cli.celular}" />
-				</p:column>
-
-				<p:column headerText="Domicilio">
-					<h:outputText value="#{cli.domicilio}" />
+				<p:column headerText="Colegio">
+					<h:outputText value="#{cli.colegio}" />
 				</p:column>
 
 				<p:column style="width:80px;text-align: center" headerText="Detalle">
