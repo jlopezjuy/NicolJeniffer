@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<title>Clothes</title>
-<!-- Bootstrap -->
-<link href="#{request.contextPath}/resources/css/styles.css" rel="stylesheet"/>
-<link href="#{request.contextPath}/resources/css/queries.css" rel="stylesheet"/>
-<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet"/>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>Clothes</title>
+	<!-- Bootstrap -->
+	<link href="#{request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/css/queries.css" rel="stylesheet" />
+	<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
 
 
-<h:outputStylesheet library="css" name="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Sintony:400,700" />
-<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
+	<h:outputStylesheet library="css" name="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+	<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Sintony:400,700" />
+	<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
 
 
-    <script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
-    <script src="#{request.contextPath}/resources/js/scripts.js"></script>
-    <script src="#{request.contextPath}/resources/js/unslider.min.js"></script>
+	<script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
+	<script src="#{request.contextPath}/resources/js/scripts.js"></script>
+	<script src="#{request.contextPath}/resources/js/unslider.min.js"></script>
 </h:head>
 <h:body>
 	<header class="clearfix">
@@ -30,7 +27,8 @@
 		</div>
 		<nav class="clearfix">
 			<ul class="clearfix">
-				<li><a href="faces/paginas/clientes/listaClientes.xhtml" class="active">Lista Clientes</a></li>
+				<li><p:commandLink action="homeView" value="Inicio" styleClass="active" /></li>
+				<li><p:commandLink action="listaClientesView" value="Lista de Clientes" /></li>
 				<li><a href="#">Galeria de Fotos</a></li>
 				<li><a href="#" class="last">Contacto</a></li>
 			</ul>
@@ -68,7 +66,7 @@
 	<div class="container">
 		<div class="row">
 			<ui:insert name="content">
-				<span>Página en construcción</span>
+
 			</ui:insert>
 		</div>
 	</div>
@@ -78,14 +76,12 @@
 			<div class="col-md-3">
 				<div class="ca-hover">
 					<div class="carousel-img">
-						<img src="#{request.contextPath}/resources/img/c01.jpg" alt="Carousel Img"/>
+						<img src="#{request.contextPath}/resources/img/c01.jpg" alt="Carousel Img" />
 					</div>
 					<div class="carousel-avatar av1"></div>
 					<div class="carousel-content">
 						<h3>Lorem ipsum dolor sit amet consectetur</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Mauris mattis suscipit est, ut imperdiet tortor. Proin sed
-							molestie massa.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
 					</div>
 					<div class="overlay"></div>
 				</div>
@@ -94,14 +90,12 @@
 			<div class="col-md-3">
 				<div class="ca-hover">
 					<div class="carousel-img">
-						<img src="#{request.contextPath}/resources/img/c02.jpg" alt="Carousel Img"/>
+						<img src="#{request.contextPath}/resources/img/c02.jpg" alt="Carousel Img" />
 					</div>
 					<div class="carousel-avatar av2"></div>
 					<div class="carousel-content">
 						<h3>Lorem ipsum dolor sit amet consectetur</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Mauris mattis suscipit est, ut imperdiet tortor. Proin sed
-							molestie massa.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
 					</div>
 					<div class="overlay"></div>
 				</div>
@@ -110,14 +104,12 @@
 			<div class="col-md-3">
 				<div class="ca-hover">
 					<div class="carousel-img">
-						<img src="#{request.contextPath}/resources/img/c03.jpg" alt="Carousel Img"/>
+						<img src="#{request.contextPath}/resources/img/c03.jpg" alt="Carousel Img" />
 					</div>
 					<div class="carousel-avatar av3"></div>
 					<div class="carousel-content">
 						<h3>Lorem ipsum dolor sit amet consectetur</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Mauris mattis suscipit est, ut imperdiet tortor. Proin sed
-							molestie massa.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
 					</div>
 					<div class="overlay"></div>
 				</div>
@@ -131,9 +123,7 @@
 					<div class="carousel-avatar av4"></div>
 					<div class="carousel-content">
 						<h3>Lorem ipsum dolor sit amet consectetur</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Mauris mattis suscipit est, ut imperdiet tortor. Proin sed
-							molestie massa.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</p>
 					</div>
 					<div class="overlay"></div>
 				</div>
@@ -155,30 +145,18 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.
-						Mauris mattis suscipit est, ut imperdiet tortor. Proin sed.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Mauris mattis suscipit est, ut imperdiet tortor. Proin sed
-						molestie massa. Nullam condimentum mauris et rhoncus sagittis. Sed
-						eu metus in diam tincidunt egestas non at odio. Interdum et
-						malesuada fames ac ante ipsum primis in faucibus.</p>
+					<h3>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed.</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa. Nullam condimentum mauris et rhoncus sagittis. Sed eu
+						metus in diam tincidunt egestas non at odio. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
 					<div class="divider"></div>
-					<a href="#" class="button solid-color">BUTTON</a> <a href="#"
-						class="button extra-color">BUTTON</a>
+					<a href="#" class="button solid-color">BUTTON</a> <a href="#" class="button extra-color">BUTTON</a>
 				</div>
 				<div class="col-md-6">
-					<h3>Lorem ipsum dolor sit amet consectetur adipiscing elit.
-						Mauris mattis suscipit est, ut imperdiet tortor. Proin sed.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Mauris mattis suscipit est, ut imperdiet tortor. Proin sed
-						molestie massa. Nullam condimentum mauris et rhoncus sagittis. Sed
-						eu metus in diam tincidunt egestas non at odio.</p>
-					<p>Interdum et malesuada fames ac ante ipsum primis in
-						faucibus. Aenean vitae lectus erat. Duis consequat laoreet velit.
-						Mauris convallis, sapien sit amet scelerisque accumsan, felis urna
-						aliquet nunc, viverra mollis odio tellus a nisl. Nulla lobortis
-						lectus non rutrum viverra. Sed et molestie libero. Sed ut ultrices
-						dui.</p>
+					<h3>Lorem ipsum dolor sit amet consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed.</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa. Nullam condimentum mauris et rhoncus sagittis. Sed eu
+						metus in diam tincidunt egestas non at odio.</p>
+					<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean vitae lectus erat. Duis consequat laoreet velit. Mauris convallis, sapien sit amet scelerisque accumsan, felis urna
+						aliquet nunc, viverra mollis odio tellus a nisl. Nulla lobortis lectus non rutrum viverra. Sed et molestie libero. Sed ut ultrices dui.</p>
 				</div>
 			</div>
 		</div>
@@ -195,53 +173,53 @@
 	<div class="container-fluid container-articles">
 		<div class="row articles">
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/01.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/01.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/02.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/02.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/03.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/03.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/04.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/04.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/05.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/05.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/06.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/06.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 		</div>
 		<div class="row articles">
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/07.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/07.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/08.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/08.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/09.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/09.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/10.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/10.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/11.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/11.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 			<div class="col-md-2 article-img">
-				<a href="#"><img src="#{request.contextPath}/resources/img/articles/12.jpg" alt=""/></a>
+				<a href="#"><img src="#{request.contextPath}/resources/img/articles/12.jpg" alt="" /></a>
 				<div class="article-overlay"></div>
 			</div>
 		</div>
@@ -263,8 +241,7 @@
 						<figure>
 							<img alt="" src="#{request.contextPath}/resources/img/slider/slide-02.png" />
 						</figure>
-						<span class="prev"><i class="fa fa-angle-left fa-4x"></i></span> <span
-							class="next"><i class="fa fa-angle-right fa-4x"></i></span>
+						<span class="prev"><i class="fa fa-angle-left fa-4x"></i></span> <span class="next"><i class="fa fa-angle-right fa-4x"></i></span>
 					</div>
 				</div>
 				<div></div>
@@ -278,23 +255,16 @@
 					<div class="col-md-10 col-md-offset-1">
 						<div class="quote-slideshow">
 							<figure class="show">
-								<h2>Nam mi enim, auctor non ultricies a, fringilla eu
-									risus. Praesent vitae lorem et elit tincidunt accumsan suscipit
-									eu libero.</h2>
-								<figcaption>Nam mi enim, auctor non ultricies.</figcaption>
+								<h2>La mayoría de cosas importantes del mundo han sido conseguidas por gente que siguieron intentándolo cuando no parecía haber esperanza.</h2>
+								<figcaption>-Dale Carnegie.</figcaption>
 							</figure>
 							<figure>
-								<h2>Lorem ipsum dolor sit amet, consectetur adipiscing
-									elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin
-									sed molestie massa.</h2>
-								<figcaption>Nam mi enim, auctor.</figcaption>
+								<h2>Nunca te rindas tratando de hacer lo que realmente deseas hacer. Donde hay amor e inspiración, nada te puede salir mal.</h2>
+								<figcaption>– Ella Fitzgerald</figcaption>
 							</figure>
 						</div>
 					</div>
-					<span class="quote-prev circle"><i
-						class="fa fa-angle-left fa-2x"></i></span> <span
-						class="quote-next circle"><i
-						class="fa fa-angle-right fa-2x"></i></span>
+					<span class="quote-prev circle"><i class="fa fa-angle-left fa-2x"></i></span> <span class="quote-next circle"><i class="fa fa-angle-right fa-2x"></i></span>
 				</div>
 			</div>
 		</div>
@@ -304,21 +274,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-2">
-					<h2>INFUSION</h2>
+					<h2>Nicole Boutique</h2>
 				</div>
 				<div class="col-md-5">
-					<p>Nam mi enim, auctor non ultricies a, fringilla eu risus.
-						Praesent vitae lorem et elit tincidunt accumsan suscipit eu
-						libero. Maecenas diam est, venenatis vitae dui in, vestibulum
-						mollis arcu. Donec eu nibh tincidunt, dapibus sem eu, aliquam
-						dolor. Cum sociis natoque penatibus et magnis dis parturient
-						montes, nascetur ridiculus mus. Vestibulum consectetur commodo
-						eros, vitae laoreet lectus aliq</p>
+					<p>La mayoría de cosas importantes del mundo han sido conseguidas por gente que siguieron intentándolo cuando no parecía haber esperanza.-Dale Carnegie.</p>
 				</div>
 				<div class="col-md-3">
-					<p>aliquam dolor. Cum sociis natoque penatibus et magnis dis
-						parturient montes, nascetur ridiculus mus. Vestibulum consectetur
-						commodo eros, vitae laoreet lectus aliq</p>
+					<p>Nunca te rindas tratando de hacer lo que realmente deseas hacer. Donde hay amor e inspiración, nada te puede salir mal. – Ella Fitzgerald</p>
 				</div>
 				<div class="col-md-2">
 					<ul class="footer-links">
@@ -333,4 +295,4 @@
 		</div>
 	</footer>
 </h:body>
-</html>	
+</html>

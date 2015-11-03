@@ -16,7 +16,6 @@
 	<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
 	<h:outputStylesheet name="webjars/font-awesome/4.4.0/css/font-awesome.css"/>
 
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 	<script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
 	<script src="#{request.contextPath}/resources/js/scripts.js"></script>
 	<script src="#{request.contextPath}/resources/js/unslider.min.js"></script>
@@ -28,7 +27,8 @@
 		</div>
 		<nav class="clearfix">
 			<ul class="clearfix">
-				<li><a href="faces/paginas/clientes/listaClientes.xhtml" class="active">Lista Clientes</a></li>
+				<li><p:commandLink action="homeView" value="Inicio" styleClass="active" /></li>
+				<li><p:commandLink action="listaClientesView" value="Lista de Clientes" /></li>	
 				<li><a href="#">Galeria de Fotos</a></li>
 				<li><a href="#" class="last">Contacto</a></li>
 			</ul>
@@ -47,7 +47,7 @@
 		<div class="container">
 
 				<ui:insert name="content">
-					<span>Página en construcción</span>
+
 				</ui:insert>
 
 		</div>
@@ -62,12 +62,12 @@
 					<div class="col-md-10 col-md-offset-1">
 						<div class="quote-slideshow">
 							<figure class="show">
-								<h2>Nam mi enim, auctor non ultricies a, fringilla eu risus. Praesent vitae lorem et elit tincidunt accumsan suscipit eu libero.</h2>
-								<figcaption>Nam mi enim, auctor non ultricies.</figcaption>
+								<h2>La mayoría de cosas importantes del mundo han sido conseguidas por gente que siguieron intentándolo cuando no parecía haber esperanza.</h2>
+								<figcaption>-Dale Carnegie.</figcaption>
 							</figure>
 							<figure>
-								<h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mattis suscipit est, ut imperdiet tortor. Proin sed molestie massa.</h2>
-								<figcaption>Nam mi enim, auctor.</figcaption>
+								<h2>Nunca te rindas tratando de hacer lo que realmente deseas hacer. Donde hay amor e inspiración, nada te puede salir mal.</h2>
+								<figcaption>– Ella Fitzgerald</figcaption>
 							</figure>
 						</div>
 					</div>
@@ -84,12 +84,10 @@
 					<h2>Nicole Boutique</h2>
 				</div>
 				<div class="col-md-5">
-					<p>Nam mi enim, auctor non ultricies a, fringilla eu risus. Praesent vitae lorem et elit tincidunt accumsan suscipit eu libero. Maecenas diam est, venenatis vitae dui in, vestibulum mollis
-						arcu. Donec eu nibh tincidunt, dapibus sem eu, aliquam dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum consectetur commodo eros, vitae
-						laoreet lectus aliq</p>
+					<p>La mayoría de cosas importantes del mundo han sido conseguidas por gente que siguieron intentándolo cuando no parecía haber esperanza.-Dale Carnegie.</p>
 				</div>
 				<div class="col-md-3">
-					<p>aliquam dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum consectetur commodo eros, vitae laoreet lectus aliq</p>
+					<p>Nunca te rindas tratando de hacer lo que realmente deseas hacer. Donde hay amor e inspiración, nada te puede salir mal. – Ella Fitzgerald</p>
 				</div>
 			</div>
 		</div>

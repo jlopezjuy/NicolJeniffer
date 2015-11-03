@@ -49,6 +49,12 @@
 		<!-- Nicole -->
 		
 		<navigation-case>
+			<from-outcome>homeView</from-outcome>
+			<to-view-id>/paginas/home.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>listaClientesView</from-outcome>
 			<to-view-id>/paginas/clientes/listaClientes.xhtml</to-view-id>
 			<redirect></redirect>
