@@ -33,6 +33,11 @@ video {
     *display: inline;
     *zoom: 1;
 }
+
+.ui-icon.fa {
+     text-indent:0px;
+     background-image:none;
+}
  
 /*
  * Prevents modern browsers from displaying `audio` without controls.
