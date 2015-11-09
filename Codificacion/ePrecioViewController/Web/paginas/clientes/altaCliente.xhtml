@@ -9,6 +9,10 @@
 		<h:form>
 			<p:growl id="message" showDetail="true" />
 			<div class="ui-fluid">
+				<h2>
+					<p:outputLabel value="Alta - Cliente" />
+				</h2>
+				
 				<h:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
 					<p:outputLabel for="nombre" value="Nombre" />
 					<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombre}" required="true" />

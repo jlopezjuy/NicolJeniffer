@@ -15,8 +15,6 @@ public class ServicioMedidaImpl implements ServicioMedida {
 	private final static Logger LOG = Logger.getLogger(ServicioClienteImpl.class);
 	private SessionFactory sessionFactory;
 
-	private ServicioDtoImpl servicioDto;
-	private ServicioValidacionImpl servicioValidacion = new ServicioValidacionImpl();
 	
 	private MedidaDaoImpl medidaDao;
 	
@@ -48,10 +46,6 @@ public class ServicioMedidaImpl implements ServicioMedida {
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}
-
-	public void setServicioDto(ServicioDtoImpl servicioDto) {
-		this.servicioDto = servicioDto;
 	}
 
 	public MedidaDaoImpl getMedidaDao() {

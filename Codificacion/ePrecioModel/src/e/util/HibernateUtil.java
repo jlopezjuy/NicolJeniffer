@@ -10,7 +10,7 @@ public class HibernateUtil {
 	private static SessionFactory buildSessionFactory() {
 		try {
 
-			Configuration cfg = new Configuration().addClass(e.dominio.Persona.class).addClass(e.dominio.Producto.class).
+			Configuration cfg = new Configuration().addClass(e.dominio.entity.Clientes.class).addClass(e.dominio.entity.Clientes.class).
 					setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLInnoDBDialect").
 					setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver").					
 					setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/NicoleJeniffer").

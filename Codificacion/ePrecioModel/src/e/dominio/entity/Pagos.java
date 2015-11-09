@@ -12,6 +12,7 @@ import e.base.dominio.DominioBaseNombre;
 public class Pagos extends DominioBaseNombre {
 
 	private int idPagos;
+	private Clientes clientes;
 	private Date fechaPago;
 	private BigDecimal importe;
 	private Integer cantidad;
@@ -36,6 +37,14 @@ public class Pagos extends DominioBaseNombre {
 		this.detalle = detalle;
 		this.precioUnitario = precioUnitario;
 		this.precioTotal = precioTotal;
+	}
+
+	public Clientes getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Clientes clientes) {
+		this.clientes = clientes;
 	}
 
 	public int getIdPagos() {

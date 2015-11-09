@@ -6,8 +6,11 @@
  <class catalog="NicoleJeniffer" name="e.dominio.entity.Pagos" table="Pagos">
   <id name="idPagos" type="int">
    <column name="idPagos"/>
-   <generator class="assigned"/>
+   <generator class="identity"/>
   </id>
+  <many-to-one class="e.dominio.entity.Clientes" fetch="select" name="clientes">
+   <column name="Clientes_idClientes"/>
+  </many-to-one>
   <property generated="never" lazy="false" name="fechaPago" type="date">
    <column length="10" name="FechaPago"/>
   </property>

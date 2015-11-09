@@ -16,9 +16,6 @@ import e.servicio.ServicioCliente;
 public class ServicioClienteImpl implements ServicioCliente {
 	private final static Logger LOG = Logger.getLogger(ServicioClienteImpl.class);
 	private SessionFactory sessionFactory;
-
-	private ServicioDtoImpl servicioDto;
-	private ServicioValidacionImpl servicioValidacion = new ServicioValidacionImpl();
 	
 	private ClienteDaoImpl clienteDao;
 	
@@ -48,10 +45,6 @@ public class ServicioClienteImpl implements ServicioCliente {
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-	}
-
-	public void setServicioDto(ServicioDtoImpl servicioDto) {
-		this.servicioDto = servicioDto;
 	}
 
 	@Override

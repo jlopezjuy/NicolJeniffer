@@ -5,22 +5,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema clothes
+-- Schema NicoleJeniffer
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `clothes` ;
+DROP SCHEMA IF EXISTS `NicoleJeniffer` ;
 
 -- -----------------------------------------------------
--- Schema clothes
+-- Schema NicoleJeniffer
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `clothes` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `clothes` ;
+CREATE SCHEMA IF NOT EXISTS `NicoleJeniffer` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `NicoleJeniffer` ;
 
 -- -----------------------------------------------------
--- Table `clothes`.`Clientes`
+-- Table `NicoleJeniffer`.`Clientes`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `clothes`.`Clientes` ;
+DROP TABLE IF EXISTS `NicoleJeniffer`.`Clientes` ;
 
-CREATE TABLE IF NOT EXISTS `clothes`.`Clientes` (
+CREATE TABLE IF NOT EXISTS `NicoleJeniffer`.`Clientes` (
   `idClientes` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `Nombre` VARCHAR(45) NULL COMMENT '',
   `Apellido` VARCHAR(45) NULL COMMENT '',
@@ -34,11 +34,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `clothes`.`Medidas`
+-- Table `NicoleJeniffer`.`Medidas`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `clothes`.`Medidas` ;
+DROP TABLE IF EXISTS `NicoleJeniffer`.`Medidas` ;
 
-CREATE TABLE IF NOT EXISTS `clothes`.`Medidas` (
+CREATE TABLE IF NOT EXISTS `NicoleJeniffer`.`Medidas` (
   `idMedidas` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `LargoPolera` DECIMAL(10,4) NULL COMMENT '',
   `LargoCorset` DECIMAL(10,4) NULL COMMENT '',
@@ -64,20 +64,20 @@ CREATE TABLE IF NOT EXISTS `clothes`.`Medidas` (
   INDEX `fk_Medidas_Clientes_idx` (`Clientes_idClientes` ASC)  COMMENT '',
   CONSTRAINT `fk_Medidas_Clientes`
     FOREIGN KEY (`Clientes_idClientes`)
-    REFERENCES `clothes`.`Clientes` (`idClientes`)
+    REFERENCES `NicoleJeniffer`.`Clientes` (`idClientes`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `clothes`.`Modelos`
+-- Table `NicoleJeniffer`.`Modelos`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `clothes`.`Modelos` ;
+DROP TABLE IF EXISTS `NicoleJeniffer`.`Modelos` ;
 
-CREATE TABLE IF NOT EXISTS `clothes`.`Modelos` (
+CREATE TABLE IF NOT EXISTS `NicoleJeniffer`.`Modelos` (
   `idModelos` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `Imagen` BLOB NULL COMMENT '',
+  `Imagen` LONGBLOB NULL COMMENT '',
   `NombreModelo` VARCHAR(255) NULL COMMENT '',
   `Observacion` VARCHAR(255) NULL COMMENT '',
   `ColorVestido` VARCHAR(255) NULL COMMENT '',
@@ -86,26 +86,33 @@ CREATE TABLE IF NOT EXISTS `clothes`.`Modelos` (
   INDEX `fk_Modelos_Clientes1_idx` (`Clientes_idClientes` ASC)  COMMENT '',
   CONSTRAINT `fk_Modelos_Clientes1`
     FOREIGN KEY (`Clientes_idClientes`)
-    REFERENCES `clothes`.`Clientes` (`idClientes`)
+    REFERENCES `NicoleJeniffer`.`Clientes` (`idClientes`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `clothes`.`Pagos`
+-- Table `NicoleJeniffer`.`Pagos`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `clothes`.`Pagos` ;
+DROP TABLE IF EXISTS `NicoleJeniffer`.`Pagos` ;
 
-CREATE TABLE IF NOT EXISTS `clothes`.`Pagos` (
-  `idPagos` INT NOT NULL COMMENT '',
+CREATE TABLE IF NOT EXISTS `NicoleJeniffer`.`Pagos` (
+  `idPagos` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `FechaPago` DATE NULL COMMENT '',
   `Importe` DECIMAL(10,4) NULL COMMENT '',
   `Cantidad` INT NULL COMMENT '',
   `Detalle` VARCHAR(45) NULL COMMENT '',
   `PrecioUnitario` DECIMAL(10,4) NULL COMMENT '',
   `PrecioTotal` DECIMAL(10,4) NULL COMMENT '',
-  PRIMARY KEY (`idPagos`)  COMMENT '')
+  `idClientes` INT NULL COMMENT '',
+  PRIMARY KEY (`idPagos`)  COMMENT '',
+  INDEX `fk_Pagos_Clientes1_idx` (`idClientes` ASC)  COMMENT '',
+  CONSTRAINT `fk_Pagos_Clientes1`
+    FOREIGN KEY (`idClientes`)
+    REFERENCES `NicoleJeniffer`.`Clientes` (`idClientes`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 

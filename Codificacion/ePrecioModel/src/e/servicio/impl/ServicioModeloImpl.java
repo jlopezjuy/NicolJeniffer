@@ -15,8 +15,6 @@ public class ServicioModeloImpl implements ServicioModelo {
 	private final static Logger LOG = Logger.getLogger(ServicioModeloImpl.class);
 	private SessionFactory sessionFactory;
 
-	private ServicioDtoImpl servicioDto;
-	private ServicioValidacionImpl servicioValidacion = new ServicioValidacionImpl();
 	private ModeloDaoImpl modeloDao;
 	@Override
 	public void editarModelo(Modelos cliente) throws ExcepcionServicio {
@@ -48,9 +46,6 @@ public class ServicioModeloImpl implements ServicioModelo {
 		this.sessionFactory = sessionFactory;
 	}
 
-	public void setServicioDto(ServicioDtoImpl servicioDto) {
-		this.servicioDto = servicioDto;
-	}
 
 	public ModeloDaoImpl getModeloDao() {
 		return modeloDao;
