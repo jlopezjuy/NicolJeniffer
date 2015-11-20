@@ -25,27 +25,7 @@
 
 
 	<!-- servicios -->
-	<bean id="servicioDto" class="e.servicio.impl.ServicioDtoImpl">
-		<property name="baseNombreBuilder" ref="baseNombreBuilder" />
-		<property name="personaBuilder" ref="personaBuilder" />
-		<property name="precioBuilder" ref="precioBuilder" />
-		<property name="transaccionBuilder" ref="transaccionBuilder" />
-		<property name="transaccionItemBuilder" ref="transaccionItemBuilder" />
-		<property name="unidadBuilder" ref="unidadBuilder" />
-		<property name="usuarioBuilder" ref="usuarioBuilder" />
-		<property name="clienteBuilder" ref="clienteBuilder"/>
-	</bean>
-	
-	<bean id="servicioPrecio" class="e.servicio.impl.ServicioPrecioImpl">
-		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
-		
 
-
-	</bean>
-
-	<bean id="servicioItem" class="e.servicio.impl.ServicioItemImpl">
-
-	</bean>
 	
 	<bean id="servicioCliente" class="e.servicio.impl.ServicioClienteImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />

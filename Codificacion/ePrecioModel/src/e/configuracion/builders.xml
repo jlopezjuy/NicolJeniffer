@@ -13,27 +13,5 @@
 	<bean id="baseNombreBuilder" class="e.base.dto.builder.BaseNombreBuilder">
 
 	</bean>
-	<bean id="precioBuilder" class="e.dto.builder.PrecioBuilder">
-
-	</bean>
-	<bean id="personaBuilder" class="e.dto.builder.PersonaBuilder">
-
-	</bean>
-	<bean id="transaccionBuilder" class="e.dto.builder.TransaccionBuilder">
-
-	</bean>
-	<bean id="transaccionItemBuilder" class="e.dto.builder.TransaccionItemBuilder">
-
-	</bean>
-	<bean id="unidadBuilder" class="e.dto.builder.UnidadBuilder">
-
-	</bean>
-	<bean id="usuarioBuilder" class="e.dto.builder.UsuarioBuilder">
-
-	</bean>
-	
-	<bean id="clienteBuilder" class="e.dto.builder.ClienteBuilder">
-
-	</bean>
 
 </beans>

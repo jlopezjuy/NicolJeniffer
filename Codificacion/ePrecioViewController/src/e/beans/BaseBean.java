@@ -20,8 +20,6 @@ public class BaseBean {
 	protected final static String MENSAJE = "MENSAJE";
 	protected final static String CONTEXTO = "CONTEXTO";
 
-	private ServicioPrecio servicioGeneral;
-	private ServicioItem servicioItem;
 	private ServicioCliente servicioCliente;
 	private ServicioMedida servicioMedida;
 	private ServicioModelo servicioModelo;
@@ -30,29 +28,7 @@ public class BaseBean {
 		LOG.debug("");
 	}
 
-	/**
-	 * Obtiene el servicio para operar con el modelo
-	 * 
-	 * @return ServicioGeneral
-	 */
-	protected ServicioPrecio getServicioPrecio() {
-		if (servicioGeneral == null) {
-			servicioGeneral = (ServicioPrecio) SpringUtil.obtenerBeanSpring("servicioPrecio");
-		}
-		return servicioGeneral;
-	}
 
-	/**
-	 * Obtiene el servicio para generar listasa seleccionables
-	 * 
-	 * @return ServicioItem
-	 */
-	protected ServicioItem getServicioItem() {
-		if (servicioItem == null) {
-			servicioItem = (ServicioItem) SpringUtil.obtenerBeanSpring("servicioItem");
-		}
-		return servicioItem;
-	}
 
 	protected void guardarAtributoSesion(String nombreAtributo, Object valorAtributo) {
 		LOG.debug(nombreAtributo + ": " + valorAtributo);
