@@ -4,13 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
-
-import e.base.excepcion.ExcepcionBaseDeDato;
 import e.base.excepcion.ExcepcionServicio;
-import e.dao.ClienteDao;
 import e.dao.impl.ClienteDaoImpl;
 import e.dominio.entity.Clientes;
-import e.dto.dominio.ClienteDto;
 import e.servicio.ServicioCliente;
 
 public class ServicioClienteImpl implements ServicioCliente {
@@ -26,8 +22,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 		List<Clientes> list;
 		try {
 			list = clienteDao.listarClientes();
-			LOG.debug("//////ENCONTRO DATOS....: "+ list.size());
-			//return servicioDto.getClienteDTO(list);
+			LOG.debug("//////CLIENTES ENCONTRADOS....: "+ list.size());
 			return list;
 		} catch (Exception e) {
 			LOG.warn(e.getMessage());
@@ -47,17 +42,23 @@ public class ServicioClienteImpl implements ServicioCliente {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
-	public void editarCliente(Clientes cliente) throws ExcepcionServicio {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void guardarCliente(Clientes cliente) throws ExcepcionServicio {
 		// TODO Auto-generated method stub
 		LOG.debug("Entro a guardarCliente: "+cliente.toString());
 		clienteDao.guardarCliente(cliente);
+	}
+
+	@Override
+	public void editarCiente(Clientes cliente)throws ExcepcionServicio {
+		LOG.debug("ENTRO A EDITAR EL CLIETE");
+		clienteDao.editar(cliente);
+	}
+
+	@Override
+	public void eliminarCliente(Clientes cliente)throws ExcepcionServicio {
+		clienteDao.eliminar(cliente);
 	}
 
 }

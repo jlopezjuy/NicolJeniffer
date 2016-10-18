@@ -67,6 +67,12 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-outcome>editarClienteView</from-outcome>
+			<to-view-id>/paginas/clientes/editarCliente.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>listaMedidasView</from-outcome>
 			<to-view-id>/paginas/medidas/listaMedidas.xhtml</to-view-id>
 			<redirect></redirect>

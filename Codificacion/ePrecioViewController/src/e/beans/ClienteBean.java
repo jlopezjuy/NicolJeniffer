@@ -60,6 +60,23 @@ public class ClienteBean extends BaseBean {
 			cliente.setDomicilio(domicilio);
 
 			getServicioCliente().guardarCliente(cliente);
+			LOG.info("guardo datos !!!!!!!!!!!!!");
+			limpiarFormulario();
+		} catch (ExcepcionServicio e) {
+			LOG.error(e);
+			return null;
+
+		}
+		return "listaClientesView";
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String editarCliente(){
+		try {
+			getServicioCliente().editarCiente(clienteSeleccionado);
 			limpiarFormulario();
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);

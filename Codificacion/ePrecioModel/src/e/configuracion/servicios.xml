@@ -25,9 +25,7 @@
 
 
 	<!-- servicios -->
-
-	
-	<bean id="servicioCliente" class="e.servicio.impl.ServicioClienteImpl">
+		<bean id="servicioCliente" class="e.servicio.impl.ServicioClienteImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
 		<property name="clienteDao" ref="clienteDao"/>
 	</bean>

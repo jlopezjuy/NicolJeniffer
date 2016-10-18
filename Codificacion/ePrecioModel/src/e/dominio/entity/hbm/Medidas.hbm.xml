@@ -3,7 +3,7 @@
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 05-oct-2015 18:08:53 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
- <class catalog="NicoleJeniffer" name="e.dominio.entity.Medidas" table="Medidas">
+ <class catalog="clothes" name="e.dominio.entity.Medidas" table="Medidas">
   <id name="idMedidas" type="int">
    <column name="idMedidas"/>
    <generator class="identity"/>

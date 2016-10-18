@@ -31,4 +31,14 @@ public class ClienteDaoImpl extends DAOHibernateImpl<Clientes, Long> implements 
 		super.guardar(cliente);
 	}
 
+	@Override
+	public void editarCiente(Clientes cliente) {
+		super.editar(cliente);
+	}
+
+	@Override
+	public void eliminarCliente(Clientes cliente) {
+		super.eliminar(cliente);
+	}
+
 }

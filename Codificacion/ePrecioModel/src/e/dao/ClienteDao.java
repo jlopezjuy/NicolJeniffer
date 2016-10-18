@@ -9,4 +9,6 @@ public interface ClienteDao extends DAOBase<Clientes, Long>{
 	List<Clientes> buscarNombreCliente(String nombreCliente);
 	List<Clientes> listarClientes();
 	void guardarCliente(Clientes cliente);
+	void editarCiente(Clientes cliente);
+	void eliminarCliente(Clientes cliente);
 }

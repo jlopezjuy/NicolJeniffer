@@ -16,7 +16,14 @@
 			<p:commandButton action="altaClienteView" value="Nuevo" icon="fa fa-user-plus"/>
 
 			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="5" paginator="true" reflow="true" >
-
+				
+				<p:column style="width:80px;text-align: center" headerText="Editar">
+					<p:commandButton icon="ui-icon-edit" action="editarClienteView">
+						<f:setPropertyActionListener value="#{cli}" target="#{clienteBean.clienteSeleccionado}" />
+					</p:commandButton>
+				</p:column>
+				
+				
 				<p:column style="width:80px;text-align: center" headerText="Medidas">
 					<p:commandButton icon="fa fa-cut" action="listaMedidasView">
 						<f:setPropertyActionListener value="#{cli}" target="#{medidaBean.clientes}" />

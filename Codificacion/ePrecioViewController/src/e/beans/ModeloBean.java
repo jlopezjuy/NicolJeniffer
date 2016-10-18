@@ -10,6 +10,8 @@ import org.apache.log4j.Logger;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.application.ViewHandler;
+import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseId;
 
@@ -34,6 +36,7 @@ public class ModeloBean extends BaseBean {
 	private Modelos modeloSelect;
 	private List<Modelos> listaModelos;
 	private String imagenTemp;
+	private StreamedContent imageLoad;
 
 	public ModeloBean() {
 		super();
@@ -57,6 +60,12 @@ public class ModeloBean extends BaseBean {
 
 		}
 		return "listaModeloView";
+	}
+	
+	public Boolean validateInsert(){
+		Boolean validate = Boolean.TRUE;
+		
+		return validate;
 	}
 	
 	/**
@@ -132,6 +141,22 @@ public class ModeloBean extends BaseBean {
 		}
     }
 	
+	/**
+	 * Metodo para mostrar imagen seleccionada en el datatable
+	 * @return
+	 * @author JLopez
+	 * @since 19/11/2015
+	 * @versio 1.0
+	 */
+	public String getLoadImage(){
+		if(null != this.getImagen()){
+			imageLoad = new DefaultStreamedContent(new ByteArrayInputStream(this.getImagen()));
+			RequestContext.getCurrentInstance().update("form");
+			
+			this.refreshCurrentPage();
+		}		
+		return null;
+	}
 	
 
     public StreamedContent getImage() throws IOException {
@@ -148,6 +173,21 @@ public class ModeloBean extends BaseBean {
             return new DefaultStreamedContent(new ByteArrayInputStream(student.getImagen()));
         }
     }
+    
+    /**
+	 * Metodo para refrescar el current Page
+	 * @author JLopez
+	 * @since 19/11/2015
+	 * @version 1.0
+	 */
+	public void refreshCurrentPage(){
+		FacesContext context = FacesContext.getCurrentInstance();
+		String viewId = context.getViewRoot().getViewId();
+		ViewHandler handler = context.getApplication().getViewHandler();
+		UIViewRoot root = handler.createView(context, viewId);
+		root.setViewId(viewId);
+		context.setViewRoot(root);
+	}
 
 
 	public int getIdModelos() {
@@ -228,4 +268,14 @@ public class ModeloBean extends BaseBean {
 	public void setImagenTemp(String imagenTemp) {
 		this.imagenTemp = imagenTemp;
 	}
+
+	public StreamedContent getImageLoad() {
+		return imageLoad;
+	}
+
+	public void setImageLoad(StreamedContent imageLoad) {
+		this.imageLoad = imageLoad;
+	}
+	
+	
 }

@@ -10,8 +10,7 @@
 	<!-- builders -->
 
 
+
 	<bean id="baseNombreBuilder" class="e.base.dto.builder.BaseNombreBuilder">
 
-	</bean>
-
-</beans>
+	</bean></beans>
