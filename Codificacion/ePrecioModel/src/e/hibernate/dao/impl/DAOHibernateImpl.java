@@ -113,6 +113,7 @@ public class DAOHibernateImpl<T extends DominioBase, ID extends Serializable> ex
 	public Object guardar(T objeto) {
 		Object objetoId = null;
 		try {
+			LOG.info("Entro a guardar objeto: "+ objeto.toString());
 			objetoId = getSession().save(objeto);
 		} catch (Exception e) {
 			LOG.error("Error", e);

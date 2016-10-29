@@ -11,11 +11,14 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form id="form">
-
-
+			<p:panelGrid >
+				<p:outputLabel for="nombre" value="Nombre" />
+				<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombreBusqueda}" />
+				<p:commandButton action="#{clienteBean.busquedaCliente}" value="Buscar" update=":form:listaCli"/>
+			</p:panelGrid>
 			<p:commandButton action="altaClienteView" value="Nuevo" icon="fa fa-user-plus"/>
 
-			<p:dataTable var="cli" value="#{clienteBean.listaClientes}" rows="5" paginator="true" reflow="true" >
+			<p:dataTable id="listaCli" var="cli" value="#{clienteBean.listaClientes}" rows="5" paginator="true" reflow="true" >
 				
 				<p:column style="width:80px;text-align: center" headerText="Editar">
 					<p:commandButton icon="ui-icon-edit" action="editarClienteView">
@@ -55,11 +58,9 @@
 			</p:dataTable>
 
 
-			<p:dialog header="Información de Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:dialog header="Detalle Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:outputPanel id="clienteDetalle" style="text-align:left;">
-					<p:panelGrid columns="2" >
-
-						<h:outputText value="Id Cliente: #{clienteBean.clienteSeleccionado.idClientes}" />
+					<p:panelGrid columns="1" >
 
 						<h:outputText value="Nombre: #{clienteBean.clienteSeleccionado.nombre}" />
 

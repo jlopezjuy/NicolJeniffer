@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28/10/2016 11:29:39 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="e.dominio.entity.Valordominio" table="valordominio" catalog="nicolejeniffer">
+        <id name="idValorDominio" type="java.lang.Integer">
+            <column name="idValorDominio" />
+            <generator class="identity" />
+        </id>
+        <property name="descripcion" type="string">
+            <column name="Descripcion" length="45" />
+        </property>
+        <set name="encargoses" table="encargos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ValorDominio_idValorDominio" not-null="true" />
+            </key>
+            <one-to-many class="e.dominio.entity.Encargos" />
+        </set>
+    </class>
+</hibernate-mapping>

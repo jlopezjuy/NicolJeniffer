@@ -7,18 +7,16 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form id="form">
-
-
 			<h:panelGrid columns="2" cellpadding="5">
 				<h:outputLabel for="nombre" value="Nombre" />
 				<p:inputText id="nombre" label="Nombre" value="#{medidaBean.clientes.nombre}" disabled="true" />
 
 				<h:outputLabel for="apellido" value="Apellido" />
 				<p:inputText id="apellido" label="Apellido" value="#{medidaBean.clientes.apellido}" disabled="true" />
-
 			</h:panelGrid>
 
 			<p:commandButton action="altaMedidaView" value="Nuevo" icon="fa fa-plus" />
+			<p:spacer/>
 			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
 
 

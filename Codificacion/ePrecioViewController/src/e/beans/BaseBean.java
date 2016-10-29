@@ -15,6 +15,7 @@ import e.servicio.ServicioItem;
 import e.servicio.ServicioMedida;
 import e.servicio.ServicioModelo;
 import e.servicio.ServicioPrecio;
+import e.servicio.ServicioUsuario;
 import e.util.SpringUtil;
 
 public class BaseBean {
@@ -26,6 +27,7 @@ public class BaseBean {
 	private ServicioCliente servicioCliente;
 	private ServicioMedida servicioMedida;
 	private ServicioModelo servicioModelo;
+	private ServicioUsuario servicioUsuario;
 
 	public BaseBean() {
 		LOG.debug("");
@@ -99,6 +101,21 @@ public class BaseBean {
 
 	public void setServicioModelo(ServicioModelo servicioModelo) {
 		this.servicioModelo = servicioModelo;
+	}
+
+
+
+	public ServicioUsuario getServicioUsuario() {
+		if (servicioUsuario == null) {
+			servicioUsuario = (ServicioUsuario) SpringUtil.obtenerBeanSpring("servicioUsuario");
+		}
+		return servicioUsuario;
+	}
+
+
+
+	public void setServicioUsuario(ServicioUsuario servicioUsuario) {
+		this.servicioUsuario = servicioUsuario;
 	}
 	
 	

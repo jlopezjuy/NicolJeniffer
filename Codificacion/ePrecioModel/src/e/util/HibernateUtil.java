@@ -15,7 +15,7 @@ public class HibernateUtil {
 					setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver").					
 					setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/clothes").
 					setProperty("hibernate.connection.username", "root").
-					setProperty("hibernate.connection.password", "154122954");
+					setProperty("hibernate.connection.password", "123456");
 
 			// Create the SessionFactory from hibernate.cfg.xml
 			// return cfg.configure().buildSessionFactory(new

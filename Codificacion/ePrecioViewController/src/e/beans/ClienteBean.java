@@ -31,20 +31,27 @@ public class ClienteBean extends BaseBean {
 	private String domicilio;
 	private String colegio;
 	private List<Clientes> listaClientes = new ArrayList<Clientes>();
-	
+
+	private String nombreBusqueda;
 
 	public ClienteBean() {
 		super();
+		try {
+			listaClientes = getServicioCliente().listAll();
+			LOG.debug("cantidad de datos: " + listaClientes.size());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void guardarNuevoCliente(ActionEvent ev) {
 		LOG.debug("Entro en guardarNuevoCliente");
-
 	}
-	
+
 	/**
 	 * Metodo para guardar un cliente nuevo
-	 * @return 
+	 * 
+	 * @return
 	 * @author jlopez
 	 * @since 07/10/2015
 	 * @version 1.0
@@ -69,7 +76,7 @@ public class ClienteBean extends BaseBean {
 		}
 		return "listaClientesView";
 	}
-	
+
 	/**
 	 * 
 	 * @return
@@ -88,26 +95,27 @@ public class ClienteBean extends BaseBean {
 	
 	/**
 	 * Metodo para guardar un cliente nuevo
-	 * @return 
+	 * 
+	 * @return
 	 * @author jlopez
 	 * @since 07/10/2015
 	 * @version 1.0
 	 */
 	public String cancelarCliente() {
 
-			limpiarFormulario();
+		limpiarFormulario();
 
 		return "listaClientesView";
 	}
-	
+
 	/**
-	 * Metodo para limpiar el formulario 
-	 * luego de un alta exitosa
+	 * Metodo para limpiar el formulario luego de un alta exitosa
+	 * 
 	 * @author jlopez
 	 * @since 07/10/2015
 	 * @version 1.0
 	 */
-	private void limpiarFormulario(){
+	private void limpiarFormulario() {
 		nombre = "";
 		apellido = "";
 		celular = "";
@@ -116,46 +124,57 @@ public class ClienteBean extends BaseBean {
 		domicilio = "";
 		colegio = "";
 	}
-	
+
 	/**
 	 * Metodo que se ejecuta cuando seleccionamos una fila
+	 * 
 	 * @param event
 	 * @author jlopez
 	 * @since 08/10/2015
 	 * @version 1.0
 	 */
 	public void onRowSelect(SelectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Selected", ((Clientes) event.getObject()).getNombre());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-	
+		FacesMessage msg = new FacesMessage("Cliente Seleccionado: ",
+				((Clientes) event.getObject()).getNombre());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
 	/**
 	 * Metodo que se ejecuta cuando des seleccionamos una fila
+	 * 
 	 * @param event
 	 * @author jlopez
 	 * @since 08/10/2015
 	 * @version 1.0
 	 */
-    public void onRowUnselect(UnselectEvent event) {
-        FacesMessage msg = new FacesMessage("Car Unselected", ((Clientes) event.getObject()).getNombre());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    public void showPopUp(){
-    	LOG.debug("*****************entro a intentar mostrar el PopUp");
-    	Map<String,Object> options = new HashMap<String, Object>();
-        options.put("modal", true);
-        options.put("draggable", false);
-        options.put("resizable", false);
-        options.put("contentHeight", 320);
-         
-        RequestContext.getCurrentInstance().openDialog("altaClienteView", options, null);
-    }
-    
-    public void destroyWorld() {
-        addMessage("System Error", "Please try again later.");
-    }
-	
+	public void onRowUnselect(UnselectEvent event) {
+		FacesMessage msg = new FacesMessage("Car Unselected",
+				((Clientes) event.getObject()).getNombre());
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void showPopUp() {
+		LOG.debug("*****************entro a intentar mostrar el PopUp");
+		Map<String, Object> options = new HashMap<String, Object>();
+		options.put("modal", true);
+		options.put("draggable", false);
+		options.put("resizable", false);
+		options.put("contentHeight", 320);
+
+		RequestContext.getCurrentInstance().openDialog("altaClienteView",
+				options, null);
+	}
+
+	public String busquedaCliente() {
+		LOG.info("cliente a buscar: " + nombreBusqueda);
+		setListaClientes(getServicioCliente().findClientes(nombreBusqueda));
+		return null;
+	}
+
+	public void destroyWorld() {
+		addMessage("System Error", "Please try again later.");
+	}
+
 	public Clientes getCliente() {
 		return cliente;
 	}
@@ -165,13 +184,6 @@ public class ClienteBean extends BaseBean {
 	}
 
 	public List<Clientes> getListaClientes() {
-		try {
-			listaClientes = getServicioCliente().listAll();
-			LOG.debug("cantidad de datos: " + listaClientes.size());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
 		return listaClientes;
 	}
 
@@ -253,4 +265,11 @@ public class ClienteBean extends BaseBean {
 		this.clienteSeleccionado = clienteSeleccionado;
 	}
 
+	public String getNombreBusqueda() {
+		return nombreBusqueda;
+	}
+
+	public void setNombreBusqueda(String nombreBusqueda) {
+		this.nombreBusqueda = nombreBusqueda;
+	}
 }

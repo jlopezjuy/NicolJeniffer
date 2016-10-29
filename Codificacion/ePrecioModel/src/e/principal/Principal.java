@@ -14,7 +14,7 @@ public class Principal {
 			Class.forName("com.mysql.jdbc.Driver");
 			SpringUtil.obtenerContextoSpring();
 			ServicioPrecio servicioGeneral = (ServicioPrecio) SpringUtil.obtenerBeanSpring("servicioPrecio");
-			System.out.println(servicioGeneral.iniciarSesion("usuario", "clave"));
+			//System.out.println(servicioGeneral.iniciarSesion("usuario", "clave"));
 
 			/*
 			 * Connection connection =

@@ -14,7 +14,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/clothes" />
 		<property name="username" value="root" />
-		<property name="password" value="154122954" />
+		<property name="password" value="123456" />
 	</bean>
 
 
@@ -28,6 +28,11 @@
 				<value>e/dominio/entity/hbm/Medidas.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Modelos.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Pagos.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Encargos.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Rol.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Usuario.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Usuariorol.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Valordominio.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
