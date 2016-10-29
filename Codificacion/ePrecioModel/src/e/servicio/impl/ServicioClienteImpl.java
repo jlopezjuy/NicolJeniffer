@@ -50,7 +50,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 	@Override
 	public void editarCliente(Clientes cliente) throws ExcepcionServicio {
 		// TODO Auto-generated method stub
-		
+		clienteDao.editarCiente(cliente);
 	}
 
 	@Override

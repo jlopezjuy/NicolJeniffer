@@ -83,7 +83,7 @@ public class ClienteBean extends BaseBean {
 	 */
 	public String editarCliente(){
 		try {
-			getServicioCliente().editarCiente(clienteSeleccionado);
+			getServicioCliente().editarCliente(clienteSeleccionado);
 			limpiarFormulario();
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);

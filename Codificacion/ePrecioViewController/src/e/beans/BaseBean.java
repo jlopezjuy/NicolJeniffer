@@ -1,20 +1,15 @@
 package e.beans;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
 import org.apache.log4j.Logger;
 
-import javax.faces.application.ViewHandler;
-
 import e.base.dto.contexto.UsuarioWebDto;
 import e.base.dto.validacion.MensajeDto;
 import e.servicio.ServicioCliente;
-import e.servicio.ServicioItem;
 import e.servicio.ServicioMedida;
 import e.servicio.ServicioModelo;
-import e.servicio.ServicioPrecio;
 import e.servicio.ServicioUsuario;
 import e.util.SpringUtil;
 
