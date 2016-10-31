@@ -35,6 +35,12 @@
 	</managed-bean>
 	
 	<managed-bean>
+		<managed-bean-name>usuarioBean</managed-bean-name>
+		<managed-bean-class>e.beans.UsuarioBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
 		<managed-bean-name>uploadImage</managed-bean-name>
 		<managed-bean-class>e.util.UploadImage</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
@@ -47,6 +53,12 @@
 		<display-name>*</display-name>
 		<from-view-id>*</from-view-id>
 		<!-- Nicole -->
+		
+		<navigation-case>
+			<from-outcome>loginView</from-outcome>
+			<to-view-id>/paginas/login.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>homeView</from-outcome>

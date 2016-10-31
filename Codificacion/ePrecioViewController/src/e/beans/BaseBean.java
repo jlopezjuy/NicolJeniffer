@@ -75,6 +75,11 @@ public class BaseBean {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+	
+	public void addMessageWarning(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 
 	public ServicioMedida getServicioMedida() {
 		if (servicioMedida == null) {

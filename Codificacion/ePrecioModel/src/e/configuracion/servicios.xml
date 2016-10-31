@@ -40,4 +40,9 @@
 		<property name="modeloDao" ref="modeloDao"/>
 	</bean>
 	
+	<bean id="servicioUsuario" class="e.servicio.impl.ServicioUsuarioImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+		<property name="usuarioDao" ref="usuarioDao"/>
+	</bean>
+	
 </beans>

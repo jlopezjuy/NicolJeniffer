@@ -21,4 +21,8 @@
 	<bean id="modeloDao" class="e.dao.impl.ModeloDaoImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
 	</bean>
+	
+	<bean id="usuarioDao" class="e.dao.impl.UsuarioDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
 </beans>

@@ -13,7 +13,7 @@ public class HibernateUtil {
 			Configuration cfg = new Configuration().addClass(e.dominio.entity.Clientes.class).addClass(e.dominio.entity.Clientes.class).
 					setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLInnoDBDialect").
 					setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver").					
-					setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/clothes").
+					setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/NicoleJeniffer").
 					setProperty("hibernate.connection.username", "root").
 					setProperty("hibernate.connection.password", "123456");
 
