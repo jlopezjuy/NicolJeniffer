@@ -14,7 +14,7 @@ public class EncargoBean extends BaseBean {
 
 	private Encargos encargoSeleccionado;
 	private Integer idEncargo;
-	private Clientes clientes;
+	private Clientes cliente;
 	private Valordominio valordominio;
 	private BigDecimal importeTotal;
 	private Date fechaEncargo;
@@ -49,12 +49,12 @@ public class EncargoBean extends BaseBean {
 		this.idEncargo = idEncargo;
 	}
 
-	public Clientes getClientes() {
-		return clientes;
+	public Clientes getCliente() {
+		return cliente;
 	}
 
-	public void setClientes(Clientes clientes) {
-		this.clientes = clientes;
+	public void setCliente(Clientes cliente) {
+		this.cliente = cliente;
 	}
 
 	public Valordominio getValordominio() {

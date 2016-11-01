@@ -30,26 +30,26 @@
 				</p:column>
 
 				<p:column headerText="Nombre">
-					<h:outputText value="#{enca.nombre}" />
+					<h:outputText value="#{enca.cliente.nombre}" />
 				</p:column>
 
 				<p:column headerText="Apellido">
-					<h:outputText value="#{enca.apellido}" />
+					<h:outputText value="#{enca.cliente.apellido}" />
 				</p:column>
 
 				<p:column headerText="Colegio">
-					<h:outputText value="#{enca.colegio}" />
+					<h:outputText value="#{enca.cliente.colegio}" />
 				</p:column>
 
 				<p:column style="width:80px;text-align: center" headerText="Detalle">
-					<p:commandButton icon="fa fa-edit" oncomplete="PF('clienteDialog').show();" update=":form">
+					<p:commandButton icon="fa fa-edit" oncomplete="PF('encargoDialog').show();" update=":form">
 						<f:setPropertyActionListener value="#{cli}" target="#{encargoBean.encargoSeleccionado}" />
 					</p:commandButton>
 				</p:column>
 			</p:dataTable>
 
 
-			<p:dialog header="Detalle Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:dialog header="Detalle Cliente" widgetVar="encargoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:outputPanel id="clienteDetalle" style="text-align:left;">
 					<p:panelGrid columns="1" >
 
