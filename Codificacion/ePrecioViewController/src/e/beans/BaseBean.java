@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import e.base.dto.contexto.UsuarioWebDto;
 import e.base.dto.validacion.MensajeDto;
 import e.servicio.ServicioCliente;
+import e.servicio.ServicioEncargo;
 import e.servicio.ServicioMedida;
 import e.servicio.ServicioModelo;
 import e.servicio.ServicioUsuario;
@@ -23,22 +24,24 @@ public class BaseBean {
 	private ServicioMedida servicioMedida;
 	private ServicioModelo servicioModelo;
 	private ServicioUsuario servicioUsuario;
+	private ServicioEncargo servicioEncargo;
 
 	public BaseBean() {
 		LOG.debug("");
 	}
 
-
-
-	protected void guardarAtributoSesion(String nombreAtributo, Object valorAtributo) {
+	protected void guardarAtributoSesion(String nombreAtributo,
+			Object valorAtributo) {
 		LOG.debug(nombreAtributo + ": " + valorAtributo);
 		if (nombreAtributo != null && !nombreAtributo.trim().isEmpty()) {
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(nombreAtributo, valorAtributo);
+			FacesContext.getCurrentInstance().getExternalContext()
+					.getSessionMap().put(nombreAtributo, valorAtributo);
 		}
 	}
 
 	protected Object obtenerAtributoSesion(String nombreAtributo) {
-		Object valorAtributo = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(nombreAtributo);
+		Object valorAtributo = FacesContext.getCurrentInstance()
+				.getExternalContext().getSessionMap().get(nombreAtributo);
 		LOG.debug(nombreAtributo + ": " + valorAtributo);
 		return valorAtributo;
 	}
@@ -62,7 +65,8 @@ public class BaseBean {
 
 	public ServicioCliente getServicioCliente() {
 		if (servicioCliente == null) {
-			servicioCliente = (ServicioCliente) SpringUtil.obtenerBeanSpring("servicioCliente");
+			servicioCliente = (ServicioCliente) SpringUtil
+					.obtenerBeanSpring("servicioCliente");
 		}
 		return servicioCliente;
 	}
@@ -70,20 +74,23 @@ public class BaseBean {
 	public void setServicioCliente(ServicioCliente servicioCliente) {
 		this.servicioCliente = servicioCliente;
 	}
-	
+
 	public void addMessage(String summary, String detail) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
-	
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
+				summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
+
 	public void addMessageWarning(String summary, String detail) {
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail);
-        FacesContext.getCurrentInstance().addMessage(null, message);
-    }
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
+				summary, detail);
+		FacesContext.getCurrentInstance().addMessage(null, message);
+	}
 
 	public ServicioMedida getServicioMedida() {
 		if (servicioMedida == null) {
-			servicioMedida = (ServicioMedida) SpringUtil.obtenerBeanSpring("servicioMedida");
+			servicioMedida = (ServicioMedida) SpringUtil
+					.obtenerBeanSpring("servicioMedida");
 		}
 		return servicioMedida;
 	}
@@ -94,7 +101,8 @@ public class BaseBean {
 
 	public ServicioModelo getServicioModelo() {
 		if (servicioModelo == null) {
-			servicioModelo = (ServicioModelo) SpringUtil.obtenerBeanSpring("servicioModelo");
+			servicioModelo = (ServicioModelo) SpringUtil
+					.obtenerBeanSpring("servicioModelo");
 		}
 		return servicioModelo;
 	}
@@ -103,21 +111,28 @@ public class BaseBean {
 		this.servicioModelo = servicioModelo;
 	}
 
-
-
 	public ServicioUsuario getServicioUsuario() {
 		if (servicioUsuario == null) {
-			servicioUsuario = (ServicioUsuario) SpringUtil.obtenerBeanSpring("servicioUsuario");
+			servicioUsuario = (ServicioUsuario) SpringUtil
+					.obtenerBeanSpring("servicioUsuario");
 		}
 		return servicioUsuario;
 	}
 
-
-
 	public void setServicioUsuario(ServicioUsuario servicioUsuario) {
 		this.servicioUsuario = servicioUsuario;
 	}
-	
-	
+
+	public ServicioEncargo getServicioEncargo() {
+		if (servicioEncargo == null) {
+			servicioEncargo = (ServicioEncargo) SpringUtil
+					.obtenerBeanSpring("servicioEncargo");
+		}
+		return servicioEncargo;
+	}
+
+	public void setServicioEncargo(ServicioEncargo servicioEncargo) {
+		this.servicioEncargo = servicioEncargo;
+	}
 
 }

@@ -124,7 +124,7 @@ public class DAOHibernateImpl<T extends DominioBase, ID extends Serializable> ex
 	@Override
 	public void editar(T objeto) {
 		try {
-			getSession().update(objeto);
+			getSession().merge(objeto);
 		} catch (Exception e) {
 			LOG.error("Error", e);
 		}

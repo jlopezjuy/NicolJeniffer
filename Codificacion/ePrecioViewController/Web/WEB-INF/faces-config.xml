@@ -41,6 +41,12 @@
 	</managed-bean>
 	
 	<managed-bean>
+		<managed-bean-name>encargoBean</managed-bean-name>
+		<managed-bean-class>e.beans.EncargoBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
 		<managed-bean-name>uploadImage</managed-bean-name>
 		<managed-bean-class>e.util.UploadImage</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
@@ -57,6 +63,12 @@
 		<navigation-case>
 			<from-outcome>loginView</from-outcome>
 			<to-view-id>/paginas/login.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>loginMobileView</from-outcome>
+			<to-view-id>/paginas/inicio.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		
@@ -105,6 +117,12 @@
 		<navigation-case>
 			<from-outcome>altaModeloView</from-outcome>
 			<to-view-id>/paginas/modelos/altaModelo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaEncargosView</from-outcome>
+			<to-view-id>/paginas/encargo/listaEncargos.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		

@@ -88,7 +88,6 @@ public class ClienteBean extends BaseBean {
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);
 			return null;
-
 		}
 		return "listaClientesView";
 	}

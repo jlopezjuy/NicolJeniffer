@@ -1,96 +1,213 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Clothes</title>
-	<!-- Bootstrap -->
-	<link href="#{request.contextPath}/resources/css/styles.css" rel="stylesheet" />
-	<link href="#{request.contextPath}/resources/css/queries.css" rel="stylesheet" />
-	<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
+<title>Nicole Boutique 1.0</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="web design" />
+<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } 
+</script>
 
-	<h:outputStylesheet library="css" name="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
-	<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Sintony:400,700" />
-	<h:outputStylesheet library="css" name="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700" />
-	<h:outputStylesheet name="webjars/font-awesome/4.4.0/css/font-awesome.css"/>
+<link href="#{request.contextPath}/resources/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="#{request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="#{request.contextPath}/resources/css/chocolat.css" type="text/css" media="screen" charset="utf-8" />
 
-	<script src="#{request.contextPath}/resources/js/bootstrap.min.js"></script>
-	<script src="#{request.contextPath}/resources/js/scripts.js"></script>
-	<script src="#{request.contextPath}/resources/js/unslider.min.js"></script>
+<script type="text/javascript" src="#{request.contextPath}/resources/js/jquery-2.1.4.min.js"></script>
+
+<script src="#{request.contextPath}/resources/js/jquery.chocolat.js"></script>
+<!--light-box-files-->
+<script type="text/javascript" charset="utf-8">
+	$(function() {
+		$('.portfolio-grids a').Chocolat();
+	});
+</script>
+
+<link href="#{request.contextPath}/resources/css/animate.min.css" rel="stylesheet" />
+<script src="js/wow.min.js"></script>
+<script>
+	new WOW().init();
+</script>
+
+<link rel="stylesheet" href="#{request.contextPath}/resources/css/jquery.countdown.css" />
+
+<link href='//fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event) {
+			event.preventDefault();
+			$('html,body').animate({
+				scrollTop : $(this.hash).offset().top
+			}, 1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
 </h:head>
+
 <h:body>
-	<header class="clearfix">
-		<div class="logo col-md-3">
-			<h2 class="logo-text">Nicole Boutique</h2>
-		</div>
-		<nav class="clearfix">
-			<ul class="clearfix">
-				<li><p:commandLink action="homeView" value="Inicio" styleClass="active" /></li>
-				<li><p:commandLink action="listaClientesView" value="Lista de Clientes" /></li>	
-				<li><a href="#">Galeria de Fotos</a></li>
-				<li><a href="#" class="last">Contacto</a></li>
-			</ul>
-		</nav>
-		<div class="pullcontainer">
-			<a href="#" id="pull"><i class="fa fa-bars fa-2x"></i></a>
-		</div>
-	</header>
+	<!-- banner -->
+	<div class="banner" id="home1">
+		<div class="container">
+			<div class="banner-phone animated wow slideInLeft" data-wow-delay=".5s">
+				<p>
+					<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+543884236241
+				</p>
+			</div>
+			<div class="logo animated wow zoomIn" data-wow-delay=".5s">
+				<h1>
+					<a href="loginView"><span></span>Clothes</a>
+				</h1>
+			</div>
+			<div class="banner-social animated wow slideInRight" data-wow-delay=".5s">
+				<ul class="social-icons">
+					<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
+					<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
+					<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
+					<li><a href="#" class="icon-button g-plus"><i class="icon-g-plus"></i><span></span></a></li>
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+			<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
+				<p>Gestion de Clientes</p>
+			</div>
+			<div class="navigation">
+				<nav class="navbar navbar-default">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					  </button>
+					</div>
 
-	<div class="container">
-		<div class="row"></div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+						<nav class="link-effect-14" id="link-effect-14">
+							<ul class="nav navbar-nav">
+								<li class="active"><p:link outcome="loginView">Home</p:link></li>
+								<li><a href="#loginView" class="scroll"><span>About</span></a></li>
+								<li><a href="#team" class="scroll"><span>Team</span></a></li>
+								<li><p:link outcome="listaEncargosView">Encargos</p:link></li>
+								<li><a href="#events" class="scroll"><span>News and Events</span></a></li>
+								<li><a href="#gallery" class="scroll"><span>Gallery</span></a></li>
+								<li><a href="#mail" class="scroll"><span>Mail Us</span></a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</nav>
+			</div>
+		</div>
 	</div>
-
-
-	<div class="text-inter">
-		<div class="container" >
-
-				<ui:insert name="content">
+	<!-- //banner -->
+	<!-- banner-bottom -->
+	<div class="banner-bottom" id="about">
+		<div class="container">
+			<ui:insert name="content">
 
 				</ui:insert>
-
 		</div>
-	</div>
-
-
-
-	<div class="quote-container">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="quote-slideshow">
-							<figure class="show">
-								<h2>La mayoría de cosas importantes del mundo han sido conseguidas por gente que siguieron intentándolo cuando no parecía haber esperanza.</h2>
-								<figcaption>-Dale Carnegie.</figcaption>
-							</figure>
-							<figure>
-								<h2>Nunca te rindas tratando de hacer lo que realmente deseas hacer. Donde hay amor e inspiración, nada te puede salir mal.</h2>
-								<figcaption>– Ella Fitzgerald</figcaption>
-							</figure>
-						</div>
+		<div class="banner-bottom-grids animated wow slideInLeft" data-wow-delay=".5s">
+			<ul id="flexiselDemo1">
+				<li>
+					<div class="banner-bottom-grid">
+						<img src="#{request.contextPath}/resources/images/1.jpg" alt=" " class="img-responsive" />
 					</div>
-					<span class="quote-prev circle"><i class="fa fa-angle-left fa-2x"></i></span> <span class="quote-next circle"><i class="fa fa-angle-right fa-2x"></i></span>
-				</div>
+				</li>
+				<li>
+					<div class="banner-bottom-grid">
+						<img src="#{request.contextPath}/resources/images/2.jpg" alt=" " class="img-responsive" />
+					</div>
+				</li>
+				<li>
+					<div class="banner-bottom-grid">
+						<img src="#{request.contextPath}/resources/images/3.jpg" alt=" " class="img-responsive" />
+					</div>
+				</li>
+				<li>
+					<div class="banner-bottom-grid">
+						<img src="#{request.contextPath}/resources/images/4.jpg" alt=" " class="img-responsive" />
+					</div>
+				</li>
+				<li>
+					<div class="banner-bottom-grid">
+						<img src="#{request.contextPath}/resources/images/5.jpg" alt=" " class="img-responsive" />
+					</div>
+				</li>
+				<li>
+					<div class="banner-bottom-grid">
+						<img src="#{request.contextPath}/resources/images/6.jpg" alt=" " class="img-responsive" />
+					</div>
+				</li>
+			</ul>
+			<script type="text/javascript">
+				$(window).load(function() {
+					$("#flexiselDemo1").flexisel({
+						visibleItems : 6,
+						animationSpeed : 1000,
+						autoPlay : true,
+						autoPlaySpeed : 3000,
+						pauseOnHover : true,
+						enableResponsiveBreakpoints : true,
+						responsiveBreakpoints : {
+							portrait : {
+								changePoint : 480,
+								visibleItems : 2
+							},
+							landscape : {
+								changePoint : 640,
+								visibleItems : 3
+							},
+							tablet : {
+								changePoint : 768,
+								visibleItems : 4
+							}
+						}
+					});
+
+				});
+			</script>
+			<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+		</div>
+	</div>
+	<!-- //banner-bottom -->
+
+
+
+	
+	<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="footer-pos">
+				<a href="#home1" class="scroll"><img src="#{request.contextPath}/resources/images/7.png" alt=" " class="img-responsive" /></a>
+			</div>
+			<div class="footer-logo">
+				<a href="index.html" class="animated wow zoomIn" data-wow-delay=".5s">Clothes</a>
+				<p class="animated wow slideInUp" data-wow-delay=".5s">we are social</p>
+			</div>
+			<ul class="social-icons animated wow slideInUp" data-wow-delay=".6s">
+				<li><a href="#" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a></li>
+				<li><a href="#" class="icon-button instagram"><i class="icon-instagram"></i><span></span></a></li>
+				<li><a href="#" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a></li>
+				<li><a href="#" class="icon-button g-plus"><i class="icon-g-plus"></i><span></span></a></li>
+			</ul>
+			<div class="copyright">
+				<p class="animated wow slideInLeft" data-wow-delay=".5s">
+					© 2016 Clothes. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a>
+				</p>
 			</div>
 		</div>
 	</div>
-	<div class="shadow"></div>
-	<footer>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-2">
-					<h2>Nicole Boutique</h2>
-				</div>
-				<div class="col-md-5">
-					<p>La mayoría de cosas importantes del mundo han sido conseguidas por gente que siguieron intentándolo cuando no parecía haber esperanza.-Dale Carnegie.</p>
-				</div>
-				<div class="col-md-3">
-					<p>Nunca te rindas tratando de hacer lo que realmente deseas hacer. Donde hay amor e inspiración, nada te puede salir mal. – Ella Fitzgerald</p>
-				</div>
-			</div>
-		</div>
-	</footer>
+	<!-- //footer -->
+	<!-- for bootstrap working -->
+	<script src="#{request.contextPath}/resources/	js/bootstrap.js"></script>
+	<!-- //for bootstrap working -->
 </h:body>
 </html>

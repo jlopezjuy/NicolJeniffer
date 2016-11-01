@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+		<h3 class="animated wow zoomIn" data-wow-delay=".5s">
+				<span>Lista de Encargos</span>
+			</h3>
+			<p:panelGrid >
+				<p:outputLabel for="nombre" value="Nombre" />
+				<p:inputText id="nombre" label="Nombre" value="#{encargoBean.nombreBusqueda}" />
+				<p:commandButton action="#{encargoBean.busquedaCliente}" value="Buscar" update=":form:listaCli"/>
+			</p:panelGrid>
+			<p:commandButton action="altaClienteView" value="Nuevo" icon="fa fa-user-plus"/>
+
+			<p:dataTable id="listaEncargos" var="enca" value="#{encargoBean.listaEncargos}" rows="5" paginator="true" reflow="true" >
+				
+				<p:column style="width:80px;text-align: center" headerText="Editar">
+					<p:commandButton icon="ui-icon-edit" action="editarClienteView">
+						<f:setPropertyActionListener value="#{enca}" target="#{encargoBean.encargoSeleccionado}" />
+					</p:commandButton>
+				</p:column>
+
+				<p:column headerText="Nombre">
+					<h:outputText value="#{enca.nombre}" />
+				</p:column>
+
+				<p:column headerText="Apellido">
+					<h:outputText value="#{enca.apellido}" />
+				</p:column>
+
+				<p:column headerText="Colegio">
+					<h:outputText value="#{enca.colegio}" />
+				</p:column>
+
+				<p:column style="width:80px;text-align: center" headerText="Detalle">
+					<p:commandButton icon="fa fa-edit" oncomplete="PF('clienteDialog').show();" update=":form">
+						<f:setPropertyActionListener value="#{cli}" target="#{encargoBean.encargoSeleccionado}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+
+
+			<p:dialog header="Detalle Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="clienteDetalle" style="text-align:left;">
+					<p:panelGrid columns="1" >
+
+						<h:outputText value="Nombre: #{encargoBean.encargoSeleccionado.nombre}" />
+
+						<h:outputText value="Apellido: #{encargoBean.encargoSeleccionado.apellido}" />
+
+						<h:outputText value="Celular: #{encargoBean.encargoSeleccionado.celular}" />
+						
+						<h:outputText value="Fijo: #{encargoBean.encargoSeleccionado.telefono}" />
+						
+						<h:outputText value="Domicilio: #{encargoBean.encargoSeleccionado.domicilio}" />
+						
+						<h:outputText value="Colegio: #{encargoBean.encargoSeleccionado.colegio}" />
+			
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+			<p:growl id="message" showDetail="true" />
+
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>
