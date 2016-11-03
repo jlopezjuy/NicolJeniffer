@@ -9,51 +9,34 @@ Copyright (c) 2013 Daniel Eden
 
 .animated {
   -webkit-animation-duration: 1s;
-  -ms-animation-duration: 1s;
-  -o-animation-duration: 1s;
-  -moz-animation-duration: 1s;
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
-   -ms-animation-fill-mode: both;
-   -o-animation-fill-mode: both;
-  -moz-animation-fill-mode: both;
   animation-fill-mode: both;
 }
 
 .animated.infinite {
   -webkit-animation-iteration-count: infinite;
-  -ms-animation-iteration-count: infinite;
-  -o-animation-iteration-count: infinite;
-  -moz-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
 
 .animated.hinge {
   -webkit-animation-duration: 2s;
-  -ms-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  -moz-animation-duration: 2s;
   animation-duration: 2s;
 }
 
 @-webkit-keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
-	-webkit-transform: translateY(0);
-	-ms- transform: translateY(0);
-	-o- transform: translateY(0);
-	-moz- transform: translateY(0);
-	transform: translateY(0);
-}
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 
   40% {
     -webkit-transform: translateY(-30px);
-	-moz-transform: translateY(-30px);
     transform: translateY(-30px);
   }
 
   60% {
     -webkit-transform: translateY(-15px);
-	-moz-transform: translateY(-15px);
     transform: translateY(-15px);
   }
 }
@@ -62,7 +45,6 @@ Copyright (c) 2013 Daniel Eden
   0%, 20%, 50%, 80%, 100% {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
-	-moz- transform: translateY(0);
     transform: translateY(0);
   }
 
@@ -81,8 +63,6 @@ Copyright (c) 2013 Daniel Eden
 
 .bounce {
   -webkit-animation-name: bounce;
-  -moz-animation-name: bounce;
-  -o-animation-name: bounce;
   animation-name: bounce;
 }
 
@@ -510,8 +490,6 @@ Copyright (c) 2013 Daniel Eden
     opacity: 0;
     -webkit-transform: scale(.3);
     -ms-transform: scale(.3);
-	-o-transform: scale(.3);
-	-moz-transform: scale(.3);
     transform: scale(.3);
   }
 
@@ -519,16 +497,12 @@ Copyright (c) 2013 Daniel Eden
     opacity: 1;
     -webkit-transform: scale(1.05);
     -ms-transform: scale(1.05);
-	-o-transform: scale(1.05);
-	-moz-transform: scale(1.05);
     transform: scale(1.05);
   }
 
   70% {
     -webkit-transform: scale(.9);
     -ms-transform: scale(.9);
-	-o-transform: scale(.9);
-	-moz-transform: scale(.9);
     transform: scale(.9);
   }
 
@@ -536,17 +510,12 @@ Copyright (c) 2013 Daniel Eden
     opacity: 1;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
-	-o-transform: scale(1);
-	-moz-transform: scale(1);
     transform: scale(1);
   }
 }
 
 .bounceIn {
   -webkit-animation-name: bounceIn;
-  -ms-animation-name: bounceIn;
-  -o-animation-name: bounceIn;
-  -moz-animation-name: bounceIn;
   animation-name: bounceIn;
 }
 
@@ -1146,9 +1115,6 @@ Copyright (c) 2013 Daniel Eden
 
 .fadeInLeft {
   -webkit-animation-name: fadeInLeft;
-  -ms-animation-name: fadeInLeft;
-  -o-animation-name: fadeInLeft;
-  -moz-animation-name: fadeInLeft;
   animation-name: fadeInLeft;
 }
 
@@ -1156,18 +1122,12 @@ Copyright (c) 2013 Daniel Eden
   0% {
     opacity: 0;
     -webkit-transform: translateX(-2000px);
-	-ms-transform: translateX(-2000px);
-	-o-transform: translateX(-2000px);
-	-moz-transform: translateX(-2000px);
     transform: translateX(-2000px);
   }
 
   100% {
     opacity: 1;
     -webkit-transform: translateX(0);
-	-ms- transform: translateX(0);
-    -o- transform: translateX(0);
-    -moz- transform: translateX(0);
     transform: translateX(0);
   }
 }
@@ -1177,8 +1137,6 @@ Copyright (c) 2013 Daniel Eden
     opacity: 0;
     -webkit-transform: translateX(-2000px);
     -ms-transform: translateX(-2000px);
-    -o-transform: translateX(-2000px);
-    -moz-transform: translateX(-2000px);
     transform: translateX(-2000px);
   }
 
@@ -1186,8 +1144,6 @@ Copyright (c) 2013 Daniel Eden
     opacity: 1;
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
-	-o- transform: translateX(0);
-	-moz- transform: translateX(0);
     transform: translateX(0);
   }
 }
