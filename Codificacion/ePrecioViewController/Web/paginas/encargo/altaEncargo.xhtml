@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="altaEncargo">
+					
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="3" cellpadding="5">
+					<h3 class="animated wow zoomIn" data-wow-delay=".5s">
+						<span>Nuevo Encargo</span>
+					</h3>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="3" cellpadding="5">
+					<p:outputLabel>Cliente</p:outputLabel>
+					<h:selectOneMenu value="#{encargoBean.clienteId}" valueChangeListener="#{encargoBean.changeCliente}" >
+						<f:selectItem itemLabel="Select One" itemValue="" />
+						<f:selectItems value="#{encargoBean.listaClienteItem}" />
+						<f:ajax event="change" immediate="true" render=":altaEncargo:datosCliente"/>
+					</h:selectOneMenu>
+					<p:commandButton id="btnCliente" action="altaClienteEncargoView" value="Nuevo Cliente" immediate="true" />
+				</h:panelGrid>
+			</p:panel>
+			
+			<p:panel id="datosCliente" style="position:relative; border-style: none;">
+				<h:panelGrid columns="4" cellpadding="5">
+					<p:outputLabel value="Nombre: "/>
+					<p:inputText value="#{encargoBean.cliente.nombre}"/>
+					<p:outputLabel value="Apellido: "/>
+					<p:inputText value="#{encargoBean.cliente.apellido}"/>
+					
+					<p:outputLabel value="Telefono Fijo: "/>
+					<p:inputText value="#{encargoBean.cliente.telefono}"/>
+					<p:outputLabel value="Celular: "/>
+					<p:inputText value="#{encargoBean.cliente.celular}"/>
+					
+					<p:outputLabel value="Email: "/>
+					<p:inputText value="#{encargoBean.cliente.email}"/>
+					<p:outputLabel value="Domicilio: "/>
+					<p:inputText value="#{encargoBean.cliente.domicilio}"/>
+					
+					<p:outputLabel value="Colegio: "/>
+					<p:inputText value="#{encargoBean.cliente.colegio}"/>
+					<p:spacer/>
+					<p:spacer/>
+					
+					
+					
+				</h:panelGrid>
+			</p:panel>
+			
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="4" cellpadding="5">
+					
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{encargoBean.cancelarEncargo}" immediate="true" />
+					<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{encargoBean.gurdarEncargo}" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

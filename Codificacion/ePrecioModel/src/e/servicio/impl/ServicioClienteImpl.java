@@ -26,7 +26,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 		List<Clientes> list;
 		try {
 			list = clienteDao.listarClientes();
-			LOG.debug("//////ENCONTRO DATOS....: "+ list.size());
+			LOG.debug("//////CLIENTE ENCONTRO DATOS....: "+ list.size());
 			//return servicioDto.getClienteDTO(list);
 			return list;
 		} catch (Exception e) {
@@ -62,6 +62,12 @@ public class ServicioClienteImpl implements ServicioCliente {
 	@Override
 	public List<Clientes> findClientes(String nombreCliente) {
 		return clienteDao.buscarNombreCliente(nombreCliente);
+	}
+
+	@Override
+	public Clientes getClienteId(int idCliente) {
+		// TODO Auto-generated method stub
+		return clienteDao.findById(idCliente);
 	}
 
 }

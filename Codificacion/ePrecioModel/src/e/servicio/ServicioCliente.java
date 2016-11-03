@@ -12,4 +12,6 @@ public interface ServicioCliente {
 	void guardarCliente(Clientes cliente) throws ExcepcionServicio;
 	List<Clientes> listAll();
 	List<Clientes> findClientes(String nombreCliente);
+	
+	Clientes getClienteId(int idCliente);
 }

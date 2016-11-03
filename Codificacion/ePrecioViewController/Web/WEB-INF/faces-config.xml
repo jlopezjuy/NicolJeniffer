@@ -13,6 +13,10 @@
 		<converter-id>dtoBaseNombreConverter</converter-id>
 		<converter-class>e.converters.DTOBaseNombreConverter</converter-class>
 	</converter>
+	<converter>
+		<converter-id>clienteConverter</converter-id>
+		<converter-class>e.converters.ClienteConverter</converter-class>
+	</converter>
 
 	
 	<!-- Nuevos Beans -->
@@ -126,6 +130,17 @@
 			<redirect></redirect>
 		</navigation-case>
 		
+		<navigation-case>
+			<from-outcome>altaEncargoView</from-outcome>
+			<to-view-id>/paginas/encargo/altaEncargo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaClienteEncargoView</from-outcome>
+			<to-view-id>/paginas/encargo/altaClienteEncargo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
 		
 		<!-- Fin Nicoles -->
 	</navigation-rule>

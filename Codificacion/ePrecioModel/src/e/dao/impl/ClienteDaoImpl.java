@@ -20,6 +20,8 @@ public class ClienteDaoImpl extends DAOHibernateImpl<Clientes, Long> implements 
 		LOG.info("buscando clientes con nombre similares:"+nombreCliente);
 		return super.ejecutarCriteria(criteria);
 	}
+	
+	
 
 	@Override
 	public List<Clientes> listarClientes() {
@@ -40,6 +42,16 @@ public class ClienteDaoImpl extends DAOHibernateImpl<Clientes, Long> implements 
 	@Override
 	public void eliminarCliente(Clientes cliente) {
 		super.eliminar(cliente);
+	}
+
+
+
+	@Override
+	public Clientes findById(int idCliente) {
+		Criteria criteria = super.obtenerCriteria();
+		criteria.add(Restrictions.eq("idClientes", idCliente));
+		LOG.info("buscando clientes con nombre similares:"+idCliente);
+		return super.ejecutarCriteriaUnica(criteria);
 	}
 
 }

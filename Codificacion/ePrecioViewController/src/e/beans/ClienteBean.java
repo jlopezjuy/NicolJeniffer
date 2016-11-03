@@ -65,16 +65,41 @@ public class ClienteBean extends BaseBean {
 			cliente.setTelefono(telefono);
 			cliente.setEmail(email);
 			cliente.setDomicilio(domicilio);
-
 			getServicioCliente().guardarCliente(cliente);
 			LOG.info("guardo datos !!!!!!!!!!!!!");
 			limpiarFormulario();
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);
 			return null;
-
 		}
 		return "listaClientesView";
+	}
+	
+	/**
+	 * Metodo para guardar un cliente nuevo
+	 * 
+	 * @return
+	 * @author jlopez
+	 * @since 07/10/2015
+	 * @version 1.0
+	 */
+	public String gurdarClienteEncargo() {
+		try {
+			cliente = new Clientes();
+			cliente.setNombre(nombre);
+			cliente.setApellido(apellido);
+			cliente.setCelular(celular);
+			cliente.setTelefono(telefono);
+			cliente.setEmail(email);
+			cliente.setDomicilio(domicilio);
+			getServicioCliente().guardarCliente(cliente);
+			LOG.info("guardo datos !!!!!!!!!!!!!");
+			limpiarFormulario();
+		} catch (ExcepcionServicio e) {
+			LOG.error(e);
+			return null;
+		}
+		return "altaEncargoView";
 	}
 
 	/**
@@ -105,6 +130,21 @@ public class ClienteBean extends BaseBean {
 		limpiarFormulario();
 
 		return "listaClientesView";
+	}
+	
+	/**
+	 * Metodo para guardar un cliente nuevo
+	 * 
+	 * @return
+	 * @author jlopez
+	 * @since 07/10/2015
+	 * @version 1.0
+	 */
+	public String cancelarClienteEncargo() {
+
+		limpiarFormulario();
+
+		return "altaEncargoView";
 	}
 
 	/**
