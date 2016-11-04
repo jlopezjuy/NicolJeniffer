@@ -29,7 +29,9 @@ public class EncargoBean extends BaseBean {
 	private String detalleVestido;
 	private List<Encargos> listaEncargos = new ArrayList<Encargos>();
 	private List<Clientes> listaClientes = new ArrayList<Clientes>();
-	
+	private List<Medidas> listaMedidas = new ArrayList<Medidas>();
+	private List<Pagos> listaPagos = new ArrayList<Pagos>();
+
 	private List<SelectItem> listaClienteItem;
 	private int clienteId;
 
@@ -42,26 +44,20 @@ public class EncargoBean extends BaseBean {
 			e.printStackTrace();
 		}
 	}
-	
-	public String nuevoEncargo(){
+
+	public String nuevoEncargo() {
 		cliente = new Clientes();
 		return "altaEncargoView";
 	}
 
 	public void changeCliente(ValueChangeEvent event) {
 		LOG.info("here " + event.getNewValue());
-		Clientes cliente = getServicioCliente().getClienteId(Integer.valueOf(event.getNewValue().toString()));
-		LOG.info("Cliente encontrado: "+ cliente.getNombre());
+		Clientes cliente = getServicioCliente().getClienteId(
+				Integer.valueOf(event.getNewValue().toString()));
+		LOG.info("Cliente encontrado: " + cliente.getNombre());
 		this.cliente = cliente;
+		listaMedidas = getServicioMedida().listAll(cliente);
 	}
-	
-	public void handleKeyEvent(AjaxBehaviorEvent event) {
-		UIInput input =  (UIInput) event.getSource();
-	    System.out.println(input.getValue());
-	
-		LOG.info("here " + input);
-		LOG.info("Cliente seleccionado: "+clienteId);
-    }
 
 	/**
 	 * 
@@ -171,8 +167,9 @@ public class EncargoBean extends BaseBean {
 	public List<SelectItem> getListaClienteItem() {
 		listaClienteItem = new ArrayList<SelectItem>();
 		listaClientes = this.getServicioCliente().listAll();
-		for(Clientes row: listaClientes){
-			listaClienteItem.add(new SelectItem(row.getIdClientes(), row.getApellido() + " - " + row.getNombre()));
+		for (Clientes row : listaClientes) {
+			listaClienteItem.add(new SelectItem(row.getIdClientes(), row
+					.getApellido() + " - " + row.getNombre()));
 		}
 		return listaClienteItem;
 	}
@@ -180,11 +177,28 @@ public class EncargoBean extends BaseBean {
 	public void setListaClienteItem(List<SelectItem> listaClienteItem) {
 		this.listaClienteItem = listaClienteItem;
 	}
+
 	public int getClienteId() {
 		return clienteId;
 	}
 
 	public void setClienteId(int clienteId) {
 		this.clienteId = clienteId;
+	}
+
+	public List<Medidas> getListaMedidas() {
+		return listaMedidas;
+	}
+
+	public void setListaMedidas(List<Medidas> listaMedidas) {
+		this.listaMedidas = listaMedidas;
+	}
+
+	public List<Pagos> getListaPagos() {
+		return listaPagos;
+	}
+
+	public void setListaPagos(List<Pagos> listaPagos) {
+		this.listaPagos = listaPagos;
 	}
 }

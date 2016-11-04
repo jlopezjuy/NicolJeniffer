@@ -7,7 +7,7 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form id="altaEncargo">
-					
+
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="3" cellpadding="5">
 					<h3 class="animated wow zoomIn" data-wow-delay=".5s">
@@ -19,45 +19,69 @@
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="3" cellpadding="5">
 					<p:outputLabel>Cliente</p:outputLabel>
-					<h:selectOneMenu value="#{encargoBean.clienteId}" valueChangeListener="#{encargoBean.changeCliente}" >
+					<h:selectOneMenu value="#{encargoBean.clienteId}" valueChangeListener="#{encargoBean.changeCliente}">
 						<f:selectItem itemLabel="Select One" itemValue="" />
 						<f:selectItems value="#{encargoBean.listaClienteItem}" />
-						<f:ajax event="change" immediate="true" render=":altaEncargo:datosCliente"/>
+						<f:ajax event="change" immediate="true" render=":altaEncargo:datosCliente :altaEncargo:medidas" />
 					</h:selectOneMenu>
 					<p:commandButton id="btnCliente" action="altaClienteEncargoView" value="Nuevo Cliente" immediate="true" />
 				</h:panelGrid>
 			</p:panel>
-			
+
 			<p:panel id="datosCliente" style="position:relative; border-style: none;">
 				<h:panelGrid columns="4" cellpadding="5">
-					<p:outputLabel value="Nombre: "/>
-					<p:inputText value="#{encargoBean.cliente.nombre}"/>
-					<p:outputLabel value="Apellido: "/>
-					<p:inputText value="#{encargoBean.cliente.apellido}"/>
-					
-					<p:outputLabel value="Telefono Fijo: "/>
-					<p:inputText value="#{encargoBean.cliente.telefono}"/>
-					<p:outputLabel value="Celular: "/>
-					<p:inputText value="#{encargoBean.cliente.celular}"/>
-					
-					<p:outputLabel value="Email: "/>
-					<p:inputText value="#{encargoBean.cliente.email}"/>
-					<p:outputLabel value="Domicilio: "/>
-					<p:inputText value="#{encargoBean.cliente.domicilio}"/>
-					
-					<p:outputLabel value="Colegio: "/>
-					<p:inputText value="#{encargoBean.cliente.colegio}"/>
-					<p:spacer/>
-					<p:spacer/>
-					
-					
-					
+					<p:outputLabel value="Nombre: " />
+					<p:inputText value="#{encargoBean.cliente.nombre}" disabled="true" />
+					<p:outputLabel value="Apellido: " />
+					<p:inputText value="#{encargoBean.cliente.apellido}" disabled="true" />
+
+					<p:outputLabel value="Telefono Fijo: " />
+					<p:inputText value="#{encargoBean.cliente.telefono}" disabled="true" />
+					<p:outputLabel value="Celular: " />
+					<p:inputText value="#{encargoBean.cliente.celular}" disabled="true" />
+
+					<p:outputLabel value="Email: " />
+					<p:inputText value="#{encargoBean.cliente.email}" disabled="true" />
+					<p:outputLabel value="Domicilio: " />
+					<p:inputText value="#{encargoBean.cliente.domicilio}" disabled="true" />
+
+					<p:outputLabel value="Colegio: " />
+					<p:inputText value="#{encargoBean.cliente.colegio}" disabled="true" />
+					<p:spacer />
+					<p:spacer />
 				</h:panelGrid>
 			</p:panel>
-			
+
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="4" cellpadding="5">
+					<p:outputLabel value="Medidas" />
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel id="medidas" style="position:relative; border-style: none;">
+				<h:panelGrid columns="1" cellpadding="1">
+					<h:panelGrid columns="1" cellpadding="5">
 					
+					</h:panelGrid>
+					<p:dataTable value="#{encargoBean.listaMedidas}" var="medida" rows="5" paginator="true" reflow="true">
+						<p:column headerText="Contorno de Busto">
+							<h:outputText value="#{medida.contornoBusto}" />
+						</p:column>
+						<p:column headerText="Contorno de Cadera">
+							<h:outputText value="#{medida.contornoCadera}" />
+						</p:column>
+						<p:column headerText="Fecha Medida">
+							<h:outputText value="#{medida.fechaMedida}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="4" cellpadding="5">
+
 				</h:panelGrid>
 			</p:panel>
 
