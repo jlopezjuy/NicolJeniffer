@@ -12,9 +12,13 @@
 	<!-- Configure JDBC Connection -->
 	<bean id="origenDatosPrecio" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/NicoleJeniffer" />
+		<property name="url" value="jdbc:mysql://localhost:3306/nicolejeniffer" />
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
+		
+		<!-- <property name="url" value="jdbc:mysql://127.6.60.130:3306/nicolejeniffer" />
+		<property name="username" value="adminRxrH3SG" />
+		<property name="password" value="BmWY9AiW-8Z1" /> -->
 	</bean>
 
 

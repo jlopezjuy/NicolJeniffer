@@ -11,6 +11,7 @@ import e.servicio.ServicioCliente;
 import e.servicio.ServicioEncargo;
 import e.servicio.ServicioMedida;
 import e.servicio.ServicioModelo;
+import e.servicio.ServicioPago;
 import e.servicio.ServicioUsuario;
 import e.util.SpringUtil;
 
@@ -25,23 +26,21 @@ public class BaseBean {
 	private ServicioModelo servicioModelo;
 	private ServicioUsuario servicioUsuario;
 	private ServicioEncargo servicioEncargo;
+	private ServicioPago servicioPago;
 
 	public BaseBean() {
 		LOG.debug("");
 	}
 
-	protected void guardarAtributoSesion(String nombreAtributo,
-			Object valorAtributo) {
+	protected void guardarAtributoSesion(String nombreAtributo, Object valorAtributo) {
 		LOG.debug(nombreAtributo + ": " + valorAtributo);
 		if (nombreAtributo != null && !nombreAtributo.trim().isEmpty()) {
-			FacesContext.getCurrentInstance().getExternalContext()
-					.getSessionMap().put(nombreAtributo, valorAtributo);
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(nombreAtributo, valorAtributo);
 		}
 	}
 
 	protected Object obtenerAtributoSesion(String nombreAtributo) {
-		Object valorAtributo = FacesContext.getCurrentInstance()
-				.getExternalContext().getSessionMap().get(nombreAtributo);
+		Object valorAtributo = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(nombreAtributo);
 		LOG.debug(nombreAtributo + ": " + valorAtributo);
 		return valorAtributo;
 	}
@@ -65,8 +64,7 @@ public class BaseBean {
 
 	public ServicioCliente getServicioCliente() {
 		if (servicioCliente == null) {
-			servicioCliente = (ServicioCliente) SpringUtil
-					.obtenerBeanSpring("servicioCliente");
+			servicioCliente = (ServicioCliente) SpringUtil.obtenerBeanSpring("servicioCliente");
 		}
 		return servicioCliente;
 	}
@@ -76,21 +74,18 @@ public class BaseBean {
 	}
 
 	public void addMessage(String summary, String detail) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO,
-				summary, detail);
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
 	public void addMessageWarning(String summary, String detail) {
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN,
-				summary, detail);
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_WARN, summary, detail);
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
 	public ServicioMedida getServicioMedida() {
 		if (servicioMedida == null) {
-			servicioMedida = (ServicioMedida) SpringUtil
-					.obtenerBeanSpring("servicioMedida");
+			servicioMedida = (ServicioMedida) SpringUtil.obtenerBeanSpring("servicioMedida");
 		}
 		return servicioMedida;
 	}
@@ -101,8 +96,7 @@ public class BaseBean {
 
 	public ServicioModelo getServicioModelo() {
 		if (servicioModelo == null) {
-			servicioModelo = (ServicioModelo) SpringUtil
-					.obtenerBeanSpring("servicioModelo");
+			servicioModelo = (ServicioModelo) SpringUtil.obtenerBeanSpring("servicioModelo");
 		}
 		return servicioModelo;
 	}
@@ -113,8 +107,7 @@ public class BaseBean {
 
 	public ServicioUsuario getServicioUsuario() {
 		if (servicioUsuario == null) {
-			servicioUsuario = (ServicioUsuario) SpringUtil
-					.obtenerBeanSpring("servicioUsuario");
+			servicioUsuario = (ServicioUsuario) SpringUtil.obtenerBeanSpring("servicioUsuario");
 		}
 		return servicioUsuario;
 	}
@@ -125,14 +118,24 @@ public class BaseBean {
 
 	public ServicioEncargo getServicioEncargo() {
 		if (servicioEncargo == null) {
-			servicioEncargo = (ServicioEncargo) SpringUtil
-					.obtenerBeanSpring("servicioEncargo");
+			servicioEncargo = (ServicioEncargo) SpringUtil.obtenerBeanSpring("servicioEncargo");
 		}
 		return servicioEncargo;
 	}
 
 	public void setServicioEncargo(ServicioEncargo servicioEncargo) {
 		this.servicioEncargo = servicioEncargo;
+	}
+
+	public ServicioPago getServicioPago() {
+		if (servicioPago == null) {
+			servicioPago = (ServicioPago) SpringUtil.obtenerBeanSpring("servicioPago");
+		}
+		return servicioPago;
+	}
+
+	public void setServicioPago(ServicioPago servicioPago) {
+		this.servicioPago = servicioPago;
 	}
 
 }

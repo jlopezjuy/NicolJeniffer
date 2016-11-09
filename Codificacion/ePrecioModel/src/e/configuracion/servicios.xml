@@ -50,4 +50,9 @@
 		<property name="encargoDao" ref="encargoDao"/>
 	</bean>
 	
+	<bean id="servicioPago" class="e.servicio.impl.ServicioPagoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+		<property name="pagoDao" ref="pagoDao"/>
+	</bean>
+	
 </beans>

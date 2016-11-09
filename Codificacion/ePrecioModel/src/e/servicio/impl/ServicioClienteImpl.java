@@ -5,12 +5,9 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 
-import e.base.excepcion.ExcepcionBaseDeDato;
 import e.base.excepcion.ExcepcionServicio;
-import e.dao.ClienteDao;
 import e.dao.impl.ClienteDaoImpl;
 import e.dominio.entity.Clientes;
-//import e.dto.dominio.ClienteDto;
 import e.servicio.ServicioCliente;
 
 public class ServicioClienteImpl implements ServicioCliente {

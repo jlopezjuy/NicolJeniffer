@@ -6,8 +6,8 @@
 		<h:outputText value="" />
 	</ui:define>
 	<ui:define name="content">
-		<h:form id="altaEncargo">
-
+		<h:form id="altaEncargoForm">
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="3" cellpadding="5">
 					<h3 class="animated wow zoomIn" data-wow-delay=".5s">
@@ -17,13 +17,14 @@
 			</p:panel>
 
 			<p:panel style="position:relative; border-style: none;">
-				<h:panelGrid columns="3" cellpadding="5">
+				<h:panelGrid columns="5" cellpadding="5">
 					<p:outputLabel>Cliente</p:outputLabel>
-					<h:selectOneMenu value="#{encargoBean.clienteId}" valueChangeListener="#{encargoBean.changeCliente}">
-						<f:selectItem itemLabel="Select One" itemValue="" />
+					<h:selectOneMenu id="cmbCliente" value="#{encargoBean.clienteId}" valueChangeListener="#{encargoBean.changeCliente}" required="true" label="Cliente: ">
+						<f:selectItem itemLabel="Seleccione uno" itemValue="" />
 						<f:selectItems value="#{encargoBean.listaClienteItem}" />
-						<f:ajax event="change" immediate="true" render=":altaEncargo:datosCliente :altaEncargo:medidas" />
+						<f:ajax event="change" immediate="true" render=":altaEncargoForm:datosCliente :altaEncargoForm:medidas" />
 					</h:selectOneMenu>
+					<p:message for="cmbCliente" display="text" />
 					<p:commandButton id="btnCliente" action="altaClienteEncargoView" value="Nuevo Cliente" immediate="true" />
 				</h:panelGrid>
 			</p:panel>
@@ -49,19 +50,46 @@
 					<p:inputText value="#{encargoBean.cliente.colegio}" disabled="true" />
 					<p:spacer />
 					<p:spacer />
+
+					<p:outputLabel value="Importe: " />
+					<p:inputText id="txtImporteTotal" value="#{encargoBean.encargo.importeTotal}" required="true" label="Importe:" >
+						
+					</p:inputText>
+					<p:message for="txtImporteTotal" display="text" />
+					<p:spacer />
+
+					<p:outputLabel value="Fecha Encargo: " />
+					<p:calendar value="#{encargoBean.encargo.fechaEncargo}" pattern="dd/MM/yyyy" required="true" label="Fecha Encargo" />
+
+					<p:outputLabel value="Fecha Entrega: " />
+					<p:calendar value="#{encargoBean.encargo.fechaEntrega}" pattern="dd/MM/yyyy" label="Fecha Entrega" />
+
+					<p:outputLabel value="Tipo Evento: " />
+					<p:selectOneMenu value="#{encargoBean.encargo.tipoEvento}">
+						<f:selectItem itemLabel="Seleccione uno" itemValue="" />
+						<f:selectItem itemLabel="15 Años" itemValue="15 Años" />
+						<f:selectItem itemLabel="Casamiento" itemValue="Casamiento" />
+						<f:selectItem itemLabel="Cena Blanca" itemValue="Cena Blanca" />
+						<f:selectItem itemLabel="Comunion" itemValue="Comunion" />
+						<f:selectItem itemLabel="Confirmacion" itemValue="Confirmacion" />
+						<f:selectItem itemLabel="Dama de honor" itemValue="Dama de honor" />
+						<f:selectItem itemLabel="Fiesta" itemValue="Fiesta" />
+					</p:selectOneMenu>
+
 				</h:panelGrid>
 			</p:panel>
 
 			<p:panel style="position:relative; border-style: none;">
-				<h:panelGrid columns="4" cellpadding="5">
+				<h:panelGrid columns="1" cellpadding="5">
 					<p:outputLabel value="Medidas" />
+					<p:commandButton value="Nueva Medida" action="#{encargoBean.loadMedida}" immediate="true" />
 				</h:panelGrid>
 			</p:panel>
 
 			<p:panel id="medidas" style="position:relative; border-style: none;">
 				<h:panelGrid columns="1" cellpadding="1">
 					<h:panelGrid columns="1" cellpadding="5">
-					
+
 					</h:panelGrid>
 					<p:dataTable value="#{encargoBean.listaMedidas}" var="medida" rows="5" paginator="true" reflow="true">
 						<p:column headerText="Contorno de Busto">
@@ -81,16 +109,146 @@
 
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="4" cellpadding="5">
+					<p:outputLabel value="Pagos" />
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<p:commandButton value="Nueva Pago" action="#{encargoBean.loadPago}" immediate="true" />
+				<h:panelGrid columns="1" cellpadding="5">
+					<p:dataTable value="#{encargoBean.listaPagos}" var="pago" rows="5" paginator="true" reflow="true">
+						<p:column headerText="Importe">
+							<h:outputText value="#{pago.importe}" />
+						</p:column>
+						<p:column headerText="Fecha">
+							<h:outputText value="#{pago.fechaPago}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
+						<p:column headerText="N° Recibo">
+							<h:outputText value="#{pago.numeroRecibo}" />
+						</p:column>
+						<p:column headerText="Saldo">
+							<h:outputText value="#{pago.precioUnitario}" />
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="4" cellpadding="5">
+					<p:outputLabel value="Detalle de Vestido: " />
+					<p:inputTextarea value="#{encargoBean.encargo.detalleVestido}" rows="3" />
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="4" cellpadding="5">
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="4" cellpadding="5">
 
 				</h:panelGrid>
 			</p:panel>
 
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{encargoBean.cancelarEncargo}" immediate="true" />
-					<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{encargoBean.gurdarEncargo}" />
+					<p:commandButton value="Cancelar" action="#{encargoBean.cancelarEncargo}" immediate="true" />
+					<p:commandButton value="Guardar" action="#{encargoBean.gurdarEncargo}" update=":altaEncargoForm" />
 				</h:panelGrid>
 			</p:panel>
+
+			<!-- -->
+
+			<p:dialog header="Alta - Medida" widgetVar="dlg2" modal="true" height="300" width="650">
+				<h:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
+
+					<h:outputLabel for="busto" value="Busto" />
+					<p:inputText id="busto" label="Busto" value="#{encargoBean.medida.busto}" />
+
+					<h:outputLabel for="bajoBusto" value="Bajo Busto" />
+					<p:inputText id="bajoBusto" label="Bajo Busto" value="#{encargoBean.medida.bajoBusto}" />
+
+					<h:outputLabel for="picoBusto1" value="Pico Busto 1" />
+					<p:inputText id="picoBusto1" label="Pico Busto 1" value="#{encargoBean.medida.picoBusto1}" />
+
+					<h:outputLabel for="picoBusto2" value="Pico Busto 2" />
+					<p:inputText id="picoBusto2" label="Pico Busto 2" value="#{encargoBean.medida.picoBusto2}" />
+
+
+					<h:outputLabel for="contornoBusto" value="Contorno de Busto" />
+					<p:inputText id="contornoBusto" label="Nombre" value="#{encargoBean.medida.contornoBusto}" />
+
+					<h:outputLabel for="cintura" value="Cintura" />
+					<p:inputText id="cintura" label="Apellido" value="#{encargoBean.medida.cintura}" />
+
+					<h:outputLabel for="anteCadera" value="Ante Cadera" />
+					<p:inputText id="anteCadera" label="Ante Cadera" value="#{encargoBean.medida.anteCadera}" />
+
+					<h:outputLabel for="cadera" value="Cadera" />
+					<p:inputText id="cadera" label="Domicilio" value="#{encargoBean.medida.cadera}" />
+
+					<h:outputLabel for="contornoCadera" value="Contorno de Cadera" />
+					<p:inputText id="contornoCadera" label="Colegio" value="#{encargoBean.medida.contornoCadera}" />
+
+					<h:outputLabel for="largoCorset" value="Largo de Corset" />
+					<p:inputText id="largoCorset" label="Colegio" value="#{encargoBean.medida.largoCorset}" />
+
+					<h:outputLabel for="largoPolera" value="Largo Pollera" />
+					<p:inputText id="largoPolera" label="Colegio" value="#{encargoBean.medida.largoPolera}" />
+
+					<h:outputLabel for="costado" value="Costado" />
+					<p:inputText id="costado" label="Colegio" value="#{encargoBean.medida.costado}" />
+
+					<h:outputLabel for="talleEspalda" value="Talle de Espalda" />
+					<p:inputText id="talleEspalda" label="Colegio" value="#{encargoBean.medida.talleEspalda}" />
+
+					<h:outputLabel for="talleDelantero" value="Talle Delantero" />
+					<p:inputText id="talleDelantero" label="Colegio" value="#{encargoBean.medida.talleDelantero}" />
+
+					<h:outputLabel for="sisa" value="Sisa" />
+					<p:inputText id="sisa" label="Colegio" value="#{encargoBean.medida.sisa}" />
+
+					<h:outputLabel for="largoManga" value="Largo de  Manga" />
+					<p:inputText id="largoManga" label="Colegio" value="#{encargoBean.medida.largoManga}" />
+
+					<h:outputLabel for="largoPollera" value="Largo de Pollera" />
+					<p:inputText id="largoPollera" label="Colegio" value="#{encargoBean.medida.largoPollera}" />
+
+					<h:outputLabel for="observaciones" value="Observaciones" />
+					<p:inputTextarea id="observaciones" label="Colegio" value="#{encargoBean.medida.observaciones}" />
+
+					<p:spacer></p:spacer>
+					<f:facet name="footer">
+						<p:commandButton value="Guardar" ajax="false" action="#{encargoBean.gurdarMedida}" onclick="PF('dlg2').hide();" update=":altaEncargoForm:datosCliente :altaEncargoForm:medidas" />
+						<p:commandButton value="Cancelar" ajax="false" action="#{encargoBean.cancelarMedida}" immediate="true" onclick="PF('dlg2').hide();" />
+					</f:facet>
+				</h:panelGrid>
+			</p:dialog>
+
+			<p:dialog header="Alta - Pago" widgetVar="dlg3" modal="true" height="150" width="600">
+				<h:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
+					<h:outputLabel for="importe" value="Importe" />
+					<p:inputText id="importe" value="#{encargoBean.pago.importe}" />
+
+					<h:outputLabel for="fecha" value="Fecha" />
+					<p:inputText id="fecha" value="#{encargoBean.pago.fechaPago}" />
+
+					<h:outputLabel for="recibo" value="N° Recibo" />
+					<p:inputText id="recibo" value="#{encargoBean.pago.numeroRecibo}" />
+
+					<h:outputLabel for="pendiente" value="Pendiente" />
+					<p:inputText id="pendiente" value="#{encargoBean.pago.precioUnitario}" />
+					<p:spacer></p:spacer>
+					<f:facet name="footer">
+						<p:commandButton value="Guardar" ajax="false" action="#{encargoBean.gurdarPago}" onclick="PF('dlg3').hide();" update=":altaEncargoForm:datosCliente :altaEncargoForm:medidas" />
+						<p:commandButton value="Cancelar" ajax="false" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('dlg3').hide();" />
+					</f:facet>
+				</h:panelGrid>
+			</p:dialog>
 		</h:form>
 	</ui:define>
 </ui:composition>

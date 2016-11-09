@@ -15,6 +15,7 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 
 import e.base.excepcion.ExcepcionServicio;
+import e.base.util.StringUtil;
 import e.dominio.entity.Clientes;
 
 public class ClienteBean extends BaseBean {
@@ -74,7 +75,7 @@ public class ClienteBean extends BaseBean {
 		}
 		return "listaClientesView";
 	}
-	
+
 	/**
 	 * Metodo para guardar un cliente nuevo
 	 * 
@@ -106,7 +107,7 @@ public class ClienteBean extends BaseBean {
 	 * 
 	 * @return
 	 */
-	public String editarCliente(){
+	public String editarCliente() {
 		try {
 			getServicioCliente().editarCliente(clienteSeleccionado);
 			limpiarFormulario();
@@ -116,7 +117,7 @@ public class ClienteBean extends BaseBean {
 		}
 		return "listaClientesView";
 	}
-	
+
 	/**
 	 * Metodo para guardar un cliente nuevo
 	 * 
@@ -131,7 +132,7 @@ public class ClienteBean extends BaseBean {
 
 		return "listaClientesView";
 	}
-	
+
 	/**
 	 * Metodo para guardar un cliente nuevo
 	 * 
@@ -173,8 +174,7 @@ public class ClienteBean extends BaseBean {
 	 * @version 1.0
 	 */
 	public void onRowSelect(SelectEvent event) {
-		FacesMessage msg = new FacesMessage("Cliente Seleccionado: ",
-				((Clientes) event.getObject()).getNombre());
+		FacesMessage msg = new FacesMessage("Cliente Seleccionado: ", ((Clientes) event.getObject()).getNombre());
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
@@ -187,8 +187,7 @@ public class ClienteBean extends BaseBean {
 	 * @version 1.0
 	 */
 	public void onRowUnselect(UnselectEvent event) {
-		FacesMessage msg = new FacesMessage("Car Unselected",
-				((Clientes) event.getObject()).getNombre());
+		FacesMessage msg = new FacesMessage("Car Unselected", ((Clientes) event.getObject()).getNombre());
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
@@ -200,13 +199,16 @@ public class ClienteBean extends BaseBean {
 		options.put("resizable", false);
 		options.put("contentHeight", 320);
 
-		RequestContext.getCurrentInstance().openDialog("altaClienteView",
-				options, null);
+		RequestContext.getCurrentInstance().openDialog("altaClienteView", options, null);
 	}
 
 	public String busquedaCliente() {
 		LOG.info("cliente a buscar: " + nombreBusqueda);
-		setListaClientes(getServicioCliente().findClientes(nombreBusqueda));
+		if (StringUtil.esVacio(nombreBusqueda)) {
+			setListaClientes(getServicioCliente().listAll());
+		} else {
+			setListaClientes(getServicioCliente().findClientes(nombreBusqueda));
+		}
 		return null;
 	}
 

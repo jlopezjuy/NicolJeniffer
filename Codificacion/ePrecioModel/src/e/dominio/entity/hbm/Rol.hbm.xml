@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 28/10/2016 11:29:39 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="e.dominio.entity.Rol" table="rol" catalog="nicolejeniffer">
+    <class catalog="nicolejeniffer" name="e.dominio.entity.Rol" table="Rol">
         <id name="idRol" type="java.lang.Integer">
             <column name="idRol" />
             <generator class="identity" />

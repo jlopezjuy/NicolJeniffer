@@ -34,26 +34,15 @@
 					</h:outputText>
 				</p:column>
 
-				<p:column>
-					<p:commandButton id="showDialogButton" value="Imagen" onclick="#{modeloBean.loadImage}" oncomplete="PF('clienteDialog').show();" icon="ui-icon-update" update=":form, :form:myImage">
-						<f:setPropertyActionListener target="#{modeloBean.imagen}" value="#{med.imagen}" />
-					</p:commandButton>
-				</p:column>
+				
 
 			</p:dataTable>
 
-
-
-
-			<p:dialog header="Imagen Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-				<p:outputPanel id="clienteDetalle" style="text-align:left;">
-					<p:panelGrid id="image">
-						<div id="imageWrapper" style="width: 600px; height: 400px; margin: auto; overflow: scroll; position: relative;">
-							<p:graphicImage id="myImage" value="#{modeloBean.imageLoad}" />
-						</div>
-					</p:panelGrid>
-				</p:outputPanel>
-			</p:dialog>
+			<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true"  frameWidth="80" showCaption="true" autoPlay="true">
+				<p:graphicImage alt="#{image.colorVestido}" title="#{image.nombreModelo}" value="#{modeloBean.image}" height="100%" >
+					<f:param name="idModelos" value="#{image.idModelos}" />
+				</p:graphicImage>
+			</p:galleria>
 
 		</h:form>
 	</ui:define>

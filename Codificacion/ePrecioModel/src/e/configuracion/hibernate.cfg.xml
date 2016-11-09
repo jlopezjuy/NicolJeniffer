@@ -6,9 +6,14 @@
     <session-factory>
         <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
         <property name="hibernate.connection.password">123456</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/NicoleJeniffer</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/nicolejeniffer</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.default_schema">123456</property>
+        
+        <!-- <property name="hibernate.connection.password">BmWY9AiW-8Z1</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.6.60.130:3306/nicolejeniffer</property>
+        <property name="hibernate.connection.username">adminRxrH3SG</property> -->
+        
+        <property name="hibernate.default_schema">nicolejeniffer</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     </session-factory>
 </hibernate-configuration>

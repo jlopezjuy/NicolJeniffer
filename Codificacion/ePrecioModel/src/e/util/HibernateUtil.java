@@ -13,9 +13,12 @@ public class HibernateUtil {
 			Configuration cfg = new Configuration().addClass(e.dominio.entity.Clientes.class).addClass(e.dominio.entity.Clientes.class).
 					setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLInnoDBDialect").
 					setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver").					
-					setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/NicoleJeniffer").
+					setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/nicolejeniffer").
 					setProperty("hibernate.connection.username", "root").
 					setProperty("hibernate.connection.password", "123456");
+					//setProperty("hibernate.connection.url", "jdbc:mysql://127.6.60.130:3306/nicolejeniffer").
+					//setProperty("hibernate.connection.username", "adminRxrH3SG").
+					//setProperty("hibernate.connection.password", "BmWY9AiW-8Z1");
 
 			// Create the SessionFactory from hibernate.cfg.xml
 			// return cfg.configure().buildSessionFactory(new

@@ -29,4 +29,8 @@
 	<bean id="encargoDao" class="e.dao.impl.EncargoDaoImpl">
 		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
 	</bean>
+	
+	<bean id="pagoDao" class="e.dao.impl.PagoDaoImpl">
+		<property name="sessionFactory" ref="fabricaHibernatePrecio" />
+	</bean>
 </beans>
