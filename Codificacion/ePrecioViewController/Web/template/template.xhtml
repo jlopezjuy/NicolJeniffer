@@ -19,16 +19,36 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	<!-- <script type="text/javascript">
+		function validate(e) {
+			if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+		             // Allow: Ctrl+A
+		            (e.keyCode == 65 && e.ctrlKey === true) ||
+		             // Allow: Ctrl+C
+		            (e.keyCode == 67 && e.ctrlKey === true) ||
+		             // Allow: Ctrl+X
+		            (e.keyCode == 88 && e.ctrlKey === true) ||
+		             // Allow: home, end, left, right
+		            (e.keyCode >= 35 && e.keyCode <= 39)) {
+		                 // let it happen, don't do anything
+		                 return;
+		        }
+		        // Ensure that it is a number and stop the keypress
+		        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+		            e.preventDefault();
+		        }
+		}
+	</script> -->
 </h:head>
 <h:body>
 	<header class="clearfix">
 		<div class="logo col-md-3">
-			<h2 class="logo-text">Clothes</h2> 
+			<h2 class="logo-text">Clothes</h2>
 		</div>
 		<nav class="clearfix">
 			<ul class="clearfix">
 				<li><p:link outcome="listaClientesView" styleClass="active">Inicio</p:link></li>
-				<li><p:link outcome="listaEncargosView">Encargos</p:link> </li>
+				<li><p:link outcome="listaEncargosView">Encargos</p:link></li>
 				<li><a href="#">our business</a></li>
 				<li><a href="#">how we help</a></li>
 				<li><a href="#">take the tour</a></li>
@@ -39,14 +59,14 @@
 			<a href="#" id="pull"><i class="fa fa-bars fa-2x"></i></a>
 		</div>
 	</header>
-	
-	
+
+
 	<div class="laptop-slider">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-10 col-md-offset-1 laptop-placeholder">
 					<ui:insert name="content">
-			</ui:insert>
+					</ui:insert>
 				</div>
 				<div></div>
 			</div>

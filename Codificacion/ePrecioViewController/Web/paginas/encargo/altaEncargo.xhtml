@@ -52,8 +52,7 @@
 					<p:spacer />
 
 					<p:outputLabel value="Importe: " />
-					<p:inputText id="txtImporteTotal" value="#{encargoBean.encargo.importeTotal}" required="true" label="Importe:" >
-						
+					<p:inputText id="txtImporteTotal" value="#{encargoBean.encargo.importeTotal}" required="true" label="Importe:" onkeyup="validate(this)">
 					</p:inputText>
 					<p:message for="txtImporteTotal" display="text" />
 					<p:spacer />
