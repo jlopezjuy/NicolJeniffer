@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 28/10/2016 11:29:39 by Hibernate Tools 4.0.0 -->
+<!-- Generated 26/12/2016 09:56:26 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class catalog="nicolejeniffer" name="e.dominio.entity.Medidas" table="Medidas">
-        <id name="idMedidas" type="int">
+    <class name="e.dominio.entity.Medidas" table="medidas" catalog="nicolejeniffer">
+        <id name="idMedidas" type="java.lang.Integer">
             <column name="idMedidas" />
             <generator class="identity" />
         </id>
@@ -56,25 +56,20 @@
         <property name="fechaMedida" type="date">
             <column name="FechaMedida" length="10" />
         </property>
-		<property generated="never" lazy="false" name="busto" type="big_decimal">
-   <column name="Busto" precision="10" scale="4"/>
-  </property>
-  
-  <property generated="never" lazy="false" name="bajoBusto" type="big_decimal">
-   <column name="BajoBusto" precision="10" scale="4"/>
-  </property>
-  
-  <property generated="never" lazy="false" name="anteCadera" type="big_decimal">
-   <column name="AnteCadera" precision="10" scale="4"/>
-  </property>
-  
-  <property generated="never" lazy="false" name="picoBusto1" type="big_decimal">
-   <column name="PicoBusto1" precision="10" scale="4"/>
-  </property>
-  
-  <property generated="never" lazy="false" name="picoBusto2" type="big_decimal">
-   <column name="PicoBusto2" precision="10" scale="4"/>
-  </property>
-		
+        <property name="busto" type="big_decimal">
+            <column name="Busto" precision="10" scale="4" />
+        </property>
+        <property name="bajoBusto" type="big_decimal">
+            <column name="BajoBusto" precision="10" scale="4" />
+        </property>
+        <property name="anteCadera" type="big_decimal">
+            <column name="AnteCadera" precision="10" scale="4" />
+        </property>
+        <property name="picoBusto1" type="big_decimal">
+            <column name="PicoBusto1" precision="10" scale="4" />
+        </property>
+        <property name="picoBusto2" type="big_decimal">
+            <column name="PicoBusto2" precision="10" scale="4" />
+        </property>
     </class>
 </hibernate-mapping>

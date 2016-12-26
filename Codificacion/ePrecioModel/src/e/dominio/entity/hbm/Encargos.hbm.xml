@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 28/10/2016 11:29:39 by Hibernate Tools 4.0.0 -->
+<!-- Generated 26/12/2016 09:56:26 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class catalog="nicolejeniffer" name="e.dominio.entity.Encargos" table="Encargos">
+    <class name="e.dominio.entity.Encargos" table="encargos" catalog="nicolejeniffer">
         <id name="idEncargo" type="java.lang.Integer">
             <column name="idEncargo" />
             <generator class="identity" />
@@ -12,7 +12,9 @@
             <column name="Clientes_idClientes" />
         </many-to-one>
         <many-to-one name="valordominio" class="e.dominio.entity.Valordominio" fetch="select">
-            <column name="ValorDominio_idValorDominio" />
+            <column name="ValorDominio_idValorDominio">
+                <comment>Estado de Encargo</comment>
+            </column>
         </many-to-one>
         <property name="importeTotal" type="big_decimal">
             <column name="ImporteTotal" precision="14" scale="3" />

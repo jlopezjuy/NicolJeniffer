@@ -1,6 +1,6 @@
 package e.dominio.entity;
-
-// Generated 28/10/2016 11:29:40 by Hibernate Tools 4.0.0
+// default package
+// Generated 26/12/2016 09:56:18 by Hibernate Tools 4.0.0
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -27,13 +27,7 @@ public class Encargos extends DominioBaseNombre {
 	public Encargos() {
 	}
 
-	public Encargos(Valordominio valordominio) {
-		this.valordominio = valordominio;
-	}
-
-	public Encargos(Clientes clientes, Valordominio valordominio,
-			BigDecimal importeTotal, Date fechaEncargo, Date fechaEntrega,
-			String tipoEvento, String detalleVestido, Set pagoses) {
+	public Encargos(Clientes clientes, Valordominio valordominio, BigDecimal importeTotal, Date fechaEncargo, Date fechaEntrega, String tipoEvento, String detalleVestido, Set pagoses) {
 		this.clientes = clientes;
 		this.valordominio = valordominio;
 		this.importeTotal = importeTotal;
@@ -43,6 +37,7 @@ public class Encargos extends DominioBaseNombre {
 		this.detalleVestido = detalleVestido;
 		this.pagoses = pagoses;
 	}
+
 	public Integer getIdEncargo() {
 		return this.idEncargo;
 	}
@@ -114,4 +109,5 @@ public class Encargos extends DominioBaseNombre {
 	public void setPagoses(Set pagoses) {
 		this.pagoses = pagoses;
 	}
+
 }

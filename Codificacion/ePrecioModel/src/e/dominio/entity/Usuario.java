@@ -1,6 +1,6 @@
 package e.dominio.entity;
-
-// Generated 28/10/2016 11:29:40 by Hibernate Tools 4.0.0
+// default package
+// Generated 26/12/2016 09:56:18 by Hibernate Tools 4.0.0
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +13,7 @@ import e.base.dominio.DominioBaseNombre;
 public class Usuario extends DominioBaseNombre{
 
 	private Integer idUsuario;
+	private Empresa empresa;
 	private String nombreUsuario;
 	private String password;
 	private String nombreApellido;
@@ -21,8 +22,8 @@ public class Usuario extends DominioBaseNombre{
 	public Usuario() {
 	}
 
-	public Usuario(String nombreUsuario, String password,
-			String nombreApellido, Set usuariorols) {
+	public Usuario(Empresa empresa, String nombreUsuario, String password, String nombreApellido, Set usuariorols) {
+		this.empresa = empresa;
 		this.nombreUsuario = nombreUsuario;
 		this.password = password;
 		this.nombreApellido = nombreApellido;
@@ -35,6 +36,14 @@ public class Usuario extends DominioBaseNombre{
 
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
+	}
+
+	public Empresa getEmpresa() {
+		return this.empresa;
+	}
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 	public String getNombreUsuario() {

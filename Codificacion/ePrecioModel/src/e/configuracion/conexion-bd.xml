@@ -33,6 +33,8 @@
 				<value>e/dominio/entity/hbm/Modelos.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Pagos.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Encargos.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Empresa.hbm.xml</value>
+				<value>e/dominio/entity/hbm/Fechaprueba.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Rol.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Usuario.hbm.xml</value>
 				<value>e/dominio/entity/hbm/Usuariorol.hbm.xml</value>

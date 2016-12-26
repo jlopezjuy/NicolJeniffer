@@ -1,6 +1,6 @@
 package e.dominio.entity;
-
-// Generated 28/10/2016 11:29:40 by Hibernate Tools 4.0.0
+// default package
+// Generated 26/12/2016 09:56:18 by Hibernate Tools 4.0.0
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,7 +12,7 @@ import e.base.dominio.DominioBaseNombre;
  */
 public class Pagos extends DominioBaseNombre {
 
-	private int idPagos;
+	private Integer idPagos;
 	private Encargos encargos;
 	private Date fechaPago;
 	private BigDecimal importe;
@@ -25,16 +25,7 @@ public class Pagos extends DominioBaseNombre {
 	public Pagos() {
 	}
 
-	public Pagos(int idPagos) {
-		this.idPagos = idPagos;
-	}
-
-	public Pagos(int idPagos, Encargos encargos, Date fechaPago,
-			BigDecimal importe, Integer cantidad, String detalle,
-			BigDecimal precioUnitario, BigDecimal precioTotal,
-			String numeroRecibo) {
-		super();
-		this.idPagos = idPagos;
+	public Pagos(Encargos encargos, Date fechaPago, BigDecimal importe, Integer cantidad, String detalle, BigDecimal precioUnitario, BigDecimal precioTotal, String numeroRecibo) {
 		this.encargos = encargos;
 		this.fechaPago = fechaPago;
 		this.importe = importe;
@@ -45,11 +36,11 @@ public class Pagos extends DominioBaseNombre {
 		this.numeroRecibo = numeroRecibo;
 	}
 
-	public int getIdPagos() {
+	public Integer getIdPagos() {
 		return this.idPagos;
 	}
 
-	public void setIdPagos(int idPagos) {
+	public void setIdPagos(Integer idPagos) {
 		this.idPagos = idPagos;
 	}
 
@@ -110,10 +101,11 @@ public class Pagos extends DominioBaseNombre {
 	}
 
 	public String getNumeroRecibo() {
-		return numeroRecibo;
+		return this.numeroRecibo;
 	}
 
 	public void setNumeroRecibo(String numeroRecibo) {
 		this.numeroRecibo = numeroRecibo;
 	}
+
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/12/2016 09:56:26 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="e.dominio.entity.Fechaprueba" table="fechaprueba" catalog="nicolejeniffer">
+        <id name="idFechaPrueba" type="java.lang.Integer">
+            <column name="idFechaPrueba" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="clientes" class="e.dominio.entity.Clientes" fetch="select">
+            <column name="Clientes_idClientes" not-null="true" />
+        </many-to-one>
+        <property name="fechaPrueba" type="date">
+            <column name="FechaPrueba" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

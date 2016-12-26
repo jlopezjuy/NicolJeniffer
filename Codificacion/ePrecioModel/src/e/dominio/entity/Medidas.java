@@ -1,6 +1,6 @@
 package e.dominio.entity;
-
-// Generated 28/10/2016 11:29:40 by Hibernate Tools 4.0.0
+// default package
+// Generated 26/12/2016 09:56:18 by Hibernate Tools 4.0.0
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,7 +12,7 @@ import e.base.dominio.DominioBaseNombre;
  */
 public class Medidas extends DominioBaseNombre {
 
-	private int idMedidas;
+	private Integer idMedidas;
 	private Clientes clientes;
 	private BigDecimal largoPolera;
 	private BigDecimal largoCorset;
@@ -38,19 +38,9 @@ public class Medidas extends DominioBaseNombre {
 	public Medidas() {
 	}
 
-	public Medidas(int idMedidas) {
-		this.idMedidas = idMedidas;
-	}
-
-	public Medidas(int idMedidas, Clientes clientes, BigDecimal largoPolera,
-			BigDecimal largoCorset, BigDecimal espalda,
-			BigDecimal contornoBusto, BigDecimal contornoCadera,
-			BigDecimal costado, BigDecimal cintura, BigDecimal cadera,
-			BigDecimal talleEspalda, BigDecimal talleDelantero,
-			BigDecimal sisa, BigDecimal largoManga, BigDecimal largoPollera,
-			String observaciones, Date fechaMedida, BigDecimal busto, BigDecimal bajoBusto,
-			BigDecimal anteCadera, BigDecimal picoBusto1, BigDecimal picoBusto2) {
-		this.idMedidas = idMedidas;
+	public Medidas(Clientes clientes, BigDecimal largoPolera, BigDecimal largoCorset, BigDecimal espalda, BigDecimal contornoBusto, BigDecimal contornoCadera, BigDecimal costado, BigDecimal cintura,
+			BigDecimal cadera, BigDecimal talleEspalda, BigDecimal talleDelantero, BigDecimal sisa, BigDecimal largoManga, BigDecimal largoPollera, String observaciones, Date fechaMedida,
+			BigDecimal busto, BigDecimal bajoBusto, BigDecimal anteCadera, BigDecimal picoBusto1, BigDecimal picoBusto2) {
 		this.clientes = clientes;
 		this.largoPolera = largoPolera;
 		this.largoCorset = largoCorset;
@@ -73,12 +63,12 @@ public class Medidas extends DominioBaseNombre {
 		this.picoBusto1 = picoBusto1;
 		this.picoBusto2 = picoBusto2;
 	}
-	
-	public int getIdMedidas() {
+
+	public Integer getIdMedidas() {
 		return this.idMedidas;
 	}
 
-	public void setIdMedidas(int idMedidas) {
+	public void setIdMedidas(Integer idMedidas) {
 		this.idMedidas = idMedidas;
 	}
 
@@ -209,9 +199,9 @@ public class Medidas extends DominioBaseNombre {
 	public void setFechaMedida(Date fechaMedida) {
 		this.fechaMedida = fechaMedida;
 	}
-	
+
 	public BigDecimal getBusto() {
-		return busto;
+		return this.busto;
 	}
 
 	public void setBusto(BigDecimal busto) {
@@ -219,7 +209,7 @@ public class Medidas extends DominioBaseNombre {
 	}
 
 	public BigDecimal getBajoBusto() {
-		return bajoBusto;
+		return this.bajoBusto;
 	}
 
 	public void setBajoBusto(BigDecimal bajoBusto) {
@@ -227,7 +217,7 @@ public class Medidas extends DominioBaseNombre {
 	}
 
 	public BigDecimal getAnteCadera() {
-		return anteCadera;
+		return this.anteCadera;
 	}
 
 	public void setAnteCadera(BigDecimal anteCadera) {
@@ -235,7 +225,7 @@ public class Medidas extends DominioBaseNombre {
 	}
 
 	public BigDecimal getPicoBusto1() {
-		return picoBusto1;
+		return this.picoBusto1;
 	}
 
 	public void setPicoBusto1(BigDecimal picoBusto1) {
@@ -243,10 +233,11 @@ public class Medidas extends DominioBaseNombre {
 	}
 
 	public BigDecimal getPicoBusto2() {
-		return picoBusto2;
+		return this.picoBusto2;
 	}
 
 	public void setPicoBusto2(BigDecimal picoBusto2) {
 		this.picoBusto2 = picoBusto2;
 	}
+
 }
