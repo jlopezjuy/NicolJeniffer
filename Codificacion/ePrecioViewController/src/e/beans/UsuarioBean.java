@@ -6,6 +6,7 @@ import javax.faces.context.FacesContext;
 import org.apache.log4j.Logger;
 
 import e.base.util.StringUtil;
+import e.dominio.entity.Usuario;
 
 public class UsuarioBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(UsuarioBean.class);
@@ -26,7 +27,7 @@ public class UsuarioBean extends BaseBean {
 	 */
 	public String validarLogin(){
 		LOG.info("Usuario seleccionado: "+nombreUsuario);
-		LOG.info("Contraseña ingresada: "+password);
+		LOG.info("Contraseï¿½a ingresada: "+password);
 		if(validateLoggin()){
 			LOG.info("Ok todo...");
 			return "listaClientesView";
@@ -56,9 +57,12 @@ public class UsuarioBean extends BaseBean {
 	
 	public Boolean validateOnDB(){
 		Boolean validate = Boolean.TRUE;
-		
-		if(null == getServicioUsuario().getUsuario(nombreUsuario, password)){
+		Usuario user = getServicioUsuario().getUsuario(nombreUsuario, password);
+		if(null == user){
 			validate = Boolean.FALSE;
+		}else{
+			FacesContext context = FacesContext.getCurrentInstance();
+			context.getExternalContext().getSessionMap().put("empresa", user.getEmpresa());
 		}
 		return validate;
 	}

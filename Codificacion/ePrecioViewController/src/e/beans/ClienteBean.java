@@ -17,6 +17,7 @@ import org.primefaces.event.UnselectEvent;
 import e.base.excepcion.ExcepcionServicio;
 import e.base.util.StringUtil;
 import e.dominio.entity.Clientes;
+import e.dominio.entity.Empresa;
 
 public class ClienteBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(ClienteBean.class);
@@ -59,7 +60,10 @@ public class ClienteBean extends BaseBean {
 	 */
 	public String gurdarCliente() {
 		try {
+			FacesContext context = FacesContext.getCurrentInstance();
+			Empresa empresa = (Empresa) context.getExternalContext().getSessionMap().get("empresa");
 			cliente = new Clientes();
+			cliente.setEmpresa(empresa);
 			cliente.setNombre(nombre);
 			cliente.setApellido(apellido);
 			cliente.setCelular(celular);
@@ -109,6 +113,7 @@ public class ClienteBean extends BaseBean {
 	 */
 	public String editarCliente() {
 		try {
+			LOG.info("Colegio cambiado: "+clienteSeleccionado.getColegio());
 			getServicioCliente().editarCliente(clienteSeleccionado);
 			limpiarFormulario();
 			busquedaCliente();

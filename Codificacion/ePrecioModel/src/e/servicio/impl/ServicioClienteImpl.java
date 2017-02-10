@@ -44,6 +44,7 @@ public class ServicioClienteImpl implements ServicioCliente {
 
 	@Override
 	public void editarCliente(Clientes cliente) throws ExcepcionServicio {
+		LOG.info("Entro a guardar cliente editado: "+ cliente.toString());
 		clienteDao.editarCiente(cliente);
 	}
 
