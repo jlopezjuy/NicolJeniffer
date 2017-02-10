@@ -14,7 +14,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/nicolejeniffer" />
 		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="password" value="154122954" />
 		
 		<!-- <property name="url" value="jdbc:mysql://127.6.60.130:3306/nicolejeniffer" />
 		<property name="username" value="adminRxrH3SG" />
