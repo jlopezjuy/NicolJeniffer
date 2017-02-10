@@ -39,7 +39,7 @@ public class ClienteBean extends BaseBean {
 		super();
 		try {
 			listaClientes = getServicioCliente().listAll();
-			LOG.debug("cantidad de datos: " + listaClientes.size());
+			LOG.debug("ClienteBean cantidad de datos: " + listaClientes.size());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -94,8 +94,8 @@ public class ClienteBean extends BaseBean {
 			cliente.setEmail(email);
 			cliente.setDomicilio(domicilio);
 			getServicioCliente().guardarCliente(cliente);
-			LOG.info("guardo datos !!!!!!!!!!!!!");
 			limpiarFormulario();
+			busquedaCliente();
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);
 			return null;
@@ -111,6 +111,7 @@ public class ClienteBean extends BaseBean {
 		try {
 			getServicioCliente().editarCliente(clienteSeleccionado);
 			limpiarFormulario();
+			busquedaCliente();
 		} catch (ExcepcionServicio e) {
 			LOG.error(e);
 			return null;
@@ -127,9 +128,7 @@ public class ClienteBean extends BaseBean {
 	 * @version 1.0
 	 */
 	public String cancelarCliente() {
-
 		limpiarFormulario();
-
 		return "listaClientesView";
 	}
 
@@ -142,9 +141,7 @@ public class ClienteBean extends BaseBean {
 	 * @version 1.0
 	 */
 	public String cancelarClienteEncargo() {
-
 		limpiarFormulario();
-
 		return "altaEncargoView";
 	}
 

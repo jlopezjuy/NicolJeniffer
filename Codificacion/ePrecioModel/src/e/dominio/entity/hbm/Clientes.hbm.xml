@@ -11,25 +11,25 @@
         <many-to-one name="empresa" class="e.dominio.entity.Empresa" fetch="select">
             <column name="Empresa_idEmpresa" />
         </many-to-one>
-        <property name="nombre" type="string">
+        <property name="nombre" type="java.lang.String">
             <column name="Nombre" length="45" />
         </property>
-        <property name="apellido" type="string">
+        <property name="apellido" type="java.lang.String">
             <column name="Apellido" length="45" />
         </property>
-        <property name="celular" type="string">
+        <property name="celular" type="java.lang.String">
             <column name="Celular" length="45" />
         </property>
-        <property name="telefono" type="string">
+        <property name="telefono" type="java.lang.String">
             <column name="Telefono" length="45" />
         </property>
-        <property name="email" type="string">
+        <property name="email" type="java.lang.String">
             <column name="Email" length="45" />
         </property>
-        <property name="domicilio" type="string">
+        <property name="domicilio" type="java.lang.String">
             <column name="Domicilio" length="45" />
         </property>
-        <property name="colegio" type="string">
+        <property name="colegio" type="java.lang.String">
             <column name="Colegio" length="45" />
         </property>
         <set name="encargoses" table="encargos" inverse="true" lazy="true" fetch="select">

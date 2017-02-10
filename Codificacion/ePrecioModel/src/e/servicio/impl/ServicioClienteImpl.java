@@ -12,11 +12,10 @@ import e.servicio.ServicioCliente;
 
 public class ServicioClienteImpl implements ServicioCliente {
 	private final static Logger LOG = Logger.getLogger(ServicioClienteImpl.class);
+	@SuppressWarnings("unused")
 	private SessionFactory sessionFactory;
 	
 	private ClienteDaoImpl clienteDao;
-	
-	
 	
 	@Override
 	public List<Clientes> listAll() {
@@ -24,7 +23,6 @@ public class ServicioClienteImpl implements ServicioCliente {
 		try {
 			list = clienteDao.listarClientes();
 			LOG.debug("//////CLIENTE ENCONTRO DATOS....: "+ list.size());
-			//return servicioDto.getClienteDTO(list);
 			return list;
 		} catch (Exception e) {
 			LOG.warn(e.getMessage());

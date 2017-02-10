@@ -113,22 +113,19 @@
 			</p:panel>
 
 			<p:panel style="position:relative; border-style: none;">
-				<p:commandButton value="Nueva Pago" action="#{encargoBean.loadPago}" immediate="true" />
+				<p:commandButton value="Alta Pago" action="#{encargoBean.loadPago}" immediate="true" />
 				<h:panelGrid columns="1" cellpadding="5">
 					<p:dataTable value="#{encargoBean.listaPagos}" var="pago" rows="5" paginator="true" reflow="true">
 						<p:column headerText="Importe">
 							<h:outputText value="#{pago.importe}" />
 						</p:column>
-						<p:column headerText="Fecha">
+						<p:column headerText="Fecha de Pago">
 							<h:outputText value="#{pago.fechaPago}">
 								<f:convertDateTime pattern="dd/MM/yyyy" />
 							</h:outputText>
 						</p:column>
 						<p:column headerText="N° Recibo">
 							<h:outputText value="#{pago.numeroRecibo}" />
-						</p:column>
-						<p:column headerText="Saldo">
-							<h:outputText value="#{pago.precioUnitario}" />
 						</p:column>
 					</p:dataTable>
 				</h:panelGrid>
@@ -228,7 +225,7 @@
 				</h:panelGrid>
 			</p:dialog>
 
-			<p:dialog header="Alta - Pago" widgetVar="dlg3" modal="true" height="150" width="600">
+			<p:dialog header="Nuevo Pago" widgetVar="dlg3" modal="true" height="150" width="600">
 				<h:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
 					<h:outputLabel for="importe" value="Importe" />
 					<p:inputText id="importe" value="#{encargoBean.pago.importe}" />
@@ -239,8 +236,8 @@
 					<h:outputLabel for="recibo" value="N° Recibo" />
 					<p:inputText id="recibo" value="#{encargoBean.pago.numeroRecibo}" />
 
-					<h:outputLabel for="pendiente" value="Pendiente" />
-					<p:inputText id="pendiente" value="#{encargoBean.pago.precioUnitario}" />
+<!-- 					<h:outputLabel for="pendiente" value="Pendiente" /> -->
+<!-- 					<p:inputText id="pendiente" value="#{encargoBean.pago.precioUnitario}" /> -->
 					<p:spacer></p:spacer>
 					<f:facet name="footer">
 						<p:commandButton value="Guardar" ajax="false" action="#{encargoBean.gurdarPago}" onclick="PF('dlg3').hide();" update=":altaEncargoForm:datosCliente :altaEncargoForm:medidas" />
