@@ -1,0 +1,3 @@
+ar\com\clothes\configuration\HibernateConfiguration.class
+ar\com\clothes\configuration\AppConfig.class
+ar\com\clothes\dao\AbstractDao.class
