@@ -2,6 +2,9 @@ package ar.com.clothes.daoImp;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import ar.com.clothes.dao.AbstractDao;
@@ -15,30 +18,45 @@ import ar.com.clothes.model.Usuario;
  */
 @Repository("usuarioDao")
 public class UsuarioDaoImpl extends AbstractDao implements UsuarioDao {
-
+	
+	/**
+	 * Metodo para guardar el usuario
+	 */
 	public void saveUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+		persist(usuario);
 	}
-
+	
+	/**
+	 * Metodo para obtener la lista de Usuarios
+	 */
+	@SuppressWarnings("unchecked")
 	public List<Usuario> findAllUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = getSession().createCriteria(Usuario.class);
+        return (List<Usuario>) criteria.list();
 	}
-
+	
+	/**
+	 * 
+	 */
 	public void deleteUsuarioById(Integer usuarioId) {
-		// TODO Auto-generated method stub
-
+		Query query = getSession().createSQLQuery("delete from Usuario where idUsuario = :idUsuario");
+        query.setInteger("idUsuario", usuarioId);
+        query.executeUpdate();
 	}
-
+	
+	/**
+	 * 
+	 */
 	public Usuario findById(Integer usuarioId) {
-		// TODO Auto-generated method stub
-		return null;
+		Criteria criteria = getSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("idUsuario",usuarioId));
+        return (Usuario) criteria.uniqueResult();
 	}
-
+	
+	/**
+	 * 
+	 */
 	public void updateUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+		getSession().update(usuario);
 	}
-
 }

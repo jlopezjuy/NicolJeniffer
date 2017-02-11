@@ -21,28 +21,22 @@ public class UsuarioServiceImpl implements UsuarioService {
 	UsuarioDao usuarioDao;
 	
 	public void saveUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+		usuarioDao.saveUsuario(usuario);
 	}
 
 	public List<Usuario> findAllUsuarios() {
-		// TODO Auto-generated method stub
-		return null;
+		return usuarioDao.findAllUsuarios();
 	}
 
 	public void deleteUsuarioById(Integer usuarioId) {
-		// TODO Auto-generated method stub
-
+		usuarioDao.deleteUsuarioById(usuarioId);
 	}
 
 	public Usuario findById(Integer usuarioId) {
-		// TODO Auto-generated method stub
-		return null;
+		return usuarioDao.findById(usuarioId);
 	}
 
 	public void updateUsuario(Usuario usuario) {
-		// TODO Auto-generated method stub
-
+		usuarioDao.updateUsuario(usuario);
 	}
-
 }
