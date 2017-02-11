@@ -33,7 +33,8 @@ public class Empresa {
 	private String email;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy="empresa")
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
-	//private Set clienteses = new HashSet(0);
+	@OneToMany(fetch = FetchType.LAZY, mappedBy="empresa")
+	private Set<Cliente> clienteses = new HashSet<Cliente>(0);
 	
 	/**
 	 * 
@@ -126,6 +127,23 @@ public class Empresa {
 		this.usuarios = usuarios;
 	}
 
+	/**
+	 * @return the clienteses
+	 */
+	public Set<Cliente> getClienteses() {
+		return clienteses;
+	}
+
+	/**
+	 * @param clienteses the clienteses to set
+	 */
+	public void setClienteses(Set<Cliente> clienteses) {
+		this.clienteses = clienteses;
+	}
+	
+	/**
+	 * 
+	 */
 	public String toString(){
 		return "Id Empresa: " + idEmpresa + " Nombre de Empresa: "+ nombreEmpresa;
 	}
