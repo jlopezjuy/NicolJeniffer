@@ -2,7 +2,6 @@ package ar.com.clothes.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +20,7 @@ public class Usuario {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idUsuario;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(optional = false)
     @JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
 	private Empresa empresa;
 	@Column(name = "NOMBREUSUARIO", nullable = false)
@@ -114,6 +113,6 @@ public class Usuario {
 	 */
 	public String toString(){
 		return "Id Usuario: "+ idUsuario + " Nombre de Usuario: "+ nombreUsuario
-				+ " Nombre y Apellido: "+ nombreApellido ;
+				+ " Nombre y Apellido: "+ nombreApellido + " Empresa id: "+ empresa.getIdEmpresa();
 	}
 }

@@ -6,8 +6,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.support.AbstractApplicationContext;
 
 import ar.com.clothes.configuration.AppConfig;
+import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Usuario;
+import ar.com.clothes.service.ClienteService;
 import ar.com.clothes.service.EmpresaService;
 import ar.com.clothes.service.UsuarioService;
 
@@ -26,6 +28,7 @@ public class AppMain {
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         UsuarioService service = (UsuarioService) context.getBean("usuarioService");
         EmpresaService empService = (EmpresaService) context.getBean("empresaService");
+        ClienteService clienteService = (ClienteService) context.getBean("clienteService");
         
         /*
          * Obtbener todos los usuarios 
@@ -38,6 +41,11 @@ public class AppMain {
         List<Empresa> empList = empService.findAllEmpresa();
         for (Empresa emp : empList) {
             System.out.println(emp);
+        }
+        
+        List<Cliente> listaCli = clienteService.findByEmpresa(Integer.valueOf("1"));
+        for(Cliente cli: listaCli){
+        	System.out.print(cli);
         }
  
         context.close();

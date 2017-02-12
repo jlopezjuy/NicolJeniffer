@@ -3,9 +3,9 @@ package ar.com.clothes.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,9 +31,9 @@ public class Empresa {
 	private String telefono;
 	@Column (name = "EMAIL")
 	private String email;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="empresa")
+	@OneToMany(mappedBy="empresa", cascade = CascadeType.ALL)
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="empresa")
+	@OneToMany(mappedBy="empresa", cascade = CascadeType.ALL)
 	private Set<Cliente> clienteses = new HashSet<Cliente>(0);
 	
 	/**

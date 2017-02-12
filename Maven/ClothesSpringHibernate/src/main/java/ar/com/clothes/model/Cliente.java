@@ -2,7 +2,6 @@ package ar.com.clothes.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +21,7 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClientes;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
 	private Empresa empresa;
 	@Column (name = "NOMBRE")
@@ -35,7 +34,7 @@ public class Cliente {
 	private String telefono;
 	@Column(name = "EMAIL")
 	private String email;
-	@Column (name = "DOMICILIOI")
+	@Column (name = "DOMICILIO")
 	private String domicilio;
 	@Column (name = "COLEGIO")
 	private String colegio;
@@ -174,5 +173,7 @@ public class Cliente {
 		this.colegio = colegio;
 	}
 	
-	
+	public String toString(){
+		return "Cliente id: "+ idClientes + " Nombre de Cliente: "+ nombre;
+	}
 }
