@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="formEncargos">
+			<p:panel style="position:relative; border-style: none;">
+				<h:panelGrid columns="2" cellpadding="5" >
+					<h3 class="animated wow zoomIn" data-wow-delay=".5s">
+						<span>Lista de Encargos</span>
+					</h3>
+				</h:panelGrid>
+			</p:panel>
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:commandButton action="#{encargoBean.nuevoEncargo}" value="Nuevo" icon="fa fa-user-plus" />
+				</h:panelGrid>
+			</p:panel>
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:dataTable id="listEncargos" value="#{encargoBean.listaEncargos}" var="encargo" rows="5" paginator="true" reflow="true">
+						<p:column headerText="Nombre">
+							<h:outputText value="#{encargo.clientes.nombre}" />
+						</p:column>
+						<p:column headerText="Apellido">
+							<h:outputText value="#{encargo.clientes.apellido}" />
+						</p:column>
+
+						<p:column headerText="Tipo Evento">
+							<h:outputText value="#{encargo.tipoEvento}" />
+						</p:column>
+						<p:column headerText="Fecha de Encargo">
+							<h:outputText value="#{encargo.fechaEncargo}">
+								<f:convertDateTime pattern="dd/MM/yyyy" />
+							</h:outputText>
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
+			</p:panel>
+
+
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

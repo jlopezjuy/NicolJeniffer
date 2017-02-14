@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+
+
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="nombre" value="Nombre" />
+				<p:inputText id="nombre" label="Nombre" value="#{modeloBean.clientes.nombre}" disabled="true" />
+
+				<h:outputLabel for="apellido" value="Apellido" />
+				<p:inputText id="apellido" label="Apellido" value="#{modeloBean.clientes.apellido}" disabled="true" />
+			</h:panelGrid>
+
+
+			<p:commandButton action="altaModeloView" value="Nuevo" icon="fa fa-plus" />
+			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
+
+
+			<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="5" paginator="true" reflow="true">
+
+				<p:column headerText="Nombre Modelo">
+					<h:outputText value="#{med.nombreModelo}">
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Color de vestido">
+					<h:outputText value="#{med.colorVestido}">
+					</h:outputText>
+				</p:column>
+
+				
+
+			</p:dataTable>
+
+			<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true"  frameWidth="80" showCaption="true" autoPlay="true">
+				<p:graphicImage alt="#{image.colorVestido}" title="#{image.nombreModelo}" value="#{modeloBean.image}" height="100%" >
+					<f:param name="idModelos" value="#{image.idModelos}" />
+				</p:graphicImage>
+			</p:galleria>
+
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

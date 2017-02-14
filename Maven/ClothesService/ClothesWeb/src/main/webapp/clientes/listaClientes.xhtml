@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<h3 class="animated wow zoomIn" data-wow-delay=".5s">
+						<span>Lista de Clientes</span>
+					</h3>
+				</h:panelGrid>
+			</p:panel>
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:panelGrid>
+						<p:outputLabel for="nombre" value="Nombre" />
+						<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombreBusqueda}" />
+						<p:commandButton action="#{clienteBean.busquedaCliente}" value="Buscar" update=":form:listaCli" />
+					</p:panelGrid>
+					<p:commandButton action="altaClienteView" value="Nuevo" icon="fa fa-user-plus" />
+				</h:panelGrid>
+			</p:panel>
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:dataTable id="listaCli" var="cli" value="#{clienteBean.listaClientes}" rows="5" paginator="true" reflow="true">
+
+						<p:column style="width:80px;text-align: center" headerText="Editar">
+							<p:commandButton icon="ui-icon-edit" action="editarClienteView">
+								<f:setPropertyActionListener value="#{cli}" target="#{clienteBean.clienteSeleccionado}" />
+							</p:commandButton>
+						</p:column>
+
+
+						<p:column style="width:80px;text-align: center" headerText="Medidas">
+							<p:commandButton icon="fa fa-cut" action="listaMedidasView">
+								<f:setPropertyActionListener value="#{cli}" target="#{medidaBean.clientes}" />
+							</p:commandButton>
+						</p:column>
+
+						<p:column style="width:80px;text-align: center" headerText="Modelos">
+							<p:commandButton icon="fa fa-image" action="listaModeloView">
+								<f:setPropertyActionListener value="#{cli}" target="#{modeloBean.clientes}" />
+							</p:commandButton>
+						</p:column>
+						<p:column headerText="Nombre">
+							<h:outputText value="#{cli.nombre}" />
+						</p:column>
+
+						<p:column headerText="Apellido">
+							<h:outputText value="#{cli.apellido}" />
+						</p:column>
+
+						<p:column headerText="Colegio">
+							<h:outputText value="#{cli.colegio}" />
+						</p:column>
+
+						<p:column style="width:80px;text-align: center" headerText="Detalle">
+							<p:commandButton icon="fa fa-edit" oncomplete="PF('clienteDialog').show();" update=":form">
+								<f:setPropertyActionListener value="#{cli}" target="#{clienteBean.clienteSeleccionado}" />
+							</p:commandButton>
+						</p:column>
+					</p:dataTable>
+
+
+					<p:dialog header="Detalle Cliente" widgetVar="clienteDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+						<p:outputPanel id="clienteDetalle" style="text-align:left;">
+							<p:panelGrid columns="1">
+
+								<h:outputText value="Nombre: #{clienteBean.clienteSeleccionado.nombre}" />
+
+								<h:outputText value="Apellido: #{clienteBean.clienteSeleccionado.apellido}" />
+
+								<h:outputText value="Celular: #{clienteBean.clienteSeleccionado.celular}" />
+
+								<h:outputText value="Fijo: #{clienteBean.clienteSeleccionado.telefono}" />
+
+								<h:outputText value="Domicilio: #{clienteBean.clienteSeleccionado.domicilio}" />
+
+								<h:outputText value="Colegio: #{clienteBean.clienteSeleccionado.colegio}" />
+
+							</p:panelGrid>
+						</p:outputPanel>
+					</p:dialog>
+					<p:growl id="message" showDetail="true" />
+				</h:panelGrid>
+			</p:panel>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

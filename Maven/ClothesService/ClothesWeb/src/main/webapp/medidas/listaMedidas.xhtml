@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../../template/template.xhtml">
+	<ui:define name="title">
+
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="nombre" value="Nombre" />
+				<p:inputText id="nombre" label="Nombre" value="#{medidaBean.clientes.nombre}" disabled="true" />
+
+				<h:outputLabel for="apellido" value="Apellido" />
+				<p:inputText id="apellido" label="Apellido" value="#{medidaBean.clientes.apellido}" disabled="true" />
+			</h:panelGrid>
+
+			<p:commandButton action="altaMedidaView" value="Nuevo" icon="fa fa-plus" />
+			<p:spacer/>
+			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
+
+
+			<p:dataTable var="med" value="#{medidaBean.listaMedidas}" rows="5" paginator="true" reflow="true" >
+				
+				<p:column style="width:80px;text-align: center" headerText="Detalle">
+					<p:commandButton icon="ui-icon-search" oncomplete="PF('MedidaDialog').show();" update=":form">
+						<f:setPropertyActionListener value="#{med}" target="#{medidaBean.medidaCliente}" />
+					</p:commandButton>
+				</p:column>
+				
+				<p:column headerText="Largo Pollera">
+					<h:outputText value="#{med.largoPolera}">
+						<f:convertNumber pattern="##0.##" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Largo Corset">
+					<h:outputText value="#{med.largoCorset}">
+						<f:convertNumber pattern="##0.##" />
+					</h:outputText>
+				</p:column>
+				
+				
+			</p:dataTable>
+			
+			
+			<p:dialog header="Detalle de Medida" widgetVar="MedidaDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="clienteDetalle" style="text-align:left;">
+					<p:panelGrid columns="2" >
+						
+						<p:outputLabel value="Busto: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.busto}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Bajo Busto: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.bajoBusto}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Ante Cadera: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.anteCadera}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Cadera: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.cadera}">
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Cintura: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.cintura}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Contorno Busto: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.contornoBusto}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Contorno de Cadera: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.contornoCadera}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Costado: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.costado}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Espalda: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.espalda}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Largo Corset: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.largoCorset}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Largo Manga: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.largoManga}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Largo Pollera: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.largoPolera}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Pico Busto1: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.picoBusto1}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Pico Busto2: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.picoBusto2}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Siza: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.sisa}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Talle Delantero: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.talleDelantero}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Talle Espalda: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.talleEspalda}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+						
+						<p:outputLabel value="Observaciones: "/>
+						<h:outputText value="#{medidaBean.medidaCliente.observaciones}" >
+							<f:convertNumber pattern="##0.##" />
+						</h:outputText>
+			
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
+			
+			
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

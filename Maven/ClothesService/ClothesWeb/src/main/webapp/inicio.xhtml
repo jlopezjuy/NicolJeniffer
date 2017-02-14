@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:pm="http://primefaces.org/mobile">
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+<h:head>
+</h:head>
+<h:body>
+	<pm:page id="inicioSesion">
+		<pm:header title="Iniciar Sesion"></pm:header>
+		<pm:content>
+			<h:form>
+				<pm:field>
+					<p:inputText id="inTxtUsuario" placeholder="Usuario" value="#{inicioBean.usuario}" />
+				</pm:field>
+
+				<pm:field>
+					<p:password id="password" placeholder="Clave" value="#{inicioBean.clave}" />
+				</pm:field>
+				<p:commandButton id="btnIniciar" value="Iniciar" action="#{inicioBean.iniciar}" />
+				<p:button outcome="pm:errorSession" value="Error al iniciar sesion" />
+			</h:form>
+		</pm:content>
+		 <pm:footer title="Footer"></pm:footer>
+	</pm:page>
+
+	<pm:page id="errorSession">
+		<pm:header title="Error al Iniciar Sesion"></pm:header>
+		<pm:content>
+			<h:form>
+				<pm:field>
+					<p:outputLabel value="¡Usuario o Clave incorrectos!"></p:outputLabel>
+				</pm:field>
+				<pm:field>
+					<p:button outcome="pm:inicioSesion" value="Volver a intentar" />
+				</pm:field>
+			</h:form>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>
