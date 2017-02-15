@@ -15,15 +15,15 @@
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
 					<h:outputLabel for="username" value="Usuario:" />
-					<p:inputText id="username" value="#{usuarioBean.nombreUsuario}"
+					<p:inputText id="username" value="#{logginBean.nombreUsuario}"
 						label="username" />
 
 					<h:outputLabel for="password" value="Password:" />
-					<p:password id="password" value="#{usuarioBean.password}"
+					<p:password id="password" value="#{logginBean.password}"
 						label="password" />
 
 					<f:facet name="footer">
-						<p:commandButton value="Login" action="#{usuarioBean.validarLogin}"/>
+						<p:commandButton value="Login" action="#{logginBean.validarLogin}"/>
 					</f:facet>
 				</h:panelGrid>
 				

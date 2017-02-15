@@ -19,4 +19,6 @@ public interface UsuarioDao {
     Usuario findById(Integer usuarioId);
      
     void updateUsuario(Usuario usuario);
+    
+    Usuario findByUsuarioPassword(String username, String password);
 }

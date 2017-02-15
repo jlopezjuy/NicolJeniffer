@@ -59,4 +59,12 @@ public class UsuarioDaoImpl extends AbstractDao implements UsuarioDao {
 	public void updateUsuario(Usuario usuario) {
 		getSession().update(usuario);
 	}
+
+	@Override
+	public Usuario findByUsuarioPassword(String nombreUsuario, String password) {
+		Criteria criteria = getSession().createCriteria(Usuario.class);
+        criteria.add(Restrictions.eq("nombreUsuario",nombreUsuario));
+        criteria.add(Restrictions.eq("password",password));
+        return (Usuario) criteria.uniqueResult();
+	}
 }

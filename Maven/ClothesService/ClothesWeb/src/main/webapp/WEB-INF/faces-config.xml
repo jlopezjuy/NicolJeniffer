@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+	<application>
+		<locale-config>
+			<default-locale>es_AR</default-locale>
+			<supported-locale>en_US</supported-locale>
+		</locale-config>
+	</application>
+
+
+	
+	
+	
+	<!-- FIn nuevos beans -->
+
+	<navigation-rule>
+		<display-name>*</display-name>
+		<from-view-id>*</from-view-id>
+		<!-- Nicole -->
+		
+		<navigation-case>
+			<from-outcome>loginView</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>loginMobileView</from-outcome>
+			<to-view-id>inicio.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>homeView</from-outcome>
+			<to-view-id>home.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaClientesView</from-outcome>
+			<to-view-id>/clientes/listaClientes.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaClienteView</from-outcome>
+			<to-view-id>/clientes/altaCliente.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>editarClienteView</from-outcome>
+			<to-view-id>clientes/editarCliente.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaMedidasView</from-outcome>
+			<to-view-id>medidas/listaMedidas.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaMedidaView</from-outcome>
+			<to-view-id>/medidas/altaMedida.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaModeloView</from-outcome>
+			<to-view-id>/modelos/listaModelos.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaModeloView</from-outcome>
+			<to-view-id>/paginas/modelos/altaModelo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaEncargosView</from-outcome>
+			<to-view-id>/paginas/encargo/listaEncargos.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaEncargoView</from-outcome>
+			<to-view-id>/paginas/encargo/altaEncargo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>altaClienteEncargoView</from-outcome>
+			<to-view-id>/paginas/encargo/altaClienteEncargo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<!-- Fin Nicoles -->
+	</navigation-rule>
+
+</faces-config>
