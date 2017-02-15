@@ -73,9 +73,11 @@ public class ClienteBean extends BaseBean {
 			cliente.setTelefono(telefono);
 			cliente.setEmail(email);
 			cliente.setDomicilio(domicilio);
+			cliente.setColegio(colegio);
 			getClienteService().saveCliente(cliente);
 			LOG.info("guardo datos !!!!!!!!!!!!!");
 			limpiarFormulario();
+			busquedaCliente();
 		} catch (Exception e) {
 			LOG.error(e);
 			return null;
@@ -100,6 +102,7 @@ public class ClienteBean extends BaseBean {
 			cliente.setTelefono(telefono);
 			cliente.setEmail(email);
 			cliente.setDomicilio(domicilio);
+			cliente.setColegio(colegio);
 			getClienteService().saveCliente(cliente);
 			limpiarFormulario();
 			busquedaCliente();

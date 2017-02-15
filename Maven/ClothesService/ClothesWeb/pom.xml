@@ -21,6 +21,7 @@
 			<groupId>ar.com.clothes</groupId>
 			<artifactId>ClothesController</artifactId>
 			<version>0.1-SNAPSHOT</version>
+			<scope>provided</scope>
 		</dependency>
 		
 		<!-- PrimeFaces -->
