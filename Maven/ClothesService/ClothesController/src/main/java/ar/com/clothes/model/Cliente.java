@@ -1,5 +1,9 @@
 package ar.com.clothes.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -39,7 +44,8 @@ public class Cliente {
 	@Column (name = "COLEGIO")
 	private String colegio;
 	//private Set encargoses = new HashSet(0);
-	//private Set medidases = new HashSet(0);
+	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
+	private Set<Medida> medidas = new HashSet<Medida>(0);
 	//private Set modeloses = new HashSet(0);
 	//private Set fechapruebas = new HashSet(0);
 	
@@ -176,4 +182,19 @@ public class Cliente {
 	public String toString(){
 		return "Cliente id: "+ idClientes + " Nombre de Cliente: "+ nombre;
 	}
+
+	/**
+	 * @return the medidas
+	 */
+	public Set<Medida> getMedidas() {
+		return medidas;
+	}
+
+	/**
+	 * @param medidas the medidas to set
+	 */
+	public void setMedidas(Set<Medida> medidas) {
+		this.medidas = medidas;
+	}
+	
 }
