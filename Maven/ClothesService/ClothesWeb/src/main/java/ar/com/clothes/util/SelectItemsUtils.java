@@ -15,6 +15,7 @@ public class SelectItemsUtils {
 	private SelectItemsUtils() {
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static Object findValueByStringConversion(FacesContext context, UIComponent component, String value, Converter converter) {
 		return findValueByStringConversion(context, component, new SelectItemsIterator(context, component), value, converter);
 	}

@@ -150,7 +150,7 @@ public class MedidasBean extends BaseBean {
 		return cliente;
 	}
 
-	public void setCliente(Cliente clientes) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 

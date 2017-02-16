@@ -1,14 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>ar.com.clothes</groupId>
-    <artifactId>ClothesService</artifactId>
-    <version>0.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>ClothesWeb</artifactId>
-  <packaging>war</packaging>
-  
-  <repositories>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>ar.com.clothes</groupId>
+		<artifactId>ClothesService</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>ClothesWeb</artifactId>
+	<packaging>war</packaging>
+
+	<repositories>
 		<repository>
 			<id>prime-repo</id>
 			<name>Prime Repo</name>
@@ -21,26 +22,25 @@
 			<groupId>ar.com.clothes</groupId>
 			<artifactId>ClothesController</artifactId>
 			<version>0.1-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- PrimeFaces -->
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>6.0</version>
+			<version>5.3</version>
 		</dependency>
 
 		<!-- JSF 2 -->
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>2.2.14</version>
+			<version>2.2.6</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.2.14</version>
+			<version>2.2.6</version>
 		</dependency>
 
 		<dependency>
