@@ -9,10 +9,12 @@ import ar.com.clothes.configuration.AppConfig;
 import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Medida;
+import ar.com.clothes.model.Modelo;
 import ar.com.clothes.model.Usuario;
 import ar.com.clothes.service.ClienteService;
 import ar.com.clothes.service.EmpresaService;
 import ar.com.clothes.service.MedidaService;
+import ar.com.clothes.service.ModeloService;
 import ar.com.clothes.service.UsuarioService;
 
 /**
@@ -32,6 +34,7 @@ public class AppMain {
 		EmpresaService empService = (EmpresaService) context.getBean("empresaService");
 		ClienteService clienteService = (ClienteService) context.getBean("clienteService");
 		MedidaService medidaService = (MedidaService) context.getBean("medidaService");
+		ModeloService modeloService = (ModeloService) context.getBean("modeloService");
 
 		/*
 		 * Obtbener todos los usuarios
@@ -53,6 +56,11 @@ public class AppMain {
 
 		List<Medida> listaMedidas = medidaService.findAllMedida();
 		for (Medida med : listaMedidas) {
+			System.out.println(med);
+		}
+
+		List<Modelo> listaModelo = modeloService.findAllModelo();
+		for (Modelo med : listaModelo) {
 			System.out.println(med);
 		}
 

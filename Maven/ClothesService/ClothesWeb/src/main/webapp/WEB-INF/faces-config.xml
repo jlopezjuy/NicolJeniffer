@@ -77,25 +77,25 @@
 		
 		<navigation-case>
 			<from-outcome>altaModeloView</from-outcome>
-			<to-view-id>/paginas/modelos/altaModelo.xhtml</to-view-id>
+			<to-view-id>/modelos/altaModelo.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>listaEncargosView</from-outcome>
-			<to-view-id>/paginas/encargo/listaEncargos.xhtml</to-view-id>
+			<to-view-id>/encargo/listaEncargos.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>altaEncargoView</from-outcome>
-			<to-view-id>/paginas/encargo/altaEncargo.xhtml</to-view-id>
+			<to-view-id>/encargo/altaEncargo.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>altaClienteEncargoView</from-outcome>
-			<to-view-id>/paginas/encargo/altaClienteEncargo.xhtml</to-view-id>
+			<to-view-id>/encargo/altaClienteEncargo.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		

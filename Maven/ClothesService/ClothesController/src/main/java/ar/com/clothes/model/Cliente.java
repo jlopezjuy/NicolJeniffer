@@ -22,35 +22,37 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "CLIENTES")
 public class Cliente {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClientes;
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
 	private Empresa empresa;
-	@Column (name = "NOMBRE")
+	@Column(name = "NOMBRE")
 	private String nombre;
 	@Column(name = "APELLIDO")
 	private String apellido;
 	@Column(name = "CELULAR")
 	private String celular;
-	@Column (name ="TELEFONO")
+	@Column(name = "TELEFONO")
 	private String telefono;
 	@Column(name = "EMAIL")
 	private String email;
-	@Column (name = "DOMICILIO")
+	@Column(name = "DOMICILIO")
 	private String domicilio;
-	@Column (name = "COLEGIO")
+	@Column(name = "COLEGIO")
 	private String colegio;
-	//private Set encargoses = new HashSet(0);
-	@OneToMany(mappedBy="cliente", cascade = CascadeType.ALL)
+	// private Set encargoses = new HashSet(0);
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private Set<Medida> medidas = new HashSet<Medida>(0);
-	//private Set modeloses = new HashSet(0);
-	//private Set fechapruebas = new HashSet(0);
-	
-	public Cliente(){
-		
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private Set<Modelo> modelos = new HashSet<Modelo>(0);
+
+	// private Set fechapruebas = new HashSet(0);
+
+	public Cliente() {
+
 	}
 
 	/**
@@ -61,7 +63,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param idClientes the idClientes to set
+	 * @param idClientes
+	 *           the idClientes to set
 	 */
 	public void setIdClientes(Integer idClientes) {
 		this.idClientes = idClientes;
@@ -75,7 +78,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param empresa the empresa to set
+	 * @param empresa
+	 *           the empresa to set
 	 */
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
@@ -89,7 +93,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombre
+	 *           the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -103,7 +108,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param apellido the apellido to set
+	 * @param apellido
+	 *           the apellido to set
 	 */
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
@@ -117,7 +123,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param celular the celular to set
+	 * @param celular
+	 *           the celular to set
 	 */
 	public void setCelular(String celular) {
 		this.celular = celular;
@@ -131,7 +138,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param telefono the telefono to set
+	 * @param telefono
+	 *           the telefono to set
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
@@ -145,7 +153,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *           the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -159,7 +168,8 @@ public class Cliente {
 	}
 
 	/**
-	 * @param domicilio the domicilio to set
+	 * @param domicilio
+	 *           the domicilio to set
 	 */
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
@@ -173,14 +183,15 @@ public class Cliente {
 	}
 
 	/**
-	 * @param colegio the colegio to set
+	 * @param colegio
+	 *           the colegio to set
 	 */
 	public void setColegio(String colegio) {
 		this.colegio = colegio;
 	}
-	
-	public String toString(){
-		return "Cliente id: "+ idClientes + " Nombre de Cliente: "+ nombre;
+
+	public String toString() {
+		return "Cliente id: " + idClientes + " Nombre de Cliente: " + nombre;
 	}
 
 	/**
@@ -191,10 +202,26 @@ public class Cliente {
 	}
 
 	/**
-	 * @param medidas the medidas to set
+	 * @param medidas
+	 *           the medidas to set
 	 */
 	public void setMedidas(Set<Medida> medidas) {
 		this.medidas = medidas;
 	}
-	
+
+	/**
+	 * @return the modelos
+	 */
+	public Set<Modelo> getModelos() {
+		return modelos;
+	}
+
+	/**
+	 * @param modelos
+	 *           the modelos to set
+	 */
+	public void setModelos(Set<Modelo> modelos) {
+		this.modelos = modelos;
+	}
+
 }
