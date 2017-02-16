@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.clothes.dao.MedidaDao;
+import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Medida;
 import ar.com.clothes.service.MedidaService;
+
 /**
  * 
  * @author MostroBook
@@ -17,10 +19,10 @@ import ar.com.clothes.service.MedidaService;
 @Service("medidaService")
 @Transactional
 public class MedidaServiceImpl implements MedidaService {
-	
+
 	@Autowired
 	MedidaDao medidaDao;
-	
+
 	@Override
 	public void saveMedida(Medida medida) {
 		medidaDao.saveMedida(medida);
@@ -44,6 +46,11 @@ public class MedidaServiceImpl implements MedidaService {
 	@Override
 	public void updateMedida(Medida medida) {
 		medidaDao.updateMedida(medida);
+	}
+
+	@Override
+	public List<Medida> listarMedidas(Cliente cliente) {
+		return medidaDao.listarMedidas(cliente);
 	}
 
 }

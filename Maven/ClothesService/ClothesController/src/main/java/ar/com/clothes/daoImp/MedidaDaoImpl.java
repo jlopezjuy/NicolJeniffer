@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import ar.com.clothes.dao.AbstractDao;
 import ar.com.clothes.dao.MedidaDao;
 import ar.com.clothes.model.Cliente;
-import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Medida;
 
 /**
@@ -30,26 +29,34 @@ public class MedidaDaoImpl extends AbstractDao implements MedidaDao {
 	@Override
 	public List<Medida> findAllMedida() {
 		Criteria criteria = getSession().createCriteria(Medida.class);
-        return (List<Medida>) criteria.list();
+		return (List<Medida>) criteria.list();
 	}
 
 	@Override
 	public void deleteMedidaById(Integer idMedidas) {
 		Query query = getSession().createSQLQuery("delete from Medidas where idMedidas = :idMedidas");
-        query.setInteger("idMedidas", idMedidas);
-        query.executeUpdate();
+		query.setInteger("idMedidas", idMedidas);
+		query.executeUpdate();
 	}
 
 	@Override
 	public Medida findById(Integer idMedidas) {
 		Criteria criteria = getSession().createCriteria(Medida.class);
-        criteria.add(Restrictions.eq("idMedidas",idMedidas));
-        return (Medida) criteria.uniqueResult();
+		criteria.add(Restrictions.eq("idMedidas", idMedidas));
+		return (Medida) criteria.uniqueResult();
 	}
 
 	@Override
 	public void updateMedida(Medida medida) {
 		getSession().update(medida);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Medida> listarMedidas(Cliente cliente) {
+		Criteria criteria = getSession().createCriteria(Medida.class);
+		criteria.add(Restrictions.eq("cliente.idClientes", cliente.getIdClientes()));
+		return (List<Medida>) criteria.list();
 	}
 
 }

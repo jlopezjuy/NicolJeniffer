@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 
 import ar.com.clothes.service.ClienteService;
 import ar.com.clothes.service.EmpresaService;
+import ar.com.clothes.service.MedidaService;
 import ar.com.clothes.service.UsuarioService;
 import ar.com.clothes.util.SpringUtil;
 
@@ -19,6 +20,7 @@ public class BaseBean {
 	private UsuarioService usuarioService;
 	private ClienteService clienteService;
 	private EmpresaService empresaService;
+	private MedidaService medidaService;
 
 	public BaseBean() {
 		LOG.debug("");
@@ -99,6 +101,24 @@ public class BaseBean {
 	 */
 	public void setEmpresaService(EmpresaService empresaService) {
 		this.empresaService = empresaService;
+	}
+
+	/**
+	 * @return the medidaService
+	 */
+	public MedidaService getMedidaService() {
+		if (medidaService == null) {
+			medidaService = (MedidaService) SpringUtil.obtenerBeanSpring("medidaService");
+		}
+		return medidaService;
+	}
+
+	/**
+	 * @param medidaService
+	 *           the medidaService to set
+	 */
+	public void setMedidaService(MedidaService medidaService) {
+		this.medidaService = medidaService;
 	}
 
 }
