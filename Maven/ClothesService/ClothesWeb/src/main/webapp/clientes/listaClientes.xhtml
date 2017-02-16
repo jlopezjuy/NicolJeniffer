@@ -37,13 +37,13 @@
 
 						<p:column style="width:80px;text-align: center" headerText="Medidas">
 							<p:commandButton icon="fa fa-cut" action="listaMedidasView">
-								<f:setPropertyActionListener value="#{cli}" target="#{medidaBean.clientes}" />
+								<f:setPropertyActionListener value="#{cli}" target="#{medidasBean.cliente}" />
 							</p:commandButton>
 						</p:column>
 
 						<p:column style="width:80px;text-align: center" headerText="Modelos">
 							<p:commandButton icon="fa fa-image" action="listaModeloView">
-								<f:setPropertyActionListener value="#{cli}" target="#{modeloBean.clientes}" />
+								<f:setPropertyActionListener value="#{cli}" target="#{modeloBean.cliente}" />
 							</p:commandButton>
 						</p:column>
 						<p:column headerText="Nombre">

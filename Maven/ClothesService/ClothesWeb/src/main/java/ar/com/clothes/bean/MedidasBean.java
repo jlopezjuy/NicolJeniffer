@@ -1,8 +1,10 @@
 package ar.com.clothes.bean;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -11,7 +13,7 @@ import org.apache.log4j.Logger;
 import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Medida;
 
-@ManagedBean(name = "medidaBean")
+@ManagedBean(name = "medidasBean")
 @SessionScoped
 public class MedidasBean extends BaseBean {
 	private static final Logger LOG = Logger.getLogger(MedidasBean.class);
@@ -41,7 +43,14 @@ public class MedidasBean extends BaseBean {
 	private Medida medidaCliente;
 
 	public MedidasBean() {
-		super();
+
+	}
+
+	@PostConstruct
+	public void init() {
+		if (null != cliente) {
+			LOG.info("cliente encontrado: " + cliente.getNombre());
+		}
 	}
 
 	/**
@@ -135,6 +144,7 @@ public class MedidasBean extends BaseBean {
 		medida.setAnteCadera(anteCadera);
 		medida.setPicoBusto1(picoBusto1);
 		medida.setPicoBusto2(picoBusto2);
+		medida.setFechaMedida(new Date());
 		return medida;
 	}
 
@@ -146,11 +156,12 @@ public class MedidasBean extends BaseBean {
 		this.idMedidas = idMedidas;
 	}
 
-	public Cliente getClientes() {
+	public Cliente getCliente() {
 		return cliente;
 	}
 
 	public void setCliente(Cliente cliente) {
+		LOG.info("Entro a guardar un cliente: " + cliente);
 		this.cliente = cliente;
 	}
 
