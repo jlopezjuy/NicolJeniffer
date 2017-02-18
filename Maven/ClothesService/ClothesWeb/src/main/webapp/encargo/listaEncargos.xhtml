@@ -23,10 +23,10 @@
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
 					<p:dataTable id="listEncargos" value="#{encargoBean.listaEncargos}" var="encargo" rows="5" paginator="true" reflow="true">
 						<p:column headerText="Nombre">
-							<h:outputText value="#{encargo.clientes.nombre}" />
+							<h:outputText value="#{encargo.cliente.nombre}" />
 						</p:column>
 						<p:column headerText="Apellido">
-							<h:outputText value="#{encargo.clientes.apellido}" />
+							<h:outputText value="#{encargo.cliente.apellido}" />
 						</p:column>
 
 						<p:column headerText="Tipo Evento">

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import ar.com.clothes.dao.AbstractDao;
 import ar.com.clothes.dao.ClienteDao;
 import ar.com.clothes.model.Cliente;
-import ar.com.clothes.model.Empresa;
 
 /**
  * 
@@ -41,7 +40,7 @@ public class ClienteDaoImpl extends AbstractDao implements ClienteDao {
 
 	@Override
 	public Cliente findById(Integer idClientes) {
-		Criteria criteria = getSession().createCriteria(Empresa.class);
+		Criteria criteria = getSession().createCriteria(Cliente.class);
 		criteria.add(Restrictions.eq("idClientes", idClientes));
 		return (Cliente) criteria.uniqueResult();
 	}

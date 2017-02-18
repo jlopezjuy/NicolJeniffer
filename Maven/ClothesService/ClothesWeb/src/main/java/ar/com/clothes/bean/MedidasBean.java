@@ -13,6 +13,11 @@ import org.apache.log4j.Logger;
 import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Medida;
 
+/**
+ * 
+ * @author MostroBook
+ *
+ */
 @ManagedBean(name = "medidasBean")
 @SessionScoped
 public class MedidasBean extends BaseBean {

@@ -7,9 +7,12 @@ import org.apache.log4j.Logger;
 
 import ar.com.clothes.service.ClienteService;
 import ar.com.clothes.service.EmpresaService;
+import ar.com.clothes.service.EncargoService;
 import ar.com.clothes.service.MedidaService;
 import ar.com.clothes.service.ModeloService;
+import ar.com.clothes.service.PagoService;
 import ar.com.clothes.service.UsuarioService;
+import ar.com.clothes.service.ValorDominioService;
 import ar.com.clothes.util.SpringUtil;
 
 public class BaseBean {
@@ -23,6 +26,9 @@ public class BaseBean {
 	private EmpresaService empresaService;
 	private MedidaService medidaService;
 	private ModeloService modeloService;
+	private EncargoService encargoService;
+	private PagoService pagoService;
+	private ValorDominioService valorDominioService;
 
 	public BaseBean() {
 		LOG.debug("");
@@ -140,4 +146,59 @@ public class BaseBean {
 	public void setModeloService(ModeloService modeloService) {
 		this.modeloService = modeloService;
 	}
+
+	/**
+	 * @return the encargoService
+	 */
+	public EncargoService getEncargoService() {
+		if (encargoService == null) {
+			encargoService = (EncargoService) SpringUtil.obtenerBeanSpring("encargoService");
+		}
+		return encargoService;
+	}
+
+	/**
+	 * @param encargoService
+	 *           the encargoService to set
+	 */
+	public void setEncargoService(EncargoService encargoService) {
+		this.encargoService = encargoService;
+	}
+
+	/**
+	 * @return the pagoService
+	 */
+	public PagoService getPagoService() {
+		if (pagoService == null) {
+			pagoService = (PagoService) SpringUtil.obtenerBeanSpring("pagoService");
+		}
+		return pagoService;
+	}
+
+	/**
+	 * @param pagoService
+	 *           the pagoService to set
+	 */
+	public void setPagoService(PagoService pagoService) {
+		this.pagoService = pagoService;
+	}
+
+	/**
+	 * @return the valorDominioService
+	 */
+	public ValorDominioService getValorDominioService() {
+		if (valorDominioService == null) {
+			valorDominioService = (ValorDominioService) SpringUtil.obtenerBeanSpring("valorDominioService");
+		}
+		return valorDominioService;
+	}
+
+	/**
+	 * @param valorDominioService
+	 *           the valorDominioService to set
+	 */
+	public void setValorDominioService(ValorDominioService valorDominioService) {
+		this.valorDominioService = valorDominioService;
+	}
+
 }
