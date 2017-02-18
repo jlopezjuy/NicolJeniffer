@@ -11,6 +11,7 @@ import ar.com.clothes.dao.AbstractDao;
 import ar.com.clothes.dao.ClienteDao;
 import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Empresa;
+
 /**
  * 
  * @author MostroBook
@@ -28,21 +29,21 @@ public class ClienteDaoImpl extends AbstractDao implements ClienteDao {
 	@Override
 	public List<Cliente> findAllClientes() {
 		Criteria criteria = getSession().createCriteria(Cliente.class);
-        return (List<Cliente>) criteria.list();
+		return (List<Cliente>) criteria.list();
 	}
 
 	@Override
 	public void deleteClienteById(Integer idClientes) {
 		Query query = getSession().createSQLQuery("delete from Clientes where idClientes = :idClientes");
-        query.setInteger("idClientes", idClientes);
-        query.executeUpdate();
+		query.setInteger("idClientes", idClientes);
+		query.executeUpdate();
 	}
 
 	@Override
 	public Cliente findById(Integer idClientes) {
 		Criteria criteria = getSession().createCriteria(Empresa.class);
-        criteria.add(Restrictions.eq("idClientes",idClientes));
-        return (Cliente) criteria.uniqueResult();
+		criteria.add(Restrictions.eq("idClientes", idClientes));
+		return (Cliente) criteria.uniqueResult();
 	}
 
 	@Override
@@ -54,8 +55,8 @@ public class ClienteDaoImpl extends AbstractDao implements ClienteDao {
 	@Override
 	public List<Cliente> findByEmpresa(Integer idEmpresa) {
 		Criteria criteria = getSession().createCriteria(Cliente.class);
-        criteria.add(Restrictions.eq("empresa.idEmpresa",idEmpresa));
-        return (List<Cliente>) criteria.list();
+		criteria.add(Restrictions.eq("empresa.idEmpresa", idEmpresa));
+		return (List<Cliente>) criteria.list();
 	}
 
 }

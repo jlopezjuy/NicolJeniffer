@@ -43,7 +43,8 @@ public class Cliente {
 	private String domicilio;
 	@Column(name = "COLEGIO")
 	private String colegio;
-	// private Set encargoses = new HashSet(0);
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private Set<Encargo> encargos = new HashSet<Encargo>(0);
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private Set<Medida> medidas = new HashSet<Medida>(0);
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
@@ -53,6 +54,10 @@ public class Cliente {
 
 	public Cliente() {
 
+	}
+
+	public String toString() {
+		return "Cliente id: " + idClientes + " Nombre de Cliente: " + nombre;
 	}
 
 	/**
@@ -190,8 +195,19 @@ public class Cliente {
 		this.colegio = colegio;
 	}
 
-	public String toString() {
-		return "Cliente id: " + idClientes + " Nombre de Cliente: " + nombre;
+	/**
+	 * @return the encargos
+	 */
+	public Set<Encargo> getEncargos() {
+		return encargos;
+	}
+
+	/**
+	 * @param encargos
+	 *           the encargos to set
+	 */
+	public void setEncargos(Set<Encargo> encargos) {
+		this.encargos = encargos;
 	}
 
 	/**
