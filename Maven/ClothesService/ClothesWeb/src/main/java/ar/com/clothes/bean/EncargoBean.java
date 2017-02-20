@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
@@ -14,6 +15,7 @@ import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 
 import ar.com.clothes.model.Cliente;
+import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Encargo;
 import ar.com.clothes.model.Medida;
 import ar.com.clothes.model.Pago;
@@ -45,17 +47,30 @@ public class EncargoBean extends BaseBean {
 	private Medida medida;
 	private Pago pago;
 	private Encargo encargo;
+	private Empresa empresa;
 
 	private List<SelectItem> listaClienteItem;
+	private List<SelectItem> listaValorDominioItem;
 	private int clienteId;
 
 	public EncargoBean() {
 		super();
 		try {
-			listaEncargos = getEncargoService().findAllEncargos();
+			obtenerEmpresaSession();
+			listaEncargos = getEncargoService().listarEncargosByEmpresa(empresa);
 			LOG.debug("cantidad de datos: " + listaEncargos.size());
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * Metodo para obtener la emrpesa de la session
+	 */
+	public void obtenerEmpresaSession() {
+		if (null == empresa) {
+			FacesContext context = FacesContext.getCurrentInstance();
+			empresa = (Empresa) context.getExternalContext().getSessionMap().get("empresa");
 		}
 	}
 
@@ -95,7 +110,7 @@ public class EncargoBean extends BaseBean {
 				getPagoService().savePago(pago);
 			}
 			loadValues();
-			listaEncargos = getEncargoService().findAllEncargos();
+			listaEncargos = getEncargoService().listarEncargosByEmpresa(empresa);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -299,6 +314,26 @@ public class EncargoBean extends BaseBean {
 		this.listaClienteItem = listaClienteItem;
 	}
 
+	/**
+	 * @return the listaValorDominioItem
+	 */
+	public List<SelectItem> getListaValorDominioItem() {
+		listaValorDominioItem = new ArrayList<SelectItem>();
+		List<ValorDominio> listaVal = this.getValorDominioService().findAll();
+		for (ValorDominio row : listaVal) {
+			listaValorDominioItem.add(new SelectItem(row.getIdValorDominio(), row.getDescripcion()));
+		}
+		return listaValorDominioItem;
+	}
+
+	/**
+	 * @param listaValorDominioItem
+	 *           the listaValorDominioItem to set
+	 */
+	public void setListaValorDominioItem(List<SelectItem> listaValorDominioItem) {
+		this.listaValorDominioItem = listaValorDominioItem;
+	}
+
 	public int getClienteId() {
 		return clienteId;
 	}
@@ -345,6 +380,21 @@ public class EncargoBean extends BaseBean {
 
 	public void setEncargo(Encargo encargo) {
 		this.encargo = encargo;
+	}
+
+	/**
+	 * @return the empresa
+	 */
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	/**
+	 * @param empresa
+	 *           the empresa to set
+	 */
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 }

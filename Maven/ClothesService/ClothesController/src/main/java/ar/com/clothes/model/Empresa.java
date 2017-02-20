@@ -11,36 +11,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 /**
  * 
  * @author MostroBook
  *
  */
 @Entity
-@Table(name="EMPRESA")
+@Table(name = "EMPRESA")
 public class Empresa {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEmpresa;
-	@Column (name = "NOMBREEMPRESA")
+	@Column(name = "NOMBREEMPRESA")
 	private String nombreEmpresa;
 	@Column(name = "DOMICILIO")
 	private String domicilio;
-	@Column (name = "TELEFONO")
+	@Column(name = "TELEFONO")
 	private String telefono;
-	@Column (name = "EMAIL")
+	@Column(name = "EMAIL")
 	private String email;
-	@OneToMany(mappedBy="empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
-	@OneToMany(mappedBy="empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private Set<Cliente> clienteses = new HashSet<Cliente>(0);
-	
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	private Set<Encargo> encargos = new HashSet<Encargo>(0);
+
 	/**
 	 * 
 	 */
 	public Empresa() {
-		
+
 	}
 
 	/**
@@ -51,7 +54,8 @@ public class Empresa {
 	}
 
 	/**
-	 * @param idEmpresa the idEmpresa to set
+	 * @param idEmpresa
+	 *           the idEmpresa to set
 	 */
 	public void setIdEmpresa(Integer idEmpresa) {
 		this.idEmpresa = idEmpresa;
@@ -65,7 +69,8 @@ public class Empresa {
 	}
 
 	/**
-	 * @param nombreEmpresa the nombreEmpresa to set
+	 * @param nombreEmpresa
+	 *           the nombreEmpresa to set
 	 */
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
@@ -79,7 +84,8 @@ public class Empresa {
 	}
 
 	/**
-	 * @param domicilio the domicilio to set
+	 * @param domicilio
+	 *           the domicilio to set
 	 */
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
@@ -93,7 +99,8 @@ public class Empresa {
 	}
 
 	/**
-	 * @param telefono the telefono to set
+	 * @param telefono
+	 *           the telefono to set
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
@@ -107,7 +114,8 @@ public class Empresa {
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *           the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -121,7 +129,8 @@ public class Empresa {
 	}
 
 	/**
-	 * @param usuarios the usuarios to set
+	 * @param usuarios
+	 *           the usuarios to set
 	 */
 	public void setUsuarios(Set<Usuario> usuarios) {
 		this.usuarios = usuarios;
@@ -135,17 +144,33 @@ public class Empresa {
 	}
 
 	/**
-	 * @param clienteses the clienteses to set
+	 * @param clienteses
+	 *           the clienteses to set
 	 */
 	public void setClienteses(Set<Cliente> clienteses) {
 		this.clienteses = clienteses;
 	}
-	
+
+	/**
+	 * @return the encargos
+	 */
+	public Set<Encargo> getEncargos() {
+		return encargos;
+	}
+
+	/**
+	 * @param encargos
+	 *           the encargos to set
+	 */
+	public void setEncargos(Set<Encargo> encargos) {
+		this.encargos = encargos;
+	}
+
 	/**
 	 * 
 	 */
-	public String toString(){
-		return "Id Empresa: " + idEmpresa + " Nombre de Empresa: "+ nombreEmpresa;
+	public String toString() {
+		return "Id Empresa: " + idEmpresa + " Nombre de Empresa: " + nombreEmpresa;
 	}
-	
+
 }

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ar.com.clothes.dao.EncargoDao;
 import ar.com.clothes.model.Cliente;
+import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Encargo;
 import ar.com.clothes.service.EncargoService;
 
@@ -51,6 +52,11 @@ public class EncargoServiceImpl implements EncargoService {
 	@Override
 	public List<Encargo> listarEncargosByCliente(Cliente cliente) {
 		return encargoDao.listarEncargosByCliente(cliente);
+	}
+
+	@Override
+	public List<Encargo> listarEncargosByEmpresa(Empresa empresa) {
+		return encargoDao.listarEncargosByEmpresa(empresa);
 	}
 
 }

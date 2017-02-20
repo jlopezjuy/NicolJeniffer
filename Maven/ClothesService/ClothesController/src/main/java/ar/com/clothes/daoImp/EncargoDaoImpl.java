@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import ar.com.clothes.dao.AbstractDao;
 import ar.com.clothes.dao.EncargoDao;
 import ar.com.clothes.model.Cliente;
+import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Encargo;
 
 /**
@@ -56,6 +57,14 @@ public class EncargoDaoImpl extends AbstractDao implements EncargoDao {
 	public List<Encargo> listarEncargosByCliente(Cliente cliente) {
 		Criteria criteria = getSession().createCriteria(Encargo.class);
 		criteria.add(Restrictions.eq("cliente.idClientes", cliente.getIdClientes()));
+		return (List<Encargo>) criteria.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Encargo> listarEncargosByEmpresa(Empresa empresa) {
+		Criteria criteria = getSession().createCriteria(Encargo.class);
+		criteria.add(Restrictions.eq("empresa.idEmpresa", empresa.getIdEmpresa()));
 		return (List<Encargo>) criteria.list();
 	}
 

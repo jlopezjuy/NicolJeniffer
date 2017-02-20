@@ -3,6 +3,7 @@ package ar.com.clothes.service;
 import java.util.List;
 
 import ar.com.clothes.model.Cliente;
+import ar.com.clothes.model.Empresa;
 import ar.com.clothes.model.Encargo;
 
 /**
@@ -23,4 +24,6 @@ public interface EncargoService {
 	void updateEncargo(Encargo encargo);
 
 	List<Encargo> listarEncargosByCliente(Cliente cliente);
+
+	List<Encargo> listarEncargosByEmpresa(Empresa empresa);
 }

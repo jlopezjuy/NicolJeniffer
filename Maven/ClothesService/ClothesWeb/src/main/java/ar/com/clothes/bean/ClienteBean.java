@@ -42,7 +42,9 @@ public class ClienteBean extends BaseBean {
 	public ClienteBean() {
 		super();
 		try {
-			listaClientes = getClienteService().findAllClientes();
+			FacesContext context = FacesContext.getCurrentInstance();
+			Empresa empresa = (Empresa) context.getExternalContext().getSessionMap().get("empresa");
+			listaClientes = getClienteService().findByEmpresa(empresa.getIdEmpresa());
 			LOG.debug("ClienteBean cantidad de datos: " + listaClientes.size());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -213,7 +215,9 @@ public class ClienteBean extends BaseBean {
 	public String busquedaCliente() {
 		LOG.info("cliente a buscar: " + nombreBusqueda);
 		if (StringUtil.esVacio(nombreBusqueda)) {
-			setListaClientes(getClienteService().findAllClientes());
+			FacesContext context = FacesContext.getCurrentInstance();
+			Empresa empresa = (Empresa) context.getExternalContext().getSessionMap().get("empresa");
+			setListaClientes(getClienteService().findByEmpresa(empresa.getIdEmpresa()));
 		} else {
 			// TODO: implementar busqueda por nombre de cliente
 			// setListaClientes(getClienteService().findClientes(nombreBusqueda));

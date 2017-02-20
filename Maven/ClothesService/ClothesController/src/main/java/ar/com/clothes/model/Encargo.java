@@ -44,6 +44,9 @@ public class Encargo {
 	private String detalleVestido;
 	@OneToMany(mappedBy = "encargo", cascade = CascadeType.ALL)
 	private Set<Pago> pagos = new HashSet<Pago>(0);
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "IDEMPRESA", nullable = false)
+	private Empresa empresa;
 
 	/**
 	 * 
@@ -185,6 +188,21 @@ public class Encargo {
 	 */
 	public void setPagos(Set<Pago> pagos) {
 		this.pagos = pagos;
+	}
+
+	/**
+	 * @return the empresa
+	 */
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	/**
+	 * @param empresa
+	 *           the empresa to set
+	 */
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 }
