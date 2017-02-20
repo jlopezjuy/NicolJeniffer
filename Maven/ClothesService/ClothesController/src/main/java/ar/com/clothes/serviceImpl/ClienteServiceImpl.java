@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ar.com.clothes.dao.ClienteDao;
 import ar.com.clothes.model.Cliente;
 import ar.com.clothes.service.ClienteService;
+
 /**
  * 
  * @author MostroBook
@@ -17,10 +18,10 @@ import ar.com.clothes.service.ClienteService;
 @Service("clienteService")
 @Transactional
 public class ClienteServiceImpl implements ClienteService {
-	
+
 	@Autowired
 	ClienteDao clienteDao;
-	
+
 	@Override
 	public void saveCliente(Cliente cliente) {
 		clienteDao.saveCliente(cliente);
@@ -49,6 +50,11 @@ public class ClienteServiceImpl implements ClienteService {
 	@Override
 	public List<Cliente> findByEmpresa(Integer idEmpresa) {
 		return clienteDao.findByEmpresa(idEmpresa);
+	}
+
+	@Override
+	public List<Cliente> findByNombre(String nombre) {
+		return clienteDao.findByNombre(nombre);
 	}
 
 }

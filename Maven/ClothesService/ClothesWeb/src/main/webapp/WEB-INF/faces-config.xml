@@ -53,13 +53,13 @@
 		
 		<navigation-case>
 			<from-outcome>editarClienteView</from-outcome>
-			<to-view-id>clientes/editarCliente.xhtml</to-view-id>
+			<to-view-id>/clientes/editarCliente.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>listaMedidasView</from-outcome>
-			<to-view-id>medidas/listaMedidas.xhtml</to-view-id>
+			<to-view-id>/medidas/listaMedidas.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		
@@ -96,6 +96,12 @@
 		<navigation-case>
 			<from-outcome>altaClienteEncargoView</from-outcome>
 			<to-view-id>/encargo/altaClienteEncargo.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>listaPagosView</from-outcome>
+			<to-view-id>/encargo/listaPagos.xhtml</to-view-id>
 			<redirect></redirect>
 		</navigation-case>
 		

@@ -10,16 +10,18 @@ import ar.com.clothes.model.Cliente;
  *
  */
 public interface ClienteDao {
-	
+
 	void saveCliente(Cliente cliente);
-	
+
 	List<Cliente> findAllClientes();
-	
+
 	void deleteClienteById(Integer idClientes);
-	
+
 	Cliente findById(Integer idClientes);
-	
+
 	void updateCliente(Cliente cliente);
-	
+
 	List<Cliente> findByEmpresa(Integer idEmpresa);
+
+	List<Cliente> findByNombre(String nombre);
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -55,6 +56,14 @@ public class ClienteDaoImpl extends AbstractDao implements ClienteDao {
 	public List<Cliente> findByEmpresa(Integer idEmpresa) {
 		Criteria criteria = getSession().createCriteria(Cliente.class);
 		criteria.add(Restrictions.eq("empresa.idEmpresa", idEmpresa));
+		return (List<Cliente>) criteria.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Cliente> findByNombre(String nombre) {
+		Criteria criteria = getSession().createCriteria(Cliente.class);
+		criteria.add(Restrictions.ilike("nombre", nombre, MatchMode.ANYWHERE));
 		return (List<Cliente>) criteria.list();
 	}
 

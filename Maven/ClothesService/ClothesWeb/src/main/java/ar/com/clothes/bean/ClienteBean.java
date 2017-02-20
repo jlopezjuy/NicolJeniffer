@@ -220,7 +220,7 @@ public class ClienteBean extends BaseBean {
 			setListaClientes(getClienteService().findByEmpresa(empresa.getIdEmpresa()));
 		} else {
 			// TODO: implementar busqueda por nombre de cliente
-			// setListaClientes(getClienteService().findClientes(nombreBusqueda));
+			setListaClientes(getClienteService().findByNombre(nombreBusqueda));
 		}
 		return null;
 	}

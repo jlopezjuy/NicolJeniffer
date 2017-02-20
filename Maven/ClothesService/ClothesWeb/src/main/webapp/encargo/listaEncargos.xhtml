@@ -22,6 +22,9 @@
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
 					<p:dataTable id="listEncargos" value="#{encargoBean.listaEncargos}" var="encargo" rows="5" paginator="true" reflow="true">
+						<p:column headerText="N° Encargo">
+							<h:outputText value="#{encargo.idEncargo}" />
+						</p:column>
 						<p:column headerText="Nombre">
 							<h:outputText value="#{encargo.cliente.nombre}" />
 						</p:column>
@@ -36,6 +39,12 @@
 							<h:outputText value="#{encargo.fechaEncargo}">
 								<f:convertDateTime pattern="dd/MM/yyyy" />
 							</h:outputText>
+						</p:column>
+						
+						<p:column style="width:80px;text-align: center" headerText="Editar">
+							<p:commandButton icon="ui-icon-edit" action="#{encargoBean.goToPagos}">
+								<f:setPropertyActionListener value="#{encargo}" target="#{encargoBean.encargoSeleccionado}" />
+							</p:commandButton>
 						</p:column>
 					</p:dataTable>
 				</h:panelGrid>

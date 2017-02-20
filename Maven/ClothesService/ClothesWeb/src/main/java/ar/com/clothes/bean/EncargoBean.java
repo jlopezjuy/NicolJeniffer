@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -48,6 +49,7 @@ public class EncargoBean extends BaseBean {
 	private Pago pago;
 	private Encargo encargo;
 	private Empresa empresa;
+	private Double totalPagos;
 
 	private List<SelectItem> listaClienteItem;
 	private List<SelectItem> listaValorDominioItem;
@@ -85,6 +87,7 @@ public class EncargoBean extends BaseBean {
 		pago = new Pago();
 		encargo = new Encargo();
 		clienteId = (Integer) 0;
+		listaPagos = new ArrayList<Pago>();
 	}
 
 	public void changeCliente(ValueChangeEvent event) {
@@ -105,6 +108,7 @@ public class EncargoBean extends BaseBean {
 
 			ValorDominio valor = getValorDominioService().findById(Integer.valueOf("1"));
 			encargo.setValordominio(valor);
+			encargo.setEmpresa(empresa);
 			getEncargoService().saveEncargo(encargo);
 			for (Pago pago : listaPagos) {
 				getPagoService().savePago(pago);
@@ -177,6 +181,15 @@ public class EncargoBean extends BaseBean {
 		requestContext.update("altaEncargoForm");
 	}
 
+	public void loadPagoSolo() {
+		LOG.info("Entro a cargar una medida nueva");
+		pago = new Pago();
+		pago.setEncargo(encargoSeleccionado);
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.execute("PF('nuevoPagoDialog').show();");
+		requestContext.update("formPago");
+	}
+
 	/**
 	 * Metodo para guardar una medida
 	 * 
@@ -197,6 +210,57 @@ public class EncargoBean extends BaseBean {
 		// return null;
 		// }
 		return "";
+	}
+
+	public String gurdarPagoSolo() {
+		if (validatePago()) {
+			pago.setFechaPago(new Date());
+			pago.setEncargo(encargoSeleccionado);
+			getPagoService().savePago(pago);
+			listaPagos = new ArrayList<Pago>();
+			listaPagos = getPagoService().listarPagosEncargo(encargoSeleccionado);
+			pago = new Pago();
+			cargaTotal();
+		}
+		return "";
+	}
+
+	/**
+	 * Metodo para validar que no se pase el monto de pago con el total de
+	 * importe.
+	 * 
+	 * @return
+	 */
+	public Boolean validatePago() {
+		Boolean validate = Boolean.TRUE;
+		if ((totalPagos + pago.getImporte()) > encargoSeleccionado.getImporteTotal()) {
+			validate = Boolean.FALSE;
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning!", "El total de pagos ingresados sumado al ingresado supera al importe total."));
+		}
+
+		if (pago.getImporte() > encargoSeleccionado.getImporteTotal()) {
+			validate = Boolean.FALSE;
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warning!", "El importe total ingresado supera el Importe Total."));
+		}
+		return validate;
+	}
+
+	public String goToPagos() {
+		listaPagos = new ArrayList<Pago>();
+		listaPagos = getPagoService().listarPagosEncargo(encargoSeleccionado);
+		cargaTotal();
+		return "listaPagosView";
+	}
+
+	/**
+	 * 
+	 */
+	public void cargaTotal() {
+		Double valor = 0.0;
+		for (Pago pago : listaPagos) {
+			valor = valor + pago.getImporte();
+		}
+		totalPagos = valor;
 	}
 
 	/**
@@ -395,6 +459,21 @@ public class EncargoBean extends BaseBean {
 	 */
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
+	}
+
+	/**
+	 * @return the totalPagos
+	 */
+	public Double getTotalPagos() {
+		return totalPagos;
+	}
+
+	/**
+	 * @param totalPagos
+	 *           the totalPagos to set
+	 */
+	public void setTotalPagos(Double totalPagos) {
+		this.totalPagos = totalPagos;
 	}
 
 }
