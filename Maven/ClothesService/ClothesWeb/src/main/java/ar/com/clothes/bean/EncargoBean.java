@@ -219,9 +219,9 @@ public class EncargoBean extends BaseBean {
 			getPagoService().savePago(pago);
 			listaPagos = new ArrayList<Pago>();
 			listaPagos = getPagoService().listarPagosEncargo(encargoSeleccionado);
-			pago = new Pago();
 			cargaTotal();
 		}
+		pago = new Pago();
 		return "";
 	}
 
