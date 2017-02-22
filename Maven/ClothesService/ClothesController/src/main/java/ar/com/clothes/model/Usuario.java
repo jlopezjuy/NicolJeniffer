@@ -8,20 +8,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 /**
  * 
  * @author MostroBook
  *
  */
 @Entity
-@Table(name="USUARIO")
+@Table(name = "Usuario")
 public class Usuario {
-	
+
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idUsuario;
 	@ManyToOne(optional = false)
-    @JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
+	@JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
 	private Empresa empresa;
 	@Column(name = "NOMBREUSUARIO", nullable = false)
 	private String nombreUsuario;
@@ -29,15 +30,16 @@ public class Usuario {
 	private String password;
 	@Column(name = "NOMBREAPELLIDO")
 	private String nombreApellido;
-	//private Set usuariorols = new HashSet(0);
-	
+
+	// private Set usuariorols = new HashSet(0);
+
 	/**
 	 * 
 	 */
 	public Usuario() {
-		
+
 	}
-	
+
 	/**
 	 * @return the idUsuario
 	 */
@@ -46,7 +48,8 @@ public class Usuario {
 	}
 
 	/**
-	 * @param idUsuario the idUsuario to set
+	 * @param idUsuario
+	 *           the idUsuario to set
 	 */
 	public void setIdUsuario(Integer idUsuario) {
 		this.idUsuario = idUsuario;
@@ -60,7 +63,8 @@ public class Usuario {
 	}
 
 	/**
-	 * @param empresa the empresa to set
+	 * @param empresa
+	 *           the empresa to set
 	 */
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
@@ -74,7 +78,8 @@ public class Usuario {
 	}
 
 	/**
-	 * @param nombreUsuario the nombreUsuario to set
+	 * @param nombreUsuario
+	 *           the nombreUsuario to set
 	 */
 	public void setNombreUsuario(String nombreUsuario) {
 		this.nombreUsuario = nombreUsuario;
@@ -88,7 +93,8 @@ public class Usuario {
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *           the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -102,7 +108,8 @@ public class Usuario {
 	}
 
 	/**
-	 * @param nombreApellido the nombreApellido to set
+	 * @param nombreApellido
+	 *           the nombreApellido to set
 	 */
 	public void setNombreApellido(String nombreApellido) {
 		this.nombreApellido = nombreApellido;
@@ -111,8 +118,7 @@ public class Usuario {
 	/**
 	 * 
 	 */
-	public String toString(){
-		return "Id Usuario: "+ idUsuario + " Nombre de Usuario: "+ nombreUsuario
-				+ " Nombre y Apellido: "+ nombreApellido + " Empresa id: "+ empresa.getIdEmpresa();
+	public String toString() {
+		return "Id Usuario: " + idUsuario + " Nombre de Usuario: " + nombreUsuario + " Nombre y Apellido: " + nombreApellido + " Empresa id: " + empresa.getIdEmpresa();
 	}
 }

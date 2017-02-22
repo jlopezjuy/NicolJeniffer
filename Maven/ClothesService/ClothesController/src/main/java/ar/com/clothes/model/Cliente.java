@@ -20,7 +20,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "CLIENTES")
+@Table(name = "Clientes")
 public class Cliente {
 
 	@Id

@@ -9,5 +9,6 @@
   <modules>
     <module>ClothesController</module>
     <module>ClothesWeb</module>
+    <module>ClothesWar</module>
   </modules>
 </project>
