@@ -74,6 +74,10 @@ public class LogginBean extends BaseBean implements Serializable {
 		return validate;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public Boolean validateOnDB() {
 		Boolean validate = Boolean.TRUE;
 		Usuario user = getUsuarioService().findByUsuarioPassword(nombreUsuario, password);
@@ -82,6 +86,7 @@ public class LogginBean extends BaseBean implements Serializable {
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.getExternalContext().getSessionMap().put("empresa", user.getEmpresa());
+			context.getExternalContext().getSessionMap().put("usuarioSession", user);
 		}
 		return validate;
 	}
