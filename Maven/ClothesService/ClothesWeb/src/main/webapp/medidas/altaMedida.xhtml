@@ -8,9 +8,9 @@
 	<ui:define name="content">
 		<h:form>
 			<p:growl id="message" showDetail="true" />
-			<div class="ui-fluid">
-				<h2><p:outputLabel value="Alta - Medida"/></h2>
-				<h:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
+			<h2><p:outputLabel value="Alta - Medida"/></h2>
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2">
 
 					<h:outputLabel for="busto" value="Busto" />
 					<p:inputText id="busto" label="Busto" value="#{medidasBean.busto}" />
@@ -72,12 +72,12 @@
 					<p:inputTextarea id="observaciones" label="Colegio" value="#{medidasBean.observaciones}" />
 
 					<p:spacer></p:spacer>
-					<f:facet name="footer">
+					<h:panelGrid columns="2">
 						<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{medidasBean.gurdarMedida}" />
 						<p:commandButton value="Cancelar" id="cancelar" ajax="false" action="#{medidasBean.cancelarMedida}" immediate="true"/>
-					</f:facet>
+					</h:panelGrid>
 				</h:panelGrid>
-			</div>
+			</p:panel>
 
 		</h:form>
 	</ui:define>

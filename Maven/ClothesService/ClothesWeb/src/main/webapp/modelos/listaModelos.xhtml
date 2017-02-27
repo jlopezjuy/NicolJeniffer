@@ -8,41 +8,46 @@
 	<ui:define name="content">
 		<h:form id="form">
 
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel for="nombre" value="Nombre" />
+					<p:inputText id="nombre" label="Nombre" value="#{modeloBean.cliente.nombre}" disabled="true" />
 
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputLabel for="nombre" value="Nombre" />
-				<p:inputText id="nombre" label="Nombre" value="#{modeloBean.cliente.nombre}" disabled="true" />
-
-				<h:outputLabel for="apellido" value="Apellido" />
-				<p:inputText id="apellido" label="Apellido" value="#{modeloBean.cliente.apellido}" disabled="true" />
-			</h:panelGrid>
-
-
-			<p:commandButton action="altaModeloView" value="Nuevo" icon="fa fa-plus" />
+					<h:outputLabel for="apellido" value="Apellido" />
+					<p:inputText id="apellido" label="Apellido" value="#{modeloBean.cliente.apellido}" disabled="true" />
+				</h:panelGrid>
+				<p:commandButton action="altaModeloView" value="Nuevo" icon="fa fa-plus" />
 			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
+			</p:panel>
+
+			
+
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="5" paginator="true" reflow="true">
+
+					<p:column headerText="Nombre Modelo">
+						<h:outputText value="#{med.nombreModelo}">
+						</h:outputText>
+					</p:column>
+
+					<p:column headerText="Color de vestido">
+						<h:outputText value="#{med.colorVestido}">
+						</h:outputText>
+					</p:column>
 
 
-			<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="5" paginator="true" reflow="true">
 
-				<p:column headerText="Nombre Modelo">
-					<h:outputText value="#{med.nombreModelo}">
-					</h:outputText>
-				</p:column>
+				</p:dataTable>
+			</p:panel>
+			<hr class="line"></hr>
+			<div align="center">
+				<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true" frameWidth="80" showCaption="true" autoPlay="true">
+					<p:graphicImage alt="#{image.colorVestido}" title="#{image.nombreModelo}" value="#{modeloBean.image}" height="100%">
+						<f:param name="idModelos" value="#{image.idModelos}" />
+					</p:graphicImage>
+				</p:galleria>
+			</div>
 
-				<p:column headerText="Color de vestido">
-					<h:outputText value="#{med.colorVestido}">
-					</h:outputText>
-				</p:column>
-
-				
-
-			</p:dataTable>
-
-			<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true"  frameWidth="80" showCaption="true" autoPlay="true">
-				<p:graphicImage alt="#{image.colorVestido}" title="#{image.nombreModelo}" value="#{modeloBean.image}" height="100%" >
-					<f:param name="idModelos" value="#{image.idModelos}" />
-				</p:graphicImage>
-			</p:galleria>
 
 		</h:form>
 	</ui:define>

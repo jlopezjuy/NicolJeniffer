@@ -116,6 +116,11 @@ public class ModeloBean extends BaseBean {
 		imagenTemp = null;
 	}
 
+	/**
+	 * 
+	 * @param event
+	 */
+	@SuppressWarnings("restriction")
 	public void handleFileUpload(FileUploadEvent event) {
 		FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 		FacesContext.getCurrentInstance().addMessage(null, message);

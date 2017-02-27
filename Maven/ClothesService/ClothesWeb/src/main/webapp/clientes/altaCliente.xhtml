@@ -16,7 +16,7 @@
 				<h2>
 					<p:outputLabel value="Alta - Cliente" />
 				</h2>
-				<div class="ui-grid-row" style="margin-left: auto; margin-right: auto; width: 24em">
+				<p:panel style="position:relative; border-style: none;" styleClass="center">
 					<h:panelGrid columns="2">
 						<p:outputLabel for="nombre" value="Nombre" />
 						<p:inputText id="nombre" label="Nombre"
@@ -51,13 +51,14 @@
 							value="#{clienteBean.colegio}" />
 
 					</h:panelGrid>
-				</div>
+				</p:panel>
 			</div>
-			<p:commandButton value="Cancelar" id="cancel" ajax="false"
-				action="#{clienteBean.cancelarCliente}" immediate="true" />
-			<p:commandButton value="Guardar" id="nonAjax" ajax="false"
-				action="#{clienteBean.gurdarCliente}" />
-
+			<h:panelGrid columns="2">
+				<p:commandButton value="Cancelar" id="cancel" ajax="false"
+					action="#{clienteBean.cancelarCliente}" immediate="true" />
+				<p:commandButton value="Guardar" id="nonAjax" ajax="false"
+					action="#{clienteBean.gurdarCliente}" />
+			</h:panelGrid>
 		</h:form>
 	</ui:define>
 
