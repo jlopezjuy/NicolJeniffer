@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -26,7 +27,11 @@ import ar.com.clothes.model.Modelo;
 
 @ManagedBean(name = "modeloBean")
 @SessionScoped
-public class ModeloBean extends BaseBean {
+public class ModeloBean extends BaseBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4450392835371115076L;
 	private static final Logger LOG = Logger.getLogger(ModeloBean.class);
 	private int idModelos;
 	private Cliente cliente;
@@ -38,6 +43,7 @@ public class ModeloBean extends BaseBean {
 	private List<Modelo> listaModelos;
 	private String imagenTemp;
 	private StreamedContent imageLoad;
+	private UploadedFile file;
 
 	public ModeloBean() {
 		super();
@@ -89,6 +95,15 @@ public class ModeloBean extends BaseBean {
 	}
 
 	/**
+	 * 
+	 * @param idModelos
+	 * @return
+	 */
+	public byte[] getImage(Integer idModelos) {
+		return getModeloService().findById(idModelos).getImagen();
+	}
+
+	/**
 	 * Metodo par cancelar el alta de un modelo
 	 *
 	 * @return
@@ -120,7 +135,6 @@ public class ModeloBean extends BaseBean {
 	 * 
 	 * @param event
 	 */
-	@SuppressWarnings("restriction")
 	public void handleFileUpload(FileUploadEvent event) {
 		FacesMessage message = new FacesMessage("Succesful", event.getFile().getFileName() + " is uploaded.");
 		FacesContext.getCurrentInstance().addMessage(null, message);
@@ -141,10 +155,43 @@ public class ModeloBean extends BaseBean {
 			imagenTemp = new sun.misc.BASE64Encoder().encode(output.toByteArray());
 			LOG.debug("CONVERTIDO EN BASE 64: " + imagenTemp);
 			LOG.debug("Cadena de la imagen: " + output.toByteArray());
+			RequestContext.getCurrentInstance().update("form:image");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String loadImage() {
+
+		System.out.println("Uploaded File Name Is :: " + file.getFileName() + " :: Uploaded File Size :: " + file.getSize());
+
+		LOG.debug("econtro el siguiente archivo: " + file.getFileName());
+
+		try {
+
+			InputStream input = file.getInputstream();
+			LOG.debug("VALOR DE LA IMAGEN EN uploadedFile: " + file.getFileName() + " valor: " + file.getContentType());
+			byte[] buffer = new byte[8192];
+			int bytesRead;
+			ByteArrayOutputStream output = new ByteArrayOutputStream();
+			while ((bytesRead = input.read(buffer)) != -1) {
+				output.write(buffer, 0, bytesRead);
+			}
+			imagen = output.toByteArray();
+			imagenTemp = new sun.misc.BASE64Encoder().encode(output.toByteArray());
+			LOG.debug("CONVERTIDO EN BASE 64: " + imagenTemp);
+			LOG.debug("Cadena de la imagen: " + output.toByteArray());
 			RequestContext.getCurrentInstance().update("form");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
+		return "";
 	}
 
 	/**
@@ -158,7 +205,7 @@ public class ModeloBean extends BaseBean {
 	public String getLoadImage() {
 		if (null != this.getImagen()) {
 			imageLoad = new DefaultStreamedContent(new ByteArrayInputStream(this.getImagen()));
-			RequestContext.getCurrentInstance().update("form");
+			RequestContext.getCurrentInstance().update("form:image");
 
 			this.refreshCurrentPage();
 		}
@@ -282,6 +329,23 @@ public class ModeloBean extends BaseBean {
 
 	public void setImageLoad(StreamedContent imageLoad) {
 		this.imageLoad = imageLoad;
+	}
+
+	/**
+	 * @return the file
+	 */
+	public UploadedFile getFile() {
+		LOG.info("ENTRO A OBTENER LA IMAGEN...");
+		return file;
+	}
+
+	/**
+	 * @param file
+	 *           the file to set
+	 */
+	public void setFile(UploadedFile file) {
+		this.file = file;
+		LOG.info("ENTRO A GUARDAR FILE");
 	}
 
 }

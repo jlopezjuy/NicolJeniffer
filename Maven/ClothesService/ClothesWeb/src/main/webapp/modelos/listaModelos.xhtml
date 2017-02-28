@@ -17,10 +17,10 @@
 					<p:inputText id="apellido" label="Apellido" value="#{modeloBean.cliente.apellido}" disabled="true" />
 				</h:panelGrid>
 				<p:commandButton action="altaModeloView" value="Nuevo" icon="fa fa-plus" />
-			<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
+				<p:commandButton action="listaClientesView" value="Volver" icon="fa fa-arrow-left" />
 			</p:panel>
 
-			
+
 
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<p:dataTable var="med" value="#{modeloBean.listaModelos}" rows="5" paginator="true" reflow="true">
@@ -35,11 +35,21 @@
 						</h:outputText>
 					</p:column>
 
+					<p:column headerText="Observación">
+						<h:outputText value="#{med.observacion}">
+						</h:outputText>
+					</p:column>
 
 
+					<p:column style="width:80px;text-align: center" headerText="Detalle">
+						<p:commandButton icon="fa fa-edit" oncomplete="PF('imagenDialog').show();" update=":form">
+							<f:setPropertyActionListener value="#{med}" target="#{modeloBean.modeloSelect}" />
+						</p:commandButton>
+					</p:column>
 				</p:dataTable>
 			</p:panel>
 			<hr class="line"></hr>
+
 			<div align="center">
 				<p:galleria value="#{modeloBean.listaModelos}" var="image" showFilmstrip="true" frameWidth="80" showCaption="true" autoPlay="true">
 					<p:graphicImage alt="#{image.colorVestido}" title="#{image.nombreModelo}" value="#{modeloBean.image}" height="100%">
@@ -48,7 +58,17 @@
 				</p:galleria>
 			</div>
 
-
+			<p:dialog header="Detalle Imagen" widgetVar="imagenDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="imagenDetalle" style="text-align:left;">
+					<p:panelGrid columns="1">
+						<p:scrollPanel style="width:400px;height:450px">
+							<p:graphicImage alt="#{modeloBean.modeloSelect.colorVestido}" title="#{modeloBean.modeloSelect.nombreModelo}" value="#{modeloBean.image}" height="100%">
+								<f:param name="idModelos" value="#{modeloBean.modeloSelect.idModelos}" />
+							</p:graphicImage>
+						</p:scrollPanel>
+					</p:panelGrid>
+				</p:outputPanel>
+			</p:dialog>
 		</h:form>
 	</ui:define>
 

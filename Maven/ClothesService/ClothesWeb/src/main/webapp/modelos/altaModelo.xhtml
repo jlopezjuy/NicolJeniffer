@@ -28,7 +28,10 @@
 				</p:panel>
 				<div align="center">
 					<h:panelGrid columns="1" cellspacing="15" cellpadding="5" layout="grid">
-						<p:fileUpload fileUploadListener="#{modeloBean.handleFileUpload}" auto="true" mode="advanced" dragDropSupport="false" update=":form:image" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+						<p:panelGrid columns="2">
+							<p:fileUpload fileUploadListener="#{modeloBean.handleFileUpload}" auto="true" mode="advanced" dragDropSupport="false" update=":form:image" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+						</p:panelGrid>
+
 
 						<p:panelGrid id="image">
 							<img style='display: block; width: 50%;' id='base64image' src="data:image/jpeg;base64,#{modeloBean.imagenTemp}" />
