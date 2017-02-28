@@ -311,7 +311,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `NicoleJeniffer`;
-INSERT INTO `NicoleJeniffer`.`Usuario` (`idUsuario`, `NombreUsuario`, `Password`, `NombreApellido`, `Empresa_idEmpresa`) VALUES (1, 'jlopez', '123456', 'Juan Manuel Lopez', 1);
+INSERT INTO `NicoleJeniffer`.`Usuario` (`idUsuario`, `NombreUsuario`, `Password`, `NombreApellido`, `Empresa_idEmpresa`) VALUES (1, 'jlopez', 'e10adc3949ba59abbe56e057f20f883e', 'Juan Manuel Lopez', 1);
 
 COMMIT;
 
