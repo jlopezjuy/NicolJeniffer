@@ -16,13 +16,13 @@
 					<h:panelGrid columns="2">
 
 						<h:outputLabel for="nombreModelo" value="Nombre Modelo" />
-						<p:inputText id="nombreModelo" label="Nombre Modelo" value="#{modeloBean.nombreModelo}" />
+						<p:inputText id="nombreModelo" label="Nombre Modelo" value="#{modeloBean.nombreModelo}" required="true"/>
 
 						<h:outputLabel for="colorVestido" value="Color de Vestido" />
-						<p:inputText id="colorVestido" label="Color de Vestido" value="#{modeloBean.colorVestido}" />
+						<p:inputText id="colorVestido" label="Color de Vestido" value="#{modeloBean.colorVestido}" required="true"/>
 
 						<h:outputLabel for="observacion" value="Observacion" />
-						<p:inputTextarea id="observacion" label="Observacion" value="#{modeloBean.observacion}" />
+						<p:inputTextarea id="observacion" label="Observacion" value="#{modeloBean.observacion}" required="true"/>
 
 					</h:panelGrid>
 				</p:panel>

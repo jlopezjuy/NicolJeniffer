@@ -24,6 +24,7 @@ import org.primefaces.model.UploadedFile;
 
 import ar.com.clothes.model.Cliente;
 import ar.com.clothes.model.Modelo;
+import ar.com.clothes.util.FacesMessageUtil;
 
 @ManagedBean(name = "modeloBean")
 @SessionScoped
@@ -59,20 +60,30 @@ public class ModeloBean extends BaseBean implements Serializable {
 	 */
 	public String gurdarModelo() {
 		try {
-
-			getModeloService().saveModelo(getModeloNuevo());
-			limpiarFormulario();
+			if (validateInsert()) {
+				getModeloService().saveModelo(getModeloNuevo());
+				limpiarFormulario();
+			} else {
+				return null;
+			}
 		} catch (Exception e) {
 			LOG.error(e);
 			return null;
-
 		}
 		return "listaModeloView";
 	}
 
+	/**
+	 * Metodo para validar los campos.
+	 * 
+	 * @return
+	 */
 	public Boolean validateInsert() {
 		Boolean validate = Boolean.TRUE;
-
+		if (null == imagen) {
+			FacesMessageUtil.warn("Por favor agregue una imagen.");
+			validate = Boolean.FALSE;
+		}
 		return validate;
 	}
 

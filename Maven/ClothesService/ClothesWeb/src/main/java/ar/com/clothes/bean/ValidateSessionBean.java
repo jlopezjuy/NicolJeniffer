@@ -6,6 +6,11 @@ import javax.faces.context.FacesContext;
 
 import ar.com.clothes.model.Usuario;
 
+/**
+ * 
+ * @author MostroBook
+ *
+ */
 @ManagedBean(name = "validateSessionBean")
 @ViewScoped
 public class ValidateSessionBean {

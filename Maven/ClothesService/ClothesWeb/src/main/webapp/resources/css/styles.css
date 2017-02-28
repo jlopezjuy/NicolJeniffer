@@ -841,7 +841,7 @@ nav ul li a.active {
     border-bottom: 1px solid #333b3e;
 }
 .laptop-slider {
-    text-align: center;
+    text-align: left;
     background-color: #242a2c;
     padding: 20px 0 50px;
     color: #fff;
