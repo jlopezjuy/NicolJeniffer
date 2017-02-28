@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="../template/template.xhtml">
 	<ui:define name="title">
@@ -15,44 +11,33 @@
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="2" cellpadding="5">
 					<h3 class="animated wow zoomIn" data-wow-delay=".5s">
-						<span>Lista de Pago</span>
+						<span>Lista de Pagos</span>
 					</h3>
 				</h:panelGrid>
 			</p:panel>
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="4" cellpadding="5">
 					<h:outputLabel for="idEncargo" value="N° Encargo" />
-					<p:inputText id="idEncargo" label="N° Encargo"
-						value="#{encargoBean.encargoSeleccionado.idEncargo}"
-						disabled="true" />
+					<p:inputText id="idEncargo" label="N° Encargo" value="#{encargoBean.encargoSeleccionado.idEncargo}" disabled="true" />
 					<h:outputLabel for="precioFinal" value="Total inicial" />
-					<p:inputText id="precioFinal" label="Total inicial"
-						value="#{encargoBean.encargoSeleccionado.importeTotal}"
-						disabled="true" />
+					<p:inputText id="precioFinal" label="Total inicial" value="#{encargoBean.encargoSeleccionado.importeTotal}" disabled="true" />
 
 					<h:outputLabel for="nombre" value="Nombre" />
-					<p:inputText id="nombre" label="Nombre"
-						value="#{encargoBean.encargoSeleccionado.cliente.nombre}"
-						disabled="true" />
+					<p:inputText id="nombre" label="Nombre" value="#{encargoBean.encargoSeleccionado.cliente.nombre}" disabled="true" />
 
 					<h:outputLabel for="apellido" value="Apellido" />
-					<p:inputText id="apellido" label="Apellido"
-						value="#{encargoBean.encargoSeleccionado.cliente.apellido}"
-						disabled="true" />
+					<p:inputText id="apellido" label="Apellido" value="#{encargoBean.encargoSeleccionado.cliente.apellido}" disabled="true" />
 				</h:panelGrid>
 			</p:panel>
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:commandButton value="Alta Pago"
-						disabled="#{encargoBean.encargoSeleccionado.importeTotal eq encargoBean.totalPagos}"
-						action="#{encargoBean.loadPagoSolo}" immediate="true" />
+					<p:commandButton value="Alta Pago" disabled="#{encargoBean.encargoSeleccionado.importeTotal eq encargoBean.totalPagos}" action="#{encargoBean.loadPagoSolo}" immediate="true" />
+					<p:commandButton value="Volver" action="listaEncargosView" immediate="true" />
 				</h:panelGrid>
 			</p:panel>
-			<p:panel style="position:relative; border-style: none;"
-				styleClass="center">
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
-					<p:dataTable id="listaPagos" value="#{encargoBean.listaPagos}"
-						var="pago">
+					<p:dataTable id="listaPagos" value="#{encargoBean.listaPagos}" var="pago">
 						<p:column headerText="Id">
 							<h:outputText value="#{pago.idPagos}" />
 						</p:column>
@@ -71,8 +56,7 @@
 
 						<p:columnGroup type="footer">
 							<p:row>
-								<p:column colspan="3" style="text-align:right"
-									footerText="Total:" />
+								<p:column colspan="3" style="text-align:right" footerText="Total:" />
 								<p:column footerText="$#{encargoBean.totalPagos}" />
 							</p:row>
 						</p:columnGroup>
@@ -82,8 +66,7 @@
 				</h:panelGrid>
 			</p:panel>
 
-			<p:dialog header="Nuevo Pago" widgetVar="nuevoPagoDialog"
-				modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:dialog header="Nuevo Pago" widgetVar="nuevoPagoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
 				<p:outputPanel id="registroPago" style="text-align:left;">
 					<p:panelGrid columns="2">
 						<h:outputLabel for="importe" value="Importe" />
@@ -96,12 +79,8 @@
 				</p:outputPanel>
 				<p:spacer></p:spacer>
 				<f:facet name="footer">
-					<p:commandButton value="Guardar" ajax="false"
-						action="#{encargoBean.gurdarPagoSolo}"
-						onclick="PF('nuevoPagoDialog').hide();" update=":formPago" />
-					<p:commandButton value="Cancelar" ajax="false"
-						action="#{encargoBean.cancelarPago}" immediate="true"
-						onclick="PF('nuevoPagoDialog').hide();" />
+					<p:commandButton value="Guardar" ajax="false" action="#{encargoBean.gurdarPagoSolo}" onclick="PF('nuevoPagoDialog').hide();" update=":formPago" />
+					<p:commandButton value="Cancelar" ajax="false" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('nuevoPagoDialog').hide();" />
 				</f:facet>
 			</p:dialog>
 
