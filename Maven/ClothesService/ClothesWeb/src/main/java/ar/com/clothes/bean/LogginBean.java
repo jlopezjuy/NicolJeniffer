@@ -18,6 +18,11 @@ import ar.com.clothes.util.FacesMessageUtil;
 import ar.com.clothes.util.SpringUtil;
 import ar.com.clothes.util.StringUtil;
 
+/**
+ * 
+ * @author MostroBook
+ *
+ */
 @ManagedBean(name = "logginBean")
 @ViewScoped
 public class LogginBean extends BaseBean implements Serializable {

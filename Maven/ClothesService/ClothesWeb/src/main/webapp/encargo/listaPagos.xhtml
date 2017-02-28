@@ -31,7 +31,7 @@
 			</p:panel>
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:commandButton value="Alta Pago" disabled="#{encargoBean.encargoSeleccionado.importeTotal eq encargoBean.totalPagos}" action="#{encargoBean.loadPagoSolo}" immediate="true" />
+					<p:commandButton value="Nuevo Pago" disabled="#{encargoBean.encargoSeleccionado.importeTotal eq encargoBean.totalPagos}" action="#{encargoBean.loadPagoSolo}" immediate="true" />
 					<p:commandButton value="Volver" action="listaEncargosView" immediate="true" />
 				</h:panelGrid>
 			</p:panel>
@@ -66,7 +66,7 @@
 				</h:panelGrid>
 			</p:panel>
 
-			<p:dialog header="Nuevo Pago" widgetVar="nuevoPagoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+			<p:dialog header="Nuevo Pago" widgetVar="nuevoPagoDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" closable="false">
 				<p:outputPanel id="registroPago" style="text-align:left;">
 					<p:panelGrid columns="2">
 						<h:outputLabel for="importe" value="Importe" />
