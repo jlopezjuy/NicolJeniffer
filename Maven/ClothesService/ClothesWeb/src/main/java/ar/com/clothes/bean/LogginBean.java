@@ -9,10 +9,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 
 import ar.com.clothes.model.Usuario;
 import ar.com.clothes.service.UsuarioService;
+import ar.com.clothes.util.FacesMessageUtil;
 import ar.com.clothes.util.SpringUtil;
 import ar.com.clothes.util.StringUtil;
 
@@ -47,6 +49,7 @@ public class LogginBean extends BaseBean implements Serializable {
 	public String validarLogin() {
 		LOG.info("Usuario seleccionado: " + nombreUsuario);
 		LOG.info("Contraseña ingresada: " + password);
+
 		if (validateLoggin()) {
 			LOG.info("Ok todo...");
 			return "listaClientesView";
@@ -71,6 +74,7 @@ public class LogginBean extends BaseBean implements Serializable {
 				validate = Boolean.FALSE;
 			}
 		}
+
 		return validate;
 	}
 
@@ -80,8 +84,10 @@ public class LogginBean extends BaseBean implements Serializable {
 	 */
 	public Boolean validateOnDB() {
 		Boolean validate = Boolean.TRUE;
-		Usuario user = getUsuarioService().findByUsuarioPassword(nombreUsuario, password);
+		String textoEncriptadoConMD5 = DigestUtils.md5Hex(password);
+		Usuario user = getUsuarioService().findByUsuarioPassword(nombreUsuario, textoEncriptadoConMD5);
 		if (null == user) {
+			FacesMessageUtil.error("Usuario o Password incorrecto");
 			validate = Boolean.FALSE;
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
