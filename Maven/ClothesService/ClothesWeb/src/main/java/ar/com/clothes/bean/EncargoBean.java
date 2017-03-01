@@ -272,7 +272,10 @@ public class EncargoBean extends BaseBean {
 	 * @version 1.0
 	 */
 	public String cancelarPago() {
+		LOG.info("valores en los inputs: " + pago.getImporte() + " recibo: " + pago.getNumeroRecibo());
 		pago = new Pago();
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.update("altaEncargoForm");
 		return "";
 	}
 

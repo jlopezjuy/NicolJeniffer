@@ -70,21 +70,30 @@
 				<p:outputPanel id="registroPago" style="text-align:left;">
 					<p:panelGrid columns="2">
 						<h:outputLabel for="importe" value="Importe" />
-						<p:inputText id="importe" value="#{encargoBean.pago.importe}" />
+						<p:inputNumber widgetVar="importeW" id="importe" value="#{encargoBean.pago.importe}" symbol="$"/>
 
 						<h:outputLabel for="recibo" value="N° Recibo" />
-						<p:inputText id="recibo" value="#{encargoBean.pago.numeroRecibo}" />
+						<p:inputNumber widgetVar="reciboW" id="recibo" value="#{encargoBean.pago.numeroRecibo}" thousandSeparator="" decimalPlaces="0" converter="javax.faces.Integer">
+							<f:converter converterId="javax.faces.Integer" />
+						</p:inputNumber>
 
 					</p:panelGrid>
 				</p:outputPanel>
 				<p:spacer></p:spacer>
 				<f:facet name="footer">
-					<p:commandButton value="Guardar" ajax="false" action="#{encargoBean.gurdarPagoSolo}" onclick="PF('nuevoPagoDialog').hide();" update=":formPago" />
-					<p:commandButton value="Cancelar" ajax="false" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('nuevoPagoDialog').hide();" />
+					<p:commandButton value="Guardar" ajax="true" action="#{encargoBean.gurdarPagoSolo}" onclick="PF('nuevoPagoDialog').hide();" update=":formPago" />
+					<p:commandButton value="Cancelar" ajax="true" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('nuevoPagoDialog').hide();" update=":formPago" />
 				</f:facet>
 			</p:dialog>
 
 		</h:form>
+		<h:outputScript>
+			function doSomething() { 
+   				PF('reciboW').setValue("");
+   				PF('importeW').setValue("");	
+			}
+		</h:outputScript>
+		
 	</ui:define>
 </ui:composition>
 </html>

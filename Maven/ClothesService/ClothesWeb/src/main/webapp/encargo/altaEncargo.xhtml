@@ -134,7 +134,7 @@
 			<p:panel style="position:relative; border-style: none;">
 				<h:panelGrid>
 					<p:outputLabel value="Detalle de Vestido: " />
-					<p:inputTextarea value="#{encargoBean.encargo.detalleVestido}" rows="3" cols="10"/>
+					<p:inputTextarea value="#{encargoBean.encargo.detalleVestido}" rows="3" cols="10" />
 				</h:panelGrid>
 			</p:panel>
 
@@ -159,7 +159,7 @@
 
 			<!-- -->
 
-			<p:dialog header="Alta - Medida" widgetVar="dlg2" modal="true" height="300" width="650">
+			<p:dialog header="Alta - Medida" widgetVar="dlg2" modal="true" height="300" width="650" closable="false">
 				<h:panelGrid columns="4" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
 
 					<h:outputLabel for="busto" value="Busto" />
@@ -225,22 +225,30 @@
 				</h:panelGrid>
 			</p:dialog>
 
-			<p:dialog header="Nuevo Pago" widgetVar="dlg3" modal="true" height="60" width="600">
+			<p:dialog header="Nuevo Pago" widgetVar="dlg3" modal="true" height="60" width="600" closable="false">
 				<h:panelGrid columns="5">
 					<h:outputLabel for="importe" value="Importe" />
-					<p:inputText id="importe" value="#{encargoBean.pago.importe}" />
+					<p:inputNumber widgetVar="importeW" id="importe" value="#{encargoBean.pago.importe}" symbol="$" />
 					<p:spacer width="20" />
 					<h:outputLabel for="recibo" value="N° Recibo" />
-					<p:inputText id="recibo" value="#{encargoBean.pago.numeroRecibo}" />
+					<p:inputNumber widgetVar="reciboW" id="recibo" value="#{encargoBean.pago.numeroRecibo}" thousandSeparator="" decimalPlaces="0" converter="javax.faces.Integer">
+						<f:converter converterId="javax.faces.Integer" />
+					</p:inputNumber>
 				</h:panelGrid>
 				<f:facet name="footer">
 					<div align="center">
-						<p:commandButton value="Guardar" ajax="false" action="#{encargoBean.gurdarPago}" onclick="PF('dlg3').hide();" update=":altaEncargoForm:datosCliente :altaEncargoForm:medidas" />
-						<p:commandButton value="Cancelar" ajax="false" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('dlg3').hide();" />
+						<p:commandButton value="Guardar" ajax="true" action="#{encargoBean.gurdarPago}" onclick="PF('dlg3').hide();" update=":altaEncargoForm" />
+						<p:commandButton value="Cancelar" ajax="true" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('dlg3').hide(); doSomething();" update=":altaEncargoForm" />
 					</div>
 				</f:facet>
 			</p:dialog>
 		</h:form>
+		<h:outputScript>
+			function doSomething() { 
+   				PF('reciboW').setValue("");
+   				PF('importeW').setValue("");	
+			}
+		</h:outputScript>
 	</ui:define>
 </ui:composition>
 </html>
