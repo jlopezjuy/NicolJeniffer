@@ -52,9 +52,6 @@ public class LogginBean extends BaseBean implements Serializable {
 	 * @version 1.0
 	 */
 	public String validarLogin() {
-		LOG.info("Usuario seleccionado: " + nombreUsuario);
-		LOG.info("Contraseña ingresada: " + password);
-
 		if (validateLoggin()) {
 			LOG.info("Ok todo...");
 			return "listaClientesView";
@@ -89,8 +86,8 @@ public class LogginBean extends BaseBean implements Serializable {
 	 */
 	public Boolean validateOnDB() {
 		Boolean validate = Boolean.TRUE;
-		String textoEncriptadoConMD5 = DigestUtils.md5Hex(password);
-		Usuario user = getUsuarioService().findByUsuarioPassword(nombreUsuario, textoEncriptadoConMD5);
+		String passEncrypt = DigestUtils.md5Hex(password);
+		Usuario user = getUsuarioService().findByUsuarioPassword(nombreUsuario, passEncrypt);
 		if (null == user) {
 			FacesMessageUtil.error("Usuario o Password incorrecto");
 			validate = Boolean.FALSE;
@@ -99,6 +96,7 @@ public class LogginBean extends BaseBean implements Serializable {
 			context.getExternalContext().getSessionMap().put("empresa", user.getEmpresa());
 			context.getExternalContext().getSessionMap().put("usuarioSession", user);
 		}
+
 		return validate;
 	}
 

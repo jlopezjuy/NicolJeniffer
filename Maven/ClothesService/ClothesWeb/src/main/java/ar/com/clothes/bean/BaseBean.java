@@ -31,7 +31,6 @@ public class BaseBean {
 	private ValorDominioService valorDominioService;
 
 	public BaseBean() {
-		LOG.debug("");
 	}
 
 	protected void guardarAtributoSesion(String nombreAtributo, Object valorAtributo) {

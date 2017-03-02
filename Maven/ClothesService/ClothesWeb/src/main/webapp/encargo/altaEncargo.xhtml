@@ -20,7 +20,7 @@
 				<h:panelGrid columns="5" cellpadding="5">
 					<p:outputLabel>Cliente</p:outputLabel>
 					<h:selectOneMenu id="cmbCliente" value="#{encargoBean.clienteId}" valueChangeListener="#{encargoBean.changeCliente}" required="true" label="Cliente: ">
-						<f:selectItem itemLabel="Seleccione uno" itemValue="" />
+						<f:selectItem itemLabel="Seleccione cliente" itemValue="" />
 						<f:selectItems value="#{encargoBean.listaClienteItem}" />
 						<f:ajax event="change" immediate="true" render=":altaEncargoForm:datosCliente :altaEncargoForm:medidas" />
 					</h:selectOneMenu>

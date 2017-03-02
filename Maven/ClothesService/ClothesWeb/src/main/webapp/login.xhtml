@@ -1,35 +1,107 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>Clothes</title>
 
-<ui:composition template="template/templateLogin.xhtml">
-	<ui:define name="title">
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<!--Import materialize.css-->
 
-	</ui:define>
-	<ui:define name="content">
+	<link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/css/materialize.min.css" media="screen,projection" />
+
+	<!--Let browser know website is optimized for mobile-->
 
 
 
-		<h:form id="loginForm">
-			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-			<div align="center">
-				<p:panel style="position:relative; border-style: none;" styleClass="center">
-					<h:panelGrid columns="2">
-						<h:outputLabel for="username" value="Usuario:" />
-						<p:inputText id="username" value="#{logginBean.nombreUsuario}" label="username" required="true" />
-						<h:outputLabel for="password" value="Password:" />
-						<p:password id="password" value="#{logginBean.password}" label="password" required="true" />
-						<p:commandButton value="Login" action="#{logginBean.validarLogin}" />
-					</h:panelGrid>
-				</p:panel>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+body {
+	background: #fff;
+}
+
+.input-field input[type=date]:focus+label, .input-field input[type=text]:focus+label,
+	.input-field input[type=email]:focus+label, .input-field input[type=password]:focus+label
+	{
+	color: #e91e63;
+}
+
+.input-field input[type=date]:focus, .input-field input[type=text]:focus,
+	.input-field input[type=email]:focus, .input-field input[type=password]:focus
+	{
+	border-bottom: 2px solid #e91e63;
+	box-shadow: none;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<div class="section"></div>
+		<main>
+		<center>
+			<img class="responsive-img" style="width: 250px;" src="#{request.contextPath}/resources/img/logo2.png" />
+			<div class="section"></div>
+
+			<h5 class="indigo-text">Please, login into your account</h5>
+			<div class="section"></div>
+
+			<div class="container">
+				<div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+					<form class="col s12" method="post">
+						<div class='row'>
+							<div class='col s12'></div>
+						</div>
+
+						<div class='row'>
+							<div class='input-field col s12'>
+								<h:inputText id="username" value="#{logginBean.nombreUsuario}" label="username" required="true" />
+								<h:outputLabel for="username" value="Usuario:" />
+							</div>
+						</div>
+
+						<div class='row'>
+							<div class='input-field col s12'>
+								<h:inputSecret id="password" value="#{logginBean.password}" label="password" required="true" />
+								<h:outputLabel for="password" value="Password:" />
+							</div>
+							<label style='float: right;'> <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+							</label>
+						</div>
+
+						<br />
+						<center>
+							<div class='row'>
+								<p:remoteCommand name="myRemote" action="#{logginBean.validarLogin}" />
+								<p:commandLink id="loginButton" styleClass="col s12 btn btn-large waves-effect indigo" value="Login" oncomplete="test();" />
+							</div>
+						</center>
+					</form>
+				</div>
 			</div>
-		</h:form>
-		<!-- form -->
-
-
-		<!-- content -->
-		<!-- container -->
-
-	</ui:define>
-
-</ui:composition>
+			<a href="#!">Create account</a>
+		</center>
+		</main>
+	</h:form>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="#{request.contextPath}/resources/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		//<![CDATA[
+		function test() {
+			myRemote();
+		}
+		//]]>
+	</script>
+</h:body>
 </html>
+
