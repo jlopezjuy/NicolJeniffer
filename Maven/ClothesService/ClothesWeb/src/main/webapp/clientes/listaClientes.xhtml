@@ -7,7 +7,6 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form id="form">
-
 			<h:panelGrid columns="2" cellpadding="5" styleClass="center">
 				<h2 class="animated wow zoomIn" data-wow-delay=".5s">
 					<span>Lista de Clientes</span>
@@ -19,7 +18,7 @@
 					<p:panelGrid>
 						<p:outputLabel for="nombre" value="Nombre" />
 						<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombreBusqueda}" />
-						<p:commandButton action="#{clienteBean.busquedaCliente}" value="Buscar" update=":form:listaCli" />
+						<p:commandButton action="#{clienteBean.busquedaCliente}" ajax="true" value="Buscar" update=":form:listaCli" />
 					</p:panelGrid>
 					<p:commandButton action="altaClienteView" value="Nuevo" icon="fa fa-user-plus" />
 				</h:panelGrid>

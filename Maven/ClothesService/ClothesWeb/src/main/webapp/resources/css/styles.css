@@ -545,7 +545,7 @@ h2.logo-text {
     float: left;
     text-align: right;
     height: 68px;
-    background-color: #63c6ae;
+    background-color: #3f51b5;
     position: relative;
     color: #fff;
 }
@@ -919,7 +919,7 @@ color: #fff;
 }
 .shadow{
     height: 10px;
-    background-color: #58b9a1;
+    background-color: #ffffff;
 }
 footer {
     background-color: #242a2c;

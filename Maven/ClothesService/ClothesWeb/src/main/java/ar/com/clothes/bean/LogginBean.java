@@ -116,6 +116,12 @@ public class LogginBean extends BaseBean implements Serializable {
 		FacesContext.getCurrentInstance().addMessage(null, message);
 	}
 
+	public String cerrarSesion() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		context.getExternalContext().invalidateSession();
+		return "/ClothesWeb";
+	}
+
 	/**
 	 * @return the saludo
 	 */
