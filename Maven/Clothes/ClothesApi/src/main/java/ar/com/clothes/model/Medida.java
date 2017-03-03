@@ -4,12 +4,15 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -22,8 +25,9 @@ public class Medida {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idMedidas;
-	@ManyToOne(optional = false)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CLIENTES_IDCLIENTES", nullable = false)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "medidas")
 	private Cliente cliente;
 	@Column(name = "LARGOPOLERA")
 	private Double largoPolera;

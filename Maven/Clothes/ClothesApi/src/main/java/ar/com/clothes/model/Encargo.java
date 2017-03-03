@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -29,8 +32,9 @@ public class Encargo {
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "CLIENTES_IDCLIENTES", nullable = false)
 	private Cliente cliente;
-	@ManyToOne(optional = false)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "VALORDOMINIO_IDVALORDOMINIO", nullable = false)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "encargos")
 	private ValorDominio valordominio;
 	@Column(name = "IMPORTETOTAL")
 	private Double importeTotal;

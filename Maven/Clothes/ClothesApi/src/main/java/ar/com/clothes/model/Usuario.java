@@ -1,6 +1,7 @@
 package ar.com.clothes.model;
 
-import javax.persistence.CascadeType;
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -20,15 +21,19 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
  */
 @Entity
 @Table(name = "Usuario")
-public class Usuario {
+public class Usuario implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6189232344370439271L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDUSUARIO")
 	private Integer idUsuario;
-	@ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
-	@JsonBackReference
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "usuarios")
 	private Empresa empresa;
 	@Column(name = "NOMBREUSUARIO", nullable = false)
 	private String nombreUsuario;

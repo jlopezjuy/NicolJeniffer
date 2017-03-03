@@ -1,5 +1,6 @@
 package ar.com.clothes.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -22,8 +23,13 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  */
 @Entity
 @Table(name = "Empresa")
-public class Empresa {
+@JsonIgnoreProperties({ "clienteses", "encargos" })
+public class Empresa implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 578271345744527093L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "IDEMPRESA")
@@ -37,11 +43,12 @@ public class Empresa {
 	@Column(name = "EMAIL")
 	private String email;
 	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JsonManagedReference
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "empresa")
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Cliente> clienteses = new HashSet<Cliente>(0);
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "empresa")
 	private Set<Encargo> encargos = new HashSet<Encargo>(0);
 
 	/**

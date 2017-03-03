@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -26,8 +29,9 @@ public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idClientes;
-	@ManyToOne(optional = false)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "clienteses")
 	private Empresa empresa;
 	@Column(name = "NOMBRE")
 	private String nombre;
@@ -43,11 +47,14 @@ public class Cliente {
 	private String domicilio;
 	@Column(name = "COLEGIO")
 	private String colegio;
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "cliente")
 	private Set<Encargo> encargos = new HashSet<Encargo>(0);
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "cliente")
 	private Set<Medida> medidas = new HashSet<Medida>(0);
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JsonIgnoreProperties(ignoreUnknown = true, value = "cliente")
 	private Set<Modelo> modelos = new HashSet<Modelo>(0);
 
 	// private Set fechapruebas = new HashSet(0);
