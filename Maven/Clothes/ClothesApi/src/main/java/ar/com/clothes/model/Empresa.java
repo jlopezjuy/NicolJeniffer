@@ -26,6 +26,7 @@ public class Empresa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "IDEMPRESA")
 	private Integer idEmpresa;
 	@Column(name = "NOMBREEMPRESA")
 	private String nombreEmpresa;

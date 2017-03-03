@@ -24,6 +24,7 @@ public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "IDUSUARIO")
 	private Integer idUsuario;
 	@ManyToOne(optional = false, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "EMPRESA_IDEMPRESA", nullable = false)
