@@ -11,6 +11,7 @@ import javax.faces.event.ActionEvent;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
+import org.primefaces.context.RequestContext;
 
 import ar.com.clothes.model.Usuario;
 import ar.com.clothes.service.UsuarioService;
@@ -52,8 +53,15 @@ public class LogginBean extends BaseBean implements Serializable {
 	 * @version 1.0
 	 */
 	public String validarLogin() {
+		
+		RequestContext requestContext = RequestContext.getCurrentInstance();
+		requestContext.execute("PF('statusDialog').show();");
+		requestContext.update("loginForm");
 		if (validateLoggin()) {
 			LOG.info("Ok todo...");
+			
+			requestContext.execute("PF('statusDialog').hide();");
+			requestContext.update("loginForm");
 			return "listaClientesView";
 		} else {
 			LOG.info("Error de loggin");
