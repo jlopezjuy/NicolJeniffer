@@ -7,21 +7,23 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">
+			<h3>
 				<span>Alta Cliente</span>
 			</h3>
-			<p:growl id="message" showDetail="true" />
-			<div class="ui-fluid">				
-				<h:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10" layout="grid" styleClass="ui-panelgrid-blank">
-					
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2">
 					<p:outputLabel for="nombre" value="Nombre" />
-					<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombre}" required="true" />
+					<p:inputText id="nombre" label="Nombre" value="#{clienteBean.nombre}" required="true" validatorMessage="No puede ingresar numeros.">
+						<f:validateRegex pattern="[a-zA-Z]+" />
+					</p:inputText>
 
 					<p:outputLabel for="apellido" value="Apellido" />
-					<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" required="true" />
+					<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" required="true" validatorMessage="No puede ingresar numeros.">
+						<f:validateRegex pattern="[a-zA-Z]+" />
+					</p:inputText>
 
 					<p:outputLabel for="mail" value="E-Mail" />
-					<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}">
+					<p:inputText id="mail" label="E-Mail" value="#{clienteBean.email}" validatorMessage="Formato de correo incorrecto">
 						<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
 					</p:inputText>
 
@@ -32,16 +34,21 @@
 					<p:inputMask id="celular" label="Celular" value="#{clienteBean.celular}" placeHolder=" " mask="(999)999-9999" required="true" />
 
 					<p:outputLabel for="domicilio" value="Domicilio" />
-					<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}" />
+					<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}" validatorMessage="No puede ingresar numeros.">
+						<f:validateRegex pattern="[a-zA-Z]+" />
+					</p:inputText>
 
 					<p:outputLabel for="colegio" value="Colegio" />
-					<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}" />
+					<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}" validatorMessage="No puede ingresar numeros.">
+						<f:validateRegex pattern="[a-zA-Z]+" />
+					</p:inputText>
 
 				</h:panelGrid>
-			</div>
-			<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{clienteBean.cancelarClienteEncargo}" immediate="true"/>
-			<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{clienteBean.gurdarClienteEncargo}" />
-
+			</p:panel>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{clienteBean.cancelarClienteEncargo}" immediate="true" />
+				<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{clienteBean.gurdarClienteEncargo}" />
+			</h:panelGrid>
 		</h:form>
 	</ui:define>
 

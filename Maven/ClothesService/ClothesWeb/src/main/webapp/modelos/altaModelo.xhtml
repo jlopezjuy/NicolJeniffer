@@ -16,13 +16,19 @@
 					<h:panelGrid columns="2">
 
 						<h:outputLabel for="nombreModelo" value="Nombre Modelo" />
-						<p:inputText id="nombreModelo" label="Nombre Modelo" value="#{modeloBean.nombreModelo}" required="true"/>
+						<p:inputText id="nombreModelo" label="Nombre Modelo" value="#{modeloBean.nombreModelo}"  required="true" validatorMessage="No puede ingresar numeros.">
+							<f:validateRegex pattern="[a-zA-Z]+" />
+						</p:inputText>
 
 						<h:outputLabel for="colorVestido" value="Color de Vestido" />
-						<p:inputText id="colorVestido" label="Color de Vestido" value="#{modeloBean.colorVestido}" required="true"/>
+						<p:inputText id="colorVestido" label="Color de Vestido" value="#{modeloBean.colorVestido}" required="true" validatorMessage="No puede ingresar numeros.">
+							<f:validateRegex pattern="[a-zA-Z]+" />
+						</p:inputText>
 
 						<h:outputLabel for="observacion" value="Observacion" />
-						<p:inputTextarea id="observacion" label="Observacion" value="#{modeloBean.observacion}" required="true"/>
+						<p:inputTextarea id="observacion" label="Observacion" value="#{modeloBean.observacion}" required="true" validatorMessage="No puede ingresar numeros.">
+							<f:validateRegex pattern="[a-zA-Z]+" />
+						</p:inputTextarea>
 
 					</h:panelGrid>
 				</p:panel>
@@ -40,14 +46,13 @@
 						<p:spacer></p:spacer>
 						<f:facet name="footer">
 							<p:panelGrid columns="2">
-								<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{modeloBean.gurdarModelo}" />
 								<p:commandButton value="Cancelar" id="cancelar" ajax="false" action="#{modeloBean.cancelarModelo}" />
+								<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{modeloBean.gurdarModelo}" />
 							</p:panelGrid>
 						</f:facet>
 					</h:panelGrid>
 				</div>
 			</div>
-
 
 		</h:form>
 	</ui:define>
