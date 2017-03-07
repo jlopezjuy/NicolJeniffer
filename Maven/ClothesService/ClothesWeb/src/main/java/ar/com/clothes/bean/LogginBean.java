@@ -9,13 +9,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 
 import ar.com.clothes.model.Usuario;
 import ar.com.clothes.service.UsuarioService;
-import ar.com.clothes.util.FacesMessageUtil;
+import ar.com.clothes.util.EncriptacionUtil;
 import ar.com.clothes.util.SpringUtil;
 import ar.com.clothes.util.StringUtil;
 
@@ -27,7 +26,9 @@ import ar.com.clothes.util.StringUtil;
 @ManagedBean(name = "logginBean")
 @ViewScoped
 public class LogginBean extends BaseBean implements Serializable {
+
 	private static final Logger LOG = Logger.getLogger(LogginBean.class);
+
 	/**
 	 * 
 	 */
@@ -53,15 +54,10 @@ public class LogginBean extends BaseBean implements Serializable {
 	 * @version 1.0
 	 */
 	public String validarLogin() {
-		
 		RequestContext requestContext = RequestContext.getCurrentInstance();
-		requestContext.execute("PF('statusDialog').show();");
 		requestContext.update("loginForm");
 		if (validateLoggin()) {
 			LOG.info("Ok todo...");
-			
-			requestContext.execute("PF('statusDialog').hide();");
-			requestContext.update("loginForm");
 			return "listaClientesView";
 		} else {
 			LOG.info("Error de loggin");
@@ -81,10 +77,11 @@ public class LogginBean extends BaseBean implements Serializable {
 		} else {
 			if (!validateOnDB()) {
 				addMessageWarning("Warning!", "Usuario y/o Password incorrecta");
+				RequestContext requestContext = RequestContext.getCurrentInstance();
+				requestContext.update("loginForm");
 				validate = Boolean.FALSE;
 			}
 		}
-
 		return validate;
 	}
 
@@ -94,17 +91,15 @@ public class LogginBean extends BaseBean implements Serializable {
 	 */
 	public Boolean validateOnDB() {
 		Boolean validate = Boolean.TRUE;
-		String passEncrypt = DigestUtils.md5Hex(password);
+		String passEncrypt = EncriptacionUtil.Encriptar(password);
 		Usuario user = getUsuarioService().findByUsuarioPassword(nombreUsuario, passEncrypt);
 		if (null == user) {
-			FacesMessageUtil.error("Usuario o Password incorrecto");
 			validate = Boolean.FALSE;
 		} else {
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.getExternalContext().getSessionMap().put("empresa", user.getEmpresa());
 			context.getExternalContext().getSessionMap().put("usuarioSession", user);
 		}
-
 		return validate;
 	}
 

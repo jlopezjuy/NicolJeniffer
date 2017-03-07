@@ -1,12 +1,18 @@
 package ar.com.clothes.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -30,8 +36,8 @@ public class Usuario {
 	private String password;
 	@Column(name = "NOMBREAPELLIDO")
 	private String nombreApellido;
-
-	// private Set usuariorols = new HashSet(0);
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private Set<UsuarioRol> usuarioRoles = new HashSet<UsuarioRol>();
 
 	/**
 	 * 
@@ -116,9 +122,29 @@ public class Usuario {
 	}
 
 	/**
-	 * 
+	 * @return the usuarioRoles
 	 */
+	public Set<UsuarioRol> getUsuarioRoles() {
+		return usuarioRoles;
+	}
+
+	/**
+	 * @param usuarioRoles
+	 *           the usuarioRoles to set
+	 */
+	public void setUsuarioRoles(Set<UsuarioRol> usuarioRoles) {
+		this.usuarioRoles = usuarioRoles;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
 	public String toString() {
-		return "Id Usuario: " + idUsuario + " Nombre de Usuario: " + nombreUsuario + " Nombre y Apellido: " + nombreApellido + " Empresa id: " + empresa.getIdEmpresa();
+		return "Usuario [" + (idUsuario != null ? "idUsuario=" + idUsuario + ", " : "") + (empresa != null ? "empresa=" + empresa + ", " : "")
+				+ (nombreUsuario != null ? "nombreUsuario=" + nombreUsuario + ", " : "") + (password != null ? "password=" + password + ", " : "")
+				+ (nombreApellido != null ? "nombreApellido=" + nombreApellido : "") + "]";
 	}
 }

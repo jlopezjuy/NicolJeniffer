@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,11 +33,11 @@ public class Empresa {
 	private String telefono;
 	@Column(name = "EMAIL")
 	private String email;
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Usuario> usuarios = new HashSet<Usuario>(0);
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Cliente> clienteses = new HashSet<Cliente>(0);
-	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "empresa", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Encargo> encargos = new HashSet<Encargo>(0);
 
 	/**
@@ -166,11 +167,15 @@ public class Empresa {
 		this.encargos = encargos;
 	}
 
-	/**
+	/*
+	 * (non-Javadoc)
 	 * 
+	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString() {
-		return "Id Empresa: " + idEmpresa + " Nombre de Empresa: " + nombreEmpresa;
+		return "Empresa [" + (idEmpresa != null ? "idEmpresa=" + idEmpresa + ", " : "") + (nombreEmpresa != null ? "nombreEmpresa=" + nombreEmpresa + ", " : "")
+				+ (domicilio != null ? "domicilio=" + domicilio + ", " : "") + (telefono != null ? "telefono=" + telefono + ", " : "") + (email != null ? "email=" + email : "") + "]";
 	}
 
 }

@@ -237,14 +237,14 @@
 				</h:panelGrid>
 				<f:facet name="footer">
 					<div align="center">
+						<p:commandButton value="Cancelar" ajax="true" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('dlg3').hide(); doClearValue();" update=":altaEncargoForm" />
 						<p:commandButton value="Guardar" ajax="true" action="#{encargoBean.gurdarPago}" onclick="PF('dlg3').hide();" update=":altaEncargoForm" />
-						<p:commandButton value="Cancelar" ajax="true" action="#{encargoBean.cancelarPago}" immediate="true" onclick="PF('dlg3').hide(); doSomething();" update=":altaEncargoForm" />
 					</div>
 				</f:facet>
 			</p:dialog>
 		</h:form>
 		<h:outputScript>
-			function doSomething() { 
+			function doClearValue() { 
    				PF('reciboW').setValue("");
    				PF('importeW').setValue("");	
 			}

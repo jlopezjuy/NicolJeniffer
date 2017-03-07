@@ -44,7 +44,9 @@ body {
 </h:head>
 <h:body>
 	<h:form id="loginForm">
-		<div class="section"></div>
+		<div class="section">
+			<p:messages closable="true" showDetail="true" autoUpdate="true" />
+		</div>
 		<main>
 		<center>
 			<img class="responsive-img" style="width: 250px;" src="#{request.contextPath}/resources/img/logo2.png" />
@@ -93,7 +95,7 @@ body {
 			<!-- 			<a href="#!">Create account</a> -->
 		</center>
 		</main>
-		
+
 	</h:form>
 	<!--Import jQuery before materialize.js-->
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
