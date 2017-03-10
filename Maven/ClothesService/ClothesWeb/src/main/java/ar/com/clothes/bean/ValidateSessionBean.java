@@ -14,6 +14,7 @@ import ar.com.clothes.model.Usuario;
 @ManagedBean(name = "validateSessionBean")
 @ViewScoped
 public class ValidateSessionBean {
+
 	public void verificarSession() {
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();

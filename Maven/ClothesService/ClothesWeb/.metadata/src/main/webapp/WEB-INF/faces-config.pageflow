@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14883200879540" configfile="/ClothesWeb/src/main/webapp/WEB-INF/faces-config.xml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14883200879540" configfile="/ClothesWeb/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="2674" id="pf14891882082170" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14891882082171 pf14891882082172 pf14891882082173 pf14891882082174 pf14891882082175 pf14891882082176 pf14891882082177 pf14891882082178 pf14891882082179 pf148918820821710 pf148918820821711 pf148918820821712 pf148918820821713 pf148918820821714 pf148918857895729" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" x="338" y="178" id="pf148918820821815" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf14891882082171" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="inicio.xhtml" x="338" y="562" id="pf148918820821816" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf14891882082172" path="inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="home.xhtml" x="338" y="946" id="pf148918820821817" referenceLink="//@navigationRule.0/@navigationCase.3/@toViewId|" inlinks="pf14891882082173" path="home.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="clientes/listaClientes.xhtml" x="338" y="1330" id="pf148918820821818" referenceLink="//@navigationRule.0/@navigationCase.4/@toViewId|" inlinks="pf14891882082174" path="/clientes/listaClientes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="clientes/altaCliente.xhtml" x="338" y="1714" id="pf148918820821819" referenceLink="//@navigationRule.0/@navigationCase.5/@toViewId|" inlinks="pf14891882082175" path="/clientes/altaCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="clientes/editarCliente.xhtml" x="338" y="2098" id="pf148918820821820" referenceLink="//@navigationRule.0/@navigationCase.6/@toViewId|" inlinks="pf14891882082176" path="/clientes/editarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="medidas/listaMedidas.xhtml" x="338" y="2482" id="pf148918820821821" referenceLink="//@navigationRule.0/@navigationCase.7/@toViewId|" inlinks="pf14891882082177" path="/medidas/listaMedidas.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="medidas/altaMedida.xhtml" x="338" y="2866" id="pf148918820821822" referenceLink="//@navigationRule.0/@navigationCase.8/@toViewId|" inlinks="pf14891882082178" path="/medidas/altaMedida.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="modelos/listaModelos.xhtml" x="338" y="3250" id="pf148918820821823" referenceLink="//@navigationRule.0/@navigationCase.9/@toViewId|" inlinks="pf14891882082179" path="/modelos/listaModelos.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="modelos/altaModelo.xhtml" x="338" y="3634" id="pf148918820821824" referenceLink="//@navigationRule.0/@navigationCase.10/@toViewId|" inlinks="pf148918820821710" path="/modelos/altaModelo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="encargo/listaEncargos.xhtml" x="338" y="4018" id="pf148918820821825" referenceLink="//@navigationRule.0/@navigationCase.11/@toViewId|" inlinks="pf148918820821711" path="/encargo/listaEncargos.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="encargo/altaEncargo.xhtml" x="338" y="4402" id="pf148918820821826" referenceLink="//@navigationRule.0/@navigationCase.12/@toViewId|" inlinks="pf148918820821712" path="/encargo/altaEncargo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="encargo/altaClienteEncargo.xhtml" x="338" y="4786" id="pf148918820821827" referenceLink="//@navigationRule.0/@navigationCase.13/@toViewId|" inlinks="pf148918820821713" path="/encargo/altaClienteEncargo.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="encargo/listaPagos.xhtml" x="338" y="5170" id="pf148918820821828" referenceLink="//@navigationRule.0/@navigationCase.14/@toViewId|" inlinks="pf148918820821714" path="/encargo/listaPagos.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin/listaEmpresas.xhtml" id="pf148918857895830" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf148918857895729" path="/administracion/listaEmpresas.xhtml"/>
+  <links id="pf14891882082171" target="pf148918820821815" source="pf14891882082170" outcome="loginView" redirect="true"/>
+  <links id="pf14891882082172" target="pf148918820821816" source="pf14891882082170" outcome="loginMobileView" redirect="true"/>
+  <links id="pf14891882082173" target="pf148918820821817" source="pf14891882082170" outcome="homeView" redirect="true"/>
+  <links id="pf14891882082174" target="pf148918820821818" source="pf14891882082170" outcome="listaClientesView" redirect="true"/>
+  <links id="pf14891882082175" target="pf148918820821819" source="pf14891882082170" outcome="altaClienteView" redirect="true"/>
+  <links id="pf14891882082176" target="pf148918820821820" source="pf14891882082170" outcome="editarClienteView" redirect="true"/>
+  <links id="pf14891882082177" target="pf148918820821821" source="pf14891882082170" outcome="listaMedidasView" redirect="true"/>
+  <links id="pf14891882082178" target="pf148918820821822" source="pf14891882082170" outcome="altaMedidaView" redirect="true"/>
+  <links id="pf14891882082179" target="pf148918820821823" source="pf14891882082170" outcome="listaModeloView" redirect="true"/>
+  <links id="pf148918820821710" target="pf148918820821824" source="pf14891882082170" outcome="altaModeloView" redirect="true"/>
+  <links id="pf148918820821711" target="pf148918820821825" source="pf14891882082170" outcome="listaEncargosView" redirect="true"/>
+  <links id="pf148918820821712" target="pf148918820821826" source="pf14891882082170" outcome="altaEncargoView" redirect="true"/>
+  <links id="pf148918820821713" target="pf148918820821827" source="pf14891882082170" outcome="altaClienteEncargoView" redirect="true"/>
+  <links id="pf148918820821714" target="pf148918820821828" source="pf14891882082170" outcome="listaPagosView" redirect="true"/>
+  <links id="pf148918857895729" target="pf148918857895830" source="pf14891882082170" outcome="adminListaEmpresasView" redirect="true"/>
+</pageflow:Pageflow>

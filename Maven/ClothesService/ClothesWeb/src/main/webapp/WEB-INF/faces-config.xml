@@ -9,10 +9,6 @@
 			<supported-locale>en_US</supported-locale>
 		</locale-config>
 	</application>
-
-
-	
-	
 	
 	<!-- FIn nuevos beans -->
 
@@ -20,6 +16,12 @@
 		<display-name>*</display-name>
 		<from-view-id>*</from-view-id>
 		<!-- Nicole -->
+		
+		<navigation-case>
+			<from-outcome>adminListaEmpresasView</from-outcome>
+			<to-view-id>/administracion/listaEmpresas.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
 		
 		<navigation-case>
 			<from-outcome>loginView</from-outcome>

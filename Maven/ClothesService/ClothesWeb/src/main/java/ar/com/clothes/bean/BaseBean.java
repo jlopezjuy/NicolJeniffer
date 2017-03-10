@@ -11,6 +11,7 @@ import ar.com.clothes.service.EncargoService;
 import ar.com.clothes.service.MedidaService;
 import ar.com.clothes.service.ModeloService;
 import ar.com.clothes.service.PagoService;
+import ar.com.clothes.service.UsuarioRolService;
 import ar.com.clothes.service.UsuarioService;
 import ar.com.clothes.service.ValorDominioService;
 import ar.com.clothes.util.SpringUtil;
@@ -29,6 +30,7 @@ public class BaseBean {
 	private EncargoService encargoService;
 	private PagoService pagoService;
 	private ValorDominioService valorDominioService;
+	private UsuarioRolService usuarioRolService;
 
 	public BaseBean() {
 	}
@@ -198,6 +200,17 @@ public class BaseBean {
 	 */
 	public void setValorDominioService(ValorDominioService valorDominioService) {
 		this.valorDominioService = valorDominioService;
+	}
+
+	public UsuarioRolService getUsuarioRolService() {
+		if (usuarioRolService == null) {
+			usuarioRolService = (UsuarioRolService) SpringUtil.obtenerBeanSpring("usuarioRolService");
+		}
+		return usuarioRolService;
+	}
+
+	public void setUsuarioRolService(UsuarioRolService usuarioRolService) {
+		this.usuarioRolService = usuarioRolService;
 	}
 
 }

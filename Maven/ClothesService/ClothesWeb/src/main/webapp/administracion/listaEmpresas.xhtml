@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../template/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="listEmpresaForm">
+			<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+				<h2 class="animated wow zoomIn" data-wow-delay=".5s">
+					<span>Lista de Empresas</span>
+				</h2>
+			</h:panelGrid>
+
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:panelGrid>
+						<p:outputLabel for="nombre" value="Nombre" />
+						<p:inputText id="nombre" label="Nombre" value="#{empresaBean.nombreEmpresa}" />
+						<p:commandButton action="#{empresaBean.busquedaEmpresa}" ajax="true" value="Buscar" update=":listEmpresaForm:listaEmp" />
+					</p:panelGrid>
+					<p:commandButton action="altaEmpresaView" value="Nuevo" icon="fa fa-user-plus" />
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:dataTable id="listaEmp" var="emp" value="#{empresaBean.listaEmpresas}" rows="5" paginator="true" reflow="true">
+
+						<p:column headerText="Nombre">
+							<h:outputText value="#{emp.nombreEmpresa}" />
+						</p:column>
+
+						<p:column headerText="E-mail">
+							<h:outputText value="#{emp.email}" />
+						</p:column>
+
+					</p:dataTable>
+				</h:panelGrid>
+			</p:panel>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>

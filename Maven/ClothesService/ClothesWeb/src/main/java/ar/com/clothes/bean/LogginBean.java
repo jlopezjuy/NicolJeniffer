@@ -1,8 +1,8 @@
 package ar.com.clothes.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -13,9 +13,8 @@ import org.apache.log4j.Logger;
 import org.primefaces.context.RequestContext;
 
 import ar.com.clothes.model.Usuario;
-import ar.com.clothes.service.UsuarioService;
+import ar.com.clothes.model.UsuarioRol;
 import ar.com.clothes.util.EncriptacionUtil;
-import ar.com.clothes.util.SpringUtil;
 import ar.com.clothes.util.StringUtil;
 
 /**
@@ -29,14 +28,13 @@ public class LogginBean extends BaseBean implements Serializable {
 
 	private static final Logger LOG = Logger.getLogger(LogginBean.class);
 
+	private static final String ADMINISTRADOR = "Administrador";
+	private static final String VENDEDOR = "Vendedor";
+	private static final String ENCARGADO = "Encargado";
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1948964041965109478L;
-
-	private UsuarioService usuarioService;
-
-	private String saludo;
 
 	private String nombreUsuario;
 	private String password;
@@ -55,9 +53,14 @@ public class LogginBean extends BaseBean implements Serializable {
 	 */
 	public String validarLogin() {
 		RequestContext requestContext = RequestContext.getCurrentInstance();
+		FacesContext context = FacesContext.getCurrentInstance();
 		requestContext.update("loginForm");
 		if (validateLoggin()) {
 			LOG.info("Ok todo...");
+			String rol = (String) context.getExternalContext().getSessionMap().get("rolSession");
+			if (rol.equals(ADMINISTRADOR)) {
+				return "adminListaEmpresasView";
+			}
 			return "listaClientesView";
 		} else {
 			LOG.info("Error de loggin");
@@ -96,16 +99,15 @@ public class LogginBean extends BaseBean implements Serializable {
 		if (null == user) {
 			validate = Boolean.FALSE;
 		} else {
+			List<UsuarioRol> list = getUsuarioRolService().findByUsuario(user);
+			LOG.info("cantidad de roles encontrados: " + list.size());
+			LOG.info("ROL ENCONTRADO: " + list.get(0).getRol().getDescripcion());
 			FacesContext context = FacesContext.getCurrentInstance();
 			context.getExternalContext().getSessionMap().put("empresa", user.getEmpresa());
 			context.getExternalContext().getSessionMap().put("usuarioSession", user);
+			context.getExternalContext().getSessionMap().put("rolSession", list.get(0).getRol().getDescripcion());
 		}
 		return validate;
-	}
-
-	@PostConstruct
-	public void init() {
-		saludo = "HOLA MUNDO DESDE BEAN!!!";
 	}
 
 	public void valor(ActionEvent actionEvent) {
@@ -123,39 +125,6 @@ public class LogginBean extends BaseBean implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		context.getExternalContext().invalidateSession();
 		return "/ClothesWeb";
-	}
-
-	/**
-	 * @return the saludo
-	 */
-	public String getSaludo() {
-		return saludo;
-	}
-
-	/**
-	 * @param saludo
-	 *           the saludo to set
-	 */
-	public void setSaludo(String saludo) {
-		this.saludo = saludo;
-	}
-
-	/**
-	 * @return the usuarioService
-	 */
-	public UsuarioService getUsuarioService() {
-		if (usuarioService == null) {
-			usuarioService = (UsuarioService) SpringUtil.obtenerBeanSpring("usuarioService");
-		}
-		return usuarioService;
-	}
-
-	/**
-	 * @param usuarioService
-	 *           the usuarioService to set
-	 */
-	public void setUsuarioService(UsuarioService usuarioService) {
-		this.usuarioService = usuarioService;
 	}
 
 	/**
