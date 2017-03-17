@@ -6,12 +6,18 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
+import org.apache.log4j.Logger;
+
 import ar.com.clothes.bean.BaseBean;
 import ar.com.clothes.model.Empresa;
+import ar.com.clothes.util.StringUtil;
 
 @ManagedBean(name = "empresaBean")
 @SessionScoped
 public class EmpresaBean extends BaseBean {
+
+	private static final Logger LOG = Logger.getLogger(EmpresaBean.class);
+
 	private Empresa empresa;
 	private Empresa empresaSeleccionada;
 	private List<Empresa> listaEmpresas = new ArrayList<Empresa>();
@@ -27,6 +33,56 @@ public class EmpresaBean extends BaseBean {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String busquedaEmpresa() {
+		if (StringUtil.esVacio(nombreEmpresa)) {
+			listaEmpresas = getEmpresaService().findAllEmpresa();
+		} else {
+			listaEmpresas = getEmpresaService().findByNombre(nombreEmpresa);
+		}
+		return null;
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String goAlta() {
+		empresa = new Empresa();
+		return "altaEmpresasView";
+	}
+
+	/**
+	 * Metodo para guardar un cliente nuevo
+	 * 
+	 * @return
+	 * @author jlopez
+	 * @since 17/03/2017
+	 * @version 1.0
+	 */
+	public String gurdar() {
+		try {
+			getEmpresaService().saveEmpresa(empresa);
+			empresa = new Empresa();
+			listaEmpresas = getEmpresaService().findAllEmpresa();
+		} catch (Exception e) {
+			LOG.error(e);
+			return null;
+		}
+		return "adminListaEmpresasView";
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String cancelar() {
+		return "adminListaEmpresasView";
 	}
 
 	/**

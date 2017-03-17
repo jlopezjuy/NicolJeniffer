@@ -12,7 +12,6 @@
 					<span>Lista de Empresas</span>
 				</h2>
 			</h:panelGrid>
-
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
 					<p:panelGrid>
@@ -20,7 +19,7 @@
 						<p:inputText id="nombre" label="Nombre" value="#{empresaBean.nombreEmpresa}" />
 						<p:commandButton action="#{empresaBean.busquedaEmpresa}" ajax="true" value="Buscar" update=":listEmpresaForm:listaEmp" />
 					</p:panelGrid>
-					<p:commandButton action="altaEmpresaView" value="Nuevo" icon="fa fa-user-plus" />
+					<p:commandButton action="#{empresaBean.goAlta}" value="Nuevo" icon="fa fa-user-plus" />
 				</h:panelGrid>
 			</p:panel>
 

@@ -19,7 +19,7 @@
 						</p:inputText>
 
 						<p:outputLabel for="apellido" value="Apellido" />
-						<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" required="true" >
+						<p:inputText id="apellido" label="Apellido" value="#{clienteBean.apellido}" required="true">
 							<f:validateRegex pattern="[a-zA-Z]+" />
 						</p:inputText>
 
@@ -35,13 +35,11 @@
 						<p:inputMask id="celular" label="Celular" value="#{clienteBean.celular}" placeHolder=" " mask="(999)999-9999" required="true" />
 
 						<p:outputLabel for="domicilio" value="Domicilio" />
-						<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}" validatorMessage="No puede ingresar numeros.">
-							<f:validateRegex pattern="[a-zA-Z]+" />
+						<p:inputText id="domicilio" label="Domicilio" value="#{clienteBean.domicilio}">
 						</p:inputText>
 
 						<p:outputLabel for="colegio" value="Colegio" />
-						<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}" validatorMessage="No puede ingresar numeros.">
-							<f:validateRegex pattern="[a-zA-Z]+" />
+						<p:inputText id="colegio" label="Colegio" value="#{clienteBean.colegio}">
 						</p:inputText>
 
 					</h:panelGrid>

@@ -24,6 +24,18 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-outcome>altaEmpresasView</from-outcome>
+			<to-view-id>/administracion/altaEmpresa.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
+			<from-outcome>adminListaUsuariosView</from-outcome>
+			<to-view-id>/administracion/listaUsuarios.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>loginView</from-outcome>
 			<to-view-id>/login.xhtml</to-view-id>
 			<redirect></redirect>

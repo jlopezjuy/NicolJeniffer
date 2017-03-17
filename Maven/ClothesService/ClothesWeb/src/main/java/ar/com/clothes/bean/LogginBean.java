@@ -61,6 +61,9 @@ public class LogginBean extends BaseBean implements Serializable {
 			if (rol.equals(ADMINISTRADOR)) {
 				return "adminListaEmpresasView";
 			}
+			if (rol.equals(VENDEDOR)) {
+				return "listaClientesView";
+			}
 			return "listaClientesView";
 		} else {
 			LOG.info("Error de loggin");

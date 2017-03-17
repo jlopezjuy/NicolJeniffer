@@ -102,7 +102,7 @@ DROP TABLE IF EXISTS `NicoleJeniffer`.`Modelos` ;
 
 CREATE TABLE IF NOT EXISTS `NicoleJeniffer`.`Modelos` (
   `idModelos` INT NOT NULL AUTO_INCREMENT,
-  `Imagen` BLOB NULL,
+  `Imagen` LONGBLOB NULL,
   `NombreModelo` VARCHAR(255) NULL,
   `Observacion` VARCHAR(255) NULL,
   `ColorVestido` VARCHAR(255) NULL,

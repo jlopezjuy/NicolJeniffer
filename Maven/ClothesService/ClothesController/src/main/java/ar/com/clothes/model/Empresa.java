@@ -24,6 +24,7 @@ public class Empresa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "IDEMPRESA")
 	private Integer idEmpresa;
 	@Column(name = "NOMBREEMPRESA")
 	private String nombreEmpresa;
@@ -56,7 +57,7 @@ public class Empresa {
 
 	/**
 	 * @param idEmpresa
-	 *           the idEmpresa to set
+	 *            the idEmpresa to set
 	 */
 	public void setIdEmpresa(Integer idEmpresa) {
 		this.idEmpresa = idEmpresa;
@@ -71,7 +72,7 @@ public class Empresa {
 
 	/**
 	 * @param nombreEmpresa
-	 *           the nombreEmpresa to set
+	 *            the nombreEmpresa to set
 	 */
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
@@ -86,7 +87,7 @@ public class Empresa {
 
 	/**
 	 * @param domicilio
-	 *           the domicilio to set
+	 *            the domicilio to set
 	 */
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
@@ -101,7 +102,7 @@ public class Empresa {
 
 	/**
 	 * @param telefono
-	 *           the telefono to set
+	 *            the telefono to set
 	 */
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
@@ -116,7 +117,7 @@ public class Empresa {
 
 	/**
 	 * @param email
-	 *           the email to set
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
@@ -131,7 +132,7 @@ public class Empresa {
 
 	/**
 	 * @param usuarios
-	 *           the usuarios to set
+	 *            the usuarios to set
 	 */
 	public void setUsuarios(Set<Usuario> usuarios) {
 		this.usuarios = usuarios;
@@ -146,7 +147,7 @@ public class Empresa {
 
 	/**
 	 * @param clienteses
-	 *           the clienteses to set
+	 *            the clienteses to set
 	 */
 	public void setClienteses(Set<Cliente> clienteses) {
 		this.clienteses = clienteses;
@@ -161,7 +162,7 @@ public class Empresa {
 
 	/**
 	 * @param encargos
-	 *           the encargos to set
+	 *            the encargos to set
 	 */
 	public void setEncargos(Set<Encargo> encargos) {
 		this.encargos = encargos;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui" xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="../template/template.xhtml">
+	<ui:define name="title">
+		<h:outputText value="" />
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<div class="ui-grid ui-grid-responsive">
+				<h2>
+					<p:outputLabel value="Alta - Empresa" />
+				</h2>
+				<p:panel style="position:relative; border-style: none;" styleClass="center">
+					<h:panelGrid columns="2">
+						<p:outputLabel for="nombreEmpresa" value="Nombre Empresa" />
+						<p:inputText id="nombreEmpresa" value="#{empresaBean.empresa.nombreEmpresa}" required="true" validatorMessage="No puede ingresar numeros.">
+							<f:validateRegex pattern="[a-zA-Z]+" />
+						</p:inputText>
+
+						<p:outputLabel for="domicilio" value="Domicilio" />
+						<p:inputText id="domicilio" value="#{empresaBean.empresa.domicilio}" required="true"/>
+
+						<p:outputLabel for="mail" value="E-Mail" />
+						<p:inputText id="mail" label="E-Mail" value="#{empresaBean.empresa.email}" validatorMessage="El formato de correo es incorrecto">
+							<f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+						</p:inputText>
+
+						<p:outputLabel for="telefono" value="Teléfono" />
+						<p:inputMask id="telefono" label="Teléfono" value="#{empresaBean.empresa.telefono}" placeHolder=" " mask="(999)999-9999" required="true" />
+
+					</h:panelGrid>
+				</p:panel>
+			</div>
+			<h:panelGrid columns="2">
+				<p:commandButton value="Cancelar" id="cancel" ajax="false" action="#{empresaBean.cancelar}" immediate="true" />
+				<p:commandButton value="Guardar" id="nonAjax" ajax="false" action="#{empresaBean.gurdar}" />
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

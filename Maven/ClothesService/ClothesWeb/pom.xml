@@ -105,8 +105,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.2</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 
@@ -115,7 +115,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<url>http://clothes.sytes.net:8080/manager/text</url>
+					<url>http://www.anelsoftware.com:8080/manager/text</url>
 					<server>TomcatServer</server>
 					<path>/ClothesWeb</path>
 				</configuration>

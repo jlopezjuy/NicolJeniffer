@@ -11,12 +11,15 @@ import ar.com.clothes.model.Empresa;
  */
 public interface EmpresaDao {
 	void saveEmpresa(Empresa empresa);
-    
-    List<Empresa> findAllEmpresa();
-     
-    void deleteEmpresaById(Integer idEmpresa);
-     
-    Empresa findById(Integer idEmpresa);
-     
-    void updateEmpresa(Empresa empresa);
+
+	List<Empresa> findAllEmpresa();
+
+	void deleteEmpresaById(Integer idEmpresa);
+
+	Empresa findById(Integer idEmpresa);
+
+	void updateEmpresa(Empresa empresa);
+
+	List<Empresa> findByNombre(String nombre);
+
 }

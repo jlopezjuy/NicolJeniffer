@@ -14,10 +14,14 @@
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5">
 					<h:outputLabel for="nombre" value="Nombre" />
-					<p:inputText id="nombre" label="Nombre" value="#{clienteBean.clienteSeleccionado.nombre}" required="true" />
+					<p:inputText id="nombre" label="Nombre" value="#{clienteBean.clienteSeleccionado.nombre}" required="true" validatorMessage="No puede ingresar numeros.">
+						<f:validateRegex pattern="[a-zA-Z]+" />
+					</p:inputText>
 
 					<h:outputLabel for="apellido" value="Apellido" />
-					<p:inputText id="apellido" label="Apellido" value="#{clienteBean.clienteSeleccionado.apellido}" required="true" />
+					<p:inputText id="apellido" label="Apellido" value="#{clienteBean.clienteSeleccionado.apellido}" required="true" validatorMessage="No puede ingresar numeros.">
+						<f:validateRegex pattern="[a-zA-Z]+" />
+					</p:inputText>
 
 					<h:outputLabel for="mail" value="E-Mail" />
 					<p:inputText id="mail" label="E-Mail" value="#{clienteBean.clienteSeleccionado.email}">
