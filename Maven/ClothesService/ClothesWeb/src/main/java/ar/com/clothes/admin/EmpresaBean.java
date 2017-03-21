@@ -1,6 +1,5 @@
 package ar.com.clothes.admin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -20,7 +19,8 @@ public class EmpresaBean extends BaseBean {
 
 	private Empresa empresa;
 	private Empresa empresaSeleccionada;
-	private List<Empresa> listaEmpresas = new ArrayList<Empresa>();
+	private List<Empresa> listaEmpresas;
+	private List<Empresa> listaEmpresasFiltradas;
 	private String nombreEmpresa;
 
 	/**
@@ -143,5 +143,20 @@ public class EmpresaBean extends BaseBean {
 	 */
 	public void setNombreEmpresa(String nombreEmpresa) {
 		this.nombreEmpresa = nombreEmpresa;
+	}
+
+	/**
+	 * @return the listaEmpresasFiltradas
+	 */
+	public List<Empresa> getListaEmpresasFiltradas() {
+		return listaEmpresasFiltradas;
+	}
+
+	/**
+	 * @param listaEmpresasFiltradas
+	 *           the listaEmpresasFiltradas to set
+	 */
+	public void setListaEmpresasFiltradas(List<Empresa> listaEmpresasFiltradas) {
+		this.listaEmpresasFiltradas = listaEmpresasFiltradas;
 	}
 }

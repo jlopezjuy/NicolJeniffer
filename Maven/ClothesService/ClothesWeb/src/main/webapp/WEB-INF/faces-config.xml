@@ -36,6 +36,12 @@
 		</navigation-case>
 		
 		<navigation-case>
+			<from-outcome>altaUsuariosView</from-outcome>
+			<to-view-id>/administracion/altaUsuario.xhtml</to-view-id>
+			<redirect></redirect>
+		</navigation-case>
+		
+		<navigation-case>
 			<from-outcome>loginView</from-outcome>
 			<to-view-id>/login.xhtml</to-view-id>
 			<redirect></redirect>

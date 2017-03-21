@@ -3,7 +3,7 @@
 
 <ui:composition template="../template/template.xhtml">
 	<ui:define name="title">
-		<h:outputText value="" />
+		<h:outputText value="Clothes - Alta Empresa" />
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
@@ -14,9 +14,7 @@
 				<p:panel style="position:relative; border-style: none;" styleClass="center">
 					<h:panelGrid columns="2">
 						<p:outputLabel for="nombreEmpresa" value="Nombre Empresa" />
-						<p:inputText id="nombreEmpresa" value="#{empresaBean.empresa.nombreEmpresa}" required="true" validatorMessage="No puede ingresar numeros.">
-							<f:validateRegex pattern="[a-zA-Z]+" />
-						</p:inputText>
+						<p:inputText id="nombreEmpresa" value="#{empresaBean.empresa.nombreEmpresa}" required="true"/>
 
 						<p:outputLabel for="domicilio" value="Domicilio" />
 						<p:inputText id="domicilio" value="#{empresaBean.empresa.domicilio}" required="true"/>

@@ -14,25 +14,31 @@
 			</h:panelGrid>
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
-					<p:panelGrid>
-						<p:outputLabel for="nombre" value="Nombre" />
-						<p:inputText id="nombre" label="Nombre" value="#{empresaBean.nombreEmpresa}" />
-						<p:commandButton action="#{empresaBean.busquedaEmpresa}" ajax="true" value="Buscar" update=":listEmpresaForm:listaEmp" />
-					</p:panelGrid>
-					<p:commandButton action="#{empresaBean.goAlta}" value="Nuevo" icon="fa fa-user-plus" />
+					<p:commandButton action="#{empresaBean.goAlta}" value="Nuevo" icon="fa fa-plus" />
 				</h:panelGrid>
 			</p:panel>
 
 			<p:panel style="position:relative; border-style: none;" styleClass="center">
 				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
-					<p:dataTable id="listaEmp" var="emp" value="#{empresaBean.listaEmpresas}" rows="5" paginator="true" reflow="true">
+					<p:dataTable id="listaEmp" var="emp" widgetVar="empresaTable" filteredValue="#{empresaBean.listaEmpresasFiltradas}" value="#{empresaBean.listaEmpresas}">
 
-						<p:column headerText="Nombre">
+						<f:facet name="header">
+							<p:outputPanel>
+								<h:outputText value="Search por todos los campos:" />
+								<p:inputText id="globalFilter" onkeyup="PF('empresaTable').filter()" style="width:150px" placeholder="Enter keyword" />
+							</p:outputPanel>
+						</f:facet>
+
+						<p:column headerText="Nombre" filterBy="#{emp.nombreEmpresa}" filterMatchMode="contains">  
 							<h:outputText value="#{emp.nombreEmpresa}" />
 						</p:column>
 
-						<p:column headerText="E-mail">
+						<p:column headerText="E-mail" filterBy="#{emp.email}" filterMatchMode="contains">
 							<h:outputText value="#{emp.email}" />
+						</p:column>
+						
+						<p:column headerText="Teléfono" filterBy="#{emp.telefono}" filterMatchMode="contains">
+							<h:outputText value="#{emp.telefono}" />
 						</p:column>
 
 					</p:dataTable>

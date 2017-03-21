@@ -4,8 +4,8 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<title>Clothes</title>
-	<link rel="icon" type="image/x-icon" href="#{request.contextPath}/resources/img/favicon.ico"/>
+	<title><ui:insert name="title">
+		</ui:insert></title>
 	<!-- Bootstrap -->
 	<link href="#{request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" href="#{request.contextPath}/resources/css/styles.css" />
@@ -29,6 +29,7 @@
 				<li><p:link outcome="listaClientesView">Clientes</p:link></li>
 				<li><p:link outcome="listaEncargosView">Encargos</p:link></li>
 				<li><p:link outcome="adminListaEmpresasView" rendered="#{rolSession eq 'Administrador'}">Empresas</p:link></li>
+				<li><p:link outcome="adminListaUsuariosView" rendered="#{rolSession eq 'Administrador'}">Usuarios</p:link></li>
 			</ul>
 		</nav>
 		<div class="pullcontainer">

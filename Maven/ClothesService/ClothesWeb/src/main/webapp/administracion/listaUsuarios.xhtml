@@ -3,11 +3,48 @@
 
 <ui:composition template="../template/template.xhtml">
 	<ui:define name="title">
-		<h:outputText value="" />
+		<h:outputText value="Clothes - Lista de Usuarios" />
 	</ui:define>
 	<ui:define name="content">
-		<h:form id="altaEncargoForm">
+		<h:form id="usuariosForm">
+			<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+				<h2 class="animated wow zoomIn" data-wow-delay=".5s">
+					<span>Lista de Usuarios</span>
+				</h2>
+			</h:panelGrid>
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:commandButton action="#{usuarioBean.goAlta}" value="Nuevo" icon="fa fa-plus" />
+				</h:panelGrid>
+			</p:panel>
 
+			<p:panel style="position:relative; border-style: none;" styleClass="center">
+				<h:panelGrid columns="2" cellpadding="5" styleClass="center">
+					<p:dataTable id="listaEmp" var="usu" widgetVar="userTable" filteredValue="#{usuarioBean.listaUsuariosFiltrado}" value="#{usuarioBean.listaUsuarios}">
+
+						<f:facet name="header">
+							<p:outputPanel>
+								<h:outputText value="Search por todos los campos:" />
+								<p:inputText id="globalFilter" onkeyup="PF('userTable').filter()" style="width:150px" placeholder="Ingrese palabras clave" />
+							</p:outputPanel>
+						</f:facet>
+
+						<p:column headerText="Nombre de Usuario" filterBy="#{usu.nombreUsuario}" filterMatchMode="contains">
+							<h:outputText value="#{usu.nombreUsuario}" />
+						</p:column>
+
+						<p:column headerText="Nombre y Apellido" filterBy="#{usu.nombreApellido}" filterMatchMode="contains">
+							<h:outputText value="#{usu.nombreApellido}" />
+						</p:column>
+
+						<p:column headerText="Empresa">
+							<h:outputText value="#{usu.empresa.nombreEmpresa}" />
+						</p:column>
+
+					</p:dataTable>
+				</h:panelGrid>
+			</p:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>
+</html>
